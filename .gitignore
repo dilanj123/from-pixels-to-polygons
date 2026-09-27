@@ -1,0 +1,32 @@
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Generated reports, logs, waveforms, and build products
+*.log
+*.vcd
+*.fst
+*.json
+*.rpt
+*.tim
+*.bit
+*.svf
+build/
+work/
+obj_dir/
+
+# Generated result data; keep directory placeholders tracked
+results/raw/*
+results/processed/*
+!results/raw/.gitkeep
+!results/processed/.gitkeep
+
+# Local/editor/OS files
+.DS_Store
+.idea/
+.vscode/
