@@ -8,7 +8,9 @@
 - Branch: `main`.
 - Bootstrap known-good commit: `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` (`Bootstrap from-pixels-to-polygons repository`).
 - Current architecture: specified by the master plan only; no implementation.
-- Parent Sobel commit: `ad35514c990f6e1c9eb9fa18aee9d906f9df7721` at tag `v1.0.1-dependency-ready`.
+- Parent Sobel repository: `https://github.com/dilanj123/from-rtl-to-pixels.git`.
+- Parent Sobel tag: `v1.0.1-dependency-ready`.
+- Parent Sobel commit: `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`.
 - Selected parent top: `rtl_to_pixels_top_pipelined`.
 
 ### Host evidence
