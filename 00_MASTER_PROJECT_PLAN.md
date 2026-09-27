@@ -293,7 +293,26 @@ These may become future projects only after the baseline is complete.
 
 ## 5.1 Admission rule
 
-Do not begin Sobel integration until the parent `from-rtl-to-pixels` project has a pinned known-good commit/tag with evidence for the interface behaviour the graphics project relies upon.
+Do not begin Sobel integration until the parent `from-rtl-to-pixels` project has a pinned known-good commit/tag with evidence for the interface behaviour the graphics project relies upon. This is a project-wide implementation boundary: every consumer and reproduction must verify the same immutable dependency evidence before importing it.
+
+For this project, dependency admission is satisfied:
+
+```text
+Repository:
+https://github.com/dilanj123/from-rtl-to-pixels.git
+
+Tag:
+v1.0.1-dependency-ready
+
+Commit:
+ad35514c990f6e1c9eb9fa18aee9d906f9df7721
+
+Selected top:
+rtl_to_pixels_top_pipelined
+
+Admission:
+SATISFIED
+```
 
 Preferred state:
 
@@ -303,6 +322,12 @@ Preferred state:
 - 320×240 legal compile-time parameterization confirmed by actual regression if needed;
 - synthesis/timing evidence for at least one Sobel architecture;
 - exact commit/tag recorded.
+
+The admitted dependency evidence boundary includes RGB888 input ready/valid,
+8-bit output ready/valid, SOF/EOL, backpressure stability, 320×240 evidence,
+W+1 alignment, final-drain behavior, reset, APB configuration,
+synthesis/resource evidence, timing evidence, and the exact immutable
+tag/commit. The dependency must not be silently upgraded or modified locally.
 
 ## 5.2 Import mechanism
 
@@ -2272,6 +2297,8 @@ Required:
 - repository/tool state known;
 - command/fixed-point/memory/CDC contracts frozen enough for reference work;
 - parent Sobel dependency state known;
+- admitted exact parent commit/tag recorded;
+- dependency evidence recorded;
 - no unsupported environment claims.
 
 ## Gate 1 — Reference model
@@ -2292,6 +2319,21 @@ Required actual synthesis:
 - Z buffer infers EBR;
 - command FIFO sensible;
 - actual memory resource evidence recorded.
+
+The early feasibility assessment must also include actual resource evidence for
+the admitted 320×240 parent dependency:
+
+```text
+v1.0.1-dependency-ready
+ad35514c990f6e1c9eb9fa18aee9d906f9df7721
+rtl_to_pixels_top_pipelined
+```
+
+Record graphics memory-spike resources, parent resources, other mandatory EBR
+allocations, and the combined target-device budget separately. Do not invent a
+percentage margin. This is an early feasibility assessment, not full integrated
+synthesis evidence. Stop before deep raster RTL if the combined evidence makes
+the architecture infeasible.
 
 ## Gate 3 — Raster primitive
 
@@ -2425,7 +2467,13 @@ Implement BEGIN_FRAME, multiple triangles, depth, random regression.
 
 ## GFX-004 — Memory inference spike
 
-Synthesize framebuffers/Z/FIFO. Hard gate.
+Synthesize the three 320×240×8 framebuffer wrappers, the 320×240×8 Z buffer,
+and the 1024×32 command FIFO. Include actual resource evidence for the
+admitted 320×240 `rtl_to_pixels_top_pipelined` parent at commit
+`ad35514c990f6e1c9eb9fa18aee9d906f9df7721`, record graphics and parent resource
+use separately, and make the combined target-device feasibility assessment.
+This remains a hard gate before deep raster RTL; it is not full integrated
+synthesis evidence.
 
 ## GFX-005 — gfx_pkg + command FIFO
 

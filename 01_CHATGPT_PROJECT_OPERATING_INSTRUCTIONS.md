@@ -415,7 +415,7 @@ CDC/buffer manager
   ↓
 normal full graphics system
   ↓
-pin/verify RTL-to-Pixels dependency
+verify the admitted RTL-to-Pixels dependency boundary
   ↓
 Sobel adapters
   ↓
@@ -580,7 +580,18 @@ A monitor photograph is supplemental, not primary correctness evidence.
 
 # 20. RTL-to-Pixels dependency rule
 
-Before importing:
+The parent dependency is admitted for this project at the exact immutable
+baseline below:
+
+```text
+Repository: https://github.com/dilanj123/from-rtl-to-pixels.git
+Tag: v1.0.1-dependency-ready
+Commit: ad35514c990f6e1c9eb9fa18aee9d906f9df7721
+Selected top: rtl_to_pixels_top_pipelined
+Admission: SATISFIED
+```
+
+Before importing in a local build or reproduction:
 
 - parent project commit/tag must be known;
 - run documented parent regression locally;
@@ -590,10 +601,16 @@ Before importing:
 Integrate only through:
 
 - RGB888 ready/valid + SOF/EOL;
+- 8-bit ready/valid output;
+- backpressure stability;
+- W+1 alignment and final-drain behavior;
 - APB configuration;
-- documented parameters/status.
+- reset and documented parameters/status;
+- synthesis/resource and timing evidence for the admitted baseline.
 
 Do not modify Sobel internals merely to fit the graphics system.
+Do not silently upgrade the dependency or convert parent evidence into graphics
+implementation evidence.
 
 If a parent-IP bug is found, repair/verify it in the parent project first.
 
@@ -911,8 +928,8 @@ For each primitive:
 
 ## Phase 7 — Sobel integration
 
-- pin parent dependency;
-- re-run parent tests;
+- use the already admitted immutable parent dependency;
+- re-run parent tests and record the result;
 - verify adapters/APB;
 - compare complete postprocessed frame.
 

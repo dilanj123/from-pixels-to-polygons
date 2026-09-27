@@ -1,14 +1,30 @@
 # Evidence index
 
-## GFX-000 bootstrap
+## GFX-001 source-level contract evidence
 
-| Claim | Git commit | Command/evidence | Conditions | Classification |
+| Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| Intended repository was absent before bootstrap | `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` | filesystem inspection under `/Users/Dilan` | exact project directory not found before creation | DERIVED |
-| Host is macOS 26.4.1 on arm64 | `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` | `sw_vers`, `uname -a`, `arch` | local host at bootstrap time | DERIVED |
-| Required executable states recorded | `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` | environment inspection and `make doctor` | future-phase EDA tools may be missing | DERIVED |
-| Admitted dependency metadata is pinned | `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` | `docs/PROJECT_STATE.md` | exact repository URL, tag, commit, and selected top recorded; no source import; no parent modification | SPECIFIED |
-| No graphics implementation HDL added | `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` | `make bootstrap-smoke`, file inspection | bootstrap scope only; zero HDL files found | DERIVED |
+| D-001–D-028 are recorded | pending GFX-001 commit | `docs/DECISIONS.md` and cross-document review | specified source input only | SPECIFIED |
+| Exact dependency is admitted | pending GFX-001 commit | `docs/PROJECT_STATE.md`, `docs/REQUIREMENTS.md` | URL/tag/commit/top exact; no source import | SPECIFIED |
+| Gate numbering is canonical | pending GFX-001 commit | Master Plan and `04_MASTER_CHECKLIST.md` review | Gate 0–12 mapping from D-001 | SPECIFIED |
+| Requirement-to-verification coverage is planned | pending GFX-001 commit | `docs/VERIFICATION_PLAN.md` | planned methods only; no tests run | SPECIFIED |
+| Combined memory feasibility is a hard early gate | pending GFX-001 commit | Master Plan, checklist, GFX-004, microarchitecture | actual resource evidence still required | SPECIFIED |
+| No graphics implementation was added | pending GFX-001 commit | file scan and allowed-file review | documentation-only task | DERIVED after final checks |
 
-No functional, formal, synthesis, timing, hardware, or performance claim is
-entered by GFX-000.
+## Dependency record
+
+```text
+Repository: https://github.com/dilanj123/from-rtl-to-pixels.git
+Tag: v1.0.1-dependency-ready
+Commit: ad35514c990f6e1c9eb9fa18aee9d906f9df7721
+Selected top: rtl_to_pixels_top_pipelined
+```
+
+The parent record is an immutable dependency boundary, not graphics
+implementation, simulation, synthesis, timing, or hardware evidence.
+
+## Evidence deliberately absent
+
+No reference-model, RTL simulation, formal, synthesis, timing, P&R, physical
+framebuffer, display, resource-count, Fmax, or performance claim is entered by
+GFX-001.

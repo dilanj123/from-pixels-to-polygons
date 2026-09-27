@@ -2,7 +2,7 @@
 
 A checkbox is completed only by actual evidence, not by intent.
 
-## Gate 0 — Contract and Environment
+## Gate 0 — Contract, Dependency and Environment
 
 - [ ] master plan uploaded/accepted
 - [ ] operating instructions uploaded/accepted
@@ -23,9 +23,6 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] `make doctor` works
 - [ ] bootstrap known-good commit preserved
 - [ ] no raster RTL added during bootstrap
-
-## Gate 1 — Architecture/Reference Contract
-
 - [ ] `docs/REQUIREMENTS.md`
 - [ ] `docs/MICROARCHITECTURE.md`
 - [ ] `docs/COMMAND_PROTOCOL.md`
@@ -49,8 +46,10 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] reset semantics frozen
 - [ ] third-party/reference policy frozen
 - [ ] RTL-to-Pixels dependency policy frozen
+- [ ] admitted exact parent commit/tag recorded
+- [ ] dependency evidence recorded
 
-## Gate 2 — Independent Reference Renderer
+## Gate 1 — Independent Reference Renderer
 
 - [ ] fixed-point helper tests
 - [ ] edge-function tests
@@ -66,7 +65,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] random deterministic frames
 - [ ] quantized command parser/renderer stable
 
-## Gate 3 — Memory Feasibility
+## Gate 2 — Memory Feasibility
 
 - [ ] 3 × 320×240×8 framebuffer wrappers synthesized
 - [ ] Z buffer synthesized
@@ -75,10 +74,14 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] dual-clock framebuffer inference reviewed
 - [ ] no unexpected large LUT RAM
 - [ ] exact EBR count recorded
-- [ ] resource margin reviewed
+- [ ] graphics memory-spike resource use recorded
+- [ ] admitted parent resource use recorded
+- [ ] other mandatory EBR allocations recorded
+- [ ] combined target-device resource budget recorded
+- [ ] resource margin not invented
 - [ ] memory architecture retained/revised with decision record
 
-## Gate 4 — Raster Primitive
+## Gate 3 — Raster Primitive
 
 - [ ] `gfx_pkg.sv`
 - [ ] command FIFO simulation
@@ -95,7 +98,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] subpixel/thin/extreme geometry tests
 - [ ] attribute stepping matches reference
 
-## Gate 5 — Complete Colour/Z Renderer
+## Gate 4 — Complete Colour/Z Renderer
 
 - [ ] fragment quantization
 - [ ] framebuffer address logic
@@ -110,7 +113,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] readback engine simulation
 - [ ] no unresolved basic renderer defect
 
-## Gate 6 — Display / Presentation
+## Gate 5 — Display / Presentation
 
 - [ ] reviewed third-party display support selected
 - [ ] third-party manifest updated
@@ -125,7 +128,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] VBlank-only front switch
 - [ ] multi-frame NORMAL presentation
 
-## Gate 7 — RTL-to-Pixels Integration
+## Gate 6 — RTL-to-Pixels Integration
 
 - [ ] parent project known-good commit/tag selected
 - [ ] parent regression re-run locally
@@ -142,13 +145,15 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] exact input pixel count
 - [ ] exact output pixel count
 - [ ] SOF/EOL positions checked
+- [ ] W+1 alignment checked
+- [ ] final-drain completion checked
 - [ ] complete postprocessed framebuffer matches composed reference
 - [ ] NORMAL→SOBEL transition
 - [ ] SOBEL→SOBEL transition
 - [ ] SOBEL→NORMAL transition
 - [ ] triple-buffer role rotation verified
 
-## Gate 8 — Deep Regression / Formal
+## Gate 7 — Deep Regression
 
 - [ ] command valid gaps
 - [ ] command FIFO stress
@@ -162,6 +167,9 @@ A checkbox is completed only by actual evidence, not by intent.
 - [ ] performance-counter scoreboard
 - [ ] requirement→test traceability
 - [ ] regression for every known functional defect
+
+## Gate 8 — Formal Depth
+
 - [ ] FIFO formal
 - [ ] buffer-role formal
 - [ ] CDC safety formal
