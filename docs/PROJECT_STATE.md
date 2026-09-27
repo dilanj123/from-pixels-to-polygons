@@ -1,12 +1,13 @@
 # Project state
 
-## GFX-002 — independent reference primitives
+## GFX-003 — independent quantized-command reference renderer
 
 - Current phase: Gate 1 — Independent Reference Renderer.
-- Current task: GFX-002 complete; primitive/reference basis only.
+- Current task: GFX-003 complete; complete quantized-command framebuffer/Z reference implemented.
 - Starting known-good HEAD: `b2833d173c64f4f3620af81d7db893883803ee6e`.
 - GFX-001 contract commit: `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` (`Freeze GFX-001 source-level contracts`).
 - GFX-002 implementation commit: `268c04680cae0c5f17d268c54faa4f5cc960b64b` (`Implement GFX-002 reference raster primitives`).
+- GFX-003 implementation commit: `6a9dbe1c4eaa71697ca2a13db3892bc93116eb3b` (`Implement GFX-003 quantized reference renderer`).
 - Starting branch: `main`; working tree was clean.
 - GFX-000: ACCEPTED.
 - Current gate: Gate 0 — CLOSED.
@@ -35,7 +36,9 @@
 
 ## Evidence state
 
-- Reference renderer: not implemented; no evidence.
+- Reference renderer: 31/31 standard-library unit tests passed; quantized
+  command parsing, clear, multiple triangles, RGB332/Z output, strict depth,
+  and deterministic random regression verified.
 - GFX-002 primitives: 19/19 standard-library unit tests passed; independent
   quantization, edge, bbox, and single-triangle coverage primitives verified.
 - RTL simulation: not run; no evidence.
@@ -44,19 +47,23 @@
 - Physical graphics hardware: not run; no evidence.
 - Actual graphics EBR inference, integrated resources, timing/Fmax, and display
   platform implementation details remain unresolved as allowed by the contract.
-- No functional graphics RTL or reference-renderer implementation was added.
+- No functional graphics RTL was added.
 
 ## Gate-1 status
 
 - Evidenced by GFX-002: fixed-point helpers, edge/AREA/winding/top-left
   mathematics, exact bbox, pixel centres, shared-edge coverage, accepted
   empty-bbox behavior, and signed42 bound derivation.
-- Still open: full framebuffer/Z reference renderer, command parser/encoder,
-  multi-triangle frame model, depth reference, and random frame regression.
+- Evidenced by GFX-003: command encoder/parser, exact BEGIN_FRAME clear,
+  direct R/G/B/Z plane evaluation, RGB332 packing, strict-less-than Z,
+  multiple-triangle frames, rejected-geometry no-write behavior, empty frames,
+  and fixed-seed repeatability.
+- Gate-1 reference-model requirements are evidenced. No RTL, formal, synthesis,
+  timing, display, Sobel, or hardware evidence is implied.
 
 ## Next task
 
-`GFX-003 — Reference framebuffer/Z renderer`
+`GFX-004 — Memory inference spike`
 
 ## Gate-0 closure interpretation
 

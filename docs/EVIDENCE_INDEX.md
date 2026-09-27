@@ -47,3 +47,22 @@ GFX-001.
 
 GFX-002 does not claim a complete reference renderer, framebuffer/Z behavior,
 RTL simulation, formal, synthesis, timing, or hardware evidence.
+
+## GFX-003 complete reference-renderer milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Quantized command parser/encoder and frame reference pass | `6a9dbe1c4eaa71697ca2a13db3892bc93116eb3b` | `python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` | 31 tests passed, including all 19 GFX-002 tests | REFERENCE-MODEL VERIFIED |
+| Fixed-seed regression is repeatable | `6a9dbe1c4eaa71697ca2a13db3892bc93116eb3b` | standalone two-run `random_regression` command | seeds 1, 7, 42; identical framebuffer/Z hashes | REFERENCE-MODEL VERIFIED |
+| Gate-1 reference-model requirements are evidenced | `6a9dbe1c4eaa71697ca2a13db3892bc93116eb3b` | directed tests, multi-triangle frame, empty frame, depth/order tests | no RTL or hardware claim | REFERENCE-MODEL VERIFIED |
+
+### GFX-003 random regression records
+
+| Seed | Framebuffer SHA-256 | Z-buffer SHA-256 |
+|---:|---|---|
+| 1 | `f5be4ccae05fe568fbca3a12102ad03344636f90d2898f90caa6cfc55e9ac7eb` | `e29287f671fb7c0855a121f9c7f1bdf324922242f7ab47454e3375d5a6af7` |
+| 7 | `c3891205ae7eaaa4be78267d6f0e15245c16f55bec767fa96c1ffb5007771f72` | `44883795c9dbeb15059834fbd4e84d26d3d3d8a3cccd690a73e5cf9488f7bae4` |
+| 42 | `8ff44bcb78e1a5c7518867f0ed7be6c184c7a4690799597a8c09384a65366472` | `df8ae0a8c1152f0b82b8f9ff6172e6b20af58cb3a2152600e479161196b60cca` |
+
+The seed records were identical across two independent executions. Hashes are
+regression conveniences; later RTL comparison remains byte-level.
