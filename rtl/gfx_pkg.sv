@@ -29,4 +29,23 @@ package gfx_pkg;
         ERR_SOBEL_CONFIG_MISSING = 8'h07, ERR_SOBEL_PROTOCOL = 8'h08,
         ERR_INTERNAL_PROTOCOL = 8'h09
     } error_code_t;
+
+    typedef struct packed {
+        logic [3:0] opcode;
+        logic [15:0] tag;
+        logic [7:0] clear_rgb332;
+        logic [7:0] sobel_threshold;
+        logic sobel_bypass;
+        logic present_mode;
+        logic [COORD_WIDTH-1:0] v0_x, v0_y, v1_x, v1_y, v2_x, v2_y;
+        logic signed [31:0] r_start, g_start, b_start, z_start;
+        logic signed [31:0] r_dx, g_dx, b_dx, z_dx;
+        logic signed [31:0] r_dy, g_dy, b_dy, z_dy;
+    } decoded_command_t;
+
+    typedef struct packed {
+        error_code_t code;
+        logic [3:0] opcode;
+        logic [15:0] tag;
+    } decoder_error_t;
 endpackage

@@ -1,5 +1,31 @@
 # Project state
 
+## GFX-006 — command decoder
+
+- Current phase: Gate 3 — Raster Primitive / command infrastructure.
+- Current task: GFX-006 complete; the production command decoder collects and
+  validates frozen fixed-length packets, emits one atomic decoded transaction
+  or one syntactic error event, and performs no command execution.
+- Decoder simulation: PASS, 80 self-checking assertions, including all frozen
+  opcodes, reserved-field and coordinate errors, unknown-opcode resynchronization,
+  malformed known-packet alignment, truncation, reset, and output stalls.
+- Decoder formal: PASS under the documented bounded BMC harness, SBY 0.69,
+  Z3, depth 25. The harness checks packet atomicity, partial-packet silence,
+  reset discard, stalled-output stability, unknown-opcode one-word handling,
+  bounded packet length, and mutually exclusive decoded/error outputs. This is
+  not a whole-protocol proof.
+- Runtime state legality remains owned by the later controller/integration
+  layer. The decoder validates syntax only and does not implement command
+  side effects. Decoder-generated syntax errors own the exposed sticky
+  `cmd_error`; runtime legality errors remain deferred.
+- Existing FIFO simulation and 31-test Python reference regression remain
+  passing. No clear engine, triangle setup, raster, fragment/Z, display,
+  Sobel, or command-execution RTL was added.
+
+## Current next task
+
+`GFX-007 — Clear engine`
+
 ## GFX-005 — package and command FIFO
 
 - Current phase: Gate 3 — Raster Primitive / command infrastructure.
@@ -140,7 +166,7 @@
 
 ## Next task
 
-`GFX-006 — Command decoder`
+`GFX-007 — Clear engine`
 
 ## Gate-0 closure interpretation
 

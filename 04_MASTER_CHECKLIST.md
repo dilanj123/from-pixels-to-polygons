@@ -100,7 +100,8 @@ Gate 3 — OPEN.
 - [x] `gfx_pkg.sv`
 - [x] command FIFO simulation
 - [x] command FIFO formal under documented depth-scaled assumptions
-- [ ] command decoder
+- [x] command decoder — GFX-006 packet collection/validation simulation and
+      bounded formal evidence; command execution remains out of scope
 - [ ] clear engine
 - [ ] triangle setup
 - [ ] area/winding tests

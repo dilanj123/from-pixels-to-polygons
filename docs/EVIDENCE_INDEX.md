@@ -101,6 +101,20 @@ display, Sobel, P&R, timing, or hardware evidence. The formal harness uses
 depth 4 to avoid expanding the production 1024×32 RAM into an intractable
 symbolic register array; production capacity is separately linted and tested.
 
+## GFX-006 command-decoder milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Frozen command packet collection and syntax validation pass | GFX-006 commit | `make lint-decoder`; `make test-decoder` | 80 self-checking checks; all fixed packet lengths, payload preservation, reserved/coordinate errors, stalls, reset, truncation, randomized malformed input, and resynchronization covered | RTL SIMULATION VERIFIED |
+| Decoder formal properties pass | GFX-006 commit | `sby -f formal/cmd_decoder.sby` | SBY 0.69, Z3, BMC depth 25; packet atomicity, partial silence, reset discard, output stability, unknown-opcode one-word handling, bounded length, and output mutual exclusion | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| FIFO and reference regressions remain passing | GFX-006 commit | `make test-fifo`; `python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` | Production FIFO unchanged; 31 Python tests passed | RTL SIMULATION VERIFIED / REFERENCE-MODEL VERIFIED |
+| Gate-3 decoder scope recorded | GFX-006 commit | `docs/PROJECT_STATE.md`; `04_MASTER_CHECKLIST.md` | Decoder emits transactions/errors only; no command execution or later graphics engine is claimed | LOCAL OBSERVATION |
+
+The decoder formal harness uses bounded BMC and does not claim whole command
+protocol proof. Runtime state legality remains deferred to the controller or
+integration layer, and decoder evidence does not imply command execution,
+rendering, display, Sobel, P&R, timing, or hardware evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

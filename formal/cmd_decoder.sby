@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 25
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv gfx_pkg.sv cmd_decoder.sv cmd_decoder_formal.sv
+prep -top cmd_decoder_formal
+
+[files]
+rtl/gfx_pkg.sv
+rtl/cmd_decoder.sv
+formal/cmd_decoder_formal.sv
