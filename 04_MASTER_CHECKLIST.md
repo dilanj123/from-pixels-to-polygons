@@ -19,7 +19,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [x] formal solver(s) recorded (missing, explicitly documented)
 - [x] nextpnr-ecp5 path/version recorded (missing, explicitly documented)
 - [x] repository initialized
-- [ ] public remote created if authorized/authenticated
+- [x] public remote requirement evaluated — not applicable at Gate 0 because GitHub authentication is invalid and remote creation has not been authorized
 - [x] `make doctor` works
 - [x] bootstrap known-good commit preserved
 - [x] no raster RTL added during bootstrap

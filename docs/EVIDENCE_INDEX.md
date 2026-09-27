@@ -15,9 +15,9 @@
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| Gate 0 is closed | pending current closure commit | final Gate-0 review, `make doctor`, `make bootstrap-smoke`, clean repository audit | missing future tools are documented prerequisites, not Gate-0 blockers | SPECIFIED / LOCAL OBSERVATION |
-| GFX-000 and GFX-001 are accepted | pending current closure commit | `docs/PROJECT_STATE.md`, accepted task evidence | no later gate implied | SPECIFIED |
-| Tool availability and missing states are known | pending current closure commit | `make doctor` | no tool installation performed | LOCAL OBSERVATION |
+| Gate 0 is closed | `ca915a918c85bfe3e85602d6a93e4644c74f3cfd` | final Gate-0 review, `make doctor`, `make bootstrap-smoke`, clean repository audit | missing future tools are documented prerequisites, not Gate-0 blockers | SPECIFIED / LOCAL OBSERVATION |
+| GFX-000 and GFX-001 are accepted | `ca915a918c85bfe3e85602d6a93e4644c74f3cfd` | `docs/PROJECT_STATE.md`, accepted task evidence | no later gate implied | SPECIFIED |
+| Tool availability and missing states are known | `ca915a918c85bfe3e85602d6a93e4644c74f3cfd` | `make doctor` | no tool installation performed | LOCAL OBSERVATION |
 
 ## Dependency record
 

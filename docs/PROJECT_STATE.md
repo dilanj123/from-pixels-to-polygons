@@ -9,7 +9,7 @@
 - Starting branch: `main`; working tree was clean.
 - GFX-000: ACCEPTED.
 - Current gate: Gate 0 — CLOSED.
-- Gate 0 closure commit: pending current commit.
+- Gate 0 closure decision recorded by commit: `ca915a918c85bfe3e85602d6a93e4644c74f3cfd`.
 - Current known-good pre-closure commit: `9c7478a7302e5da5a9f19043be772223d93d3abe`.
 - GFX-001: ACCEPTED.
 - Repository path: `/Users/Dilan/Projects/from-pixels-to-polygons`.
