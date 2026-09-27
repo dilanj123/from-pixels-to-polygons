@@ -5,6 +5,7 @@
 - Current phase: Phase 1 — Source-level contract freeze.
 - Current task: GFX-001 documentation/specification only.
 - Starting known-good HEAD: `b2833d173c64f4f3620af81d7db893883803ee6e`.
+- GFX-001 contract commit: `111fe6f7fca8f155100234960e23ec7a9cb88a8c` (`Freeze GFX-001 source-level contracts`).
 - Starting branch: `main`; working tree was clean.
 - GFX-000: ACCEPTED.
 - Current Gate 0 state: source-contract portion addressed by GFX-001; Gate 0 remains open pending final gate review and checklist evidence reconciliation.
