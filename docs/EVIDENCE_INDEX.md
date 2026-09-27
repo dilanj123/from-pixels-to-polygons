@@ -36,3 +36,14 @@ implementation, simulation, synthesis, timing, or hardware evidence.
 No reference-model, RTL simulation, formal, synthesis, timing, P&R, physical
 framebuffer, display, resource-count, Fmax, or performance claim is entered by
 GFX-001.
+
+## GFX-002 primitive milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Independent fixed-point/raster primitives pass focused tests | `268c04680cae0c5f17d268c54faa4f5cc960b64b` | `python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` | 19 tests passed; no full framebuffer/Z renderer | REFERENCE-MODEL VERIFIED |
+| Signed42 attribute bound is satisfied | `268c04680cae0c5f17d268c54faa4f5cc960b64b` | `DerivationTests.test_signed42_attribute_bound` | mathematical bound only | DERIVED |
+| No functional graphics RTL was added | `268c04680cae0c5f17d268c54faa4f5cc960b64b` | functional HDL scan and bootstrap smoke check | RTL/reference primitive scope only | LOCAL OBSERVATION |
+
+GFX-002 does not claim a complete reference renderer, framebuffer/Z behavior,
+RTL simulation, formal, synthesis, timing, or hardware evidence.

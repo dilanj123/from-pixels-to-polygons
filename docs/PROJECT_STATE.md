@@ -1,11 +1,12 @@
 # Project state
 
-## GFX-001 — source-level contract freeze
+## GFX-002 — independent reference primitives
 
-- Current phase: Phase 1 — Source-level contract freeze.
-- Current task: GFX-001 documentation/specification only.
+- Current phase: Gate 1 — Independent Reference Renderer.
+- Current task: GFX-002 complete; primitive/reference basis only.
 - Starting known-good HEAD: `b2833d173c64f4f3620af81d7db893883803ee6e`.
 - GFX-001 contract commit: `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` (`Freeze GFX-001 source-level contracts`).
+- GFX-002 implementation commit: `268c04680cae0c5f17d268c54faa4f5cc960b64b` (`Implement GFX-002 reference raster primitives`).
 - Starting branch: `main`; working tree was clean.
 - GFX-000: ACCEPTED.
 - Current gate: Gate 0 — CLOSED.
@@ -35,6 +36,8 @@
 ## Evidence state
 
 - Reference renderer: not implemented; no evidence.
+- GFX-002 primitives: 19/19 standard-library unit tests passed; independent
+  quantization, edge, bbox, and single-triangle coverage primitives verified.
 - RTL simulation: not run; no evidence.
 - Graphics formal: not run; no evidence.
 - Graphics synthesis/P&R: not run; no evidence.
@@ -43,9 +46,17 @@
   platform implementation details remain unresolved as allowed by the contract.
 - No functional graphics RTL or reference-renderer implementation was added.
 
+## Gate-1 status
+
+- Evidenced by GFX-002: fixed-point helpers, edge/AREA/winding/top-left
+  mathematics, exact bbox, pixel centres, shared-edge coverage, accepted
+  empty-bbox behavior, and signed42 bound derivation.
+- Still open: full framebuffer/Z reference renderer, command parser/encoder,
+  multi-triangle frame model, depth reference, and random frame regression.
+
 ## Next task
 
-`GFX-002 — Python fixed-point/reference primitives`
+`GFX-003 — Reference framebuffer/Z renderer`
 
 ## Gate-0 closure interpretation
 
