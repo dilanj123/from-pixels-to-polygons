@@ -1,6 +1,6 @@
 # From Pixels to Polygons — Exact ChatGPT Project Operating Instructions
 
-**Version:** 1.0  
+**Version:** 1.0
 **Purpose:** Upload this with `00_MASTER_PROJECT_PLAN.md` into the dedicated ChatGPT Project. It defines how ChatGPT must orchestrate specification, Codex/local execution, evidence review and scope control.
 
 ---

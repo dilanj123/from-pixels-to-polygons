@@ -1,13 +1,13 @@
 # From Pixels to Polygons — Master Project Plan and Replication Playbook
 
-**Version:** 1.0  
-**Date:** 2026-09-26  
-**Project repository:** `from-pixels-to-polygons`  
-**Project type:** Public RTL/FPGA graphics engineering portfolio project  
-**Parent project/IP dependency:** `from-rtl-to-pixels`  
-**Primary development host:** Apple Silicon Mac  
-**Planned physical FPGA class:** Lattice ECP5 LFE5U-85F  
-**Preferred candidate board:** ULX3S-85F, subject to current availability/tool support when Gate 9/10 is reached  
+**Version:** 1.0
+**Date:** 2026-09-26
+**Project repository:** `from-pixels-to-polygons`
+**Project type:** Public RTL/FPGA graphics engineering portfolio project
+**Parent project/IP dependency:** `from-rtl-to-pixels`
+**Primary development host:** Apple Silicon Mac
+**Planned physical FPGA class:** Lattice ECP5 LFE5U-85F
+**Preferred candidate board:** ULX3S-85F, subject to current availability/tool support when Gate 9/10 is reached
 **Status:** Authoritative plan for a future ChatGPT Project; implementation must not begin until the parent RTL-to-Pixels dependency is in a known-good evidence-backed state.
 
 ---

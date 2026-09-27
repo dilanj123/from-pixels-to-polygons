@@ -6,7 +6,7 @@
 - Current gate: Gate 0 — Contract and Environment; not closed.
 - Repository path: `/Users/Dilan/Projects/from-pixels-to-polygons`.
 - Branch: `main`.
-- Known-good commit: recorded after the bootstrap commit is created.
+- Bootstrap known-good commit: `7beabb84a5f66a1f2cba252f3e88cf0647102cf2` (`Bootstrap from-pixels-to-polygons repository`).
 - Current architecture: specified by the master plan only; no implementation.
 - Parent Sobel commit: `ad35514c990f6e1c9eb9fa18aee9d906f9df7721` at tag `v1.0.1-dependency-ready`.
 - Selected parent top: `rtl_to_pixels_top_pipelined`.
@@ -22,12 +22,17 @@
 - Verilator: `/opt/homebrew/bin/verilator`, version `5.052`.
 - Yosys, SBY, nextpnr-ecp5, and discovered formal solvers: missing at bootstrap inspection.
 - Board/programming utilities checked: `fujprog`, `openFPGALoader`, `dfu-util`, `ecpprog`, `ujprog`; missing.
+- Git remotes: none configured.
+- Initial repository status: empty Git repository on `main`, no commits, all bootstrap files untracked.
+- Final status at the end of the bootstrap commit: clean; no remote configured.
 
 ### Evidence classification
 
 - Repository and host/tool facts: DERIVED from local command output.
 - Dependency metadata: SPECIFIED and recorded; not imported or revalidated by this task.
-- `make doctor`: to be recorded after execution.
+- `make doctor`: exit 0; core bootstrap commands available; future-phase EDA and hardware tools reported as informational.
+- `make bootstrap-smoke`: exit 0; required authoritative files present and zero implementation HDL files found under `rtl/`, `ip/`, `sw/`, `tb/`, and `formal/`.
+- `git diff --check`: exit 0 after non-semantic trailing Markdown whitespace normalization.
 - Graphics, reference-model, RTL simulation, formal, synthesis, timing, and hardware: no evidence.
 
 ### Open items
