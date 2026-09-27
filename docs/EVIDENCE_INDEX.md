@@ -4,12 +4,12 @@
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| D-001–D-028 are recorded | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | `docs/DECISIONS.md` and cross-document review | specified source input only | SPECIFIED |
-| Exact dependency is admitted | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | `docs/PROJECT_STATE.md`, `docs/REQUIREMENTS.md` | URL/tag/commit/top exact; no source import | SPECIFIED |
-| Gate numbering is canonical | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | Master Plan and `04_MASTER_CHECKLIST.md` review | Gate 0–12 mapping from D-001 | SPECIFIED |
-| Requirement-to-verification coverage is planned | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | `docs/VERIFICATION_PLAN.md` | planned methods only; no tests run | SPECIFIED |
-| Combined memory feasibility is a hard early gate | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | Master Plan, checklist, GFX-004, microarchitecture | actual resource evidence still required | SPECIFIED |
-| No graphics implementation was added | `111fe6f7fca8f155100234960e23ec7a9cb88a8c` | file scan and allowed-file review | documentation-only task | DERIVED after final checks |
+| D-001–D-028 are recorded | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/DECISIONS.md` and cross-document review | specified source input only | SPECIFIED |
+| Exact dependency is admitted | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/PROJECT_STATE.md`, `docs/REQUIREMENTS.md` | URL/tag/commit/top exact; no source import | SPECIFIED |
+| Gate numbering is canonical | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | Master Plan and `04_MASTER_CHECKLIST.md` review | Gate 0–12 mapping from D-001 | SPECIFIED |
+| Requirement-to-verification coverage is planned | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/VERIFICATION_PLAN.md` | planned methods only; no tests run | SPECIFIED |
+| Combined memory feasibility is a hard early gate | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | Master Plan, checklist, GFX-004, microarchitecture | actual resource evidence still required | SPECIFIED |
+| No graphics implementation was added | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | file scan and allowed-file review | documentation-only task | DERIVED after final checks |
 
 ## Dependency record
 
