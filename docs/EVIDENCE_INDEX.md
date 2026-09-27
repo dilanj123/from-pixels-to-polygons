@@ -9,7 +9,15 @@
 | Gate numbering is canonical | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | Master Plan and `04_MASTER_CHECKLIST.md` review | Gate 0–12 mapping from D-001 | SPECIFIED |
 | Requirement-to-verification coverage is planned | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/VERIFICATION_PLAN.md` | planned methods only; no tests run | SPECIFIED |
 | Combined memory feasibility is a hard early gate | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | Master Plan, checklist, GFX-004, microarchitecture | actual resource evidence still required | SPECIFIED |
-| No graphics implementation was added | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | file scan and allowed-file review | documentation-only task | DERIVED after final checks |
+| No graphics implementation was added | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | file scan and allowed-file review | documentation-only task | LOCAL OBSERVATION |
+
+## Gate-0 closure milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Gate 0 is closed | pending current closure commit | final Gate-0 review, `make doctor`, `make bootstrap-smoke`, clean repository audit | missing future tools are documented prerequisites, not Gate-0 blockers | SPECIFIED / LOCAL OBSERVATION |
+| GFX-000 and GFX-001 are accepted | pending current closure commit | `docs/PROJECT_STATE.md`, accepted task evidence | no later gate implied | SPECIFIED |
+| Tool availability and missing states are known | pending current closure commit | `make doctor` | no tool installation performed | LOCAL OBSERVATION |
 
 ## Dependency record
 

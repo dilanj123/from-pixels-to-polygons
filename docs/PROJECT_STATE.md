@@ -8,7 +8,10 @@
 - GFX-001 contract commit: `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` (`Freeze GFX-001 source-level contracts`).
 - Starting branch: `main`; working tree was clean.
 - GFX-000: ACCEPTED.
-- Current Gate 0 state: source-contract portion addressed by GFX-001; Gate 0 remains open pending final gate review and checklist evidence reconciliation.
+- Current gate: Gate 0 — CLOSED.
+- Gate 0 closure commit: pending current commit.
+- Current known-good pre-closure commit: `9c7478a7302e5da5a9f19043be772223d93d3abe`.
+- GFX-001: ACCEPTED.
 - Repository path: `/Users/Dilan/Projects/from-pixels-to-polygons`.
 - Dependency repository: `https://github.com/dilanj123/from-rtl-to-pixels.git`.
 - Dependency tag: `v1.0.1-dependency-ready`.
@@ -40,11 +43,16 @@
   platform implementation details remain unresolved as allowed by the contract.
 - No functional graphics RTL or reference-renderer implementation was added.
 
-## Gate-0 items still open
+## Next task
 
-- Final Gate-0 review and explicit checklist reconciliation.
-- Future-phase tool availability remains recorded as missing where applicable;
-  no toolchains were installed.
-- Public remote creation remains unauthorized and GitHub authentication remains
-  invalid.
-- No later gate may be marked complete from these source documents alone.
+`GFX-002 — Python fixed-point/reference primitives`
+
+## Gate-0 closure interpretation
+
+- Missing Yosys, SBY, nextpnr-ecp5, formal solvers, and board utilities are
+  explicitly detected and documented; they do not block Gate 0.
+- GitHub authentication is invalid and no remote exists; remote creation was
+  conditional on authentication/authorization and does not block Gate 0.
+- No later gate is complete. The reference renderer, graphics RTL simulation,
+  graphics formal, graphics synthesis/P&R, and physical graphics hardware
+  evidence remain absent.

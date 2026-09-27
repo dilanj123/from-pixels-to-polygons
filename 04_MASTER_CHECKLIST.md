@@ -4,50 +4,55 @@ A checkbox is completed only by actual evidence, not by intent.
 
 ## Gate 0 — Contract, Dependency and Environment
 
-- [ ] master plan uploaded/accepted
-- [ ] operating instructions uploaded/accepted
-- [ ] authoritative files checked for contradictions
-- [ ] repository state known
-- [ ] Mac architecture/OS recorded
-- [ ] Git path/version recorded
-- [ ] GitHub CLI path/version/auth state recorded
-- [ ] Python path/version recorded
-- [ ] Make path/version recorded
-- [ ] Verilator path/version recorded
-- [ ] Yosys path/version recorded
-- [ ] SBY path/version recorded
-- [ ] formal solver(s) recorded
-- [ ] nextpnr-ecp5 path/version recorded
-- [ ] repository initialized
+- [x] master plan uploaded/accepted
+- [x] operating instructions uploaded/accepted
+- [x] authoritative files checked for contradictions
+- [x] repository state known
+- [x] Mac architecture/OS recorded
+- [x] Git path/version recorded
+- [x] GitHub CLI path/version/auth state recorded
+- [x] Python path/version recorded
+- [x] Make path/version recorded
+- [x] Verilator path/version recorded
+- [x] Yosys path/version recorded (missing, explicitly documented)
+- [x] SBY path/version recorded (missing, explicitly documented)
+- [x] formal solver(s) recorded (missing, explicitly documented)
+- [x] nextpnr-ecp5 path/version recorded (missing, explicitly documented)
+- [x] repository initialized
 - [ ] public remote created if authorized/authenticated
-- [ ] `make doctor` works
-- [ ] bootstrap known-good commit preserved
-- [ ] no raster RTL added during bootstrap
-- [ ] `docs/REQUIREMENTS.md`
-- [ ] `docs/MICROARCHITECTURE.md`
-- [ ] `docs/COMMAND_PROTOCOL.md`
-- [ ] `docs/FIXED_POINT.md`
-- [ ] `docs/VERIFICATION_PLAN.md`
-- [ ] `docs/DECISIONS.md`
-- [ ] `AGENTS.md`
-- [ ] coordinate system frozen
-- [ ] Q4 geometry frozen
-- [ ] edge equation frozen
-- [ ] accepted winding frozen
-- [ ] top-left rule frozen
-- [ ] bbox/sample-centre rules frozen
-- [ ] R/G/B/Z plane semantics frozen
-- [ ] colour quantization frozen
-- [ ] Z quantization/test frozen
-- [ ] command packet formats frozen
-- [ ] error semantics frozen
-- [ ] triple-buffer role transitions frozen
-- [ ] CDC presentation semantics frozen
-- [ ] reset semantics frozen
-- [ ] third-party/reference policy frozen
-- [ ] RTL-to-Pixels dependency policy frozen
-- [ ] admitted exact parent commit/tag recorded
-- [ ] dependency evidence recorded
+- [x] `make doctor` works
+- [x] bootstrap known-good commit preserved
+- [x] no raster RTL added during bootstrap
+- [x] `docs/REQUIREMENTS.md`
+- [x] `docs/MICROARCHITECTURE.md`
+- [x] `docs/COMMAND_PROTOCOL.md`
+- [x] `docs/FIXED_POINT.md`
+- [x] `docs/VERIFICATION_PLAN.md`
+- [x] `docs/DECISIONS.md`
+- [x] `AGENTS.md`
+- [x] coordinate system frozen
+- [x] Q4 geometry frozen
+- [x] edge equation frozen
+- [x] accepted winding frozen
+- [x] top-left rule frozen
+- [x] bbox/sample-centre rules frozen
+- [x] R/G/B/Z plane semantics frozen
+- [x] colour quantization frozen
+- [x] Z quantization/test frozen
+- [x] command packet formats frozen
+- [x] error semantics frozen
+- [x] triple-buffer role transitions frozen
+- [x] CDC presentation semantics frozen
+- [x] reset semantics frozen
+- [x] third-party/reference policy frozen
+- [x] RTL-to-Pixels dependency policy frozen
+- [x] admitted exact parent commit/tag recorded
+- [x] dependency evidence recorded
+
+Gate-0 tool-state checkboxes mean the executable state was explicitly detected
+and documented. They do not mean missing tools were installed. The public-remote
+checkbox remains open because GitHub authentication is invalid and no remote was
+authorized or created. Later gates remain open.
 
 ## Gate 1 — Independent Reference Renderer
 
