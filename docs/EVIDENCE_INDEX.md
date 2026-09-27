@@ -86,3 +86,17 @@ The admitted parent resource record remains separate from GFX-004 synthesis:
 
 GFX-004 does not claim full integrated utilization, placement, routing,
 timing closure, formal proof, or hardware evidence.
+
+## GFX-005 package/FIFO milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Frozen synthesizable package constants and protocol enums compile | GFX-005 commit | `make lint-fifo`; `make test-fifo`; `tb/tests/gfx_pkg_tb.sv` | Includes 320×240, 76800 pixels, 17-bit address, Q4/Q8/42-bit widths, 1024 depth, opcodes, responses, and errors | RTL SIMULATION VERIFIED |
+| Production command FIFO behavior passes directed and randomized simulation | GFX-005 commit | `make test-fifo`; `tb/tests/cmd_fifo_tb.sv` | 11,677 cycles, seed `0x005005`, 6,999 accepted pushes and pops; exact 1024-word fill/drain and scoreboard ordering | RTL SIMULATION VERIFIED |
+| Selected FIFO safety properties pass formal | GFX-005 commit | `make formal-fifo`; `formal/cmd_fifo.sby` | SBY 0.69, Z3, depth 25, depth-4 structural harness; reset assumptions documented in harness | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Gate transition recorded | GFX-005 commit | `docs/PROJECT_STATE.md`, `04_MASTER_CHECKLIST.md` | Gate 2 CLOSED; Gate 3 OPEN; later Gate-3 components remain open | LOCAL OBSERVATION |
+
+GFX-005 does not claim command-decoder, clear, triangle, raster, renderer,
+display, Sobel, P&R, timing, or hardware evidence. The formal harness uses
+depth 4 to avoid expanding the production 1024×32 RAM into an intractable
+symbolic register array; production capacity is separately linted and tested.

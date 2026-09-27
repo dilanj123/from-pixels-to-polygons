@@ -1,8 +1,30 @@
 # Project state
 
+## GFX-005 — package and command FIFO
+
+- Current phase: Gate 3 — Raster Primitive / command infrastructure.
+- Current task: GFX-005 complete; `gfx_pkg` constants/types and the production
+  1024×32 single-clock command FIFO are implemented and verified.
+- Starting known-good HEAD: `abcb0a8a2858a85c5ed4bc0664a19901a9622824`.
+- Gate 2: CLOSED. Gate 3: OPEN.
+- Checklist audit: the prior GFX-004 `04_MASTER_CHECKLIST.md` change only
+  records measured Gate-2 synthesis evidence and its representative-evidence
+  limitation; no unrelated checklist content was found.
+- FIFO simulation: 11,677 cycles, deterministic seed `0x005005`, 6,999
+  accepted pushes and 6,999 accepted pops; exact-full, backpressure, drain,
+  stall, simultaneous replacement, wraparound, repeated fill/drain, and
+  randomized scoreboard cases passed.
+- FIFO formal: SBY 0.69 with Z3, depth 25, k-induction; the tractable formal
+  harness uses a structurally identical depth-4 instance while production
+  defaults remain 1024×32. Reset, level conservation/bounds, empty/full
+  handshaking, stalled output stability, first-token delivery, and full-state
+  reachability passed. No formal counterexample trace was produced.
+- No command decoder, clear engine, triangle setup, raster walker,
+  framebuffer renderer, Z pipeline, display, or Sobel RTL was added.
+
 ## GFX-004 — memory feasibility spike
 
-- Current phase: Gate 2 — Memory Feasibility.
+- Previous phase: Gate 2 — Memory Feasibility.
 - Current task: GFX-004 complete; the representative memory spike was
   synthesized with the qualified OSS CAD Suite ECP5 flow.
 - Starting known-good HEAD: `22e45177c2c1b63b7ae773dd0b313c48a421a088`.
@@ -74,7 +96,8 @@
 - Physical graphics hardware: not run; no evidence.
 - Full integrated graphics resources, timing/Fmax, and display platform
   implementation details remain unresolved as allowed by the contract.
-- No functional graphics RTL was added.
+- No rasterizer or renderer RTL was added; GFX-005 adds only the package and
+  command FIFO infrastructure authorized by the task.
 
 ## Gate-1 status
 
@@ -90,7 +113,7 @@
 
 ## Gate-2 status
 
-- Gate 2: READY TO CLOSE based on the GFX-004 representative ECP5 synthesis
+- Gate 2: CLOSED based on the GFX-004 representative ECP5 synthesis
   evidence. All three colour framebuffers and the Z buffer inferred as
   `DP16KD`; the FIFO inferred as 2 `DP16KD`; the combined spike used 154 of
   the 208 LFE5U-85F sysMEM blocks listed by Lattice. No large memory mapped to
@@ -101,7 +124,7 @@
 
 ## Next task
 
-`GFX-005 — Triangle setup and raster RTL, only after Gate 2 closure review`
+`GFX-006 — Command decoder`
 
 ## Gate-0 closure interpretation
 

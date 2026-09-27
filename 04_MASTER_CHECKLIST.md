@@ -72,6 +72,8 @@ authorized or created. Later gates remain open.
 
 ## Gate 2 — Memory Feasibility
 
+Gate 2 — CLOSED; GFX-005 review accepted the recorded memory-spike evidence.
+
 - [x] 3 × 320×240×8 framebuffer wrappers synthesized — 38 `DP16KD` each
 - [x] Z buffer synthesized — 38 `DP16KD`
 - [x] 1024×32 FIFO synthesized — 2 `DP16KD`
@@ -93,9 +95,11 @@ hardware requirements.
 
 ## Gate 3 — Raster Primitive
 
-- [ ] `gfx_pkg.sv`
-- [ ] command FIFO simulation
-- [ ] command FIFO formal
+Gate 3 — OPEN.
+
+- [x] `gfx_pkg.sv`
+- [x] command FIFO simulation
+- [x] command FIFO formal under documented depth-scaled assumptions
 - [ ] command decoder
 - [ ] clear engine
 - [ ] triangle setup

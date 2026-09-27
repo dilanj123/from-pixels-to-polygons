@@ -1,0 +1,15 @@
+[options]
+mode prove
+depth 25
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv gfx_pkg.sv cmd_fifo.sv cmd_fifo_formal.sv
+prep -top cmd_fifo_formal
+
+[files]
+rtl/cmd_fifo.sv
+rtl/gfx_pkg.sv
+formal/cmd_fifo_formal.sv
