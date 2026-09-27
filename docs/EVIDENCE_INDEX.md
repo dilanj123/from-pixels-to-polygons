@@ -66,3 +66,23 @@ RTL simulation, formal, synthesis, timing, or hardware evidence.
 
 The seed records were identical across two independent executions. Hashes are
 regression conveniences; later RTL comparison remains byte-level.
+
+## GFX-004 memory-feasibility milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| One 76800x8 framebuffer inferred as ECP5 block RAM | GFX-004 synthesis commit | `make synth-memory`; `reports/memory_spike/memory_spike_one_framebuffer_top.log` | 38 `DP16KD`; independent `clk_pix`/`clk_sys` synchronous ports; no placement or timing claim | SYNTHESISED |
+| Z memory inferred as ECP5 block RAM | GFX-004 synthesis commit | `make synth-memory`; `reports/memory_spike/memory_spike_zbuffer_top.log` | 38 `DP16KD`; synchronous system read/write; no placement or timing claim | SYNTHESISED |
+| 1024x32 FIFO memory inferred as ECP5 block RAM | GFX-004 synthesis commit | `make synth-memory`; `reports/memory_spike/memory_spike_fifo_top.log` | 2 `DP16KD`; representative memory only, not production FIFO behavior | SYNTHESISED |
+| Combined memory spike retained all five memories | GFX-004 synthesis commit | `make synth-memory`; `reports/memory_spike/memory_spike_top.log` | 154 `DP16KD`, zero generic memories in final hierarchy, 0 Yosys check problems | SYNTHESISED |
+| Reference regression remains passing | GFX-004 synthesis commit | `python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` | 31 tests passed | REFERENCE-MODEL VERIFIED |
+| LFE5U-85F capacity comparison | GFX-004 synthesis commit | [Lattice ECP5 family selection table](https://www.latticesemi.com/en/Products/FPGAandCPLD/ECP5.aspx) | 208 sysMEM blocks, 84K LUTs, 156 multipliers; comparison only, not integrated utilization | EXTERNAL SPECIFICATION |
+
+The admitted parent resource record remains separate from GFX-004 synthesis:
+`v1.0.1-dependency-ready`, commit
+`ad35514c990f6e1c9eb9fa18aee9d906f9df7721`, top
+`rtl_to_pixels_top_pipelined`, with supplied evidence of 2 `DP16KD`, 3
+`MULT18X18D`, 775 `LUT4`, and 223 `TRELLIS_FF`.
+
+GFX-004 does not claim full integrated utilization, placement, routing,
+timing closure, formal proof, or hardware evidence.

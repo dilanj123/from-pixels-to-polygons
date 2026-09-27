@@ -72,19 +72,24 @@ authorized or created. Later gates remain open.
 
 ## Gate 2 — Memory Feasibility
 
-- [ ] 3 × 320×240×8 framebuffer wrappers synthesized
-- [ ] Z buffer synthesized
-- [ ] 1024×32 FIFO synthesized
-- [ ] EBR inference confirmed
-- [ ] dual-clock framebuffer inference reviewed
-- [ ] no unexpected large LUT RAM
-- [ ] exact EBR count recorded
-- [ ] graphics memory-spike resource use recorded
-- [ ] admitted parent resource use recorded
-- [ ] other mandatory EBR allocations recorded
-- [ ] combined target-device resource budget recorded
-- [ ] resource margin not invented
-- [ ] memory architecture retained/revised with decision record
+- [x] 3 × 320×240×8 framebuffer wrappers synthesized — 38 `DP16KD` each
+- [x] Z buffer synthesized — 38 `DP16KD`
+- [x] 1024×32 FIFO synthesized — 2 `DP16KD`
+- [x] EBR inference confirmed — combined spike uses 154 `DP16KD`
+- [x] dual-clock framebuffer inference reviewed
+- [x] no unexpected large LUT RAM
+- [x] exact EBR count recorded
+- [x] graphics memory-spike resource use recorded
+- [x] admitted parent resource use recorded separately
+- [x] other mandatory EBR allocations recorded — none identified in this spike
+- [x] combined target-device resource budget recorded against 208 LFE5U-85F
+      sysMEM blocks
+- [x] resource margin not invented — only the actual count comparison is recorded
+- [x] memory architecture retained with GFX-004 synthesis evidence
+
+Gate-2 note: this is representative memory-inference evidence only. It does
+not close later full-synthesis, route, timing, formal, display, Sobel, or
+hardware requirements.
 
 ## Gate 3 — Raster Primitive
 
