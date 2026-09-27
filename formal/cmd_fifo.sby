@@ -1,6 +1,6 @@
 [options]
-mode prove
-depth 25
+mode bmc
+depth 12
 
 [engines]
 smtbmc z3

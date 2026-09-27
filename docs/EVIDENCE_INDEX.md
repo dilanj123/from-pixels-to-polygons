@@ -93,10 +93,25 @@ timing closure, formal proof, or hardware evidence.
 |---|---|---|---|---|
 | Frozen synthesizable package constants and protocol enums compile | GFX-005 commit | `make lint-fifo`; `make test-fifo`; `tb/tests/gfx_pkg_tb.sv` | Includes 320×240, 76800 pixels, 17-bit address, Q4/Q8/42-bit widths, 1024 depth, opcodes, responses, and errors | RTL SIMULATION VERIFIED |
 | Production command FIFO behavior passes directed and randomized simulation | GFX-005 commit | `make test-fifo`; `tb/tests/cmd_fifo_tb.sv` | 11,677 cycles, seed `0x005005`, 6,999 accepted pushes and pops; exact 1024-word fill/drain and scoreboard ordering | RTL SIMULATION VERIFIED |
-| Selected FIFO safety properties pass formal | GFX-005 commit | `make formal-fifo`; `formal/cmd_fifo.sby` | SBY 0.69, Z3, depth 25, depth-4 structural harness; reset assumptions documented in harness | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Selected FIFO safety properties pass formal | GFX-005 commit | `make formal-fifo`; `formal/cmd_fifo.sby` | SBY 0.69, Z3, depth 12 bounded run, depth-4 structural harness; reset assumptions documented in harness | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
 | Gate transition recorded | GFX-005 commit | `docs/PROJECT_STATE.md`, `04_MASTER_CHECKLIST.md` | Gate 2 CLOSED; Gate 3 OPEN; later Gate-3 components remain open | LOCAL OBSERVATION |
 
 GFX-005 does not claim command-decoder, clear, triangle, raster, renderer,
 display, Sobel, P&R, timing, or hardware evidence. The formal harness uses
 depth 4 to avoid expanding the production 1024×32 RAM into an intractable
 symbolic register array; production capacity is separately linted and tested.
+
+## GFX-005-FORMAL-ORDERING corrective milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Tracked-token ordering passes | GFX-005-FORMAL-ORDERING commit | `sby -f formal/cmd_fifo.sby` | Scalar ghost queue compares every legal dequeue with the oldest accepted token; depth-4 DUT, bounded depth 12 | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Two-token relative ordering is covered by a stronger invariant | GFX-005-FORMAL-ORDERING commit | same ghost-queue head property | Any later accepted token cannot transfer before all earlier ghost tokens; data values need not be globally unique | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Accepted-minus-consumed conservation passes | GFX-005-FORMAL-ORDERING commit | same SBY run | Ghost count equals DUT level throughout the bounded formal epoch | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Production FIFO regression remains passing | GFX-005-FORMAL-ORDERING commit | `make test-fifo` | Default 1024×32 FIFO; 11,677 cycles, seed `0x005005`, 6,999 pushes and pops | RTL SIMULATION VERIFIED |
+| Full Python reference regression remains passing | GFX-005-FORMAL-ORDERING commit | `python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` | 31 tests passed | REFERENCE-MODEL VERIFIED |
+
+The corrective formal run is bounded rather than a literal 1024-entry RAM
+proof. Earlier GFX-005 safety properties were proven with depth-25
+k-induction; this milestone adds explicit bounded ordering/conservation
+evidence without changing production RTL.

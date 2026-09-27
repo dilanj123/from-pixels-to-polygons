@@ -14,13 +14,29 @@
   accepted pushes and 6,999 accepted pops; exact-full, backpressure, drain,
   stall, simultaneous replacement, wraparound, repeated fill/drain, and
   randomized scoreboard cases passed.
-- FIFO formal: SBY 0.69 with Z3, depth 25, k-induction; the tractable formal
-  harness uses a structurally identical depth-4 instance while production
-  defaults remain 1024×32. Reset, level conservation/bounds, empty/full
-  handshaking, stalled output stability, first-token delivery, and full-state
-  reachability passed. No formal counterexample trace was produced.
+- FIFO formal: the GFX-005-FORMAL-ORDERING correction uses SBY 0.69 with Z3,
+  bounded mode at depth 12, and a structurally identical depth-4 instance
+  while production defaults remain 1024×32. Its scalar ghost queue checks
+  oldest-token output ordering and accepted-minus-consumed conservation; reset,
+  level bounds, empty/full handshaking, stalled output stability, first-token
+  delivery, and full-state reachability passed with no counterexample. The
+  earlier GFX-005 safety proof used depth 25 k-induction; the new ordering
+  abstraction is reported as bounded formal evidence, not induction over the
+  literal 1024-entry RAM.
 - No command decoder, clear engine, triangle setup, raster walker,
   framebuffer renderer, Z pipeline, display, or Sobel RTL was added.
+
+## GFX-005-FORMAL-ORDERING status
+
+- Explicit tracked-token ordering and token-conservation properties are
+  present in `formal/cmd_fifo_formal.sv` and pass the recorded bounded SBY run.
+- The ghost queue head comparison is a stronger FIFO-order check than a
+  separate two-token assertion within the formal epoch: every accepted token
+  must be the next token on a legal output transfer. Duplicate consumption or
+  disappearance would violate the ghost-count/head invariants.
+- The reduced-depth proof does not prove every storage bit of the literal
+  1024-entry RAM. Production 1024-depth ordering, wraparound, and stress
+  remain covered by `make test-fifo` simulation.
 
 ## GFX-004 — memory feasibility spike
 
