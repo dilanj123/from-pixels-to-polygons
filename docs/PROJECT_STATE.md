@@ -19,12 +19,30 @@
   side effects. Decoder-generated syntax errors own the exposed sticky
   `cmd_error`; runtime legality errors remain deferred.
 - Existing FIFO simulation and 31-test Python reference regression remain
-  passing. No clear engine, triangle setup, raster, fragment/Z, display,
-  Sobel, or command-execution RTL was added.
+  passing. GFX-007 adds only the standalone clear stream; triangle setup,
+  raster, fragment/Z, display, Sobel, and command-execution integration
+  remain unimplemented.
 
 ## Current next task
 
-`GFX-007 — Clear engine`
+`GFX-008 — Triangle setup`
+
+## GFX-007 — clear engine
+
+- GFX-007 complete. The standalone clear engine accepts one request while
+  idle, captures RGB332, and emits coincident colour/Z writes for exactly
+  addresses `0..76799` at one address per active `clk_sys` cycle.
+- Full-depth simulation passed 210 self-checking assertions across clear
+  values `0x00`, `0xFF`, `0xA5`, one deterministic randomized byte, repeated
+  clears, and reset-abort/restart cases. Each uninterrupted clear produced
+  76,800 colour writes and 76,800 Z writes with no duplicates, skips, or
+  out-of-range addresses.
+- Reduced formal instance: 8 pixels, 4-bit address, SBY 0.69/Z3 BMC depth
+  20. Address range/increment, coincident writes, captured colour, Z value,
+  idle/reset suppression, and completion properties passed. This does not
+  prove every cycle of the 76,800-pixel production instance.
+- No controller integration, framebuffer-role ownership, triangle setup,
+  raster, fragment/Z, display, Sobel, or command execution was added.
 
 ## GFX-005 — package and command FIFO
 
@@ -166,7 +184,7 @@
 
 ## Next task
 
-`GFX-007 — Clear engine`
+`GFX-008 — Triangle setup`
 
 ## Gate-0 closure interpretation
 

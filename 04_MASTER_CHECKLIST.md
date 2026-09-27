@@ -102,7 +102,8 @@ Gate 3 — OPEN.
 - [x] command FIFO formal under documented depth-scaled assumptions
 - [x] command decoder — GFX-006 packet collection/validation simulation and
       bounded formal evidence; command execution remains out of scope
-- [ ] clear engine
+- [x] clear engine — full-depth 76,800-address simulation and reduced formal
+      control/address/value properties
 - [ ] triangle setup
 - [ ] area/winding tests
 - [ ] bbox tests

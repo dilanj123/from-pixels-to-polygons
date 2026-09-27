@@ -115,6 +115,19 @@ protocol proof. Runtime state legality remains deferred to the controller or
 integration layer, and decoder evidence does not imply command execution,
 rendering, display, Sobel, P&R, timing, or hardware evidence.
 
+## GFX-007 clear-engine milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Production-default clear stream is exact | GFX-007 commit | `make test-clear` | 76,800 colour writes and 76,800 Z writes per uninterrupted clear; address scoreboard found zero duplicates, skips, or out-of-range writes | RTL SIMULATION VERIFIED |
+| Clear values and parallelism are correct | GFX-007 commit | `make test-clear` | Tested `0x00`, `0xFF`, `0xA5`, deterministic random byte, repeated clears, captured-input stability, and coincident address/write enables | RTL SIMULATION VERIFIED |
+| Reset abort and restart behavior passes | GFX-007 commit | `make test-clear` | Beginning, middle, and final-address-near reset cases; no stale writes or done pulse; post-reset clear restarts at address 0 | RTL SIMULATION VERIFIED |
+| Parameterized control/address properties pass | GFX-007 commit | `sby -f formal/clear_engine.sby` | 8-pixel/4-bit reduced instance, SBY 0.69, Z3, BMC depth 20; not a literal 76,800-cycle proof | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+
+GFX-007 is standalone clear-stream evidence only. It does not claim command
+controller integration, framebuffer ownership, synthesis, timing, P&R, or
+hardware evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
