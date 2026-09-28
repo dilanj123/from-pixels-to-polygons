@@ -4,7 +4,7 @@
 
 - Current phase: Gate 4 — Complete Colour/Z Renderer.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good commit: `6ef29c180f6dc54f5e7f12cf3375a1459b2f6c84`.
+- Current known-good commit: `d7b6f60b7bcf4a10da0c23d39ba202b9d43a3e99`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -16,8 +16,10 @@
 - GFX-008 triangle setup: RTL SIMULATION VERIFIED; triangle-setup formal was
   NOT RUN / NOT CLAIMED.
 - Python reference: REFERENCE-MODEL VERIFIED.
-- No attribute stepping, fragment/Z integration, complete renderer, full
-  graphics synthesis/P&R, timing, or physical hardware evidence exists yet.
+- GFX-010 attribute stepping: RTL SIMULATION VERIFIED; no attribute formal
+  proof is claimed.
+- No fragment/Z integration, complete renderer, full graphics synthesis/P&R,
+  timing, or physical hardware evidence exists yet.
 - Current next task: `GFX-011 — Fragment/Z stage`.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
