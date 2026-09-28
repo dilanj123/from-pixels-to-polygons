@@ -4,6 +4,11 @@ module renderer_core (
     input  logic                      render_cmd_valid,
     output logic                      render_cmd_ready,
     input  gfx_pkg::decoded_command_t render_cmd,
+    input  logic                      frame_completed_event,
+    input  logic                      present_wait_cycle,
+    input  logic                      sobel_cycle,
+    input  logic [10:0]               command_fifo_level,
+    output gfx_pkg::performance_counters_t perf_counters,
     output logic                      renderer_quiescent
 );
     typedef enum logic [2:0] {
@@ -30,12 +35,12 @@ module renderer_core (
     gfx_pkg::triangle_setup_result_t setup_out_data;
 
     logic walk_in_valid, walk_in_ready, walk_busy, walk_complete;
-    logic covered_valid, covered_ready;
+    logic covered_valid, covered_ready, candidate_retired;
     logic [8:0] covered_x;
     logic [7:0] covered_y;
     logic signed [41:0] covered_r_raw, covered_g_raw, covered_b_raw, covered_z_raw;
 
-    logic frag_ready;
+    logic frag_ready, depth_result_valid, depth_pass;
     logic z_rd_en, z_wr_en, fb_wr_en, fragment_empty;
     logic [16:0] z_rd_addr, z_wr_addr, fb_wr_addr;
     logic [7:0] z_rd_data, z_wr_data, fb_wr_data;
@@ -46,20 +51,37 @@ module renderer_core (
     logic in_receptive_state;
     logic command_fire;
     logic clear_owner, fragment_owner;
+    logic begin_frame_event, triangle_submitted_event;
+    logic triangle_degenerate_event, triangle_backface_event;
+    logic covered_fragment_event, clear_cycle, render_cycle, triangle_setup_cycle;
 
     assign in_receptive_state = (state_q == S_IDLE) || (state_q == S_FRAME_ACTIVE);
     assign render_cmd_ready = in_receptive_state;
     assign command_fire = render_cmd_valid && render_cmd_ready;
 
-    assign clear_start_valid = command_fire &&
+    assign begin_frame_event = command_fire &&
                                (render_cmd.opcode == gfx_pkg::CMD_BEGIN_FRAME) &&
                                (state_q == S_IDLE);
+    assign triangle_submitted_event = command_fire &&
+                                      (render_cmd.opcode == gfx_pkg::CMD_DRAW_TRIANGLE);
+
+    assign clear_start_valid = begin_frame_event;
 
     assign setup_in_valid = (state_q == S_TRI_SETUP) && !setup_submitted_q;
     assign setup_out_ready = (state_q == S_TRI_SETUP);
 
     assign walk_in_valid = (state_q == S_TRI_WALK) && !walk_complete;
     assign covered_ready = frag_ready;
+    assign covered_fragment_event = covered_valid && covered_ready;
+    assign triangle_degenerate_event = setup_out_valid && setup_out_ready &&
+                                       (setup_out_data.classification == gfx_pkg::TRI_SETUP_DEGENERATE);
+    assign triangle_backface_event = setup_out_valid && setup_out_ready &&
+                                     (setup_out_data.classification == gfx_pkg::TRI_SETUP_BACKFACE);
+    assign clear_cycle = clear_fb_we;
+    assign render_cycle = (state_q == S_TRI_SETUP) ||
+                          (state_q == S_TRI_WALK) ||
+                          (state_q == S_TRI_DRAIN);
+    assign triangle_setup_cycle = (state_q == S_TRI_SETUP);
 
     assign clear_owner = (state_q == S_CLEAR);
     assign fragment_owner = (state_q == S_TRI_WALK) || (state_q == S_TRI_DRAIN);
@@ -86,6 +108,7 @@ module renderer_core (
         .covered_ready(covered_ready), .covered_x(covered_x), .covered_y(covered_y),
         .covered_r_raw(covered_r_raw), .covered_g_raw(covered_g_raw),
         .covered_b_raw(covered_b_raw), .covered_z_raw(covered_z_raw),
+        .candidate_retired(candidate_retired),
         .busy(walk_busy), .walk_complete(walk_complete)
     );
 
@@ -98,7 +121,24 @@ module renderer_core (
         .z_rd_en(z_rd_en), .z_rd_addr(z_rd_addr), .z_rd_data(z_rd_data),
         .z_wr_en(z_wr_en), .z_wr_addr(z_wr_addr), .z_wr_data(z_wr_data),
         .fb_wr_en(fb_wr_en), .fb_wr_addr(fb_wr_addr), .fb_wr_data(fb_wr_data),
+        .depth_result_valid(depth_result_valid), .depth_pass(depth_pass),
         .pipeline_empty(fragment_empty)
+    );
+
+    perf_counters counters_i (
+        .clk_sys(clk_sys), .rst(rst),
+        .begin_frame_event(begin_frame_event),
+        .triangle_submitted_event(triangle_submitted_event),
+        .triangle_degenerate_event(triangle_degenerate_event),
+        .triangle_backface_event(triangle_backface_event),
+        .candidate_retired_event(candidate_retired),
+        .covered_fragment_event(covered_fragment_event),
+        .depth_result_valid(depth_result_valid), .depth_pass(depth_pass),
+        .clear_cycle(clear_cycle), .render_cycle(render_cycle),
+        .triangle_setup_cycle(triangle_setup_cycle),
+        .frame_completed_event(frame_completed_event),
+        .present_wait_cycle(present_wait_cycle), .sobel_cycle(sobel_cycle),
+        .command_fifo_level(command_fifo_level), .counters(perf_counters)
     );
 
     framebuffer_dp framebuffer_i (

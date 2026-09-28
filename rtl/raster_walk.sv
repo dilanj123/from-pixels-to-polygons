@@ -15,6 +15,7 @@ module raster_walk #(
     output logic signed [41:0]                 covered_g_raw,
     output logic signed [41:0]                 covered_b_raw,
     output logic signed [41:0]                 covered_z_raw,
+    output logic                              candidate_retired,
     output logic                              busy,
     output logic                              walk_complete
 );
@@ -53,6 +54,7 @@ module raster_walk #(
 
     assign candidate_retire = busy && (!covered || covered_ready);
     assign final_candidate = busy && (x_q == xmax_q) && (y_q == ymax_q);
+    assign candidate_retired = candidate_retire && !rst;
 
     always_ff @(posedge clk_sys or posedge rst) begin
         if (rst) begin

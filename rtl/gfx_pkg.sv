@@ -74,4 +74,21 @@ package gfx_pkg;
         logic signed [31:0] r_dx, g_dx, b_dx, z_dx;
         logic signed [31:0] r_dy, g_dy, b_dy, z_dy;
     } triangle_setup_result_t;
+
+    typedef struct packed {
+        logic [31:0] frames_completed;
+        logic [31:0] triangles_submitted;
+        logic [31:0] triangles_degenerate;
+        logic [31:0] triangles_backface_rejected;
+        logic [31:0] candidate_pixels;
+        logic [31:0] covered_fragments;
+        logic [31:0] z_pass;
+        logic [31:0] z_fail;
+        logic [31:0] clear_cycles;
+        logic [31:0] render_cycles;
+        logic [31:0] triangle_setup_cycles;
+        logic [31:0] present_wait_cycles;
+        logic [31:0] sobel_cycles;
+        logic [31:0] command_fifo_high_watermark;
+    } performance_counters_t;
 endpackage

@@ -15,6 +15,7 @@ module raster_walk_tb;
     logic signed [41:0] covered_z_raw;
     logic busy;
     logic walk_complete;
+    logic candidate_retired;
 
     integer expected_count;
     integer expected_candidates;
@@ -22,6 +23,7 @@ module raster_walk_tb;
     integer active_cycles;
     integer cycle_index;
     integer stall_cycles;
+    integer candidate_retired_count;
     integer errors;
     integer coordinate_mismatches;
     integer r_mismatches;
@@ -57,7 +59,8 @@ module raster_walk_tb;
         .covered_x(covered_x), .covered_y(covered_y),
         .covered_r_raw(covered_r_raw), .covered_g_raw(covered_g_raw),
         .covered_b_raw(covered_b_raw), .covered_z_raw(covered_z_raw),
-        .busy(busy), .walk_complete(walk_complete)
+        .busy(busy), .walk_complete(walk_complete),
+        .candidate_retired(candidate_retired)
     );
 
     always #5 clk_sys = ~clk_sys;
@@ -95,6 +98,7 @@ module raster_walk_tb;
             active_cycles = 0;
             cycle_index = 0;
             stall_cycles = 0;
+            candidate_retired_count = 0;
             was_stalled = 0;
             walk_in_valid = 1'b1;
             covered_ready = 1'b1;
@@ -117,6 +121,7 @@ module raster_walk_tb;
                 end else begin
                     covered_ready = 1'b1;
                 end
+                #1;
 
                 if (covered_valid && !covered_ready) begin
                     if (!was_stalled) begin
@@ -166,6 +171,9 @@ module raster_walk_tb;
                     expected_index = expected_index + 1;
                 end
 
+                if (candidate_retired)
+                    candidate_retired_count = candidate_retired_count + 1;
+
                 if (busy) active_cycles = active_cycles + 1;
                 if (walk_complete) break;
                 if (cycle_index > expected_candidates + 100) begin
@@ -178,6 +186,11 @@ module raster_walk_tb;
 
             if (expected_index != expected_count)
                 fail("covered transfer count mismatch");
+            if (candidate_retired_count != expected_candidates)
+                begin
+                    $display("candidate_retired mismatch idx=%0d mode=%0d observed=%0d expected=%0d", idx, mode, candidate_retired_count, expected_candidates);
+                    fail("candidate retirement count mismatch");
+                end
             if (idx == 11) shared_a_count = expected_index;
             if (idx == 12) shared_b_count = expected_index;
             if (mode == 0 && active_cycles != expected_candidates)

@@ -24,6 +24,8 @@ module fragment_z #(
     output logic                       fb_wr_en,
     output logic [ADDR_WIDTH-1:0]      fb_wr_addr,
     output logic [7:0]                 fb_wr_data,
+    output logic                       depth_result_valid,
+    output logic                       depth_pass,
 
     output logic                       pipeline_empty
 );
@@ -94,6 +96,8 @@ module fragment_z #(
     assign fb_wr_en = z_wr_en;
     assign fb_wr_addr = addr3_q;
     assign fb_wr_data = colour3_q;
+    assign depth_result_valid = v3_q && !rst;
+    assign depth_pass = depth_result_valid && pass3_q;
 
     assign pipeline_empty = !(v0_q || v1_q || v2_q || v3_q);
 

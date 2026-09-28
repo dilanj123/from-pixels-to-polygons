@@ -18,6 +18,8 @@ module fragment_z_tb;
     logic [16:0] fb_wr_addr;
     logic [7:0] fb_wr_data;
     logic pipeline_empty;
+    logic depth_result_valid;
+    logic depth_pass;
 
     logic [7:0] z_mem [0:PIXELS-1];
     logic [7:0] expected_z_mem [0:PIXELS-1];
@@ -34,6 +36,9 @@ module fragment_z_tb;
     integer accepted_count = 0;
     integer read_count = 0;
     integer decision_count = 0;
+    integer depth_result_count = 0;
+    integer depth_pass_event_count = 0;
+    integer depth_fail_event_count = 0;
     integer pass_count = 0;
     integer fail_count = 0;
     integer equal_fail_count = 0;
@@ -70,7 +75,8 @@ module fragment_z_tb;
         .z_rd_en(z_rd_en), .z_rd_addr(z_rd_addr), .z_rd_data(z_rd_data),
         .z_wr_en(z_wr_en), .z_wr_addr(z_wr_addr), .z_wr_data(z_wr_data),
         .fb_wr_en(fb_wr_en), .fb_wr_addr(fb_wr_addr), .fb_wr_data(fb_wr_data),
-        .pipeline_empty(pipeline_empty)
+        .pipeline_empty(pipeline_empty),
+        .depth_result_valid(depth_result_valid), .depth_pass(depth_pass)
     );
 
     always #5 clk = ~clk;
@@ -251,6 +257,15 @@ module fragment_z_tb;
         if (!rst) begin
             checks = checks + 1;
             if (z_rd_en !== exp_valid[1]) fail("unexpected Z read-valid alignment");
+            if (depth_result_valid !== exp_valid[3])
+                fail("depth-result valid alignment");
+            if (depth_result_valid) begin
+                depth_result_count = depth_result_count + 1;
+                if (depth_pass !== exp_pass[3])
+                    fail("depth-result pass mismatch");
+                if (depth_pass) depth_pass_event_count = depth_pass_event_count + 1;
+                else depth_fail_event_count = depth_fail_event_count + 1;
+            end
             if (z_rd_en) begin
                 read_count = read_count + 1;
                 if (first_read_cycle < 0) first_read_cycle = cycle_count;
@@ -390,6 +405,9 @@ module fragment_z_tb;
         if (z_memory_mismatch_count != 0)
             fail("final Z memory model mismatch");
         if (read_count != accepted_count) fail("read count does not equal accepted count");
+        if (depth_result_count != decision_count) fail("depth-result count mismatch");
+        if (depth_pass_event_count != pass_count || depth_fail_event_count != fail_count)
+            fail("depth-result pass/fail count mismatch");
         if (fb_write_count != z_write_count) fail("colour/Z write count mismatch");
         if (hazard_count != 0) fail("legal traffic triggered hazard");
         if (stale_write_count != 0) fail("stale write observed");
