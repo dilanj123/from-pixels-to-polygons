@@ -139,3 +139,40 @@ TRI_DRAIN waiting for `pipeline_empty`, renderer-quiescent implies no pending
 write-producing work, address bounds, no writes before clear completion, and
 reset clearing active control state. These are planned properties only; this
 specification task claims no GFX-012 formal execution.
+
+## GFX-013 performance-counter verification plan
+
+Focused counter verification shall use an independent event scoreboard rather
+than DUT counter values. It shall verify all counters start at zero after
+global reset; per-frame counters clear on each accepted BEGIN_FRAME; lifetime
+`frames_completed` and `command_fifo_high_watermark` survive BEGIN_FRAME; and
+reset during active work produces no stale event counts.
+
+The scoreboard shall cover DRAW acceptance independent of classification,
+exact RASTER/EMPTY/DEGENERATE/BACKFACE counts, candidate retirement including
+uncovered candidates, covered transfers under stalls, completed Z pass/fail
+decisions including equal-depth fails, uninterrupted `clear_cycles == 76800`,
+exact TRI_SETUP and TRI_WALK/TRI_DRAIN cycle counts, synthetic presentation and
+Sobel events, FIFO-level sequences with repeated/falling/full-depth peaks, and
+modulo-2^32 wraparound using controlled preload or a reduced verification
+model. Counter-bank integration shall rerun identical GFX-012 frame streams and
+compare framebuffer/Z memories byte-for-byte to prove passive behavior.
+
+Cross-counter checks at quiescence require:
+
+```text
+triangles_submitted == RASTER + EMPTY + DEGENERATE + BACKFACE
+z_pass + z_fail == covered_fragments
+triangle_setup_cycles <= render_cycles
+```
+
+The plan shall explicitly exercise `candidate_retired`,
+`depth_result_valid/depth_pass`, reset priority over same-cycle BEGIN_FRAME
+events, and future-event inputs without implementing presentation or Sobel.
+
+Future formal properties include global-reset clearing, BEGIN_FRAME-only
+per-frame reset, lifetime-counter persistence, event-implied increments,
+candidate one-pulse accounting, mutually exclusive depth results,
+nondecreasing high watermark except reset, high watermark dominance over the
+sampled FIFO level, and passive integration with no renderer-control feedback.
+These properties are planned only and are not claimed as proved.

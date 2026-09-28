@@ -27,6 +27,7 @@
 - No complete presentation path, counters, readback, full graphics
   synthesis/P&R, timing, or physical hardware evidence exists yet.
 - Current next task: `GFX-013 — Performance counters`.
+- D-034 performance-counter contract: SPECIFIED; counter RTL is NOT STARTED.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -285,9 +286,9 @@
 
 ## Contract status
 
-- D-001 through D-029: recorded in `docs/DECISIONS.md` and incorporated into
-  the requirements, microarchitecture, command, fixed-point, verification,
-  checklist, Master Plan, and Operating Instructions documents.
+- D-001 through D-034: recorded in `docs/DECISIONS.md`; D-034 is reflected in
+  the relevant microarchitecture, verification, project-state, and evidence
+  documents without changing higher-authority requirements or the Master Plan.
 - Master Plan Gate 0–12 numbering is canonical and reflected in
   `04_MASTER_CHECKLIST.md`.
 - The parent dependency hold is satisfied, but future consumers must still
@@ -313,9 +314,10 @@
 - Physical graphics hardware: not run; no evidence.
 - Full integrated graphics resources, timing/Fmax, and display platform
   implementation details remain unresolved as allowed by the contract.
-- No raster coverage walker or complete renderer RTL has been added. GFX-005
-  added only package/FIFO infrastructure; GFX-006 through GFX-008 added the
-  decoder, clear engine, and triangle-setup blocks authorized by their tasks.
+- At the historical pre-GFX-009 state, no raster coverage walker or complete
+  renderer RTL had been added. The later GFX-009 through GFX-012 milestones
+  record the accepted walker, attribute, Fragment/Z, and baseline renderer
+  evidence.
 
 ## Gate-1 status
 
@@ -340,7 +342,7 @@
 - The result is not full integrated synthesis and does not establish timing,
   placement, routing, display, Sobel, formal, or hardware behavior.
 
-## Next task
+## Historical next task
 
 `GFX-010 — Attribute stepping`
 
@@ -354,6 +356,6 @@
 - The repository was subsequently published at
   `https://github.com/dilanj123/from-pixels-to-polygons`; current publication
   state is recorded in the Current state section above.
-- No later implementation gate is complete. Raster coverage, attribute
-  stepping, full graphics synthesis/P&R, timing, and physical graphics
-  hardware evidence remain absent.
+- At that historical Gate-0 review point, no later implementation gate was
+  complete. Current Gate-3/Gate-4 status is recorded in the Current state
+  section above.

@@ -39,10 +39,11 @@ Instructions.
 | D-031 | Freeze signed42 Q8 row/current R/G/B/Z attribute stepping, sign-extended signed32 setup coefficients, raw signed42 covered-fragment fields, stall/reset behavior, and the GFX-010/GFX-011 boundary as specified in `docs/MICROARCHITECTURE.md`. |
 | D-032 | Freeze the fixed-latency F0–F3 fragment/Z pipeline: signed42 Q8 quantization, RGB332 and unsigned17 address conversion, one-cycle synchronous Z-read alignment, strict-less-than depth testing, coincident pass writes, no-write fails, pipeline drain, reset flushing, and the no-equal-address Z read/write integration hazard as specified in `docs/MICROARCHITECTURE.md`. |
 | D-033 | Freeze the baseline renderer integration boundary, local execution states, production framebuffer/Z wrapper contracts, mutually exclusive clear/fragment memory ownership, quiescent-frame verification boundary, and GFX-012/GFX-013/GFX-014 scope split as specified in `docs/MICROARCHITECTURE.md`. |
+| D-034 | Freeze unsigned32 modulo performance counters, lifetime/per-frame reset domains, exact increment events, cycle-count definitions, passive instrumentation boundaries, future presentation/Sobel event inputs, FIFO high-watermark sampling, and W1–W14 ordering as specified in `docs/MICROARCHITECTURE.md`. |
 
 ## Status
 
-D-001 through D-033 are architectural decisions classified as `SPECIFIED`.
+D-001 through D-034 are architectural decisions classified as `SPECIFIED`.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation

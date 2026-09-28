@@ -241,6 +241,18 @@ GFX-012 does not claim presentation, FRAME_DONE, triple-buffer role rotation,
 display, counters, readback, Sobel, UART, synthesis, P&R, timing, or hardware
 evidence. The independent Python renderer remains REFERENCE-MODEL VERIFIED.
 
+## GFX-013-SPEC-FREEZE — D-034 milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-034 freezes all fourteen unsigned32 modulo counters and W1–W14 order | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | Exact software order is retained; no GET_COUNTERS serializer is added | SPECIFIED |
+| D-034 freezes lifetime/per-frame reset domains and increment events | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md` | BEGIN_FRAME priority, renderer/depth/candidate events, future presentation/Sobel inputs, and FIFO level sampling are explicit | SPECIFIED |
+| D-034 freezes passive instrumentation and counter invariants | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md` | Counter integration must not alter GFX-012 behavior; future formal properties are planned only | SPECIFIED |
+
+This milestone changes documentation only. No counter RTL, instrumentation
+outputs, GET_COUNTERS response serializer, formal result, synthesis, timing,
+or hardware evidence is claimed. GFX-013 implementation remains NOT STARTED.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

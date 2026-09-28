@@ -446,6 +446,144 @@ address bounds, no writes before clear completion, and reset clearing active
 control state. These are planned properties only and are not claimed as proved
 by this specification task.
 
+## D-034 — Performance-counter lifetime, event and instrumentation contract
+
+GFX-013 uses a reusable observational counter bank. Every architectural counter
+is an unsigned 32-bit modulo-2^32 value with no saturation and no sticky
+overflow bit. Global reset clears every counter. The future GET_COUNTERS
+snapshot order remains exactly:
+
+```text
+W1  frames_completed
+W2  triangles_submitted
+W3  triangles_degenerate
+W4  triangles_backface_rejected
+W5  candidate_pixels
+W6  covered_fragments
+W7  z_pass
+W8  z_fail
+W9  clear_cycles
+W10 render_cycles
+W11 triangle_setup_cycles
+W12 present_wait_cycles
+W13 sobel_cycles
+W14 command_fifo_high_watermark
+```
+
+### Counter reset domains
+
+The lifetime counters are:
+
+```text
+frames_completed
+command_fifo_high_watermark
+```
+
+They reset only on global reset. The remaining twelve counters are per-frame
+counters and reset to zero on every accepted `BEGIN_FRAME`. BEGIN_FRAME reset
+has priority over any same-cycle per-frame increment event. This is the event-
+level interpretation of D-019 and does not change the command protocol.
+
+### Exact events
+
+`frames_completed` increments once on a future system-domain
+`frame_completed_event`, meaning that presentation acknowledgment and role
+rotation have committed and FRAME_DONE has been generated or queued. It does
+not increment on BEGIN_FRAME, `renderer_quiescent`, final DRAW, `walk_complete`,
+`pipeline_empty`, PRESENT acceptance, or response transfer/backpressure.
+GFX-013 accepts this event synthetically; GFX-012 does not generate it.
+
+`triangles_submitted` increments on exactly:
+
+```text
+render_cmd_valid && render_cmd_ready &&
+render_cmd.opcode == CMD_DRAW_TRIANGLE
+```
+
+It counts RASTER, EMPTY, DEGENERATE, and BACKFACE outcomes. The rejection
+counters increment once when a setup result is retired with the corresponding
+DEGENERATE or BACKFACE classification. EMPTY increments neither rejection
+counter.
+
+`candidate_pixels` increments once on each exact D-030 candidate-retirement
+event, including both covered and uncovered candidates. It does not count
+stalled covered cycles, bbox size speculation, EMPTY, DEGENERATE, or BACKFACE.
+GFX-013 may add the instrumentation-only `candidate_retired` pulse to
+`raster_walk`; it must not alter traversal behavior.
+
+`covered_fragments` increments once on the accepted walker-to-Fragment/Z
+transfer:
+
+```text
+covered_valid && covered_ready
+```
+
+`z_pass` and `z_fail` count completed depth decisions, not reads. GFX-013 may
+add instrumentation-only `depth_result_valid` and `depth_pass` outputs to
+`fragment_z`:
+
+```text
+z_pass += depth_result_valid && depth_pass
+z_fail += depth_result_valid && !depth_pass
+```
+
+Equal depth is therefore a Z fail. Reset-aborted fragments that do not complete
+a decision increment neither counter. Existing primitive behavior must remain
+unchanged.
+
+`clear_cycles` increments once for every active clear write cycle, observed as
+the coincident clear-engine colour write event. An uninterrupted clear has
+`clear_cycles == 76800`; colour and Z writes are not counted separately.
+
+`render_cycles` increments once per system cycle in renderer states
+`TRI_SETUP`, `TRI_WALK`, or `TRI_DRAIN`. It excludes IDLE, CLEAR,
+FRAME_ACTIVE, command-wait idle time, and future PRESENT waiting.
+`triangle_setup_cycles` increments once per cycle in `TRI_SETUP`, including the
+complete submit/retire interval, and is a subset of `render_cycles`.
+
+`present_wait_cycles` increments once per future system cycle in
+`PRESENT_WAIT`. `sobel_cycles` increments once per future system-domain cycle
+in which Sobel processing is active. These are explicit future event inputs;
+GFX-013 does not fabricate presentation or Sobel logic.
+
+`command_fifo_high_watermark` is lifetime state. On every system cycle it
+updates as:
+
+```text
+max(command_fifo_high_watermark, zero_extend(command_fifo_level))
+```
+
+The FIFO's authoritative `level` signal is sampled directly. The exported
+width is 32 bits; the required full-depth observed peak is 1024.
+
+### Instrumentation and integration boundary
+
+The recommended reusable bank is `rtl/perf_counters.sv`. It consumes explicit
+event pulses/levels for current renderer events (`BEGIN_FRAME`, DRAW acceptance,
+setup classifications, candidate retirement, covered transfer, depth result,
+clear cycle, render cycle, and setup cycle) and future events
+(`frame_completed_event`, `present_wait_cycle`, `sobel_cycle`, and
+`command_fifo_level`). It does not derive counters from framebuffer contents or
+reimplement renderer logic.
+
+Instrumentation is passive. Adding event outputs or the counter bank must not
+change command readiness, clear/setup/walker/attribute/depth behavior,
+fragment ordering, memory results, or `renderer_quiescent` timing. Future
+GET_COUNTERS serialization remains outside GFX-013; the bank exposes only the
+current 32-bit values in W1–W14 order.
+
+At renderer quiescence after a non-reset frame, verification shall require:
+
+```text
+triangles_submitted == RASTER + EMPTY + DEGENERATE + BACKFACE
+z_pass + z_fail == covered_fragments
+triangle_setup_cycles <= render_cycles
+```
+
+The first equality uses independent classification scoreboard values. No
+requirement equates candidate and covered counts because uncovered candidates
+are valid.
+
 ## Memories and roles
 
 Each colour framebuffer is 76800×8 with a `clk_pix` synchronous read-only port
