@@ -137,10 +137,11 @@
   shift/clamp and RGB332 conversion, calculates unsigned17 addresses, aligns a
   one-cycle synchronous Z read through explicit valid stages, applies strict
   less-than depth, and emits coincident colour/Z writes only on pass.
-- Focused simulation used a genuine synchronous 76,800-byte Z-memory model:
-  66 accepted fragments, 66 Z reads, 65 completed decisions (one reset-aborted
-  in-flight fragment), 55 passes, 10 fails including 10 equal-depth fails, and
-  55 coincident writes. Read/address/data/ordering, final Z-memory, hazard, and
+- Focused simulation used a genuine synchronous 76,800-byte Z-memory model at
+  verification commit `2181ef8c5c30a2898efd4c3632a2ce8cc224bbc1`: 61 accepted
+  fragments, 61 Z reads, 60 completed decisions (one reset-aborted in-flight
+  fragment), 28 passes, 32 fails including 32 equal-depth fails, and 28
+  coincident writes. Read/address/data/ordering, final Z-memory, hazard, and
   stale-write mismatch counts were all zero.
 - No physical memory wrapper, renderer controller, counters, readback,
   display, Sobel, complete command-to-framebuffer integration, formal proof,

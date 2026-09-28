@@ -206,8 +206,9 @@ This milestone contains no fragment/Z RTL or functional verification evidence.
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| Fragment quantization, RGB332 packing, and address calculation match the independent oracle | `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a` | `make test-fragment-z` | Signed arithmetic-shift/clamp boundaries, RGB332 colours, signed42 expansion, and address extrema passed | RTL-SIMULATED |
-| Synchronous Z alignment and strict depth writes are verified | `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a` | `make test-fragment-z` | Genuine one-cycle synchronous 76,800-byte Z model; 66 accepted, 66 reads, 65 decisions with one reset abort, 55 passes, 10 fails, 55 coincident writes, zero mismatches/hazards/stale writes | RTL-SIMULATED |
+| Fragment/Z production RTL exists | `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a` | `rtl/fragment_z.sv` | Standalone fixed-latency F0–F3 stage; no physical memory/controller integration | LOCAL OBSERVATION |
+| Fragment quantization, RGB332 packing, and address calculation match the independent oracle | `2181ef8c5c30a2898efd4c3632a2ce8cc224bbc1` | `make test-fragment-z` | Signed arithmetic-shift/clamp boundaries, RGB332 colours, signed42 expansion, and address extrema passed | RTL-SIMULATED |
+| Synchronous Z alignment and strict depth writes are verified | `2181ef8c5c30a2898efd4c3632a2ce8cc224bbc1` | `make test-fragment-z` | Genuine one-cycle 76,800-byte Z model; 61 accepted, 61 reads, 60 decisions with one reset abort, 28 passes, 32 fails, 28 coincident writes, zero mismatches/hazards/stale writes | RTL-SIMULATED |
 | GFX-011 formal properties | — | not run | No fragment/Z formal proof is claimed | NOT RUN |
 
 GFX-011 does not claim complete renderer integration, physical memory wrappers,
