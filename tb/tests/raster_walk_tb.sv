@@ -19,6 +19,7 @@ module raster_walk_tb;
     integer cycle_index;
     integer stall_cycles;
     integer errors;
+    integer case_idx;
     integer expected_x [0:30000];
     integer expected_y [0:30000];
 
@@ -169,8 +170,8 @@ module raster_walk_tb;
         walk_in_valid = 1'b0;
         covered_ready = 1'b0;
         errors = 0;
-        run_case(0, 0, 1);
-        run_case(1, 0, 1);
+        for (case_idx = 0; case_idx < RASTER_WALK_CASES; case_idx = case_idx + 1)
+            run_case(case_idx, 0, 1);
         run_case(2, 1, 7);
         run_case(3, 1, 19);
         run_case(9, 0, 1);
