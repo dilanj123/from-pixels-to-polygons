@@ -4,7 +4,7 @@
 
 - Current phase: Gate 4 — Complete Colour/Z Renderer.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good commit: `d7b6f60b7bcf4a10da0c23d39ba202b9d43a3e99`.
+- Current known-good commit: `ebafcb69dcd44cabafaec81ccca493608cd6cb89`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties

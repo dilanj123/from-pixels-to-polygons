@@ -40,7 +40,10 @@ Instructions.
 
 ## Status
 
-These decisions are `SPECIFIED`. Individual decisions have separate evidence
-entries when implemented; D-031 is specification-only and has not yet been
-implemented or verified by simulation, formal, synthesis, timing, or hardware
-execution.
+D-001 through D-031 are architectural decisions classified as `SPECIFIED`.
+
+D-031 has now been implemented by GFX-010, and its signed42
+attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation
+commit `d7b6f60b7bcf4a10da0c23d39ba202b9d43a3e99`.
+
+This does not imply formal proof, synthesis, P&R, timing, or hardware evidence.
