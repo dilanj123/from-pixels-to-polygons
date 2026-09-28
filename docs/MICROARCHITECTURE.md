@@ -223,13 +223,96 @@ wraparound occurs in the attribute walker. GFX-011 consumes the raw transaction
 and owns arithmetic shift-right by 8, RGB/Z clamping, RGB332 packing, address
 calculation, Z processing, and framebuffer writes.
 
-## Fragment/Z path
+## Fragment/Z path (D-032)
 
-F0 quantizes RGB/Z and calculates the unsigned17 address; F1 issues the
-synchronous Z read; F2 receives old Z and compares strict `<`; F3 conditionally
-writes Z and RGB332. No architecture behavior depends on same-address RAM
-read/write semantics. The required hazard assertion forbids simultaneous equal
-Z read/write addresses.
+GFX-011 consumes one GFX-010 covered transaction through:
+
+```text
+frag_valid
+frag_ready
+frag_x       [8:0]
+frag_y       [7:0]
+frag_r_raw   signed [41:0]
+frag_g_raw   signed [41:0]
+frag_b_raw   signed [41:0]
+frag_z_raw   signed [41:0]
+```
+
+Transfers occur only on `frag_valid && frag_ready`. Coordinates are assumed to
+be legal walker coordinates (`x=0..319`, `y=0..239`); coordinate errors and
+`CMD_ERROR` remain outside this block. The fixed baseline has no downstream
+ready/valid memory interface and accepts one fragment per `clk_sys` whenever
+reset is inactive and the pipeline is operational (`frag_ready=1`). This is an
+interface capability, not a routed system-throughput claim.
+
+The four-stage organization is:
+
+```text
+F0: accept fragment; arithmetic-shift raw RGB/Z by 8; clamp; pack RGB332;
+    calculate unsigned17 address; register fragment metadata.
+F1: issue the synchronous Z read for the registered fragment.
+F2: consume the following-cycle old-Z response aligned with that fragment;
+    calculate strict-less-than pass/fail.
+F3: on pass, emit coincident Z and colour writes; on fail, emit no writes.
+```
+
+The selected register-valid convention is explicit: a fragment accepted at
+edge N is registered in F0; its address/read request is presented by F1 in the
+following cycle; the external synchronous Z memory samples that request at the
+next rising edge and presents old Z during the following cycle; F2 consumes
+that response for the same fragment; and F3 emits the corresponding write
+transaction after the F2 decision. Empty valid slots propagate through every
+stage, so arbitrary input gaps do not realign metadata with a neighboring
+Z response. Back-to-back valid fragments remain ordered, with one read request
+per accepted fragment.
+
+Raw conversion is arithmetic shift-right by eight with no re-rounding and no
+signed32 truncation. RGB channels clamp to `0..255`, then pack as
+`{R8[7:5], G8[7:5], B8[7:6]}`. Z clamps to `0..254`; `255` remains the clear/
+infinity value and is never produced by fragment quantization. The address is
+unsigned17 and uses `(y << 8) + (y << 6) + x`, with legal range `0..76799`.
+
+The external memory interfaces are:
+
+```text
+z_rd_en                 z_rd_addr [16:0]   z_rd_data [7:0]
+z_wr_en                 z_wr_addr [16:0]   z_wr_data [7:0]
+fb_wr_en                fb_wr_addr[16:0]   fb_wr_data[7:0]
+pipeline_empty
+```
+
+`z_rd_en` samples the address at the rising edge and the corresponding old
+`z_rd_data` is available during the following cycle. Writes are accepted at the
+rising edge whenever their enable is asserted; there are no ready signals.
+On a depth pass, `z_wr_en=fb_wr_en=1`, both addresses equal the fragment
+address, and the data are the clamped Z and RGB332 values. On a fail
+(`new_z >= old_z`), both enables are zero; equal depth therefore fails and
+causes no side effect.
+
+Legal integration must satisfy:
+
+```text
+!(z_rd_en && z_wr_en && (z_rd_addr == z_wr_addr))
+```
+
+No vendor read-first/write-first/no-change behavior is assumed. The assertion
+is justified by the one-use-per-pixel walk and the controller's requirement to
+wait for the prior fragment pipeline to drain before the next triangle.
+
+`pipeline_empty` is one exactly when all internal F0/F1/F2/F3 valid state is
+empty. It is zero from the first accepted fragment until that fragment's
+depth decision and any pass write have retired. A failed depth test still
+occupies the pipeline until F2 retirement. `walk_complete` remains candidate
+generation completion only; the controller sequence is `TRI_WALK -> TRI_DRAIN
+-> FRAME_ACTIVE`, with TRI_DRAIN waiting for `pipeline_empty` before another
+triangle enters raster generation.
+
+Reset clears all internal valid state and produces `z_rd_en=0`, `z_wr_en=0`,
+`fb_wr_en=0`, and `pipeline_empty=1`. A stale external Z response after reset
+is ignored because its associated valid state has been discarded. RAM arrays
+are not reset. GFX-011 does not own clearing, triangle setup, traversal,
+physical memory arrays, controller legality, counters, readback, display, or
+Sobel integration; those boundaries belong to GFX-012 and later work.
 
 ## Memories and roles
 

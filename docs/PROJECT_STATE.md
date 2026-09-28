@@ -18,6 +18,7 @@
 - Python reference: REFERENCE-MODEL VERIFIED.
 - GFX-010 attribute stepping: RTL SIMULATION VERIFIED; no attribute formal
   proof is claimed.
+- GFX-011 fragment/Z contract: SPECIFIED by D-032; implementation NOT STARTED.
 - No fragment/Z integration, complete renderer, full graphics synthesis/P&R,
   timing, or physical hardware evidence exists yet.
 - Current next task: `GFX-011 — Fragment/Z stage`.

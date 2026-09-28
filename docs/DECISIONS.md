@@ -1,6 +1,6 @@
 # Source-level decisions
 
-The following D-001–D-031 decisions are the supplied authoritative source-level
+The following D-001–D-032 decisions are the supplied authoritative source-level
 decisions. They are subordinate to the Master Project Plan and Operating
 Instructions.
 
@@ -37,10 +37,11 @@ Instructions.
 | D-029 | Freeze the synthesizable triangle-setup result: `TRI_SETUP_RASTER=2'b00`, `TRI_SETUP_EMPTY=2'b01`, `TRI_SETUP_DEGENERATE=2'b10`, and `TRI_SETUP_BACKFACE=2'b11`; only RASTER enters the walker; non-RASTER bbox and initial edges canonicalize to zero; AREA, edge dx/dy, top-left flags, steps, tag, and all attributes remain valid for every legal input; the decoder owns coordinate-range errors and setup receives legal decoded coordinates as a precondition. |
 | D-030 | Freeze the coverage-only raster-walker handshake, candidate retirement, state-freeze under covered-output backpressure, row-major traversal, one-shot final-candidate completion, reset abort, and the GFX-009/GFX-010 scope boundary as specified in `docs/MICROARCHITECTURE.md`. |
 | D-031 | Freeze signed42 Q8 row/current R/G/B/Z attribute stepping, sign-extended signed32 setup coefficients, raw signed42 covered-fragment fields, stall/reset behavior, and the GFX-010/GFX-011 boundary as specified in `docs/MICROARCHITECTURE.md`. |
+| D-032 | Freeze the fixed-latency F0–F3 fragment/Z pipeline: signed42 Q8 quantization, RGB332 and unsigned17 address conversion, one-cycle synchronous Z-read alignment, strict-less-than depth testing, coincident pass writes, no-write fails, pipeline drain, reset flushing, and the no-equal-address Z read/write integration hazard as specified in `docs/MICROARCHITECTURE.md`. |
 
 ## Status
 
-D-001 through D-031 are architectural decisions classified as `SPECIFIED`.
+D-001 through D-032 are architectural decisions classified as `SPECIFIED`.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation

@@ -193,6 +193,15 @@ This milestone contains no attribute RTL or functional verification evidence.
 GFX-010 does not claim quantization, RGB332, framebuffer address, Z stage,
 complete renderer, synthesis, P&R, timing, or hardware evidence.
 
+## GFX-011-SPEC-FREEZE milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-032 freezes the fragment/Z contract | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md`, `docs/FIXED_POINT.md` | Fixed F0–F3 timing, signed42 Q8 conversion, RGB332/Z clamp, unsigned17 address, synchronous Z timing, strict depth, pass/fail writes, drain, reset, and hazard rule are explicit | SPECIFIED |
+| GFX-011 verification and formal plan is recorded | `docs/VERIFICATION_PLAN.md` | Quantization, alignment, depth, write, drain, hazard, and reset cases are planned only | SPECIFIED |
+
+This milestone contains no fragment/Z RTL or functional verification evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
