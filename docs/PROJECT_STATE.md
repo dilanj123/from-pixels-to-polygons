@@ -20,6 +20,8 @@
   renderer, full graphics synthesis/P&R, timing, or physical hardware evidence
   exists yet.
 - Current next task: `GFX-009 — Raster walker coverage only`.
+- GFX-008 state synchronization is complete. GFX-009 implementation is waiting
+  only on the D-030 interface/completion freeze recorded here.
 
 ## GFX-006 — command decoder
 
@@ -74,6 +76,16 @@
 - GFX-007 remains accepted. Gate 3 remains OPEN.
 - No RTL, testbench, formal, synthesis, or reference implementation changed.
 - Next task: `GFX-008 — Triangle setup`.
+
+## GFX-009-SPEC-FREEZE — D-030
+
+- D-030 specifies the coverage-only walker input/output handshakes, RASTER-only
+  precondition, candidate retirement under covered-output backpressure,
+  row-major horizontal/row advancement, final-candidate completion, zero-cover
+  RASTER behavior, reset abort, and the GFX-009/GFX-010 boundary.
+- This is specification evidence only. No raster-walker RTL, simulation, formal,
+  synthesis, timing, or hardware evidence is claimed.
+- Gate 3 remains OPEN. Next task: `GFX-009 — Raster walker coverage only`.
 
 ## GFX-007 — clear engine
 

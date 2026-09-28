@@ -24,6 +24,7 @@ the command, result, conditions, and evidence path.
 | W+1/final drain/APB | Accepted-stream index comparison, final-EOL/drain test, APB-before-SOF and shadow timing tests |
 | Memory feasibility | GFX-004 synthesis spike plus separate admitted-parent resource evidence and combined target budget |
 | Third-party boundary | Manifest review for every reused file; no copied core graphics implementation |
+| GFX-009 coverage-only walker | Exact accepted covered-coordinate sequence versus `triangle_coverage()`/`iter_bbox_pixels()`, exact candidate count, shared-edge union/no-overlap, flat-top/flat-bottom, thin, tiny/subpixel, screen boundaries, zero-covered RASTER, deterministic random RASTER triangles, randomized output backpressure, final-covered-pixel stall, reset at first/middle/final candidate, no output outside bbox, and exact completion timing |
 
 ## Verification sequence
 
@@ -42,3 +43,14 @@ the same quantized command stream rendered by an independent model versus the
 RTL framebuffer/Z result. Formal results must state assumptions and vacuity or
 coverage limitations. No simulation, formal, synthesis, timing, or hardware
 result is claimed by this plan.
+
+## GFX-009 formal plan
+
+Future focused formal checks shall include: x/y remain within the accepted bbox
+while busy; traversal cannot step beyond xmax/ymax; covered output equals the
+current candidate; output payload and walker state remain stable while a covered
+output is stalled; row transitions return x to xmin; `walk_complete` occurs only
+after final-candidate retirement; reset-abort cannot produce completion; and a
+finite non-empty bbox eventually terminates under an assumption that
+`covered_ready` is eventually asserted. These are planned properties only and
+are not claimed as proved by this specification task.

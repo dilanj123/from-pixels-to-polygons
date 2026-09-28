@@ -150,6 +150,15 @@ subsequent GFX-008 triangle-setup implementation is recorded below.
 GFX-008 does not claim raster coverage, attribute stepping, fragment/Z,
 framebuffer, controller, display, Sobel, timing, P&R, or hardware evidence.
 
+## GFX-009-SPEC-FREEZE milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-030 freezes the coverage-only walker contract | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | RASTER-only input, covered-output handshake, candidate retirement, row-major advancement, completion, reset, and GFX-009/GFX-010 boundary are explicit | SPECIFIED |
+| GFX-009 verification and formal plan is recorded | `docs/VERIFICATION_PLAN.md` | Reference sequence comparison, stall/reset/completion cases, and future formal properties are planned only | SPECIFIED |
+
+This milestone contains no raster-walker RTL or functional verification evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

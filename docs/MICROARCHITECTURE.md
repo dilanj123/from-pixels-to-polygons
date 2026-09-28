@@ -78,10 +78,79 @@ D-029 changes only this synthesizable output representation. It does not change
 the Q4, pixel-centre, edge, winding, bbox, top-left, empty-bbox, or Python
 reference mathematics.
 
+### Coverage-only raster walker contract (D-030)
+
+GFX-009 consumes one already-produced `triangle_setup_result_t` through
+`walk_in_valid`, `walk_in_ready`, and `walk_in_payload`. Transfer occurs only
+on `walk_in_valid && walk_in_ready`. The payload classification must be
+`TRI_SETUP_RASTER`; EMPTY, DEGENERATE, and BACKFACE are handled before the
+walker. A non-RASTER input is an integration-contract violation, not a runtime
+protocol error. The implementation may assert this precondition in
+simulation/formal.
+
+The baseline accepts a new triangle only while idle: `walk_in_ready = !busy`.
+There is no same-cycle final-candidate completion/refill in v1; a new triangle
+may be accepted no earlier than the cycle after the prior walk completes.
+
+Coverage output is only `covered_valid`, `covered_ready`, `covered_x[8:0]`, and
+`covered_y[7:0]`. An implementation may also carry `covered_tag[15:0]`; if so,
+the tag is part of the stalled payload and remains stable with x/y. No colour,
+depth, address, or attribute fields are emitted by GFX-009.
+
+For current E0/E1/E2 values, coverage uses:
+
+```text
+inside0 = (E0 > 0) || (E0 == 0 && top_left[0])
+inside1 = (E1 > 0) || (E1 == 0 && top_left[1])
+inside2 = (E2 > 0) || (E2 == 0 && top_left[2])
+covered = inside0 && inside1 && inside2
+```
+
+On setup acceptance, capture bbox, top-left flags, edge steps, and initialize
+`x=xmin`, `y=ymin`, `row_E*=E*_init`, and `current_E*=E*_init`. No multiply or
+division is performed in the walker.
+
+A candidate retires exactly once. An uncovered candidate retires immediately
+when evaluated and does not require `covered_ready`. A covered candidate retires
+only on `covered_valid && covered_ready`. While a covered candidate is stalled,
+`covered_valid`, its complete payload, x/y, current E0/E1/E2, row E0/E1/E2,
+busy, and completion state remain unchanged; no candidate is retired again.
+
+After retiring a candidate with `x < xmax`, advance x and add each edge's
+`step_x`. After retiring `x==xmax && y<ymax`, set `x=xmin`, increment y, add
+each `step_y` to the row values, and use those updated row values as the next
+current E values. Traversal is exactly row-major:
+
+```text
+for y in ymin..ymax:
+    for x in xmin..xmax:
+        consider (x,y)
+```
+
+The walker emits a one-cycle system-domain `walk_complete` pulse when the final
+candidate `(xmax,ymax)` retires. An uncovered final candidate completes on its
+evaluation/retirement cycle; a covered final candidate completes only with its
+accepted output transfer. A stalled final covered candidate cannot complete.
+`walk_complete` means candidate generation is finished, not downstream pipeline
+drain. The baseline registered convention is: final retirement occurs at edge
+N, and during cycle N+1 `walk_complete=1`, `busy=0`, and the walker is idle;
+`walk_in_ready` may reassert in that cycle without creating same-cycle refill
+ambiguity. The pulse is exactly one cycle.
+
+A RASTER triangle may have zero covered pixels. The walker still visits every
+bbox candidate, emits no covered token, and completes after the final candidate
+retires. Reset aborts a walk, clears pending output and busy/completion state,
+suppresses stale output/completion, and permits a later legal RASTER input to
+restart at its own `(xmin,ymin)`.
+
+GFX-009 owns only candidate traversal, edge stepping, top-left coverage,
+covered x/y output, and traversal completion. GFX-010 adds raw R/G/B/Z current
+and row accumulation for covered samples. GFX-009 does not quantize attributes,
+compute addresses, read/compare/write Z or colour, or manage downstream drain.
+
 The baseline walker advances one candidate per `clk_sys` target cycle using
-signed32 edge additions and signed42 row/current R/G/B/Z accumulators. It emits
-covered fragment tokens and drains the complete downstream pipeline before a
-new triangle begins.
+signed32 edge additions. Future attribute accumulation and complete downstream
+fragment draining remain outside this coverage-only block.
 
 ## Fragment/Z path
 
