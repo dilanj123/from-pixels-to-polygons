@@ -20,6 +20,8 @@
   proof is claimed.
 - GFX-011 fragment/Z stage: RTL SIMULATION VERIFIED at implementation commit
   `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a`; no formal proof is claimed.
+- GFX-012 baseline renderer integration contract: SPECIFIED by D-033;
+  implementation NOT STARTED.
 - No fragment/Z integration, complete renderer, full graphics synthesis/P&R,
   timing, or physical hardware evidence exists yet.
 - Current next task: `GFX-012 — Baseline renderer integration`.
@@ -147,6 +149,19 @@
   display, Sobel, complete command-to-framebuffer integration, formal proof,
   synthesis, P&R, timing, or hardware evidence was added.
 - Gate 4 remains OPEN. Next task: `GFX-012 — Baseline renderer integration`.
+
+## GFX-012 — baseline renderer integration contract
+
+- D-033 freezes the baseline renderer composition, local execution states,
+  decoded-command boundary, production framebuffer/Z wrapper contracts,
+  mutually exclusive clear/fragment memory ownership, TRI_DRAIN barrier, and
+  verification-local `renderer_quiescent` status.
+- GFX-012 implementation is NOT STARTED. This is specification evidence only;
+  no renderer integration, production memory-wrapper RTL, full-frame
+  comparison, formal result, synthesis, timing, or hardware evidence is
+  claimed.
+- Gate 3 is CLOSED and Gate 4 remains OPEN. Next task:
+  `GFX-012 — Baseline renderer integration`.
 
 ## GFX-007 — clear engine
 

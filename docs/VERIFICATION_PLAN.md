@@ -27,6 +27,7 @@ the command, result, conditions, and evidence path.
 | GFX-009 coverage-only walker | Exact accepted covered-coordinate sequence versus `triangle_coverage()`/`iter_bbox_pixels()`, exact candidate count, shared-edge union/no-overlap, flat-top/flat-bottom, thin, tiny/subpixel, screen boundaries, zero-covered RASTER, deterministic random RASTER triangles, randomized output backpressure, final-covered-pixel stall, reset at first/middle/final candidate, no output outside bbox, and exact completion timing |
 | GFX-010 attribute stepping | Direct mathematical comparison of signed42 raw R/G/B/Z for every accepted covered coordinate, including zero/positive/negative X/Y gradients, signed starts and extrema, long rows, row transitions, one-pixel and zero-covered cases, mixed coverage, output stalls/final stalls, reset/restart, deterministic randomized planes, and continued GFX-009 coordinate-sequence equality |
 | GFX-011 fragment/Z stage | Arithmetic signed42 Q8 shift and clamp boundaries, exact RGB332 packing, unsigned17 address extrema/range, one-cycle synchronous Z-read alignment, strict-less-than and equal-depth rejection, coincident pass writes, fail no-write, valid gaps, back-to-back fragments, pipeline drain, forbidden equal-address Z read/write, and reset flushing |
+| GFX-012 baseline renderer integration | Decoded NOP/BEGIN_FRAME/DRAW execution, clear/setup/walk/drain orchestration, production framebuffer/Z wrappers, renderer quiescence, full 76800-byte colour/Z comparison, depth/order/rejection cases, reset recovery, deterministic random frames, and raw decoder smoke composition |
 
 ## Verification sequence
 
@@ -98,3 +99,43 @@ pipeline-empty correspondence, reset clearing all valid state, suppression of
 pre-reset writes, and no equal-address Z read/write under the documented
 integration assumption. These are planned properties only and are not claimed
 as proved by this specification task.
+
+## GFX-012 verification plan
+
+Focused GFX-012 verification shall drive already decoded legal `NOP`,
+`BEGIN_FRAME`, and `DRAW_TRIANGLE` transactions through the local renderer FSM.
+It shall verify clear completion before the first DRAW, exact setup-class
+handling, direct walker-to-Fragment/Z ready/valid composition, and the
+`TRI_WALK -> TRI_DRAIN -> FRAME_ACTIVE` barrier. `PRESENT` and display
+completion are not part of this task.
+
+The framebuffer and Z wrappers shall be tested independently for their
+specified synchronous read/write timing, including pixel-domain framebuffer
+read timing where practical, and without assuming reset clears their arrays.
+Renderer tests shall inspect memories only after the verification-local
+`renderer_quiescent` condition. Each frame must compare all 76,800 RGB332
+bytes and all 76,800 Z bytes against the independent Python renderer; checksums
+are supplemental and zero mismatches are required.
+
+Directed frames shall include clear-only colours `0x00`, `0xFF`, and `0xA5`,
+ordinary, flat-top, flat-bottom, thin, tiny/subpixel, boundary, shared-edge,
+non-overlapping, far-then-near, near-then-far, equal-depth, reversed-order,
+degenerate, backface, positive-area EMPTY, mixed accepted/rejected, and
+zero-covered RASTER cases. Sequential triangles shall demonstrate the drain
+barrier. Reset shall be exercised in `IDLE`, `CLEAR`, `TRI_SETUP`, `TRI_WALK`,
+and `TRI_DRAIN`, followed by a fresh BEGIN_FRAME recovery.
+
+Deterministic random frames shall contain 1..48 legal triangles with valid,
+degenerate, reversed, empty, boundary, and signed32 attribute-plane cases,
+plus random clear colours. The report shall include seed, triangle count,
+expected/actual framebuffer and Z checksums, colour/Z mismatch counts, and the
+first mismatch coordinate/value when nonzero. A raw command smoke test may feed
+the existing decoder's BEGIN_FRAME/DRAW packets into the same renderer path;
+it does not replace the direct renderer comparison.
+
+Planned formal properties shall cover one active local phase, mutually
+exclusive clear/fragment memory ownership, RASTER-only walker admission,
+TRI_DRAIN waiting for `pipeline_empty`, renderer-quiescent implies no pending
+write-producing work, address bounds, no writes before clear completion, and
+reset clearing active control state. These are planned properties only; this
+specification task claims no GFX-012 formal execution.

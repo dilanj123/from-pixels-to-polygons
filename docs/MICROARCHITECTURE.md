@@ -314,6 +314,138 @@ are not reset. GFX-011 does not own clearing, triangle setup, traversal,
 physical memory arrays, controller legality, counters, readback, display, or
 Sobel integration; those boundaries belong to GFX-012 and later work.
 
+## D-033 — Baseline renderer integration, production memory wrappers and quiescent-frame verification boundary
+
+GFX-012 composes the already verified command decoder output, clear engine,
+triangle setup, raster walker, Fragment/Z stage, and production render-memory
+wrappers into one focused render path:
+
+```text
+decoded BEGIN_FRAME/DRAW
+        -> clear/setup control
+        -> clear_engine or triangle_setup
+        -> raster_walk
+        -> fragment_z
+        -> render framebuffer and Z buffer
+```
+
+The renderer input is an already decoded transaction:
+
+```text
+render_cmd_valid
+render_cmd_ready
+gfx_pkg::decoded_command_t render_cmd
+```
+
+GFX-006 remains responsible for packet syntax and fixed-length collection.
+GFX-012 executes only `NOP`, `BEGIN_FRAME`, and `DRAW_TRIANGLE` in its focused
+path. `PRESENT`, `SET_SOBEL`, `READ_FRONT`, `GET_STATUS`, and `GET_COUNTERS`
+remain outside this integration block. The focused path accepts syntactically
+valid, state-legal command sequences: `NOP`/`BEGIN_FRAME` in `IDLE`, then
+`NOP`/`DRAW_TRIANGLE` in `FRAME_ACTIVE`. Runtime legality and complete protocol
+error responses remain owned by later top-level control; GFX-012 does not
+duplicate decoder or error semantics.
+
+The local execution states are:
+
+```text
+IDLE -> CLEAR -> FRAME_ACTIVE -> TRI_SETUP -> TRI_WALK -> TRI_DRAIN
+```
+
+`IDLE` accepts only legal `BEGIN_FRAME` or `NOP`. `BEGIN_FRAME` captures
+`clear_rgb332` and starts the clear engine; colour and Z are cleared in parallel
+to `clear_rgb332` and `8'hFF` across all 76800 addresses. No DRAW dispatches
+until clear completion. `FRAME_ACTIVE` accepts legal `NOP` or `DRAW_TRIANGLE`.
+During `TRI_SETUP`, exactly one DRAW is submitted and one setup result is
+retired. `TRI_SETUP_RASTER` starts the walker. `TRI_SETUP_EMPTY`,
+`TRI_SETUP_DEGENERATE`, and `TRI_SETUP_BACKFACE` produce no fragments or
+memory writes and return to `FRAME_ACTIVE`; they are geometry results, not
+protocol errors. `render_cmd_ready` is asserted only in `IDLE` and
+`FRAME_ACTIVE`, with no speculative command execution or same-cycle refill.
+
+During `TRI_WALK`, the existing covered transaction is wired directly from
+`raster_walk` to `fragment_z`, including x/y and raw signed42 R/G/B/Z:
+
+```text
+raster_walk.covered_valid -> fragment_z.frag_valid
+fragment_z.frag_ready     -> raster_walk.covered_ready
+```
+
+When `walk_complete` asserts, the renderer enters `TRI_DRAIN`, stops accepting
+another DRAW, and waits for `fragment_z.pipeline_empty`. Only after that drain
+barrier does it return to `FRAME_ACTIVE`, preventing the next triangle's Z
+reads from colliding with prior-triangle writes.
+
+GFX-012 adds original production wrappers, without resetting their arrays:
+
+```text
+framebuffer_dp.sv:
+  one logical 76800x8 colour surface;
+  clk_pix synchronous read-only address[16:0] -> data[7:0], one-cycle latency;
+  clk_sys synchronous read/write address[16:0], write enable/data, read data,
+  one-cycle read latency.
+
+zbuffer.sv:
+  clk_sys, synchronous read address[16:0] -> data[7:0], one-cycle latency;
+  synchronous write enable/address[16:0]/data[7:0].
+```
+
+The wrappers follow the GFX-004 inference-compatible style as feasibility
+evidence only; no vendor EBR mapping is claimed by this contract. GFX-012
+instantiates only the logical render target. FRONT/RENDER/SPARE rotation is
+deferred to later integration.
+
+Memory ownership is mutually exclusive by renderer state. In `CLEAR`, the
+clear engine owns both colour and Z writes. In `TRI_WALK` and `TRI_DRAIN`,
+`fragment_z` owns pass colour/Z writes and Z reads. Planned assertions shall
+ensure clear and fragment writes cannot be active together. D-032 remains
+authoritative for the forbidden legal-operation hazard:
+
+```text
+!(z_rd_en && z_wr_en && (z_rd_addr == z_wr_addr))
+```
+
+GFX-012 exposes no architectural `FRAME_DONE` and fabricates no presentation
+acknowledgement. For focused verification it may expose the local status
+`renderer_quiescent`, defined as:
+
+```text
+state == FRAME_ACTIVE
+&& triangle_setup has no pending output
+&& raster walker is idle
+&& fragment_z.pipeline_empty
+&& clear_engine is inactive
+```
+
+This means that all accepted BEGIN_FRAME/DRAW work has affected the logical
+render memories and no write-producing work remains. It is not FRAME_DONE,
+PRESENT completion, or display completion. After quiescence, the testbench may
+inspect instantiated production memory arrays through a verification-only
+hierarchical/helper path. Architectural framebuffer readback remains GFX-014.
+
+Reset in any local state aborts the operation, clears controller/valid state,
+suppresses stale writes, leaves RAM contents partially modified or otherwise
+unspecified, and requires a new BEGIN_FRAME before a DRAW. RAM arrays are not
+reset.
+
+Focused GFX-012 verification shall compare all 76800 RGB332 bytes and all
+76800 Z bytes after `renderer_quiescent` against the independent Python
+renderer, with zero mismatches required. Directed cases include clear-only,
+ordinary/flat/thin/tiny/boundary/shared-edge geometry, non-overlap and depth
+ordering (far/near/equal/reversed), degenerate/backface/EMPTY/mixed streams,
+zero-covered RASTER, and sequential triangles separated by TRI_DRAIN. Random
+legal frames contain 1..48 triangles, rejected geometry, boundary cases,
+random signed32 attribute planes, and random clear colours. A decoder-fed raw
+BEGIN_FRAME/DRAW smoke composition is allowed after renderer-engine tests;
+packet parsing is not duplicated and FIFO composition is optional.
+
+Future formal properties shall check one active execution phase, exclusive
+clear/fragment ownership, RASTER-only walker admission, TRI_DRAIN exit only
+after `pipeline_empty`, quiescence with no pending write-producing operation,
+address bounds, no writes before clear completion, and reset clearing active
+control state. These are planned properties only and are not claimed as proved
+by this specification task.
+
 ## Memories and roles
 
 Each colour framebuffer is 76800×8 with a `clk_pix` synchronous read-only port

@@ -214,6 +214,19 @@ This milestone contains no fragment/Z RTL or functional verification evidence.
 GFX-011 does not claim complete renderer integration, physical memory wrappers,
 synthesis, P&R, timing, throughput, or hardware evidence.
 
+## GFX-012-SPEC-FREEZE milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-033 freezes the baseline renderer integration boundary | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | Decoded-command boundary, NOP/BEGIN_FRAME/DRAW subset, local execution FSM, setup-class handling, TRI_DRAIN, and no command-parser duplication are explicit | SPECIFIED |
+| D-033 freezes production memory-wrapper contracts and ownership | `docs/MICROARCHITECTURE.md` | Original framebuffer/Z wrapper interfaces, unreset RAM arrays, mutually exclusive clear/fragment ownership, and D-032 hazard preservation are explicit; no RTL wrappers are implemented by this task | SPECIFIED |
+| D-033 freezes quiescent-frame verification | `docs/VERIFICATION_PLAN.md`, `docs/MICROARCHITECTURE.md` | Verification-local `renderer_quiescent`, full 76800-byte colour/Z comparison, directed/random frame requirements, and future formal properties are defined; no GFX-012 simulation or formal result is claimed | SPECIFIED |
+
+This milestone changes documentation only. GFX-012 implementation, complete
+renderer integration, physical memory-wrapper verification, synthesis, P&R,
+timing, and hardware evidence remain outstanding. GFX-013 counters and
+GFX-014 framebuffer readback remain deferred.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
