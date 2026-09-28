@@ -163,9 +163,9 @@ This milestone contains no raster-walker RTL or functional verification evidence
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| Coverage sequence matches the independent Python oracle | `GFX-009 commit` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, row-major coordinate comparison, zero-covered cases, zero mismatches | RTL-SIMULATED |
-| Backpressure, final-covered stalls, and reset abort are verified | `GFX-009 commit` | `tb/tests/raster_walk_tb.sv` | Deterministic ready seeds `1`, `7`, `19`; stalled payload stability and restart checks passed | RTL-SIMULATED |
-| Shared-edge and subpixel/boundary coverage remains exact | `GFX-009 commit` | focused vector suite and Python oracle | Shared-edge/reference geometry, thin, tiny, left/top/right/bottom cases included; no attribute or fragment claim | RTL-SIMULATED |
+| Coverage sequence matches the independent Python oracle | `95b6ca97bd14175de7e6754dd3eec3ac3c3568b1` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, 3 zero-covered cases, maximum covered output 1,104, row-major comparison, zero mismatches | RTL-SIMULATED |
+| Backpressure, final-covered stalls, and reset abort are verified | `95b6ca97bd14175de7e6754dd3eec3ac3c3568b1` | `tb/tests/raster_walk_tb.sv` | Deterministic ready seeds `1`, `7`, `19`; stalled payload stability and restart checks passed | RTL-SIMULATED |
+| Shared-edge and subpixel/boundary coverage remains exact | `95b6ca97bd14175de7e6754dd3eec3ac3c3568b1` | focused vector suite and Python oracle | Shared-edge/reference geometry, thin, tiny, left/top/right/bottom cases included; no attribute or fragment claim | RTL-SIMULATED |
 | GFX-009 formal properties | — | not run | No formal raster-walker proof is claimed | NOT RUN |
 
 GFX-009 does not claim attribute stepping, fragment/Z, framebuffer,
