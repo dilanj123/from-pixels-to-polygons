@@ -19,7 +19,7 @@ A checkbox is completed only by actual evidence, not by intent.
 - [x] formal solver(s) recorded (missing, explicitly documented)
 - [x] nextpnr-ecp5 path/version recorded (missing, explicitly documented)
 - [x] repository initialized
-- [x] public remote requirement evaluated — not applicable at Gate 0 because GitHub authentication is invalid and remote creation has not been authorized
+- [x] public remote requirement evaluated at Gate 0; remote was unavailable then. Repository was subsequently published as https://github.com/dilanj123/from-pixels-to-polygons
 - [x] `make doctor` works
 - [x] bootstrap known-good commit preserved
 - [x] no raster RTL added during bootstrap
@@ -51,8 +51,9 @@ A checkbox is completed only by actual evidence, not by intent.
 
 Gate-0 tool-state checkboxes mean the executable state was explicitly detected
 and documented. They do not mean missing tools were installed. The public-remote
-checkbox remains open because GitHub authentication is invalid and no remote was
-authorized or created. Later gates remain open.
+checkbox records the historical Gate-0 condition. The repository was subsequently
+published as https://github.com/dilanj123/from-pixels-to-polygons, with `main`
+synchronized to `origin/main`. Later gates remain open.
 
 ## Gate 1 — Independent Reference Renderer
 

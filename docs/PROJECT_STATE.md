@@ -1,5 +1,26 @@
 # Project state
 
+## Current state
+
+- Current phase: Gate 3 — Raster Primitive.
+- Gate 2: CLOSED. Gate 3: OPEN.
+- Current known-good commit: `1d1ae57fbe7a27ab5862e52f72c7d03f1ddb7aca`.
+- Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
+- Branch: `main`; local HEAD equals `origin/main`.
+- GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
+  FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS.
+- GFX-006 command decoder: RTL SIMULATION VERIFIED; selected decoder
+  properties FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS.
+- GFX-007 clear engine: RTL SIMULATION VERIFIED; selected clear properties
+  FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS.
+- GFX-008 triangle setup: RTL SIMULATION VERIFIED; triangle-setup formal was
+  NOT RUN / NOT CLAIMED.
+- Python reference: REFERENCE-MODEL VERIFIED.
+- No raster coverage RTL, attribute stepping, fragment/Z integration, complete
+  renderer, full graphics synthesis/P&R, timing, or physical hardware evidence
+  exists yet.
+- Current next task: `GFX-009 — Raster walker coverage only`.
+
 ## GFX-006 — command decoder
 
 - Current phase: Gate 3 — Raster Primitive / command infrastructure.
@@ -19,9 +40,9 @@
   side effects. Decoder-generated syntax errors own the exposed sticky
   `cmd_error`; runtime legality errors remain deferred.
 - Existing FIFO simulation and 31-test Python reference regression remain
-  passing. GFX-007 adds only the standalone clear stream; triangle setup,
-  raster, fragment/Z, display, Sobel, and command-execution integration
-  remain unimplemented.
+  passing. GFX-007 adds only the standalone clear stream; triangle setup is
+  now complete, while raster, fragment/Z, display, Sobel, and
+  command-execution integration remain unimplemented.
 
 ## Current next task
 
@@ -74,7 +95,7 @@
 ## GFX-005 — package and command FIFO
 
 - Current phase: Gate 3 — Raster Primitive / command infrastructure.
-- Current task: GFX-005 complete; `gfx_pkg` constants/types and the production
+- At the GFX-005 milestone, the task was complete; `gfx_pkg` constants/types and the production
   1024×32 single-clock command FIFO are implemented and verified.
 - Starting known-good HEAD: `abcb0a8a2858a85c5ed4bc0664a19901a9622824`.
 - Gate 2: CLOSED. Gate 3: OPEN.
@@ -176,15 +197,19 @@
   and deterministic random regression verified.
 - GFX-002 primitives: 19/19 standard-library unit tests passed; independent
   quantization, edge, bbox, and single-triangle coverage primitives verified.
-- RTL simulation: not run; no evidence.
-- Graphics formal: not run; no evidence.
+- Historical pre-GFX-005 state: RTL simulation had not been run; subsequent
+  GFX-005 through GFX-008 RTL simulation evidence is recorded above.
+- Historical pre-formal state: graphics formal had not been run; selected FIFO,
+  decoder, and clear properties are now formally checked under documented
+  assumptions, while triangle-setup formal remains not run/not claimed.
 - Graphics synthesis/P&R: GFX-004 memory spike synthesized; no full graphics
   synthesis, placement, routing, timing, or hardware evidence.
 - Physical graphics hardware: not run; no evidence.
 - Full integrated graphics resources, timing/Fmax, and display platform
   implementation details remain unresolved as allowed by the contract.
-- No rasterizer or renderer RTL was added; GFX-005 adds only the package and
-  command FIFO infrastructure authorized by the task.
+- No raster coverage walker or complete renderer RTL has been added. GFX-005
+  added only package/FIFO infrastructure; GFX-006 through GFX-008 added the
+  decoder, clear engine, and triangle-setup blocks authorized by their tasks.
 
 ## Gate-1 status
 
@@ -213,12 +238,16 @@
 
 `GFX-009 — Raster walker coverage only`
 
-## Gate-0 closure interpretation
+## Historical Gate-0 closure interpretation
 
 - Missing Yosys, SBY, nextpnr-ecp5, formal solvers, and board utilities are
   explicitly detected and documented; they do not block Gate 0.
-- GitHub authentication is invalid and no remote exists; remote creation was
-  conditional on authentication/authorization and does not block Gate 0.
-- No later implementation gate is complete. Graphics RTL simulation, graphics
-  formal, full graphics synthesis/P&R, timing, and physical graphics hardware
-  evidence remain absent.
+- At the historical Gate-0 review point, GitHub authentication was invalid and
+  no remote existed; remote creation was conditional on authentication and
+  authorization and did not block Gate 0.
+- The repository was subsequently published at
+  `https://github.com/dilanj123/from-pixels-to-polygons`; current publication
+  state is recorded in the Current state section above.
+- No later implementation gate is complete. Raster coverage, attribute
+  stepping, full graphics synthesis/P&R, timing, and physical graphics
+  hardware evidence remain absent.
