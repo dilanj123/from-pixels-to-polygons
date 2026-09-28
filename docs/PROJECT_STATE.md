@@ -4,7 +4,7 @@
 
 - Current phase: Gate 3 — Raster Primitive.
 - Gate 2: CLOSED. Gate 3: OPEN.
-- Current known-good commit: `95b6ca97bd14175de7e6754dd3eec3ac3c3568b1`.
+- Current known-good commit: `a04b38de4616da991fe9f4beb59d098db317011b`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
