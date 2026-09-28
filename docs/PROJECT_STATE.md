@@ -25,7 +25,22 @@
 
 ## Current next task
 
-`GFX-008 — Triangle setup`
+`GFX-009 — Raster walker coverage only`
+
+## GFX-008 — triangle setup
+
+- GFX-008 complete. The standalone triangle-setup block consumes a legal
+  decoded DRAW transaction and emits one registered immutable setup payload
+  through ready/valid handshaking.
+- D-029 classifications are implemented exactly: RASTER, EMPTY, DEGENERATE,
+  and BACKFACE. Non-RASTER bbox and initial-edge fields use canonical zero.
+- The independent Python vector adapter generated 160 legal vectors: 80
+  RASTER, 2 EMPTY, 1 DEGENERATE, and 77 BACKFACE. RTL simulation compared
+  5,474 setup fields with zero mismatches.
+- Verilator lint and Yosys component sanity passed. No formal setup proof was
+  added; no raster traversal, attribute accumulation, fragment/Z, framebuffer,
+  or controller integration was implemented.
+- Gate 3 remains OPEN. Next task: `GFX-009 — Raster walker coverage only`.
 
 ## GFX-008-SPEC-FREEZE — D-029
 
@@ -196,7 +211,7 @@
 
 ## Next task
 
-`GFX-008 — Triangle setup`
+`GFX-009 — Raster walker coverage only`
 
 ## Gate-0 closure interpretation
 

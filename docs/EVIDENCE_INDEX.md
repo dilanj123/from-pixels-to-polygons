@@ -138,6 +138,18 @@ hardware evidence.
 This milestone contains no RTL or functional verification evidence. GFX-008
 triangle-setup implementation remains the next task.
 
+## GFX-008 triangle-setup milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Triangle setup matches the independent reference adapter | GFX-008 commit | `make test-triangle-setup` | 160 legal vectors; 80 RASTER, 2 EMPTY, 1 DEGENERATE, 77 BACKFACE; 5,474 fields compared; zero mismatches | RTL-SIMULATED |
+| Setup arithmetic and payload compile/lint cleanly | GFX-008 commit | `make lint-triangle-setup` | Verilator 5.053 lint passed; D-029 packed payload and explicit signed widths | RTL-SIMULATED |
+| Setup component elaborates without Yosys check problems | GFX-008 commit | qualified Yosys `read_verilog/hierarchy/proc/opt/check` | Component sanity only; no P&R/timing claim | SYNTHESISED COMPONENT SANITY |
+| Preserved regressions remain passing | GFX-008 commit | `make test-clear`; `make test-decoder`; `make test-fifo`; Python unittest discovery | Clear, decoder, FIFO, and 31 Python reference tests passed | RTL-SIMULATED / REFERENCE-MODEL VERIFIED |
+
+GFX-008 does not claim raster coverage, attribute stepping, fragment/Z,
+framebuffer, controller, display, Sobel, timing, P&R, or hardware evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

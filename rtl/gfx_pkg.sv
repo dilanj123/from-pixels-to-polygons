@@ -48,4 +48,30 @@ package gfx_pkg;
         logic [3:0] opcode;
         logic [15:0] tag;
     } decoder_error_t;
+
+    typedef enum logic [1:0] {
+        TRI_SETUP_RASTER = 2'b00,
+        TRI_SETUP_EMPTY = 2'b01,
+        TRI_SETUP_DEGENERATE = 2'b10,
+        TRI_SETUP_BACKFACE = 2'b11
+    } triangle_setup_class_t;
+
+    typedef struct packed {
+        triangle_setup_class_t classification;
+        logic [15:0] tag;
+        logic signed [31:0] area;
+        logic signed [15:0] edge0_dx, edge0_dy;
+        logic signed [15:0] edge1_dx, edge1_dy;
+        logic signed [15:0] edge2_dx, edge2_dy;
+        logic [2:0] top_left;
+        logic signed [31:0] edge0_step_x, edge0_step_y;
+        logic signed [31:0] edge1_step_x, edge1_step_y;
+        logic signed [31:0] edge2_step_x, edge2_step_y;
+        logic [8:0] xmin, xmax;
+        logic [7:0] ymin, ymax;
+        logic signed [31:0] e0_init, e1_init, e2_init;
+        logic signed [31:0] r_start, g_start, b_start, z_start;
+        logic signed [31:0] r_dx, g_dx, b_dx, z_dx;
+        logic signed [31:0] r_dy, g_dy, b_dy, z_dy;
+    } triangle_setup_result_t;
 endpackage

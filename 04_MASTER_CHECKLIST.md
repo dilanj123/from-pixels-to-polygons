@@ -104,11 +104,11 @@ Gate 3 — OPEN.
       bounded formal evidence; command execution remains out of scope
 - [x] clear engine — full-depth 76,800-address simulation and reduced formal
       control/address/value properties
-- [ ] triangle setup
-- [ ] area/winding tests
-- [ ] bbox tests
-- [ ] top-left flags/tests
-- [ ] initial edge-value tests
+- [x] triangle setup — GFX-008 RTL/reference vector comparison
+- [x] area/winding tests
+- [x] bbox tests
+- [x] top-left flags/tests
+- [x] initial edge-value tests
 - [ ] raster coverage-only walker
 - [ ] shared-edge rectangle RTL matches reference
 - [ ] subpixel/thin/extreme geometry tests
