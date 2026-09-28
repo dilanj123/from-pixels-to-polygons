@@ -121,14 +121,14 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 - [x] framebuffer address logic — GFX-011 standalone RTL/reference simulation
 - [x] Z read/test/write stage — GFX-011 synchronous-memory simulation
 - [x] conditional colour/Z writes — GFX-011 strict-depth simulation
-- [ ] overlapping near/far tests
-- [ ] draw-order reversal tests
-- [ ] complete command→framebuffer simulation
-- [ ] complete Z comparison
-- [ ] random frame regression
+- [x] overlapping near/far tests — GFX-012 full-frame comparison
+- [x] draw-order reversal tests — GFX-012 depth-order coverage
+- [x] complete command→framebuffer simulation — GFX-012 decoded-command renderer
+- [x] complete Z comparison — GFX-012 full 76800-byte comparison
+- [x] random frame regression — GFX-012 deterministic frame suite
 - [ ] performance counters
 - [ ] readback engine simulation
-- [ ] no unresolved basic renderer defect
+- [x] no unresolved basic renderer defect — GFX-012 regressions pass
 
 ## Gate 5 — Display / Presentation
 

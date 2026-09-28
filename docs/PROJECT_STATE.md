@@ -4,7 +4,7 @@
 
 - Current phase: Gate 4 — Complete Colour/Z Renderer.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good functional implementation commit: `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a`.
+- Current known-good functional implementation commit: `e4aac734d42dc2966c526125290cb0351192ec26`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -20,11 +20,13 @@
   proof is claimed.
 - GFX-011 fragment/Z stage: RTL SIMULATION VERIFIED at implementation commit
   `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a`; no formal proof is claimed.
-- GFX-012 baseline renderer integration contract: SPECIFIED by D-033;
-  implementation NOT STARTED.
-- No fragment/Z integration, complete renderer, full graphics synthesis/P&R,
-  timing, or physical hardware evidence exists yet.
-- Current next task: `GFX-012 — Baseline renderer integration`.
+- GFX-012 baseline renderer integration: RTL SIMULATION VERIFIED at
+  `e4aac734d42dc2966c526125290cb0351192ec26`; full framebuffer/Z comparisons,
+  wrapper checks, reset recovery, and raw-decoder smoke all passed. No formal
+  proof is claimed.
+- No complete presentation path, counters, readback, full graphics
+  synthesis/P&R, timing, or physical hardware evidence exists yet.
+- Current next task: `GFX-013 — Performance counters`.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -156,12 +158,28 @@
   decoded-command boundary, production framebuffer/Z wrapper contracts,
   mutually exclusive clear/fragment memory ownership, TRI_DRAIN barrier, and
   verification-local `renderer_quiescent` status.
-- GFX-012 implementation is NOT STARTED. This is specification evidence only;
-  no renderer integration, production memory-wrapper RTL, full-frame
-  comparison, formal result, synthesis, timing, or hardware evidence is
-  claimed.
-- Gate 3 is CLOSED and Gate 4 remains OPEN. Next task:
-  `GFX-012 — Baseline renderer integration`.
+- The contract was implemented by GFX-012; see the accepted implementation
+  milestone below. D-033 remains the architectural boundary for this work.
+- Gate 3 is CLOSED and Gate 4 remains OPEN. Counters and readback remain
+  deferred. Next task: `GFX-013 — Performance counters`.
+
+## GFX-012 — baseline renderer integration
+
+- GFX-012 is accepted as RTL SIMULATION VERIFIED at implementation commit
+  `e4aac734d42dc2966c526125290cb0351192ec26`. `renderer_core` composes the
+  existing clear engine, triangle setup, raster walker, and Fragment/Z stage
+  with standalone production framebuffer and Z-buffer wrappers.
+- Nine directed/deterministic frames were compared byte-for-byte against the
+  independent Python renderer: 691,200 colour bytes and 691,200 Z bytes,
+  with zero colour mismatches and zero Z mismatches. The suite includes clear
+  colours, ordinary/flat/thin/tiny/boundary geometry, shared edges, rejected
+  and zero-covered geometry, depth ordering/equality, sequential triangles,
+  NOPs, and three deterministic random frames.
+- Focused wrapper tests, reset-abort/recovery tests, and raw `cmd_decoder`
+  BEGIN_FRAME/DRAW smoke composition passed. The ownership and same-address
+  hazard monitors reported zero violations. Formal, synthesis, P&R, timing,
+  display, counters, and readback evidence are not claimed.
+- Gate 4 remains OPEN. Next task: `GFX-013 — Performance counters`.
 
 ## GFX-007 — clear engine
 

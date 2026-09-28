@@ -227,6 +227,20 @@ renderer integration, physical memory-wrapper verification, synthesis, P&R,
 timing, and hardware evidence remain outstanding. GFX-013 counters and
 GFX-014 framebuffer readback remain deferred.
 
+## GFX-012 — baseline renderer integration milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Baseline renderer RTL and production memory wrappers exist | `e4aac734d42dc2966c526125290cb0351192ec26` | `rtl/renderer_core.sv`, `rtl/framebuffer_dp.sv`, `rtl/zbuffer.sv` | Reuses the verified GFX-007 through GFX-011 primitives; decoded-command renderer supports NOP/BEGIN_FRAME/DRAW only | LOCAL OBSERVATION |
+| Full framebuffer and Z results match the independent renderer | `e4aac734d42dc2966c526125290cb0351192ec26` | `make test-renderer` | 9 directed/deterministic frames; 691,200 colour bytes and 691,200 Z bytes compared; zero mismatches in both memories | RTL SIMULATION VERIFIED |
+| Memory wrappers, reset recovery, and ownership/drain behavior pass | `e4aac734d42dc2966c526125290cb0351192ec26` | `make test-memory-wrappers`, `make test-renderer-reset` | Synchronous wrapper timing, reset in active phases, full clear counts, TRI_DRAIN, ownership, and same-address hazard monitors pass with zero violations | RTL SIMULATION VERIFIED |
+| Raw command decoder smoke reaches the same renderer result | `e4aac734d42dc2966c526125290cb0351192ec26` | `make test-renderer-decoder` | Existing `cmd_decoder` composed ahead of the renderer; no decoder reimplementation | RTL SIMULATION VERIFIED |
+| GFX-012 formal properties | — | not run | No GFX-012 formal claim; synthesis/P&R/timing/hardware are also not claimed | NOT RUN |
+
+GFX-012 does not claim presentation, FRAME_DONE, triple-buffer role rotation,
+display, counters, readback, Sobel, UART, synthesis, P&R, timing, or hardware
+evidence. The independent Python renderer remains REFERENCE-MODEL VERIFIED.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
