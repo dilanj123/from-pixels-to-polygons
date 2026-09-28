@@ -4,7 +4,7 @@
 
 - Current phase: Gate 4 — Complete Colour/Z Renderer.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good functional implementation commit: `e4aac734d42dc2966c526125290cb0351192ec26`.
+- Current known-good functional implementation commit: `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` (`Implement GFX-013 performance counters`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -24,10 +24,16 @@
   `e4aac734d42dc2966c526125290cb0351192ec26`; full framebuffer/Z comparisons,
   wrapper checks, reset recovery, and raw-decoder smoke all passed. No formal
   proof is claimed.
-- No complete presentation path, counters, readback, full graphics
+- GFX-013 performance counters: RTL SIMULATION VERIFIED at implementation commit
+  `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079`; passive candidate and
+  depth instrumentation preserved renderer output and timing. No formal proof
+  is claimed.
+- No complete presentation path, GET_COUNTERS serialization, readback, full graphics
   synthesis/P&R, timing, or physical hardware evidence exists yet.
-- Current next task: `GFX-013 — Performance counters`.
-- D-034 performance-counter contract: SPECIFIED; counter RTL is NOT STARTED.
+- Current next task: `GFX-014 — Readback engine`.
+- D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
+  GET_COUNTERS serializer, presentation, Sobel, readback, synthesis, P&R,
+  timing, or hardware claim is made.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -181,6 +187,22 @@
   hazard monitors reported zero violations. Formal, synthesis, P&R, timing,
   display, counters, and readback evidence are not claimed.
 - Gate 4 remains OPEN. Next task: `GFX-013 — Performance counters`.
+
+## GFX-013 — performance counters
+
+- GFX-013 is accepted as RTL SIMULATION VERIFIED. The reusable unsigned32
+  modulo counter bank implements the D-034 W1–W14 order, lifetime versus
+  per-frame reset domains, explicit future-event inputs, FIFO high-watermark
+  sampling, and passive renderer event observation.
+- Focused bank verification passed reset priority, lifetime persistence,
+  BEGIN_FRAME clearing, synthetic PRESENT/Sobel events, FIFO peak 1024, and
+  controlled modulo wraparound. Integrated verification passed the renderer
+  scoreboard: 5 submitted draws, 9 candidates, 2 covered fragments, 1 Z pass,
+  1 Z fail, and 76,800 clear cycles.
+- Raster and Fragment/Z regressions passed with candidate-retirement and
+  depth-result instrumentation; existing GFX-012 full-frame comparisons,
+  reset recovery, and decoder smoke remained passing. No formal proof is
+  claimed. Gate 4 remains OPEN. Next task: `GFX-014 — Readback engine`.
 
 ## GFX-007 — clear engine
 

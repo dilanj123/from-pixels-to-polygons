@@ -249,9 +249,25 @@ evidence. The independent Python renderer remains REFERENCE-MODEL VERIFIED.
 | D-034 freezes lifetime/per-frame reset domains and increment events | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md` | BEGIN_FRAME priority, renderer/depth/candidate events, future presentation/Sobel inputs, and FIFO level sampling are explicit | SPECIFIED |
 | D-034 freezes passive instrumentation and counter invariants | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md` | Counter integration must not alter GFX-012 behavior; future formal properties are planned only | SPECIFIED |
 
-This milestone changes documentation only. No counter RTL, instrumentation
-outputs, GET_COUNTERS response serializer, formal result, synthesis, timing,
-or hardware evidence is claimed. GFX-013 implementation remains NOT STARTED.
+This milestone changes documentation only. The implementation evidence is
+recorded below; no GET_COUNTERS response serializer, formal result, synthesis,
+timing, or hardware evidence is claimed.
+
+## GFX-013 — performance counters milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Reusable D-034 performance counter bank exists | `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` | `rtl/perf_counters.sv`, `rtl/gfx_pkg.sv` | Fourteen unsigned32 modulo counters, exact W1–W14 order, lifetime/per-frame reset split, future event inputs, and FIFO high-watermark sampling | LOCAL OBSERVATION |
+| Standalone counter semantics pass | `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` | `make lint-perf-counters`; `make test-perf-counters` | Reset, BEGIN_FRAME priority, lifetime persistence, synthetic present/Sobel events, FIFO peak 1024, and controlled FFFFFFFE→FFFFFFFF→00000000 wraparound | RTL SIMULATION VERIFIED |
+| Passive walker/depth instrumentation passes | `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` | `make test-raster-walk`; `make test-fragment-z` | Candidate retirement count matches bbox candidates; depth-result events match completed strict pass/fail decisions; existing coordinate/raw/depth/write checks remain zero-mismatch | RTL SIMULATION VERIFIED |
+| Integrated renderer counter scoreboard passes | `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` | `make test-renderer-counters` | 5 submitted draws, 9 candidates, 2 covered fragments, 1 Z pass, 1 equal-depth Z fail, 76,800 clear cycles; setup/render cycle relation and watermark 1024 pass | RTL SIMULATION VERIFIED |
+| GFX-012 output invariance is preserved | `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` | `make test-renderer`; `make test-renderer-reset`; `make test-renderer-decoder` | Existing 9-frame full framebuffer/Z comparisons, reset recovery, and raw decoder smoke remain passing; no renderer control/timing change observed | RTL SIMULATION VERIFIED |
+| GFX-013 formal properties | — | not run | No formal proof is claimed | NOT RUN |
+
+GFX-013 does not implement GET_COUNTERS serialization, PRESENT, FRAME_DONE,
+role rotation, display, Sobel, READ_FRONT, UART, optimization, synthesis,
+P&R, timing, or hardware behavior. Gate 4 remains OPEN; GFX-014 readback is
+the next task.
 
 ## GFX-005-FORMAL-ORDERING corrective milestone
 

@@ -126,7 +126,7 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 - [x] complete command→framebuffer simulation — GFX-012 decoded-command renderer
 - [x] complete Z comparison — GFX-012 full 76800-byte comparison
 - [x] random frame regression — GFX-012 deterministic frame suite
-- [ ] performance counters
+- [x] performance counters — GFX-013 reusable bank, passive instrumentation, and renderer scoreboard
 - [ ] readback engine simulation
 - [x] no unresolved basic renderer defect — GFX-012 regressions pass
 
