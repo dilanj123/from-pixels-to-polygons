@@ -22,6 +22,18 @@ module raster_walk_tb;
     integer case_idx;
     integer expected_x [0:30000];
     integer expected_y [0:30000];
+    integer shared_a_count;
+    integer shared_b_count;
+    integer shared_a_x [0:500];
+    integer shared_a_y [0:500];
+    integer shared_b_x [0:500];
+    integer shared_b_y [0:500];
+    integer shared_i;
+    integer shared_j;
+    integer shared_overlap;
+    integer shared_missing;
+    integer shared_found_a;
+    integer shared_found_b;
 
     raster_walk dut (
         .clk_sys(clk_sys), .rst(rst),
@@ -109,6 +121,14 @@ module raster_walk_tb;
                                  covered_y !== expected_y[expected_index]) begin
                         fail("covered coordinate mismatch");
                     end
+                    if (idx == 11) begin
+                        shared_a_x[expected_index] = covered_x;
+                        shared_a_y[expected_index] = covered_y;
+                    end
+                    if (idx == 12) begin
+                        shared_b_x[expected_index] = covered_x;
+                        shared_b_y[expected_index] = covered_y;
+                    end
                     expected_index = expected_index + 1;
                 end
 
@@ -124,12 +144,43 @@ module raster_walk_tb;
 
             if (expected_index != expected_count)
                 fail("covered transfer count mismatch");
+            if (idx == 11) shared_a_count = expected_index;
+            if (idx == 12) shared_b_count = expected_index;
             if (mode == 0 && active_cycles != expected_candidates)
                 fail("unstalled candidate-cycle count mismatch");
             if (mode == 2 && expected_count > 0 && stall_cycles != 3)
                 fail("final covered candidate was not stalled");
             if (covered_valid || busy)
                 fail("walker not idle after completion");
+        end
+    endtask
+
+    task automatic check_shared_edge;
+        begin
+            shared_overlap = 0;
+            for (shared_i = 0; shared_i < shared_a_count; shared_i = shared_i + 1)
+                for (shared_j = 0; shared_j < shared_b_count; shared_j = shared_j + 1)
+                    if (shared_a_x[shared_i] == shared_b_x[shared_j] &&
+                        shared_a_y[shared_i] == shared_b_y[shared_j])
+                        shared_overlap = shared_overlap + 1;
+            shared_missing = 0;
+            for (shared_i = 8; shared_i <= 19; shared_i = shared_i + 1)
+                for (shared_j = 8; shared_j <= 19; shared_j = shared_j + 1) begin
+                    shared_found_a = 0;
+                    shared_found_b = 0;
+                    for (integer k = 0; k < shared_a_count; k = k + 1)
+                        if (shared_a_x[k] == shared_i && shared_a_y[k] == shared_j)
+                            shared_found_a = 1;
+                    for (integer k = 0; k < shared_b_count; k = k + 1)
+                        if (shared_b_x[k] == shared_i && shared_b_y[k] == shared_j)
+                            shared_found_b = 1;
+                    if (!shared_found_a && !shared_found_b)
+                        shared_missing = shared_missing + 1;
+                end
+            if (shared_overlap != 0) fail("shared-edge overlap detected");
+            if (shared_missing != 0) fail("shared-edge rectangle crack detected");
+            if (shared_a_count + shared_b_count != 144)
+                fail("shared-edge rectangle union count mismatch");
         end
     endtask
 
@@ -170,8 +221,11 @@ module raster_walk_tb;
         walk_in_valid = 1'b0;
         covered_ready = 1'b0;
         errors = 0;
+        shared_a_count = 0;
+        shared_b_count = 0;
         for (case_idx = 0; case_idx < RASTER_WALK_CASES; case_idx = case_idx + 1)
             run_case(case_idx, 0, 1);
+        check_shared_edge();
         run_case(2, 1, 7);
         run_case(3, 1, 19);
         run_case(9, 0, 1);

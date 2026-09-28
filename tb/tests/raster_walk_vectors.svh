@@ -632,6 +632,206 @@ begin
         end
         11: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
+            walk_in_payload.tag = 16'h008b;
+            walk_in_payload.xmin = 9'd8;
+            walk_in_payload.xmax = 9'd19;
+            walk_in_payload.ymin = 8'd8;
+            walk_in_payload.ymax = 8'd19;
+            walk_in_payload.edge0_dx = 16'sh00c0;
+            walk_in_payload.edge0_dy = 16'sh0000;
+            walk_in_payload.edge0_step_x = 32'sh00000000;
+            walk_in_payload.edge0_step_y = 32'sh00000c00;
+            walk_in_payload.top_left[0] = 1;
+            walk_in_payload.e0_init = 32'sh00000600;
+            walk_in_payload.edge1_dx = 16'shff40;
+            walk_in_payload.edge1_dy = 16'sh00c0;
+            walk_in_payload.edge1_step_x = 32'shfffff400;
+            walk_in_payload.edge1_step_y = 32'shfffff400;
+            walk_in_payload.top_left[1] = 0;
+            walk_in_payload.e1_init = 32'sh00008400;
+            walk_in_payload.edge2_dx = 16'sh0000;
+            walk_in_payload.edge2_dy = 16'shff40;
+            walk_in_payload.edge2_step_x = 32'sh00000c00;
+            walk_in_payload.edge2_step_y = 32'sh00000000;
+            walk_in_payload.top_left[2] = 1;
+            walk_in_payload.e2_init = 32'sh00000600;
+            expected_count = 66;
+            expected_x[0] = 9'd8; expected_y[0] = 8'd8;
+            expected_x[1] = 9'd9; expected_y[1] = 8'd8;
+            expected_x[2] = 9'd10; expected_y[2] = 8'd8;
+            expected_x[3] = 9'd11; expected_y[3] = 8'd8;
+            expected_x[4] = 9'd12; expected_y[4] = 8'd8;
+            expected_x[5] = 9'd13; expected_y[5] = 8'd8;
+            expected_x[6] = 9'd14; expected_y[6] = 8'd8;
+            expected_x[7] = 9'd15; expected_y[7] = 8'd8;
+            expected_x[8] = 9'd16; expected_y[8] = 8'd8;
+            expected_x[9] = 9'd17; expected_y[9] = 8'd8;
+            expected_x[10] = 9'd18; expected_y[10] = 8'd8;
+            expected_x[11] = 9'd8; expected_y[11] = 8'd9;
+            expected_x[12] = 9'd9; expected_y[12] = 8'd9;
+            expected_x[13] = 9'd10; expected_y[13] = 8'd9;
+            expected_x[14] = 9'd11; expected_y[14] = 8'd9;
+            expected_x[15] = 9'd12; expected_y[15] = 8'd9;
+            expected_x[16] = 9'd13; expected_y[16] = 8'd9;
+            expected_x[17] = 9'd14; expected_y[17] = 8'd9;
+            expected_x[18] = 9'd15; expected_y[18] = 8'd9;
+            expected_x[19] = 9'd16; expected_y[19] = 8'd9;
+            expected_x[20] = 9'd17; expected_y[20] = 8'd9;
+            expected_x[21] = 9'd8; expected_y[21] = 8'd10;
+            expected_x[22] = 9'd9; expected_y[22] = 8'd10;
+            expected_x[23] = 9'd10; expected_y[23] = 8'd10;
+            expected_x[24] = 9'd11; expected_y[24] = 8'd10;
+            expected_x[25] = 9'd12; expected_y[25] = 8'd10;
+            expected_x[26] = 9'd13; expected_y[26] = 8'd10;
+            expected_x[27] = 9'd14; expected_y[27] = 8'd10;
+            expected_x[28] = 9'd15; expected_y[28] = 8'd10;
+            expected_x[29] = 9'd16; expected_y[29] = 8'd10;
+            expected_x[30] = 9'd8; expected_y[30] = 8'd11;
+            expected_x[31] = 9'd9; expected_y[31] = 8'd11;
+            expected_x[32] = 9'd10; expected_y[32] = 8'd11;
+            expected_x[33] = 9'd11; expected_y[33] = 8'd11;
+            expected_x[34] = 9'd12; expected_y[34] = 8'd11;
+            expected_x[35] = 9'd13; expected_y[35] = 8'd11;
+            expected_x[36] = 9'd14; expected_y[36] = 8'd11;
+            expected_x[37] = 9'd15; expected_y[37] = 8'd11;
+            expected_x[38] = 9'd8; expected_y[38] = 8'd12;
+            expected_x[39] = 9'd9; expected_y[39] = 8'd12;
+            expected_x[40] = 9'd10; expected_y[40] = 8'd12;
+            expected_x[41] = 9'd11; expected_y[41] = 8'd12;
+            expected_x[42] = 9'd12; expected_y[42] = 8'd12;
+            expected_x[43] = 9'd13; expected_y[43] = 8'd12;
+            expected_x[44] = 9'd14; expected_y[44] = 8'd12;
+            expected_x[45] = 9'd8; expected_y[45] = 8'd13;
+            expected_x[46] = 9'd9; expected_y[46] = 8'd13;
+            expected_x[47] = 9'd10; expected_y[47] = 8'd13;
+            expected_x[48] = 9'd11; expected_y[48] = 8'd13;
+            expected_x[49] = 9'd12; expected_y[49] = 8'd13;
+            expected_x[50] = 9'd13; expected_y[50] = 8'd13;
+            expected_x[51] = 9'd8; expected_y[51] = 8'd14;
+            expected_x[52] = 9'd9; expected_y[52] = 8'd14;
+            expected_x[53] = 9'd10; expected_y[53] = 8'd14;
+            expected_x[54] = 9'd11; expected_y[54] = 8'd14;
+            expected_x[55] = 9'd12; expected_y[55] = 8'd14;
+            expected_x[56] = 9'd8; expected_y[56] = 8'd15;
+            expected_x[57] = 9'd9; expected_y[57] = 8'd15;
+            expected_x[58] = 9'd10; expected_y[58] = 8'd15;
+            expected_x[59] = 9'd11; expected_y[59] = 8'd15;
+            expected_x[60] = 9'd8; expected_y[60] = 8'd16;
+            expected_x[61] = 9'd9; expected_y[61] = 8'd16;
+            expected_x[62] = 9'd10; expected_y[62] = 8'd16;
+            expected_x[63] = 9'd8; expected_y[63] = 8'd17;
+            expected_x[64] = 9'd9; expected_y[64] = 8'd17;
+            expected_x[65] = 9'd8; expected_y[65] = 8'd18;
+            expected_candidates = 144;
+        end
+        12: begin
+            walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
+            walk_in_payload.tag = 16'h008b;
+            walk_in_payload.xmin = 9'd8;
+            walk_in_payload.xmax = 9'd19;
+            walk_in_payload.ymin = 8'd8;
+            walk_in_payload.ymax = 8'd19;
+            walk_in_payload.edge0_dx = 16'sh0000;
+            walk_in_payload.edge0_dy = 16'sh00c0;
+            walk_in_payload.edge0_step_x = 32'shfffff400;
+            walk_in_payload.edge0_step_y = 32'sh00000000;
+            walk_in_payload.top_left[0] = 0;
+            walk_in_payload.e0_init = 32'sh00008a00;
+            walk_in_payload.edge1_dx = 16'shff40;
+            walk_in_payload.edge1_dy = 16'sh0000;
+            walk_in_payload.edge1_step_x = 32'sh00000000;
+            walk_in_payload.edge1_step_y = 32'shfffff400;
+            walk_in_payload.top_left[1] = 0;
+            walk_in_payload.e1_init = 32'sh00008a00;
+            walk_in_payload.edge2_dx = 16'sh00c0;
+            walk_in_payload.edge2_dy = 16'shff40;
+            walk_in_payload.edge2_step_x = 32'sh00000c00;
+            walk_in_payload.edge2_step_y = 32'sh00000c00;
+            walk_in_payload.top_left[2] = 1;
+            walk_in_payload.e2_init = 32'shffff7c00;
+            expected_count = 78;
+            expected_x[0] = 9'd19; expected_y[0] = 8'd8;
+            expected_x[1] = 9'd18; expected_y[1] = 8'd9;
+            expected_x[2] = 9'd19; expected_y[2] = 8'd9;
+            expected_x[3] = 9'd17; expected_y[3] = 8'd10;
+            expected_x[4] = 9'd18; expected_y[4] = 8'd10;
+            expected_x[5] = 9'd19; expected_y[5] = 8'd10;
+            expected_x[6] = 9'd16; expected_y[6] = 8'd11;
+            expected_x[7] = 9'd17; expected_y[7] = 8'd11;
+            expected_x[8] = 9'd18; expected_y[8] = 8'd11;
+            expected_x[9] = 9'd19; expected_y[9] = 8'd11;
+            expected_x[10] = 9'd15; expected_y[10] = 8'd12;
+            expected_x[11] = 9'd16; expected_y[11] = 8'd12;
+            expected_x[12] = 9'd17; expected_y[12] = 8'd12;
+            expected_x[13] = 9'd18; expected_y[13] = 8'd12;
+            expected_x[14] = 9'd19; expected_y[14] = 8'd12;
+            expected_x[15] = 9'd14; expected_y[15] = 8'd13;
+            expected_x[16] = 9'd15; expected_y[16] = 8'd13;
+            expected_x[17] = 9'd16; expected_y[17] = 8'd13;
+            expected_x[18] = 9'd17; expected_y[18] = 8'd13;
+            expected_x[19] = 9'd18; expected_y[19] = 8'd13;
+            expected_x[20] = 9'd19; expected_y[20] = 8'd13;
+            expected_x[21] = 9'd13; expected_y[21] = 8'd14;
+            expected_x[22] = 9'd14; expected_y[22] = 8'd14;
+            expected_x[23] = 9'd15; expected_y[23] = 8'd14;
+            expected_x[24] = 9'd16; expected_y[24] = 8'd14;
+            expected_x[25] = 9'd17; expected_y[25] = 8'd14;
+            expected_x[26] = 9'd18; expected_y[26] = 8'd14;
+            expected_x[27] = 9'd19; expected_y[27] = 8'd14;
+            expected_x[28] = 9'd12; expected_y[28] = 8'd15;
+            expected_x[29] = 9'd13; expected_y[29] = 8'd15;
+            expected_x[30] = 9'd14; expected_y[30] = 8'd15;
+            expected_x[31] = 9'd15; expected_y[31] = 8'd15;
+            expected_x[32] = 9'd16; expected_y[32] = 8'd15;
+            expected_x[33] = 9'd17; expected_y[33] = 8'd15;
+            expected_x[34] = 9'd18; expected_y[34] = 8'd15;
+            expected_x[35] = 9'd19; expected_y[35] = 8'd15;
+            expected_x[36] = 9'd11; expected_y[36] = 8'd16;
+            expected_x[37] = 9'd12; expected_y[37] = 8'd16;
+            expected_x[38] = 9'd13; expected_y[38] = 8'd16;
+            expected_x[39] = 9'd14; expected_y[39] = 8'd16;
+            expected_x[40] = 9'd15; expected_y[40] = 8'd16;
+            expected_x[41] = 9'd16; expected_y[41] = 8'd16;
+            expected_x[42] = 9'd17; expected_y[42] = 8'd16;
+            expected_x[43] = 9'd18; expected_y[43] = 8'd16;
+            expected_x[44] = 9'd19; expected_y[44] = 8'd16;
+            expected_x[45] = 9'd10; expected_y[45] = 8'd17;
+            expected_x[46] = 9'd11; expected_y[46] = 8'd17;
+            expected_x[47] = 9'd12; expected_y[47] = 8'd17;
+            expected_x[48] = 9'd13; expected_y[48] = 8'd17;
+            expected_x[49] = 9'd14; expected_y[49] = 8'd17;
+            expected_x[50] = 9'd15; expected_y[50] = 8'd17;
+            expected_x[51] = 9'd16; expected_y[51] = 8'd17;
+            expected_x[52] = 9'd17; expected_y[52] = 8'd17;
+            expected_x[53] = 9'd18; expected_y[53] = 8'd17;
+            expected_x[54] = 9'd19; expected_y[54] = 8'd17;
+            expected_x[55] = 9'd9; expected_y[55] = 8'd18;
+            expected_x[56] = 9'd10; expected_y[56] = 8'd18;
+            expected_x[57] = 9'd11; expected_y[57] = 8'd18;
+            expected_x[58] = 9'd12; expected_y[58] = 8'd18;
+            expected_x[59] = 9'd13; expected_y[59] = 8'd18;
+            expected_x[60] = 9'd14; expected_y[60] = 8'd18;
+            expected_x[61] = 9'd15; expected_y[61] = 8'd18;
+            expected_x[62] = 9'd16; expected_y[62] = 8'd18;
+            expected_x[63] = 9'd17; expected_y[63] = 8'd18;
+            expected_x[64] = 9'd18; expected_y[64] = 8'd18;
+            expected_x[65] = 9'd19; expected_y[65] = 8'd18;
+            expected_x[66] = 9'd8; expected_y[66] = 8'd19;
+            expected_x[67] = 9'd9; expected_y[67] = 8'd19;
+            expected_x[68] = 9'd10; expected_y[68] = 8'd19;
+            expected_x[69] = 9'd11; expected_y[69] = 8'd19;
+            expected_x[70] = 9'd12; expected_y[70] = 8'd19;
+            expected_x[71] = 9'd13; expected_y[71] = 8'd19;
+            expected_x[72] = 9'd14; expected_y[72] = 8'd19;
+            expected_x[73] = 9'd15; expected_y[73] = 8'd19;
+            expected_x[74] = 9'd16; expected_y[74] = 8'd19;
+            expected_x[75] = 9'd17; expected_y[75] = 8'd19;
+            expected_x[76] = 9'd18; expected_y[76] = 8'd19;
+            expected_x[77] = 9'd19; expected_y[77] = 8'd19;
+            expected_candidates = 144;
+        end
+        13: begin
+            walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h003b;
             walk_in_payload.xmin = 9'd8;
             walk_in_payload.xmax = 9'd34;
@@ -977,7 +1177,7 @@ begin
             expected_x[318] = 9'd34; expected_y[318] = 8'd51;
             expected_candidates = 1350;
         end
-        12: begin
+        14: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0227;
             walk_in_payload.xmin = 9'd52;
@@ -1012,7 +1212,7 @@ begin
             expected_x[6] = 9'd60; expected_y[6] = 8'd36;
             expected_candidates = 54;
         end
-        13: begin
+        15: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0333;
             walk_in_payload.xmin = 9'd16;
@@ -1144,7 +1344,7 @@ begin
             expected_x[103] = 9'd33; expected_y[103] = 8'd61;
             expected_candidates = 228;
         end
-        14: begin
+        16: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0064;
             walk_in_payload.xmin = 9'd17;
@@ -1668,7 +1868,7 @@ begin
             expected_x[495] = 9'd45; expected_y[495] = 8'd52;
             expected_candidates = 1392;
         end
-        15: begin
+        17: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h001a;
             walk_in_payload.xmin = 9'd7;
@@ -2061,7 +2261,7 @@ begin
             expected_x[364] = 9'd56; expected_y[364] = 8'd19;
             expected_candidates = 950;
         end
-        16: begin
+        18: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00e8;
             walk_in_payload.xmin = 9'd21;
@@ -2538,7 +2738,7 @@ begin
             expected_x[448] = 9'd48; expected_y[448] = 8'd57;
             expected_candidates = 1840;
         end
-        17: begin
+        19: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0114;
             walk_in_payload.xmin = 9'd1;
@@ -2897,7 +3097,7 @@ begin
             expected_x[330] = 9'd30; expected_y[330] = 8'd49;
             expected_candidates = 990;
         end
-        18: begin
+        20: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0078;
             walk_in_payload.xmin = 9'd21;
@@ -3601,7 +3801,7 @@ begin
             expected_x[675] = 9'd61; expected_y[675] = 8'd60;
             expected_candidates = 2352;
         end
-        19: begin
+        21: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h01ba;
             walk_in_payload.xmin = 9'd7;
@@ -4139,7 +4339,7 @@ begin
             expected_x[509] = 9'd61; expected_y[509] = 8'd63;
             expected_candidates = 2035;
         end
-        20: begin
+        22: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h01be;
             walk_in_payload.xmin = 9'd43;
@@ -4239,7 +4439,7 @@ begin
             expected_x[71] = 9'd60; expected_y[71] = 8'd33;
             expected_candidates = 171;
         end
-        21: begin
+        23: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0060;
             walk_in_payload.xmin = 9'd29;
@@ -4328,7 +4528,7 @@ begin
             expected_x[60] = 9'd53; expected_y[60] = 8'd43;
             expected_candidates = 1188;
         end
-        22: begin
+        24: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0139;
             walk_in_payload.xmin = 9'd38;
@@ -4891,7 +5091,7 @@ begin
             expected_x[534] = 9'd38; expected_y[534] = 8'd63;
             expected_candidates = 1222;
         end
-        23: begin
+        25: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h034f;
             walk_in_payload.xmin = 9'd12;
@@ -4985,7 +5185,7 @@ begin
             expected_x[65] = 9'd31; expected_y[65] = 8'd57;
             expected_candidates = 258;
         end
-        24: begin
+        26: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00be;
             walk_in_payload.xmin = 9'd11;
@@ -5116,7 +5316,7 @@ begin
             expected_x[102] = 9'd32; expected_y[102] = 8'd56;
             expected_candidates = 1150;
         end
-        25: begin
+        27: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00e7;
             walk_in_payload.xmin = 9'd4;
@@ -5409,7 +5609,7 @@ begin
             expected_x[264] = 9'd40; expected_y[264] = 8'd52;
             expected_candidates = 1558;
         end
-        26: begin
+        28: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0084;
             walk_in_payload.xmin = 9'd49;
@@ -5513,7 +5713,7 @@ begin
             expected_x[75] = 9'd49; expected_y[75] = 8'd40;
             expected_candidates = 342;
         end
-        27: begin
+        29: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00e9;
             walk_in_payload.xmin = 9'd22;
@@ -6151,7 +6351,7 @@ begin
             expected_x[609] = 9'd57; expected_y[609] = 8'd58;
             expected_candidates = 1692;
         end
-        28: begin
+        30: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0268;
             walk_in_payload.xmin = 9'd21;
@@ -6179,7 +6379,7 @@ begin
             expected_count = 0;
             expected_candidates = 12;
         end
-        29: begin
+        31: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00bd;
             walk_in_payload.xmin = 9'd10;
@@ -6652,7 +6852,7 @@ begin
             expected_x[444] = 9'd60; expected_y[444] = 8'd35;
             expected_candidates = 1275;
         end
-        30: begin
+        32: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0054;
             walk_in_payload.xmin = 9'd17;
@@ -6785,7 +6985,7 @@ begin
             expected_x[104] = 9'd59; expected_y[104] = 8'd15;
             expected_candidates = 540;
         end
-        31: begin
+        33: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h002b;
             walk_in_payload.xmin = 9'd8;
@@ -7330,7 +7530,7 @@ begin
             expected_x[516] = 9'd40; expected_y[516] = 8'd32;
             expected_candidates = 1178;
         end
-        32: begin
+        34: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0036;
             walk_in_payload.xmin = 9'd35;
@@ -7453,7 +7653,7 @@ begin
             expected_x[94] = 9'd36; expected_y[94] = 8'd51;
             expected_candidates = 1512;
         end
-        33: begin
+        35: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00e6;
             walk_in_payload.xmin = 9'd3;
@@ -7817,7 +8017,7 @@ begin
             expected_x[335] = 9'd4; expected_y[335] = 8'd42;
             expected_candidates = 754;
         end
-        34: begin
+        36: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0227;
             walk_in_payload.xmin = 9'd20;
@@ -7926,7 +8126,7 @@ begin
             expected_x[80] = 9'd29; expected_y[80] = 8'd50;
             expected_candidates = 220;
         end
-        35: begin
+        37: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0195;
             walk_in_payload.xmin = 9'd2;
@@ -8091,7 +8291,7 @@ begin
             expected_x[136] = 9'd3; expected_y[136] = 8'd56;
             expected_candidates = 704;
         end
-        36: begin
+        38: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0111;
             walk_in_payload.xmin = 9'd30;
@@ -8161,7 +8361,7 @@ begin
             expected_x[41] = 9'd49; expected_y[41] = 8'd48;
             expected_candidates = 756;
         end
-        37: begin
+        39: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00a7;
             walk_in_payload.xmin = 9'd4;
@@ -8321,7 +8521,7 @@ begin
             expected_x[131] = 9'd12; expected_y[131] = 8'd32;
             expected_candidates = 989;
         end
-        38: begin
+        40: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h019f;
             walk_in_payload.xmin = 9'd44;
@@ -8603,7 +8803,7 @@ begin
             expected_x[253] = 9'd51; expected_y[253] = 8'd49;
             expected_candidates = 560;
         end
-        39: begin
+        41: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h017f;
             walk_in_payload.xmin = 9'd28;
@@ -9073,7 +9273,7 @@ begin
             expected_x[441] = 9'd42; expected_y[441] = 8'd50;
             expected_candidates = 957;
         end
-        40: begin
+        42: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0148;
             walk_in_payload.xmin = 9'd21;
@@ -9484,7 +9684,7 @@ begin
             expected_x[382] = 9'd43; expected_y[382] = 8'd56;
             expected_candidates = 936;
         end
-        41: begin
+        43: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h007e;
             walk_in_payload.xmin = 9'd11;
@@ -9773,7 +9973,7 @@ begin
             expected_x[260] = 9'd51; expected_y[260] = 8'd56;
             expected_candidates = 2050;
         end
-        42: begin
+        44: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00bb;
             walk_in_payload.xmin = 9'd24;
@@ -10351,7 +10551,7 @@ begin
             expected_x[549] = 9'd24; expected_y[549] = 8'd57;
             expected_candidates = 1728;
         end
-        43: begin
+        45: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h00cc;
             walk_in_payload.xmin = 9'd9;
@@ -11470,7 +11670,7 @@ begin
             expected_x[1090] = 9'd53; expected_y[1090] = 8'd61;
             expected_candidates = 2250;
         end
-        44: begin
+        46: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h0055;
             walk_in_payload.xmin = 9'd18;
@@ -12602,7 +12802,7 @@ begin
             expected_x[1103] = 9'd28; expected_y[1103] = 8'd61;
             expected_candidates = 2378;
         end
-        45: begin
+        47: begin
             walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
             walk_in_payload.tag = 16'h017f;
             walk_in_payload.xmin = 9'd12;
@@ -12950,959 +13150,6 @@ begin
             expected_x[319] = 9'd15; expected_y[319] = 8'd41;
             expected_x[320] = 9'd16; expected_y[320] = 8'd41;
             expected_candidates = 722;
-        end
-        46: begin
-            walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
-            walk_in_payload.tag = 16'h00ba;
-            walk_in_payload.xmin = 9'd7;
-            walk_in_payload.xmax = 9'd54;
-            walk_in_payload.ymin = 8'd11;
-            walk_in_payload.ymax = 8'd43;
-            walk_in_payload.edge0_dx = 16'shff31;
-            walk_in_payload.edge0_dy = 16'shfdec;
-            walk_in_payload.edge0_step_x = 32'sh00002140;
-            walk_in_payload.edge0_step_y = 32'shfffff310;
-            walk_in_payload.top_left[0] = 1;
-            walk_in_payload.e0_init = 32'sh00000ec6;
-            walk_in_payload.edge1_dx = 16'sh0302;
-            walk_in_payload.edge1_dy = 16'sh0184;
-            walk_in_payload.edge1_step_x = 32'shffffe7c0;
-            walk_in_payload.edge1_step_y = 32'sh00003020;
-            walk_in_payload.top_left[1] = 0;
-            walk_in_payload.e1_init = 32'sh00000d68;
-            walk_in_payload.edge2_dx = 16'shfdcd;
-            walk_in_payload.edge2_dy = 16'sh0090;
-            walk_in_payload.edge2_step_x = 32'shfffff700;
-            walk_in_payload.edge2_step_y = 32'shffffdcd0;
-            walk_in_payload.top_left[2] = 0;
-            walk_in_payload.e2_init = 32'sh0004ea3e;
-            expected_count = 646;
-            expected_x[0] = 9'd7; expected_y[0] = 8'd11;
-            expected_x[1] = 9'd7; expected_y[1] = 8'd12;
-            expected_x[2] = 9'd8; expected_y[2] = 8'd12;
-            expected_x[3] = 9'd9; expected_y[3] = 8'd12;
-            expected_x[4] = 9'd8; expected_y[4] = 8'd13;
-            expected_x[5] = 9'd9; expected_y[5] = 8'd13;
-            expected_x[6] = 9'd10; expected_y[6] = 8'd13;
-            expected_x[7] = 9'd11; expected_y[7] = 8'd13;
-            expected_x[8] = 9'd8; expected_y[8] = 8'd14;
-            expected_x[9] = 9'd9; expected_y[9] = 8'd14;
-            expected_x[10] = 9'd10; expected_y[10] = 8'd14;
-            expected_x[11] = 9'd11; expected_y[11] = 8'd14;
-            expected_x[12] = 9'd12; expected_y[12] = 8'd14;
-            expected_x[13] = 9'd13; expected_y[13] = 8'd14;
-            expected_x[14] = 9'd9; expected_y[14] = 8'd15;
-            expected_x[15] = 9'd10; expected_y[15] = 8'd15;
-            expected_x[16] = 9'd11; expected_y[16] = 8'd15;
-            expected_x[17] = 9'd12; expected_y[17] = 8'd15;
-            expected_x[18] = 9'd13; expected_y[18] = 8'd15;
-            expected_x[19] = 9'd14; expected_y[19] = 8'd15;
-            expected_x[20] = 9'd15; expected_y[20] = 8'd15;
-            expected_x[21] = 9'd9; expected_y[21] = 8'd16;
-            expected_x[22] = 9'd10; expected_y[22] = 8'd16;
-            expected_x[23] = 9'd11; expected_y[23] = 8'd16;
-            expected_x[24] = 9'd12; expected_y[24] = 8'd16;
-            expected_x[25] = 9'd13; expected_y[25] = 8'd16;
-            expected_x[26] = 9'd14; expected_y[26] = 8'd16;
-            expected_x[27] = 9'd15; expected_y[27] = 8'd16;
-            expected_x[28] = 9'd16; expected_y[28] = 8'd16;
-            expected_x[29] = 9'd17; expected_y[29] = 8'd16;
-            expected_x[30] = 9'd9; expected_y[30] = 8'd17;
-            expected_x[31] = 9'd10; expected_y[31] = 8'd17;
-            expected_x[32] = 9'd11; expected_y[32] = 8'd17;
-            expected_x[33] = 9'd12; expected_y[33] = 8'd17;
-            expected_x[34] = 9'd13; expected_y[34] = 8'd17;
-            expected_x[35] = 9'd14; expected_y[35] = 8'd17;
-            expected_x[36] = 9'd15; expected_y[36] = 8'd17;
-            expected_x[37] = 9'd16; expected_y[37] = 8'd17;
-            expected_x[38] = 9'd17; expected_y[38] = 8'd17;
-            expected_x[39] = 9'd18; expected_y[39] = 8'd17;
-            expected_x[40] = 9'd19; expected_y[40] = 8'd17;
-            expected_x[41] = 9'd10; expected_y[41] = 8'd18;
-            expected_x[42] = 9'd11; expected_y[42] = 8'd18;
-            expected_x[43] = 9'd12; expected_y[43] = 8'd18;
-            expected_x[44] = 9'd13; expected_y[44] = 8'd18;
-            expected_x[45] = 9'd14; expected_y[45] = 8'd18;
-            expected_x[46] = 9'd15; expected_y[46] = 8'd18;
-            expected_x[47] = 9'd16; expected_y[47] = 8'd18;
-            expected_x[48] = 9'd17; expected_y[48] = 8'd18;
-            expected_x[49] = 9'd18; expected_y[49] = 8'd18;
-            expected_x[50] = 9'd19; expected_y[50] = 8'd18;
-            expected_x[51] = 9'd20; expected_y[51] = 8'd18;
-            expected_x[52] = 9'd21; expected_y[52] = 8'd18;
-            expected_x[53] = 9'd10; expected_y[53] = 8'd19;
-            expected_x[54] = 9'd11; expected_y[54] = 8'd19;
-            expected_x[55] = 9'd12; expected_y[55] = 8'd19;
-            expected_x[56] = 9'd13; expected_y[56] = 8'd19;
-            expected_x[57] = 9'd14; expected_y[57] = 8'd19;
-            expected_x[58] = 9'd15; expected_y[58] = 8'd19;
-            expected_x[59] = 9'd16; expected_y[59] = 8'd19;
-            expected_x[60] = 9'd17; expected_y[60] = 8'd19;
-            expected_x[61] = 9'd18; expected_y[61] = 8'd19;
-            expected_x[62] = 9'd19; expected_y[62] = 8'd19;
-            expected_x[63] = 9'd20; expected_y[63] = 8'd19;
-            expected_x[64] = 9'd21; expected_y[64] = 8'd19;
-            expected_x[65] = 9'd22; expected_y[65] = 8'd19;
-            expected_x[66] = 9'd23; expected_y[66] = 8'd19;
-            expected_x[67] = 9'd11; expected_y[67] = 8'd20;
-            expected_x[68] = 9'd12; expected_y[68] = 8'd20;
-            expected_x[69] = 9'd13; expected_y[69] = 8'd20;
-            expected_x[70] = 9'd14; expected_y[70] = 8'd20;
-            expected_x[71] = 9'd15; expected_y[71] = 8'd20;
-            expected_x[72] = 9'd16; expected_y[72] = 8'd20;
-            expected_x[73] = 9'd17; expected_y[73] = 8'd20;
-            expected_x[74] = 9'd18; expected_y[74] = 8'd20;
-            expected_x[75] = 9'd19; expected_y[75] = 8'd20;
-            expected_x[76] = 9'd20; expected_y[76] = 8'd20;
-            expected_x[77] = 9'd21; expected_y[77] = 8'd20;
-            expected_x[78] = 9'd22; expected_y[78] = 8'd20;
-            expected_x[79] = 9'd23; expected_y[79] = 8'd20;
-            expected_x[80] = 9'd24; expected_y[80] = 8'd20;
-            expected_x[81] = 9'd25; expected_y[81] = 8'd20;
-            expected_x[82] = 9'd11; expected_y[82] = 8'd21;
-            expected_x[83] = 9'd12; expected_y[83] = 8'd21;
-            expected_x[84] = 9'd13; expected_y[84] = 8'd21;
-            expected_x[85] = 9'd14; expected_y[85] = 8'd21;
-            expected_x[86] = 9'd15; expected_y[86] = 8'd21;
-            expected_x[87] = 9'd16; expected_y[87] = 8'd21;
-            expected_x[88] = 9'd17; expected_y[88] = 8'd21;
-            expected_x[89] = 9'd18; expected_y[89] = 8'd21;
-            expected_x[90] = 9'd19; expected_y[90] = 8'd21;
-            expected_x[91] = 9'd20; expected_y[91] = 8'd21;
-            expected_x[92] = 9'd21; expected_y[92] = 8'd21;
-            expected_x[93] = 9'd22; expected_y[93] = 8'd21;
-            expected_x[94] = 9'd23; expected_y[94] = 8'd21;
-            expected_x[95] = 9'd24; expected_y[95] = 8'd21;
-            expected_x[96] = 9'd25; expected_y[96] = 8'd21;
-            expected_x[97] = 9'd26; expected_y[97] = 8'd21;
-            expected_x[98] = 9'd27; expected_y[98] = 8'd21;
-            expected_x[99] = 9'd11; expected_y[99] = 8'd22;
-            expected_x[100] = 9'd12; expected_y[100] = 8'd22;
-            expected_x[101] = 9'd13; expected_y[101] = 8'd22;
-            expected_x[102] = 9'd14; expected_y[102] = 8'd22;
-            expected_x[103] = 9'd15; expected_y[103] = 8'd22;
-            expected_x[104] = 9'd16; expected_y[104] = 8'd22;
-            expected_x[105] = 9'd17; expected_y[105] = 8'd22;
-            expected_x[106] = 9'd18; expected_y[106] = 8'd22;
-            expected_x[107] = 9'd19; expected_y[107] = 8'd22;
-            expected_x[108] = 9'd20; expected_y[108] = 8'd22;
-            expected_x[109] = 9'd21; expected_y[109] = 8'd22;
-            expected_x[110] = 9'd22; expected_y[110] = 8'd22;
-            expected_x[111] = 9'd23; expected_y[111] = 8'd22;
-            expected_x[112] = 9'd24; expected_y[112] = 8'd22;
-            expected_x[113] = 9'd25; expected_y[113] = 8'd22;
-            expected_x[114] = 9'd26; expected_y[114] = 8'd22;
-            expected_x[115] = 9'd27; expected_y[115] = 8'd22;
-            expected_x[116] = 9'd28; expected_y[116] = 8'd22;
-            expected_x[117] = 9'd29; expected_y[117] = 8'd22;
-            expected_x[118] = 9'd12; expected_y[118] = 8'd23;
-            expected_x[119] = 9'd13; expected_y[119] = 8'd23;
-            expected_x[120] = 9'd14; expected_y[120] = 8'd23;
-            expected_x[121] = 9'd15; expected_y[121] = 8'd23;
-            expected_x[122] = 9'd16; expected_y[122] = 8'd23;
-            expected_x[123] = 9'd17; expected_y[123] = 8'd23;
-            expected_x[124] = 9'd18; expected_y[124] = 8'd23;
-            expected_x[125] = 9'd19; expected_y[125] = 8'd23;
-            expected_x[126] = 9'd20; expected_y[126] = 8'd23;
-            expected_x[127] = 9'd21; expected_y[127] = 8'd23;
-            expected_x[128] = 9'd22; expected_y[128] = 8'd23;
-            expected_x[129] = 9'd23; expected_y[129] = 8'd23;
-            expected_x[130] = 9'd24; expected_y[130] = 8'd23;
-            expected_x[131] = 9'd25; expected_y[131] = 8'd23;
-            expected_x[132] = 9'd26; expected_y[132] = 8'd23;
-            expected_x[133] = 9'd27; expected_y[133] = 8'd23;
-            expected_x[134] = 9'd28; expected_y[134] = 8'd23;
-            expected_x[135] = 9'd29; expected_y[135] = 8'd23;
-            expected_x[136] = 9'd30; expected_y[136] = 8'd23;
-            expected_x[137] = 9'd31; expected_y[137] = 8'd23;
-            expected_x[138] = 9'd12; expected_y[138] = 8'd24;
-            expected_x[139] = 9'd13; expected_y[139] = 8'd24;
-            expected_x[140] = 9'd14; expected_y[140] = 8'd24;
-            expected_x[141] = 9'd15; expected_y[141] = 8'd24;
-            expected_x[142] = 9'd16; expected_y[142] = 8'd24;
-            expected_x[143] = 9'd17; expected_y[143] = 8'd24;
-            expected_x[144] = 9'd18; expected_y[144] = 8'd24;
-            expected_x[145] = 9'd19; expected_y[145] = 8'd24;
-            expected_x[146] = 9'd20; expected_y[146] = 8'd24;
-            expected_x[147] = 9'd21; expected_y[147] = 8'd24;
-            expected_x[148] = 9'd22; expected_y[148] = 8'd24;
-            expected_x[149] = 9'd23; expected_y[149] = 8'd24;
-            expected_x[150] = 9'd24; expected_y[150] = 8'd24;
-            expected_x[151] = 9'd25; expected_y[151] = 8'd24;
-            expected_x[152] = 9'd26; expected_y[152] = 8'd24;
-            expected_x[153] = 9'd27; expected_y[153] = 8'd24;
-            expected_x[154] = 9'd28; expected_y[154] = 8'd24;
-            expected_x[155] = 9'd29; expected_y[155] = 8'd24;
-            expected_x[156] = 9'd30; expected_y[156] = 8'd24;
-            expected_x[157] = 9'd31; expected_y[157] = 8'd24;
-            expected_x[158] = 9'd32; expected_y[158] = 8'd24;
-            expected_x[159] = 9'd33; expected_y[159] = 8'd24;
-            expected_x[160] = 9'd13; expected_y[160] = 8'd25;
-            expected_x[161] = 9'd14; expected_y[161] = 8'd25;
-            expected_x[162] = 9'd15; expected_y[162] = 8'd25;
-            expected_x[163] = 9'd16; expected_y[163] = 8'd25;
-            expected_x[164] = 9'd17; expected_y[164] = 8'd25;
-            expected_x[165] = 9'd18; expected_y[165] = 8'd25;
-            expected_x[166] = 9'd19; expected_y[166] = 8'd25;
-            expected_x[167] = 9'd20; expected_y[167] = 8'd25;
-            expected_x[168] = 9'd21; expected_y[168] = 8'd25;
-            expected_x[169] = 9'd22; expected_y[169] = 8'd25;
-            expected_x[170] = 9'd23; expected_y[170] = 8'd25;
-            expected_x[171] = 9'd24; expected_y[171] = 8'd25;
-            expected_x[172] = 9'd25; expected_y[172] = 8'd25;
-            expected_x[173] = 9'd26; expected_y[173] = 8'd25;
-            expected_x[174] = 9'd27; expected_y[174] = 8'd25;
-            expected_x[175] = 9'd28; expected_y[175] = 8'd25;
-            expected_x[176] = 9'd29; expected_y[176] = 8'd25;
-            expected_x[177] = 9'd30; expected_y[177] = 8'd25;
-            expected_x[178] = 9'd31; expected_y[178] = 8'd25;
-            expected_x[179] = 9'd32; expected_y[179] = 8'd25;
-            expected_x[180] = 9'd33; expected_y[180] = 8'd25;
-            expected_x[181] = 9'd34; expected_y[181] = 8'd25;
-            expected_x[182] = 9'd35; expected_y[182] = 8'd25;
-            expected_x[183] = 9'd13; expected_y[183] = 8'd26;
-            expected_x[184] = 9'd14; expected_y[184] = 8'd26;
-            expected_x[185] = 9'd15; expected_y[185] = 8'd26;
-            expected_x[186] = 9'd16; expected_y[186] = 8'd26;
-            expected_x[187] = 9'd17; expected_y[187] = 8'd26;
-            expected_x[188] = 9'd18; expected_y[188] = 8'd26;
-            expected_x[189] = 9'd19; expected_y[189] = 8'd26;
-            expected_x[190] = 9'd20; expected_y[190] = 8'd26;
-            expected_x[191] = 9'd21; expected_y[191] = 8'd26;
-            expected_x[192] = 9'd22; expected_y[192] = 8'd26;
-            expected_x[193] = 9'd23; expected_y[193] = 8'd26;
-            expected_x[194] = 9'd24; expected_y[194] = 8'd26;
-            expected_x[195] = 9'd25; expected_y[195] = 8'd26;
-            expected_x[196] = 9'd26; expected_y[196] = 8'd26;
-            expected_x[197] = 9'd27; expected_y[197] = 8'd26;
-            expected_x[198] = 9'd28; expected_y[198] = 8'd26;
-            expected_x[199] = 9'd29; expected_y[199] = 8'd26;
-            expected_x[200] = 9'd30; expected_y[200] = 8'd26;
-            expected_x[201] = 9'd31; expected_y[201] = 8'd26;
-            expected_x[202] = 9'd32; expected_y[202] = 8'd26;
-            expected_x[203] = 9'd33; expected_y[203] = 8'd26;
-            expected_x[204] = 9'd34; expected_y[204] = 8'd26;
-            expected_x[205] = 9'd35; expected_y[205] = 8'd26;
-            expected_x[206] = 9'd36; expected_y[206] = 8'd26;
-            expected_x[207] = 9'd37; expected_y[207] = 8'd26;
-            expected_x[208] = 9'd13; expected_y[208] = 8'd27;
-            expected_x[209] = 9'd14; expected_y[209] = 8'd27;
-            expected_x[210] = 9'd15; expected_y[210] = 8'd27;
-            expected_x[211] = 9'd16; expected_y[211] = 8'd27;
-            expected_x[212] = 9'd17; expected_y[212] = 8'd27;
-            expected_x[213] = 9'd18; expected_y[213] = 8'd27;
-            expected_x[214] = 9'd19; expected_y[214] = 8'd27;
-            expected_x[215] = 9'd20; expected_y[215] = 8'd27;
-            expected_x[216] = 9'd21; expected_y[216] = 8'd27;
-            expected_x[217] = 9'd22; expected_y[217] = 8'd27;
-            expected_x[218] = 9'd23; expected_y[218] = 8'd27;
-            expected_x[219] = 9'd24; expected_y[219] = 8'd27;
-            expected_x[220] = 9'd25; expected_y[220] = 8'd27;
-            expected_x[221] = 9'd26; expected_y[221] = 8'd27;
-            expected_x[222] = 9'd27; expected_y[222] = 8'd27;
-            expected_x[223] = 9'd28; expected_y[223] = 8'd27;
-            expected_x[224] = 9'd29; expected_y[224] = 8'd27;
-            expected_x[225] = 9'd30; expected_y[225] = 8'd27;
-            expected_x[226] = 9'd31; expected_y[226] = 8'd27;
-            expected_x[227] = 9'd32; expected_y[227] = 8'd27;
-            expected_x[228] = 9'd33; expected_y[228] = 8'd27;
-            expected_x[229] = 9'd34; expected_y[229] = 8'd27;
-            expected_x[230] = 9'd35; expected_y[230] = 8'd27;
-            expected_x[231] = 9'd36; expected_y[231] = 8'd27;
-            expected_x[232] = 9'd37; expected_y[232] = 8'd27;
-            expected_x[233] = 9'd38; expected_y[233] = 8'd27;
-            expected_x[234] = 9'd39; expected_y[234] = 8'd27;
-            expected_x[235] = 9'd14; expected_y[235] = 8'd28;
-            expected_x[236] = 9'd15; expected_y[236] = 8'd28;
-            expected_x[237] = 9'd16; expected_y[237] = 8'd28;
-            expected_x[238] = 9'd17; expected_y[238] = 8'd28;
-            expected_x[239] = 9'd18; expected_y[239] = 8'd28;
-            expected_x[240] = 9'd19; expected_y[240] = 8'd28;
-            expected_x[241] = 9'd20; expected_y[241] = 8'd28;
-            expected_x[242] = 9'd21; expected_y[242] = 8'd28;
-            expected_x[243] = 9'd22; expected_y[243] = 8'd28;
-            expected_x[244] = 9'd23; expected_y[244] = 8'd28;
-            expected_x[245] = 9'd24; expected_y[245] = 8'd28;
-            expected_x[246] = 9'd25; expected_y[246] = 8'd28;
-            expected_x[247] = 9'd26; expected_y[247] = 8'd28;
-            expected_x[248] = 9'd27; expected_y[248] = 8'd28;
-            expected_x[249] = 9'd28; expected_y[249] = 8'd28;
-            expected_x[250] = 9'd29; expected_y[250] = 8'd28;
-            expected_x[251] = 9'd30; expected_y[251] = 8'd28;
-            expected_x[252] = 9'd31; expected_y[252] = 8'd28;
-            expected_x[253] = 9'd32; expected_y[253] = 8'd28;
-            expected_x[254] = 9'd33; expected_y[254] = 8'd28;
-            expected_x[255] = 9'd34; expected_y[255] = 8'd28;
-            expected_x[256] = 9'd35; expected_y[256] = 8'd28;
-            expected_x[257] = 9'd36; expected_y[257] = 8'd28;
-            expected_x[258] = 9'd37; expected_y[258] = 8'd28;
-            expected_x[259] = 9'd38; expected_y[259] = 8'd28;
-            expected_x[260] = 9'd39; expected_y[260] = 8'd28;
-            expected_x[261] = 9'd40; expected_y[261] = 8'd28;
-            expected_x[262] = 9'd41; expected_y[262] = 8'd28;
-            expected_x[263] = 9'd14; expected_y[263] = 8'd29;
-            expected_x[264] = 9'd15; expected_y[264] = 8'd29;
-            expected_x[265] = 9'd16; expected_y[265] = 8'd29;
-            expected_x[266] = 9'd17; expected_y[266] = 8'd29;
-            expected_x[267] = 9'd18; expected_y[267] = 8'd29;
-            expected_x[268] = 9'd19; expected_y[268] = 8'd29;
-            expected_x[269] = 9'd20; expected_y[269] = 8'd29;
-            expected_x[270] = 9'd21; expected_y[270] = 8'd29;
-            expected_x[271] = 9'd22; expected_y[271] = 8'd29;
-            expected_x[272] = 9'd23; expected_y[272] = 8'd29;
-            expected_x[273] = 9'd24; expected_y[273] = 8'd29;
-            expected_x[274] = 9'd25; expected_y[274] = 8'd29;
-            expected_x[275] = 9'd26; expected_y[275] = 8'd29;
-            expected_x[276] = 9'd27; expected_y[276] = 8'd29;
-            expected_x[277] = 9'd28; expected_y[277] = 8'd29;
-            expected_x[278] = 9'd29; expected_y[278] = 8'd29;
-            expected_x[279] = 9'd30; expected_y[279] = 8'd29;
-            expected_x[280] = 9'd31; expected_y[280] = 8'd29;
-            expected_x[281] = 9'd32; expected_y[281] = 8'd29;
-            expected_x[282] = 9'd33; expected_y[282] = 8'd29;
-            expected_x[283] = 9'd34; expected_y[283] = 8'd29;
-            expected_x[284] = 9'd35; expected_y[284] = 8'd29;
-            expected_x[285] = 9'd36; expected_y[285] = 8'd29;
-            expected_x[286] = 9'd37; expected_y[286] = 8'd29;
-            expected_x[287] = 9'd38; expected_y[287] = 8'd29;
-            expected_x[288] = 9'd39; expected_y[288] = 8'd29;
-            expected_x[289] = 9'd40; expected_y[289] = 8'd29;
-            expected_x[290] = 9'd41; expected_y[290] = 8'd29;
-            expected_x[291] = 9'd42; expected_y[291] = 8'd29;
-            expected_x[292] = 9'd43; expected_y[292] = 8'd29;
-            expected_x[293] = 9'd14; expected_y[293] = 8'd30;
-            expected_x[294] = 9'd15; expected_y[294] = 8'd30;
-            expected_x[295] = 9'd16; expected_y[295] = 8'd30;
-            expected_x[296] = 9'd17; expected_y[296] = 8'd30;
-            expected_x[297] = 9'd18; expected_y[297] = 8'd30;
-            expected_x[298] = 9'd19; expected_y[298] = 8'd30;
-            expected_x[299] = 9'd20; expected_y[299] = 8'd30;
-            expected_x[300] = 9'd21; expected_y[300] = 8'd30;
-            expected_x[301] = 9'd22; expected_y[301] = 8'd30;
-            expected_x[302] = 9'd23; expected_y[302] = 8'd30;
-            expected_x[303] = 9'd24; expected_y[303] = 8'd30;
-            expected_x[304] = 9'd25; expected_y[304] = 8'd30;
-            expected_x[305] = 9'd26; expected_y[305] = 8'd30;
-            expected_x[306] = 9'd27; expected_y[306] = 8'd30;
-            expected_x[307] = 9'd28; expected_y[307] = 8'd30;
-            expected_x[308] = 9'd29; expected_y[308] = 8'd30;
-            expected_x[309] = 9'd30; expected_y[309] = 8'd30;
-            expected_x[310] = 9'd31; expected_y[310] = 8'd30;
-            expected_x[311] = 9'd32; expected_y[311] = 8'd30;
-            expected_x[312] = 9'd33; expected_y[312] = 8'd30;
-            expected_x[313] = 9'd34; expected_y[313] = 8'd30;
-            expected_x[314] = 9'd35; expected_y[314] = 8'd30;
-            expected_x[315] = 9'd36; expected_y[315] = 8'd30;
-            expected_x[316] = 9'd37; expected_y[316] = 8'd30;
-            expected_x[317] = 9'd38; expected_y[317] = 8'd30;
-            expected_x[318] = 9'd39; expected_y[318] = 8'd30;
-            expected_x[319] = 9'd40; expected_y[319] = 8'd30;
-            expected_x[320] = 9'd41; expected_y[320] = 8'd30;
-            expected_x[321] = 9'd42; expected_y[321] = 8'd30;
-            expected_x[322] = 9'd43; expected_y[322] = 8'd30;
-            expected_x[323] = 9'd44; expected_y[323] = 8'd30;
-            expected_x[324] = 9'd45; expected_y[324] = 8'd30;
-            expected_x[325] = 9'd15; expected_y[325] = 8'd31;
-            expected_x[326] = 9'd16; expected_y[326] = 8'd31;
-            expected_x[327] = 9'd17; expected_y[327] = 8'd31;
-            expected_x[328] = 9'd18; expected_y[328] = 8'd31;
-            expected_x[329] = 9'd19; expected_y[329] = 8'd31;
-            expected_x[330] = 9'd20; expected_y[330] = 8'd31;
-            expected_x[331] = 9'd21; expected_y[331] = 8'd31;
-            expected_x[332] = 9'd22; expected_y[332] = 8'd31;
-            expected_x[333] = 9'd23; expected_y[333] = 8'd31;
-            expected_x[334] = 9'd24; expected_y[334] = 8'd31;
-            expected_x[335] = 9'd25; expected_y[335] = 8'd31;
-            expected_x[336] = 9'd26; expected_y[336] = 8'd31;
-            expected_x[337] = 9'd27; expected_y[337] = 8'd31;
-            expected_x[338] = 9'd28; expected_y[338] = 8'd31;
-            expected_x[339] = 9'd29; expected_y[339] = 8'd31;
-            expected_x[340] = 9'd30; expected_y[340] = 8'd31;
-            expected_x[341] = 9'd31; expected_y[341] = 8'd31;
-            expected_x[342] = 9'd32; expected_y[342] = 8'd31;
-            expected_x[343] = 9'd33; expected_y[343] = 8'd31;
-            expected_x[344] = 9'd34; expected_y[344] = 8'd31;
-            expected_x[345] = 9'd35; expected_y[345] = 8'd31;
-            expected_x[346] = 9'd36; expected_y[346] = 8'd31;
-            expected_x[347] = 9'd37; expected_y[347] = 8'd31;
-            expected_x[348] = 9'd38; expected_y[348] = 8'd31;
-            expected_x[349] = 9'd39; expected_y[349] = 8'd31;
-            expected_x[350] = 9'd40; expected_y[350] = 8'd31;
-            expected_x[351] = 9'd41; expected_y[351] = 8'd31;
-            expected_x[352] = 9'd42; expected_y[352] = 8'd31;
-            expected_x[353] = 9'd43; expected_y[353] = 8'd31;
-            expected_x[354] = 9'd44; expected_y[354] = 8'd31;
-            expected_x[355] = 9'd45; expected_y[355] = 8'd31;
-            expected_x[356] = 9'd46; expected_y[356] = 8'd31;
-            expected_x[357] = 9'd47; expected_y[357] = 8'd31;
-            expected_x[358] = 9'd15; expected_y[358] = 8'd32;
-            expected_x[359] = 9'd16; expected_y[359] = 8'd32;
-            expected_x[360] = 9'd17; expected_y[360] = 8'd32;
-            expected_x[361] = 9'd18; expected_y[361] = 8'd32;
-            expected_x[362] = 9'd19; expected_y[362] = 8'd32;
-            expected_x[363] = 9'd20; expected_y[363] = 8'd32;
-            expected_x[364] = 9'd21; expected_y[364] = 8'd32;
-            expected_x[365] = 9'd22; expected_y[365] = 8'd32;
-            expected_x[366] = 9'd23; expected_y[366] = 8'd32;
-            expected_x[367] = 9'd24; expected_y[367] = 8'd32;
-            expected_x[368] = 9'd25; expected_y[368] = 8'd32;
-            expected_x[369] = 9'd26; expected_y[369] = 8'd32;
-            expected_x[370] = 9'd27; expected_y[370] = 8'd32;
-            expected_x[371] = 9'd28; expected_y[371] = 8'd32;
-            expected_x[372] = 9'd29; expected_y[372] = 8'd32;
-            expected_x[373] = 9'd30; expected_y[373] = 8'd32;
-            expected_x[374] = 9'd31; expected_y[374] = 8'd32;
-            expected_x[375] = 9'd32; expected_y[375] = 8'd32;
-            expected_x[376] = 9'd33; expected_y[376] = 8'd32;
-            expected_x[377] = 9'd34; expected_y[377] = 8'd32;
-            expected_x[378] = 9'd35; expected_y[378] = 8'd32;
-            expected_x[379] = 9'd36; expected_y[379] = 8'd32;
-            expected_x[380] = 9'd37; expected_y[380] = 8'd32;
-            expected_x[381] = 9'd38; expected_y[381] = 8'd32;
-            expected_x[382] = 9'd39; expected_y[382] = 8'd32;
-            expected_x[383] = 9'd40; expected_y[383] = 8'd32;
-            expected_x[384] = 9'd41; expected_y[384] = 8'd32;
-            expected_x[385] = 9'd42; expected_y[385] = 8'd32;
-            expected_x[386] = 9'd43; expected_y[386] = 8'd32;
-            expected_x[387] = 9'd44; expected_y[387] = 8'd32;
-            expected_x[388] = 9'd45; expected_y[388] = 8'd32;
-            expected_x[389] = 9'd46; expected_y[389] = 8'd32;
-            expected_x[390] = 9'd47; expected_y[390] = 8'd32;
-            expected_x[391] = 9'd48; expected_y[391] = 8'd32;
-            expected_x[392] = 9'd49; expected_y[392] = 8'd32;
-            expected_x[393] = 9'd16; expected_y[393] = 8'd33;
-            expected_x[394] = 9'd17; expected_y[394] = 8'd33;
-            expected_x[395] = 9'd18; expected_y[395] = 8'd33;
-            expected_x[396] = 9'd19; expected_y[396] = 8'd33;
-            expected_x[397] = 9'd20; expected_y[397] = 8'd33;
-            expected_x[398] = 9'd21; expected_y[398] = 8'd33;
-            expected_x[399] = 9'd22; expected_y[399] = 8'd33;
-            expected_x[400] = 9'd23; expected_y[400] = 8'd33;
-            expected_x[401] = 9'd24; expected_y[401] = 8'd33;
-            expected_x[402] = 9'd25; expected_y[402] = 8'd33;
-            expected_x[403] = 9'd26; expected_y[403] = 8'd33;
-            expected_x[404] = 9'd27; expected_y[404] = 8'd33;
-            expected_x[405] = 9'd28; expected_y[405] = 8'd33;
-            expected_x[406] = 9'd29; expected_y[406] = 8'd33;
-            expected_x[407] = 9'd30; expected_y[407] = 8'd33;
-            expected_x[408] = 9'd31; expected_y[408] = 8'd33;
-            expected_x[409] = 9'd32; expected_y[409] = 8'd33;
-            expected_x[410] = 9'd33; expected_y[410] = 8'd33;
-            expected_x[411] = 9'd34; expected_y[411] = 8'd33;
-            expected_x[412] = 9'd35; expected_y[412] = 8'd33;
-            expected_x[413] = 9'd36; expected_y[413] = 8'd33;
-            expected_x[414] = 9'd37; expected_y[414] = 8'd33;
-            expected_x[415] = 9'd38; expected_y[415] = 8'd33;
-            expected_x[416] = 9'd39; expected_y[416] = 8'd33;
-            expected_x[417] = 9'd40; expected_y[417] = 8'd33;
-            expected_x[418] = 9'd41; expected_y[418] = 8'd33;
-            expected_x[419] = 9'd42; expected_y[419] = 8'd33;
-            expected_x[420] = 9'd43; expected_y[420] = 8'd33;
-            expected_x[421] = 9'd44; expected_y[421] = 8'd33;
-            expected_x[422] = 9'd45; expected_y[422] = 8'd33;
-            expected_x[423] = 9'd46; expected_y[423] = 8'd33;
-            expected_x[424] = 9'd47; expected_y[424] = 8'd33;
-            expected_x[425] = 9'd48; expected_y[425] = 8'd33;
-            expected_x[426] = 9'd49; expected_y[426] = 8'd33;
-            expected_x[427] = 9'd50; expected_y[427] = 8'd33;
-            expected_x[428] = 9'd51; expected_y[428] = 8'd33;
-            expected_x[429] = 9'd16; expected_y[429] = 8'd34;
-            expected_x[430] = 9'd17; expected_y[430] = 8'd34;
-            expected_x[431] = 9'd18; expected_y[431] = 8'd34;
-            expected_x[432] = 9'd19; expected_y[432] = 8'd34;
-            expected_x[433] = 9'd20; expected_y[433] = 8'd34;
-            expected_x[434] = 9'd21; expected_y[434] = 8'd34;
-            expected_x[435] = 9'd22; expected_y[435] = 8'd34;
-            expected_x[436] = 9'd23; expected_y[436] = 8'd34;
-            expected_x[437] = 9'd24; expected_y[437] = 8'd34;
-            expected_x[438] = 9'd25; expected_y[438] = 8'd34;
-            expected_x[439] = 9'd26; expected_y[439] = 8'd34;
-            expected_x[440] = 9'd27; expected_y[440] = 8'd34;
-            expected_x[441] = 9'd28; expected_y[441] = 8'd34;
-            expected_x[442] = 9'd29; expected_y[442] = 8'd34;
-            expected_x[443] = 9'd30; expected_y[443] = 8'd34;
-            expected_x[444] = 9'd31; expected_y[444] = 8'd34;
-            expected_x[445] = 9'd32; expected_y[445] = 8'd34;
-            expected_x[446] = 9'd33; expected_y[446] = 8'd34;
-            expected_x[447] = 9'd34; expected_y[447] = 8'd34;
-            expected_x[448] = 9'd35; expected_y[448] = 8'd34;
-            expected_x[449] = 9'd36; expected_y[449] = 8'd34;
-            expected_x[450] = 9'd37; expected_y[450] = 8'd34;
-            expected_x[451] = 9'd38; expected_y[451] = 8'd34;
-            expected_x[452] = 9'd39; expected_y[452] = 8'd34;
-            expected_x[453] = 9'd40; expected_y[453] = 8'd34;
-            expected_x[454] = 9'd41; expected_y[454] = 8'd34;
-            expected_x[455] = 9'd42; expected_y[455] = 8'd34;
-            expected_x[456] = 9'd43; expected_y[456] = 8'd34;
-            expected_x[457] = 9'd44; expected_y[457] = 8'd34;
-            expected_x[458] = 9'd45; expected_y[458] = 8'd34;
-            expected_x[459] = 9'd46; expected_y[459] = 8'd34;
-            expected_x[460] = 9'd47; expected_y[460] = 8'd34;
-            expected_x[461] = 9'd48; expected_y[461] = 8'd34;
-            expected_x[462] = 9'd49; expected_y[462] = 8'd34;
-            expected_x[463] = 9'd50; expected_y[463] = 8'd34;
-            expected_x[464] = 9'd51; expected_y[464] = 8'd34;
-            expected_x[465] = 9'd52; expected_y[465] = 8'd34;
-            expected_x[466] = 9'd53; expected_y[466] = 8'd34;
-            expected_x[467] = 9'd16; expected_y[467] = 8'd35;
-            expected_x[468] = 9'd17; expected_y[468] = 8'd35;
-            expected_x[469] = 9'd18; expected_y[469] = 8'd35;
-            expected_x[470] = 9'd19; expected_y[470] = 8'd35;
-            expected_x[471] = 9'd20; expected_y[471] = 8'd35;
-            expected_x[472] = 9'd21; expected_y[472] = 8'd35;
-            expected_x[473] = 9'd22; expected_y[473] = 8'd35;
-            expected_x[474] = 9'd23; expected_y[474] = 8'd35;
-            expected_x[475] = 9'd24; expected_y[475] = 8'd35;
-            expected_x[476] = 9'd25; expected_y[476] = 8'd35;
-            expected_x[477] = 9'd26; expected_y[477] = 8'd35;
-            expected_x[478] = 9'd27; expected_y[478] = 8'd35;
-            expected_x[479] = 9'd28; expected_y[479] = 8'd35;
-            expected_x[480] = 9'd29; expected_y[480] = 8'd35;
-            expected_x[481] = 9'd30; expected_y[481] = 8'd35;
-            expected_x[482] = 9'd31; expected_y[482] = 8'd35;
-            expected_x[483] = 9'd32; expected_y[483] = 8'd35;
-            expected_x[484] = 9'd33; expected_y[484] = 8'd35;
-            expected_x[485] = 9'd34; expected_y[485] = 8'd35;
-            expected_x[486] = 9'd35; expected_y[486] = 8'd35;
-            expected_x[487] = 9'd36; expected_y[487] = 8'd35;
-            expected_x[488] = 9'd37; expected_y[488] = 8'd35;
-            expected_x[489] = 9'd38; expected_y[489] = 8'd35;
-            expected_x[490] = 9'd39; expected_y[490] = 8'd35;
-            expected_x[491] = 9'd40; expected_y[491] = 8'd35;
-            expected_x[492] = 9'd41; expected_y[492] = 8'd35;
-            expected_x[493] = 9'd42; expected_y[493] = 8'd35;
-            expected_x[494] = 9'd43; expected_y[494] = 8'd35;
-            expected_x[495] = 9'd44; expected_y[495] = 8'd35;
-            expected_x[496] = 9'd45; expected_y[496] = 8'd35;
-            expected_x[497] = 9'd46; expected_y[497] = 8'd35;
-            expected_x[498] = 9'd47; expected_y[498] = 8'd35;
-            expected_x[499] = 9'd48; expected_y[499] = 8'd35;
-            expected_x[500] = 9'd49; expected_y[500] = 8'd35;
-            expected_x[501] = 9'd50; expected_y[501] = 8'd35;
-            expected_x[502] = 9'd51; expected_y[502] = 8'd35;
-            expected_x[503] = 9'd52; expected_y[503] = 8'd35;
-            expected_x[504] = 9'd17; expected_y[504] = 8'd36;
-            expected_x[505] = 9'd18; expected_y[505] = 8'd36;
-            expected_x[506] = 9'd19; expected_y[506] = 8'd36;
-            expected_x[507] = 9'd20; expected_y[507] = 8'd36;
-            expected_x[508] = 9'd21; expected_y[508] = 8'd36;
-            expected_x[509] = 9'd22; expected_y[509] = 8'd36;
-            expected_x[510] = 9'd23; expected_y[510] = 8'd36;
-            expected_x[511] = 9'd24; expected_y[511] = 8'd36;
-            expected_x[512] = 9'd25; expected_y[512] = 8'd36;
-            expected_x[513] = 9'd26; expected_y[513] = 8'd36;
-            expected_x[514] = 9'd27; expected_y[514] = 8'd36;
-            expected_x[515] = 9'd28; expected_y[515] = 8'd36;
-            expected_x[516] = 9'd29; expected_y[516] = 8'd36;
-            expected_x[517] = 9'd30; expected_y[517] = 8'd36;
-            expected_x[518] = 9'd31; expected_y[518] = 8'd36;
-            expected_x[519] = 9'd32; expected_y[519] = 8'd36;
-            expected_x[520] = 9'd33; expected_y[520] = 8'd36;
-            expected_x[521] = 9'd34; expected_y[521] = 8'd36;
-            expected_x[522] = 9'd35; expected_y[522] = 8'd36;
-            expected_x[523] = 9'd36; expected_y[523] = 8'd36;
-            expected_x[524] = 9'd37; expected_y[524] = 8'd36;
-            expected_x[525] = 9'd38; expected_y[525] = 8'd36;
-            expected_x[526] = 9'd39; expected_y[526] = 8'd36;
-            expected_x[527] = 9'd40; expected_y[527] = 8'd36;
-            expected_x[528] = 9'd41; expected_y[528] = 8'd36;
-            expected_x[529] = 9'd42; expected_y[529] = 8'd36;
-            expected_x[530] = 9'd43; expected_y[530] = 8'd36;
-            expected_x[531] = 9'd44; expected_y[531] = 8'd36;
-            expected_x[532] = 9'd45; expected_y[532] = 8'd36;
-            expected_x[533] = 9'd46; expected_y[533] = 8'd36;
-            expected_x[534] = 9'd47; expected_y[534] = 8'd36;
-            expected_x[535] = 9'd48; expected_y[535] = 8'd36;
-            expected_x[536] = 9'd49; expected_y[536] = 8'd36;
-            expected_x[537] = 9'd17; expected_y[537] = 8'd37;
-            expected_x[538] = 9'd18; expected_y[538] = 8'd37;
-            expected_x[539] = 9'd19; expected_y[539] = 8'd37;
-            expected_x[540] = 9'd20; expected_y[540] = 8'd37;
-            expected_x[541] = 9'd21; expected_y[541] = 8'd37;
-            expected_x[542] = 9'd22; expected_y[542] = 8'd37;
-            expected_x[543] = 9'd23; expected_y[543] = 8'd37;
-            expected_x[544] = 9'd24; expected_y[544] = 8'd37;
-            expected_x[545] = 9'd25; expected_y[545] = 8'd37;
-            expected_x[546] = 9'd26; expected_y[546] = 8'd37;
-            expected_x[547] = 9'd27; expected_y[547] = 8'd37;
-            expected_x[548] = 9'd28; expected_y[548] = 8'd37;
-            expected_x[549] = 9'd29; expected_y[549] = 8'd37;
-            expected_x[550] = 9'd30; expected_y[550] = 8'd37;
-            expected_x[551] = 9'd31; expected_y[551] = 8'd37;
-            expected_x[552] = 9'd32; expected_y[552] = 8'd37;
-            expected_x[553] = 9'd33; expected_y[553] = 8'd37;
-            expected_x[554] = 9'd34; expected_y[554] = 8'd37;
-            expected_x[555] = 9'd35; expected_y[555] = 8'd37;
-            expected_x[556] = 9'd36; expected_y[556] = 8'd37;
-            expected_x[557] = 9'd37; expected_y[557] = 8'd37;
-            expected_x[558] = 9'd38; expected_y[558] = 8'd37;
-            expected_x[559] = 9'd39; expected_y[559] = 8'd37;
-            expected_x[560] = 9'd40; expected_y[560] = 8'd37;
-            expected_x[561] = 9'd41; expected_y[561] = 8'd37;
-            expected_x[562] = 9'd42; expected_y[562] = 8'd37;
-            expected_x[563] = 9'd43; expected_y[563] = 8'd37;
-            expected_x[564] = 9'd44; expected_y[564] = 8'd37;
-            expected_x[565] = 9'd45; expected_y[565] = 8'd37;
-            expected_x[566] = 9'd18; expected_y[566] = 8'd38;
-            expected_x[567] = 9'd19; expected_y[567] = 8'd38;
-            expected_x[568] = 9'd20; expected_y[568] = 8'd38;
-            expected_x[569] = 9'd21; expected_y[569] = 8'd38;
-            expected_x[570] = 9'd22; expected_y[570] = 8'd38;
-            expected_x[571] = 9'd23; expected_y[571] = 8'd38;
-            expected_x[572] = 9'd24; expected_y[572] = 8'd38;
-            expected_x[573] = 9'd25; expected_y[573] = 8'd38;
-            expected_x[574] = 9'd26; expected_y[574] = 8'd38;
-            expected_x[575] = 9'd27; expected_y[575] = 8'd38;
-            expected_x[576] = 9'd28; expected_y[576] = 8'd38;
-            expected_x[577] = 9'd29; expected_y[577] = 8'd38;
-            expected_x[578] = 9'd30; expected_y[578] = 8'd38;
-            expected_x[579] = 9'd31; expected_y[579] = 8'd38;
-            expected_x[580] = 9'd32; expected_y[580] = 8'd38;
-            expected_x[581] = 9'd33; expected_y[581] = 8'd38;
-            expected_x[582] = 9'd34; expected_y[582] = 8'd38;
-            expected_x[583] = 9'd35; expected_y[583] = 8'd38;
-            expected_x[584] = 9'd36; expected_y[584] = 8'd38;
-            expected_x[585] = 9'd37; expected_y[585] = 8'd38;
-            expected_x[586] = 9'd38; expected_y[586] = 8'd38;
-            expected_x[587] = 9'd39; expected_y[587] = 8'd38;
-            expected_x[588] = 9'd40; expected_y[588] = 8'd38;
-            expected_x[589] = 9'd41; expected_y[589] = 8'd38;
-            expected_x[590] = 9'd18; expected_y[590] = 8'd39;
-            expected_x[591] = 9'd19; expected_y[591] = 8'd39;
-            expected_x[592] = 9'd20; expected_y[592] = 8'd39;
-            expected_x[593] = 9'd21; expected_y[593] = 8'd39;
-            expected_x[594] = 9'd22; expected_y[594] = 8'd39;
-            expected_x[595] = 9'd23; expected_y[595] = 8'd39;
-            expected_x[596] = 9'd24; expected_y[596] = 8'd39;
-            expected_x[597] = 9'd25; expected_y[597] = 8'd39;
-            expected_x[598] = 9'd26; expected_y[598] = 8'd39;
-            expected_x[599] = 9'd27; expected_y[599] = 8'd39;
-            expected_x[600] = 9'd28; expected_y[600] = 8'd39;
-            expected_x[601] = 9'd29; expected_y[601] = 8'd39;
-            expected_x[602] = 9'd30; expected_y[602] = 8'd39;
-            expected_x[603] = 9'd31; expected_y[603] = 8'd39;
-            expected_x[604] = 9'd32; expected_y[604] = 8'd39;
-            expected_x[605] = 9'd33; expected_y[605] = 8'd39;
-            expected_x[606] = 9'd34; expected_y[606] = 8'd39;
-            expected_x[607] = 9'd35; expected_y[607] = 8'd39;
-            expected_x[608] = 9'd36; expected_y[608] = 8'd39;
-            expected_x[609] = 9'd37; expected_y[609] = 8'd39;
-            expected_x[610] = 9'd18; expected_y[610] = 8'd40;
-            expected_x[611] = 9'd19; expected_y[611] = 8'd40;
-            expected_x[612] = 9'd20; expected_y[612] = 8'd40;
-            expected_x[613] = 9'd21; expected_y[613] = 8'd40;
-            expected_x[614] = 9'd22; expected_y[614] = 8'd40;
-            expected_x[615] = 9'd23; expected_y[615] = 8'd40;
-            expected_x[616] = 9'd24; expected_y[616] = 8'd40;
-            expected_x[617] = 9'd25; expected_y[617] = 8'd40;
-            expected_x[618] = 9'd26; expected_y[618] = 8'd40;
-            expected_x[619] = 9'd27; expected_y[619] = 8'd40;
-            expected_x[620] = 9'd28; expected_y[620] = 8'd40;
-            expected_x[621] = 9'd29; expected_y[621] = 8'd40;
-            expected_x[622] = 9'd30; expected_y[622] = 8'd40;
-            expected_x[623] = 9'd31; expected_y[623] = 8'd40;
-            expected_x[624] = 9'd32; expected_y[624] = 8'd40;
-            expected_x[625] = 9'd33; expected_y[625] = 8'd40;
-            expected_x[626] = 9'd19; expected_y[626] = 8'd41;
-            expected_x[627] = 9'd20; expected_y[627] = 8'd41;
-            expected_x[628] = 9'd21; expected_y[628] = 8'd41;
-            expected_x[629] = 9'd22; expected_y[629] = 8'd41;
-            expected_x[630] = 9'd23; expected_y[630] = 8'd41;
-            expected_x[631] = 9'd24; expected_y[631] = 8'd41;
-            expected_x[632] = 9'd25; expected_y[632] = 8'd41;
-            expected_x[633] = 9'd26; expected_y[633] = 8'd41;
-            expected_x[634] = 9'd27; expected_y[634] = 8'd41;
-            expected_x[635] = 9'd28; expected_y[635] = 8'd41;
-            expected_x[636] = 9'd29; expected_y[636] = 8'd41;
-            expected_x[637] = 9'd19; expected_y[637] = 8'd42;
-            expected_x[638] = 9'd20; expected_y[638] = 8'd42;
-            expected_x[639] = 9'd21; expected_y[639] = 8'd42;
-            expected_x[640] = 9'd22; expected_y[640] = 8'd42;
-            expected_x[641] = 9'd23; expected_y[641] = 8'd42;
-            expected_x[642] = 9'd24; expected_y[642] = 8'd42;
-            expected_x[643] = 9'd25; expected_y[643] = 8'd42;
-            expected_x[644] = 9'd20; expected_y[644] = 8'd43;
-            expected_x[645] = 9'd21; expected_y[645] = 8'd43;
-            expected_candidates = 1584;
-        end
-        47: begin
-            walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;
-            walk_in_payload.tag = 16'h0017;
-            walk_in_payload.xmin = 9'd4;
-            walk_in_payload.xmax = 9'd62;
-            walk_in_payload.ymin = 8'd1;
-            walk_in_payload.ymax = 8'd14;
-            walk_in_payload.edge0_dx = 16'sh033e;
-            walk_in_payload.edge0_dy = 16'sh00dd;
-            walk_in_payload.edge0_step_x = 32'shfffff230;
-            walk_in_payload.edge0_step_y = 32'sh000033e0;
-            walk_in_payload.top_left[0] = 0;
-            walk_in_payload.e0_init = 32'sh0000672c;
-            walk_in_payload.edge1_dx = 16'shfc4c;
-            walk_in_payload.edge1_dy = 16'shff9f;
-            walk_in_payload.edge1_step_x = 32'sh00000610;
-            walk_in_payload.edge1_step_y = 32'shffffc4c0;
-            walk_in_payload.top_left[1] = 1;
-            walk_in_payload.e1_init = 32'sh0001c60e;
-            walk_in_payload.edge2_dx = 16'sh0076;
-            walk_in_payload.edge2_dy = 16'shff84;
-            walk_in_payload.edge2_step_x = 32'sh000007c0;
-            walk_in_payload.edge2_step_y = 32'sh00000760;
-            walk_in_payload.top_left[2] = 1;
-            walk_in_payload.e2_init = 32'shffffcaac;
-            expected_count = 251;
-            expected_x[0] = 9'd11; expected_y[0] = 8'd1;
-            expected_x[1] = 9'd10; expected_y[1] = 8'd2;
-            expected_x[2] = 9'd11; expected_y[2] = 8'd2;
-            expected_x[3] = 9'd12; expected_y[3] = 8'd2;
-            expected_x[4] = 9'd13; expected_y[4] = 8'd2;
-            expected_x[5] = 9'd14; expected_y[5] = 8'd2;
-            expected_x[6] = 9'd15; expected_y[6] = 8'd2;
-            expected_x[7] = 9'd9; expected_y[7] = 8'd3;
-            expected_x[8] = 9'd10; expected_y[8] = 8'd3;
-            expected_x[9] = 9'd11; expected_y[9] = 8'd3;
-            expected_x[10] = 9'd12; expected_y[10] = 8'd3;
-            expected_x[11] = 9'd13; expected_y[11] = 8'd3;
-            expected_x[12] = 9'd14; expected_y[12] = 8'd3;
-            expected_x[13] = 9'd15; expected_y[13] = 8'd3;
-            expected_x[14] = 9'd16; expected_y[14] = 8'd3;
-            expected_x[15] = 9'd17; expected_y[15] = 8'd3;
-            expected_x[16] = 9'd18; expected_y[16] = 8'd3;
-            expected_x[17] = 9'd9; expected_y[17] = 8'd4;
-            expected_x[18] = 9'd10; expected_y[18] = 8'd4;
-            expected_x[19] = 9'd11; expected_y[19] = 8'd4;
-            expected_x[20] = 9'd12; expected_y[20] = 8'd4;
-            expected_x[21] = 9'd13; expected_y[21] = 8'd4;
-            expected_x[22] = 9'd14; expected_y[22] = 8'd4;
-            expected_x[23] = 9'd15; expected_y[23] = 8'd4;
-            expected_x[24] = 9'd16; expected_y[24] = 8'd4;
-            expected_x[25] = 9'd17; expected_y[25] = 8'd4;
-            expected_x[26] = 9'd18; expected_y[26] = 8'd4;
-            expected_x[27] = 9'd19; expected_y[27] = 8'd4;
-            expected_x[28] = 9'd20; expected_y[28] = 8'd4;
-            expected_x[29] = 9'd21; expected_y[29] = 8'd4;
-            expected_x[30] = 9'd22; expected_y[30] = 8'd4;
-            expected_x[31] = 9'd8; expected_y[31] = 8'd5;
-            expected_x[32] = 9'd9; expected_y[32] = 8'd5;
-            expected_x[33] = 9'd10; expected_y[33] = 8'd5;
-            expected_x[34] = 9'd11; expected_y[34] = 8'd5;
-            expected_x[35] = 9'd12; expected_y[35] = 8'd5;
-            expected_x[36] = 9'd13; expected_y[36] = 8'd5;
-            expected_x[37] = 9'd14; expected_y[37] = 8'd5;
-            expected_x[38] = 9'd15; expected_y[38] = 8'd5;
-            expected_x[39] = 9'd16; expected_y[39] = 8'd5;
-            expected_x[40] = 9'd17; expected_y[40] = 8'd5;
-            expected_x[41] = 9'd18; expected_y[41] = 8'd5;
-            expected_x[42] = 9'd19; expected_y[42] = 8'd5;
-            expected_x[43] = 9'd20; expected_y[43] = 8'd5;
-            expected_x[44] = 9'd21; expected_y[44] = 8'd5;
-            expected_x[45] = 9'd22; expected_y[45] = 8'd5;
-            expected_x[46] = 9'd23; expected_y[46] = 8'd5;
-            expected_x[47] = 9'd24; expected_y[47] = 8'd5;
-            expected_x[48] = 9'd25; expected_y[48] = 8'd5;
-            expected_x[49] = 9'd26; expected_y[49] = 8'd5;
-            expected_x[50] = 9'd7; expected_y[50] = 8'd6;
-            expected_x[51] = 9'd8; expected_y[51] = 8'd6;
-            expected_x[52] = 9'd9; expected_y[52] = 8'd6;
-            expected_x[53] = 9'd10; expected_y[53] = 8'd6;
-            expected_x[54] = 9'd11; expected_y[54] = 8'd6;
-            expected_x[55] = 9'd12; expected_y[55] = 8'd6;
-            expected_x[56] = 9'd13; expected_y[56] = 8'd6;
-            expected_x[57] = 9'd14; expected_y[57] = 8'd6;
-            expected_x[58] = 9'd15; expected_y[58] = 8'd6;
-            expected_x[59] = 9'd16; expected_y[59] = 8'd6;
-            expected_x[60] = 9'd17; expected_y[60] = 8'd6;
-            expected_x[61] = 9'd18; expected_y[61] = 8'd6;
-            expected_x[62] = 9'd19; expected_y[62] = 8'd6;
-            expected_x[63] = 9'd20; expected_y[63] = 8'd6;
-            expected_x[64] = 9'd21; expected_y[64] = 8'd6;
-            expected_x[65] = 9'd22; expected_y[65] = 8'd6;
-            expected_x[66] = 9'd23; expected_y[66] = 8'd6;
-            expected_x[67] = 9'd24; expected_y[67] = 8'd6;
-            expected_x[68] = 9'd25; expected_y[68] = 8'd6;
-            expected_x[69] = 9'd26; expected_y[69] = 8'd6;
-            expected_x[70] = 9'd27; expected_y[70] = 8'd6;
-            expected_x[71] = 9'd28; expected_y[71] = 8'd6;
-            expected_x[72] = 9'd29; expected_y[72] = 8'd6;
-            expected_x[73] = 9'd30; expected_y[73] = 8'd6;
-            expected_x[74] = 9'd6; expected_y[74] = 8'd7;
-            expected_x[75] = 9'd7; expected_y[75] = 8'd7;
-            expected_x[76] = 9'd8; expected_y[76] = 8'd7;
-            expected_x[77] = 9'd9; expected_y[77] = 8'd7;
-            expected_x[78] = 9'd10; expected_y[78] = 8'd7;
-            expected_x[79] = 9'd11; expected_y[79] = 8'd7;
-            expected_x[80] = 9'd12; expected_y[80] = 8'd7;
-            expected_x[81] = 9'd13; expected_y[81] = 8'd7;
-            expected_x[82] = 9'd14; expected_y[82] = 8'd7;
-            expected_x[83] = 9'd15; expected_y[83] = 8'd7;
-            expected_x[84] = 9'd16; expected_y[84] = 8'd7;
-            expected_x[85] = 9'd17; expected_y[85] = 8'd7;
-            expected_x[86] = 9'd18; expected_y[86] = 8'd7;
-            expected_x[87] = 9'd19; expected_y[87] = 8'd7;
-            expected_x[88] = 9'd20; expected_y[88] = 8'd7;
-            expected_x[89] = 9'd21; expected_y[89] = 8'd7;
-            expected_x[90] = 9'd22; expected_y[90] = 8'd7;
-            expected_x[91] = 9'd23; expected_y[91] = 8'd7;
-            expected_x[92] = 9'd24; expected_y[92] = 8'd7;
-            expected_x[93] = 9'd25; expected_y[93] = 8'd7;
-            expected_x[94] = 9'd26; expected_y[94] = 8'd7;
-            expected_x[95] = 9'd27; expected_y[95] = 8'd7;
-            expected_x[96] = 9'd28; expected_y[96] = 8'd7;
-            expected_x[97] = 9'd29; expected_y[97] = 8'd7;
-            expected_x[98] = 9'd30; expected_y[98] = 8'd7;
-            expected_x[99] = 9'd31; expected_y[99] = 8'd7;
-            expected_x[100] = 9'd32; expected_y[100] = 8'd7;
-            expected_x[101] = 9'd33; expected_y[101] = 8'd7;
-            expected_x[102] = 9'd34; expected_y[102] = 8'd7;
-            expected_x[103] = 9'd5; expected_y[103] = 8'd8;
-            expected_x[104] = 9'd6; expected_y[104] = 8'd8;
-            expected_x[105] = 9'd7; expected_y[105] = 8'd8;
-            expected_x[106] = 9'd8; expected_y[106] = 8'd8;
-            expected_x[107] = 9'd9; expected_y[107] = 8'd8;
-            expected_x[108] = 9'd10; expected_y[108] = 8'd8;
-            expected_x[109] = 9'd11; expected_y[109] = 8'd8;
-            expected_x[110] = 9'd12; expected_y[110] = 8'd8;
-            expected_x[111] = 9'd13; expected_y[111] = 8'd8;
-            expected_x[112] = 9'd14; expected_y[112] = 8'd8;
-            expected_x[113] = 9'd15; expected_y[113] = 8'd8;
-            expected_x[114] = 9'd16; expected_y[114] = 8'd8;
-            expected_x[115] = 9'd17; expected_y[115] = 8'd8;
-            expected_x[116] = 9'd18; expected_y[116] = 8'd8;
-            expected_x[117] = 9'd19; expected_y[117] = 8'd8;
-            expected_x[118] = 9'd20; expected_y[118] = 8'd8;
-            expected_x[119] = 9'd21; expected_y[119] = 8'd8;
-            expected_x[120] = 9'd22; expected_y[120] = 8'd8;
-            expected_x[121] = 9'd23; expected_y[121] = 8'd8;
-            expected_x[122] = 9'd24; expected_y[122] = 8'd8;
-            expected_x[123] = 9'd25; expected_y[123] = 8'd8;
-            expected_x[124] = 9'd26; expected_y[124] = 8'd8;
-            expected_x[125] = 9'd27; expected_y[125] = 8'd8;
-            expected_x[126] = 9'd28; expected_y[126] = 8'd8;
-            expected_x[127] = 9'd29; expected_y[127] = 8'd8;
-            expected_x[128] = 9'd30; expected_y[128] = 8'd8;
-            expected_x[129] = 9'd31; expected_y[129] = 8'd8;
-            expected_x[130] = 9'd32; expected_y[130] = 8'd8;
-            expected_x[131] = 9'd33; expected_y[131] = 8'd8;
-            expected_x[132] = 9'd34; expected_y[132] = 8'd8;
-            expected_x[133] = 9'd35; expected_y[133] = 8'd8;
-            expected_x[134] = 9'd36; expected_y[134] = 8'd8;
-            expected_x[135] = 9'd37; expected_y[135] = 8'd8;
-            expected_x[136] = 9'd8; expected_y[136] = 8'd9;
-            expected_x[137] = 9'd9; expected_y[137] = 8'd9;
-            expected_x[138] = 9'd10; expected_y[138] = 8'd9;
-            expected_x[139] = 9'd11; expected_y[139] = 8'd9;
-            expected_x[140] = 9'd12; expected_y[140] = 8'd9;
-            expected_x[141] = 9'd13; expected_y[141] = 8'd9;
-            expected_x[142] = 9'd14; expected_y[142] = 8'd9;
-            expected_x[143] = 9'd15; expected_y[143] = 8'd9;
-            expected_x[144] = 9'd16; expected_y[144] = 8'd9;
-            expected_x[145] = 9'd17; expected_y[145] = 8'd9;
-            expected_x[146] = 9'd18; expected_y[146] = 8'd9;
-            expected_x[147] = 9'd19; expected_y[147] = 8'd9;
-            expected_x[148] = 9'd20; expected_y[148] = 8'd9;
-            expected_x[149] = 9'd21; expected_y[149] = 8'd9;
-            expected_x[150] = 9'd22; expected_y[150] = 8'd9;
-            expected_x[151] = 9'd23; expected_y[151] = 8'd9;
-            expected_x[152] = 9'd24; expected_y[152] = 8'd9;
-            expected_x[153] = 9'd25; expected_y[153] = 8'd9;
-            expected_x[154] = 9'd26; expected_y[154] = 8'd9;
-            expected_x[155] = 9'd27; expected_y[155] = 8'd9;
-            expected_x[156] = 9'd28; expected_y[156] = 8'd9;
-            expected_x[157] = 9'd29; expected_y[157] = 8'd9;
-            expected_x[158] = 9'd30; expected_y[158] = 8'd9;
-            expected_x[159] = 9'd31; expected_y[159] = 8'd9;
-            expected_x[160] = 9'd32; expected_y[160] = 8'd9;
-            expected_x[161] = 9'd33; expected_y[161] = 8'd9;
-            expected_x[162] = 9'd34; expected_y[162] = 8'd9;
-            expected_x[163] = 9'd35; expected_y[163] = 8'd9;
-            expected_x[164] = 9'd36; expected_y[164] = 8'd9;
-            expected_x[165] = 9'd37; expected_y[165] = 8'd9;
-            expected_x[166] = 9'd38; expected_y[166] = 8'd9;
-            expected_x[167] = 9'd39; expected_y[167] = 8'd9;
-            expected_x[168] = 9'd40; expected_y[168] = 8'd9;
-            expected_x[169] = 9'd41; expected_y[169] = 8'd9;
-            expected_x[170] = 9'd18; expected_y[170] = 8'd10;
-            expected_x[171] = 9'd19; expected_y[171] = 8'd10;
-            expected_x[172] = 9'd20; expected_y[172] = 8'd10;
-            expected_x[173] = 9'd21; expected_y[173] = 8'd10;
-            expected_x[174] = 9'd22; expected_y[174] = 8'd10;
-            expected_x[175] = 9'd23; expected_y[175] = 8'd10;
-            expected_x[176] = 9'd24; expected_y[176] = 8'd10;
-            expected_x[177] = 9'd25; expected_y[177] = 8'd10;
-            expected_x[178] = 9'd26; expected_y[178] = 8'd10;
-            expected_x[179] = 9'd27; expected_y[179] = 8'd10;
-            expected_x[180] = 9'd28; expected_y[180] = 8'd10;
-            expected_x[181] = 9'd29; expected_y[181] = 8'd10;
-            expected_x[182] = 9'd30; expected_y[182] = 8'd10;
-            expected_x[183] = 9'd31; expected_y[183] = 8'd10;
-            expected_x[184] = 9'd32; expected_y[184] = 8'd10;
-            expected_x[185] = 9'd33; expected_y[185] = 8'd10;
-            expected_x[186] = 9'd34; expected_y[186] = 8'd10;
-            expected_x[187] = 9'd35; expected_y[187] = 8'd10;
-            expected_x[188] = 9'd36; expected_y[188] = 8'd10;
-            expected_x[189] = 9'd37; expected_y[189] = 8'd10;
-            expected_x[190] = 9'd38; expected_y[190] = 8'd10;
-            expected_x[191] = 9'd39; expected_y[191] = 8'd10;
-            expected_x[192] = 9'd40; expected_y[192] = 8'd10;
-            expected_x[193] = 9'd41; expected_y[193] = 8'd10;
-            expected_x[194] = 9'd42; expected_y[194] = 8'd10;
-            expected_x[195] = 9'd43; expected_y[195] = 8'd10;
-            expected_x[196] = 9'd44; expected_y[196] = 8'd10;
-            expected_x[197] = 9'd45; expected_y[197] = 8'd10;
-            expected_x[198] = 9'd27; expected_y[198] = 8'd11;
-            expected_x[199] = 9'd28; expected_y[199] = 8'd11;
-            expected_x[200] = 9'd29; expected_y[200] = 8'd11;
-            expected_x[201] = 9'd30; expected_y[201] = 8'd11;
-            expected_x[202] = 9'd31; expected_y[202] = 8'd11;
-            expected_x[203] = 9'd32; expected_y[203] = 8'd11;
-            expected_x[204] = 9'd33; expected_y[204] = 8'd11;
-            expected_x[205] = 9'd34; expected_y[205] = 8'd11;
-            expected_x[206] = 9'd35; expected_y[206] = 8'd11;
-            expected_x[207] = 9'd36; expected_y[207] = 8'd11;
-            expected_x[208] = 9'd37; expected_y[208] = 8'd11;
-            expected_x[209] = 9'd38; expected_y[209] = 8'd11;
-            expected_x[210] = 9'd39; expected_y[210] = 8'd11;
-            expected_x[211] = 9'd40; expected_y[211] = 8'd11;
-            expected_x[212] = 9'd41; expected_y[212] = 8'd11;
-            expected_x[213] = 9'd42; expected_y[213] = 8'd11;
-            expected_x[214] = 9'd43; expected_y[214] = 8'd11;
-            expected_x[215] = 9'd44; expected_y[215] = 8'd11;
-            expected_x[216] = 9'd45; expected_y[216] = 8'd11;
-            expected_x[217] = 9'd46; expected_y[217] = 8'd11;
-            expected_x[218] = 9'd47; expected_y[218] = 8'd11;
-            expected_x[219] = 9'd48; expected_y[219] = 8'd11;
-            expected_x[220] = 9'd49; expected_y[220] = 8'd11;
-            expected_x[221] = 9'd37; expected_y[221] = 8'd12;
-            expected_x[222] = 9'd38; expected_y[222] = 8'd12;
-            expected_x[223] = 9'd39; expected_y[223] = 8'd12;
-            expected_x[224] = 9'd40; expected_y[224] = 8'd12;
-            expected_x[225] = 9'd41; expected_y[225] = 8'd12;
-            expected_x[226] = 9'd42; expected_y[226] = 8'd12;
-            expected_x[227] = 9'd43; expected_y[227] = 8'd12;
-            expected_x[228] = 9'd44; expected_y[228] = 8'd12;
-            expected_x[229] = 9'd45; expected_y[229] = 8'd12;
-            expected_x[230] = 9'd46; expected_y[230] = 8'd12;
-            expected_x[231] = 9'd47; expected_y[231] = 8'd12;
-            expected_x[232] = 9'd48; expected_y[232] = 8'd12;
-            expected_x[233] = 9'd49; expected_y[233] = 8'd12;
-            expected_x[234] = 9'd50; expected_y[234] = 8'd12;
-            expected_x[235] = 9'd51; expected_y[235] = 8'd12;
-            expected_x[236] = 9'd52; expected_y[236] = 8'd12;
-            expected_x[237] = 9'd47; expected_y[237] = 8'd13;
-            expected_x[238] = 9'd48; expected_y[238] = 8'd13;
-            expected_x[239] = 9'd49; expected_y[239] = 8'd13;
-            expected_x[240] = 9'd50; expected_y[240] = 8'd13;
-            expected_x[241] = 9'd51; expected_y[241] = 8'd13;
-            expected_x[242] = 9'd52; expected_y[242] = 8'd13;
-            expected_x[243] = 9'd53; expected_y[243] = 8'd13;
-            expected_x[244] = 9'd54; expected_y[244] = 8'd13;
-            expected_x[245] = 9'd55; expected_y[245] = 8'd13;
-            expected_x[246] = 9'd56; expected_y[246] = 8'd13;
-            expected_x[247] = 9'd57; expected_y[247] = 8'd14;
-            expected_x[248] = 9'd58; expected_y[248] = 8'd14;
-            expected_x[249] = 9'd59; expected_y[249] = 8'd14;
-            expected_x[250] = 9'd60; expected_y[250] = 8'd14;
-            expected_candidates = 826;
         end
         default: begin expected_count = 0; expected_candidates = 0; end
     endcase

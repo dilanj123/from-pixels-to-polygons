@@ -70,6 +70,8 @@ def generate() -> None:
         ((Q4Point(0, 3824), Q4Point(16, 3840), Q4Point(0, 3840))),  # bottom
         ((Q4Point(0, 0), Q4Point(16, 0), Q4Point(0, 9))),  # positive, zero cover
         ((Q4Point(8, 8), Q4Point(24, 8), Q4Point(8, 24))),  # one-pixel bbox
+        ((Q4Point(128, 128), Q4Point(320, 128), Q4Point(128, 320))),  # shared rectangle A
+        ((Q4Point(320, 128), Q4Point(320, 320), Q4Point(128, 320))),  # shared rectangle B
     ]
     rng = random.Random(0x9009)
     cases: list[dict[str, object]] = []
