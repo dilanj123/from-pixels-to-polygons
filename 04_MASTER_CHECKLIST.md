@@ -117,10 +117,10 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 
 ## Gate 4 — Complete Colour/Z Renderer
 
-- [ ] fragment quantization
-- [ ] framebuffer address logic
-- [ ] Z read/test/write stage
-- [ ] conditional colour/Z writes
+- [x] fragment quantization — GFX-011 standalone RTL/reference simulation
+- [x] framebuffer address logic — GFX-011 standalone RTL/reference simulation
+- [x] Z read/test/write stage — GFX-011 synchronous-memory simulation
+- [x] conditional colour/Z writes — GFX-011 strict-depth simulation
 - [ ] overlapping near/far tests
 - [ ] draw-order reversal tests
 - [ ] complete command→framebuffer simulation

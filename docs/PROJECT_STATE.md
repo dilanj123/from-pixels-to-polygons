@@ -4,7 +4,7 @@
 
 - Current phase: Gate 4 — Complete Colour/Z Renderer.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good commit: `ebafcb69dcd44cabafaec81ccca493608cd6cb89`.
+- Current known-good functional implementation commit: `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -18,10 +18,11 @@
 - Python reference: REFERENCE-MODEL VERIFIED.
 - GFX-010 attribute stepping: RTL SIMULATION VERIFIED; no attribute formal
   proof is claimed.
-- GFX-011 fragment/Z contract: SPECIFIED by D-032; implementation NOT STARTED.
+- GFX-011 fragment/Z stage: RTL SIMULATION VERIFIED at implementation commit
+  `338d6c3bf7fb0ccda3d7062d31ae0310a587fe1a`; no formal proof is claimed.
 - No fragment/Z integration, complete renderer, full graphics synthesis/P&R,
   timing, or physical hardware evidence exists yet.
-- Current next task: `GFX-011 — Fragment/Z stage`.
+- Current next task: `GFX-012 — Baseline renderer integration`.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -128,6 +129,23 @@
   controller, display, or Sobel logic was added. No attribute formal proof is
   claimed.
 - Gate 3 is CLOSED. Gate 4 is OPEN. Next task: `GFX-011 — Fragment/Z stage`.
+
+## GFX-011 — fragment/Z stage
+
+- GFX-011 is accepted as RTL SIMULATION VERIFIED. The standalone fixed-latency
+  fragment/Z stage consumes signed42 Q8 covered fragments, performs arithmetic
+  shift/clamp and RGB332 conversion, calculates unsigned17 addresses, aligns a
+  one-cycle synchronous Z read through explicit valid stages, applies strict
+  less-than depth, and emits coincident colour/Z writes only on pass.
+- Focused simulation used a genuine synchronous 76,800-byte Z-memory model:
+  66 accepted fragments, 66 Z reads, 65 completed decisions (one reset-aborted
+  in-flight fragment), 55 passes, 10 fails including 10 equal-depth fails, and
+  55 coincident writes. Read/address/data/ordering, final Z-memory, hazard, and
+  stale-write mismatch counts were all zero.
+- No physical memory wrapper, renderer controller, counters, readback,
+  display, Sobel, complete command-to-framebuffer integration, formal proof,
+  synthesis, P&R, timing, or hardware evidence was added.
+- Gate 4 remains OPEN. Next task: `GFX-012 — Baseline renderer integration`.
 
 ## GFX-007 — clear engine
 
