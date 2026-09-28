@@ -4,7 +4,7 @@
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| D-001–D-028 are recorded | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/DECISIONS.md` and cross-document review | specified source input only | SPECIFIED |
+| D-001–D-029 are recorded | `GFX-008-SPEC-FREEZE commit` | `docs/DECISIONS.md` and cross-document review | specified source input only | SPECIFIED |
 | Exact dependency is admitted | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/PROJECT_STATE.md`, `docs/REQUIREMENTS.md` | URL/tag/commit/top exact; no source import | SPECIFIED |
 | Gate numbering is canonical | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | Master Plan and `04_MASTER_CHECKLIST.md` review | Gate 0–12 mapping from D-001 | SPECIFIED |
 | Requirement-to-verification coverage is planned | `111fe6f9bc7116f7007aaf89e781ddd3d8871f42` | `docs/VERIFICATION_PLAN.md` | planned methods only; no tests run | SPECIFIED |
@@ -127,6 +127,16 @@ rendering, display, Sobel, P&R, timing, or hardware evidence.
 GFX-007 is standalone clear-stream evidence only. It does not claim command
 controller integration, framebuffer ownership, synthesis, timing, P&R, or
 hardware evidence.
+
+## GFX-008-SPEC-FREEZE milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-029 freezes the synthesizable triangle-setup result representation | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md`, `docs/FIXED_POINT.md` | Four classifications, canonical non-raster bbox/initial edges, universally valid fields, walker admission, and coordinate-error ownership are explicit | SPECIFIED |
+| Python empty-bbox semantics remain independent | `docs/FIXED_POINT.md` | Python `None` maps to RTL `TRI_SETUP_EMPTY` only in the verification adapter; reference mathematics is unchanged | SPECIFIED |
+
+This milestone contains no RTL or functional verification evidence. GFX-008
+triangle-setup implementation remains the next task.
 
 ## GFX-005-FORMAL-ORDERING corrective milestone
 

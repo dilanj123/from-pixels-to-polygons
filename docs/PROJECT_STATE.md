@@ -27,6 +27,18 @@
 
 `GFX-008 — Triangle setup`
 
+## GFX-008-SPEC-FREEZE — D-029
+
+- GFX-008 implementation was previously blocked by an undefined
+  synthesizable representation for empty/rejected setup results.
+- D-029 resolves that gap: four explicit setup classifications, canonical-zero
+  non-raster bbox/initial-edge fields, universally valid edge/AREA/step and
+  attribute fields, and decoder-owned coordinate-range validation are now
+  specified.
+- GFX-007 remains accepted. Gate 3 remains OPEN.
+- No RTL, testbench, formal, synthesis, or reference implementation changed.
+- Next task: `GFX-008 — Triangle setup`.
+
 ## GFX-007 — clear engine
 
 - GFX-007 complete. The standalone clear engine accepts one request while
@@ -131,7 +143,7 @@
 
 ## Contract status
 
-- D-001 through D-028: recorded in `docs/DECISIONS.md` and incorporated into
+- D-001 through D-029: recorded in `docs/DECISIONS.md` and incorporated into
   the requirements, microarchitecture, command, fixed-point, verification,
   checklist, Master Plan, and Operating Instructions documents.
 - Master Plan Gate 0–12 numbering is canonical and reflected in

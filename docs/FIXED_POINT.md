@@ -32,6 +32,9 @@ ymax_raw = floor((max_y - 8) / 16)
 The raw interval is intersected with x=0..319 and y=0..239. It is empty when
 `xmin>xmax || ymin>ymax`; clamping must not turn an empty interval non-empty.
 An AREA>0 triangle with an empty box is valid and produces zero candidates.
+For the synthesizable setup result, D-029 maps this accepted empty result to
+`TRI_SETUP_EMPTY` with canonical-zero bbox and initial-edge fields; the Python
+reference continues to represent the mathematical empty bbox with `None`.
 
 ## Edge arithmetic
 

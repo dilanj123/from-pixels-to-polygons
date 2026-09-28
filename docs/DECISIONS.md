@@ -1,8 +1,8 @@
 # Source-level decisions
 
-The following D-001–D-028 decisions are the supplied authoritative input for
-GFX-001. They are subordinate to the Master Project Plan and Operating
-Instructions. No additional architectural decisions are introduced here.
+The following D-001–D-029 decisions are the supplied authoritative source-level
+decisions. They are subordinate to the Master Project Plan and Operating
+Instructions.
 
 | ID | Frozen decision |
 |---|---|
@@ -34,6 +34,7 @@ Instructions. No additional architectural decisions are introduced here.
 | D-026 | Program admitted-parent APB threshold/bypass before SOF; shadow writes accepted on the same edge as SOF apply to the following frame. |
 | D-027 | GFX-004/Gate 2 must combine the graphics memory spike with actual resource evidence for the exact admitted parent, separately recording resources without inventing margin. |
 | D-028 | RasterIX/Raster I/Pineda are references; Project F is reviewed infrastructure only; every reused file needs provenance, while core graphics work remains original. |
+| D-029 | Freeze the synthesizable triangle-setup result: `TRI_SETUP_RASTER=2'b00`, `TRI_SETUP_EMPTY=2'b01`, `TRI_SETUP_DEGENERATE=2'b10`, and `TRI_SETUP_BACKFACE=2'b11`; only RASTER enters the walker; non-RASTER bbox and initial edges canonicalize to zero; AREA, edge dx/dy, top-left flags, steps, tag, and all attributes remain valid for every legal input; the decoder owns coordinate-range errors and setup receives legal decoded coordinates as a precondition. |
 
 ## Status
 
