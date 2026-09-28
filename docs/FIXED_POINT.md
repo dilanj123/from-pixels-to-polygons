@@ -63,6 +63,13 @@ Signed42 is sufficient because the legal candidate extent gives
 `|A| < (1+319+239)*2^31 < 2^41`; signed41 is not sufficient for unrestricted
 signed32 command fields.
 
+GFX-010 exposes raw covered R/G/B/Z values as signed42 Q8 fields. Signed32
+command starts and gradients are sign-extended before every accumulator update;
+there is no intermediate signed32 truncation, saturation, or quantization.
+The raw mathematical value at `(x,y)` is the start at `(xmin,ymin)` plus the
+signed42 X and Y gradient products. GFX-011 performs the later arithmetic
+shift-right, clamp, colour packing, address, and depth operations.
+
 Output conversion uses arithmetic shift right by 8 and then clamp; it does not
 re-round. RGB clamps to 0..255. Z clamps to 0..254, where 255 is clear/
 infinity.

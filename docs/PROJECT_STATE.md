@@ -4,7 +4,7 @@
 
 - Current phase: Gate 3 — Raster Primitive.
 - Gate 2: CLOSED. Gate 3: OPEN.
-- Current known-good commit: `5e7d116e18cc6bd21ec82e09a88509b84ee0ad9a`.
+- Current known-good commit: `6ef29c180f6dc54f5e7f12cf3375a1459b2f6c84`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -16,12 +16,13 @@
 - GFX-008 triangle setup: RTL SIMULATION VERIFIED; triangle-setup formal was
   NOT RUN / NOT CLAIMED.
 - Python reference: REFERENCE-MODEL VERIFIED.
-- No raster coverage RTL, attribute stepping, fragment/Z integration, complete
-  renderer, full graphics synthesis/P&R, timing, or physical hardware evidence
-  exists yet.
+- No attribute stepping, fragment/Z integration, complete renderer, full
+  graphics synthesis/P&R, timing, or physical hardware evidence exists yet.
 - Current next task: `GFX-010 — Attribute stepping`.
 - GFX-008 state synchronization is complete. GFX-009 implementation is waiting
   only on the D-030 interface/completion freeze recorded here.
+- GFX-009 is accepted as RTL SIMULATION VERIFIED; GFX-010 implementation is
+  waiting only on the D-031 raw-attribute interface freeze recorded here.
 
 ## GFX-006 — command decoder
 
@@ -101,6 +102,16 @@
 - GFX-009 did not add attributes, fragment/Z, framebuffer writes, controller
   integration, display, Sobel, or optimization. No raster-walker formal proof
   was run or claimed.
+- Gate 3 remains OPEN. Next task: `GFX-010 — Attribute stepping`.
+
+## GFX-010-SPEC-FREEZE — D-031
+
+- D-031 freezes signed42 Q8 row/current R/G/B/Z accumulators, sign-extended
+  signed32 starts/gradients, raw signed42 covered-fragment fields, stall and
+  uncovered-candidate behavior, row transitions, reset, and the GFX-010/GFX-011
+  boundary.
+- This is specification evidence only. No attribute RTL, simulation, formal,
+  synthesis, timing, or hardware evidence is claimed.
 - Gate 3 remains OPEN. Next task: `GFX-010 — Attribute stepping`.
 
 ## GFX-007 — clear engine

@@ -25,6 +25,7 @@ the command, result, conditions, and evidence path.
 | Memory feasibility | GFX-004 synthesis spike plus separate admitted-parent resource evidence and combined target budget |
 | Third-party boundary | Manifest review for every reused file; no copied core graphics implementation |
 | GFX-009 coverage-only walker | Exact accepted covered-coordinate sequence versus `triangle_coverage()`/`iter_bbox_pixels()`, exact candidate count, shared-edge union/no-overlap, flat-top/flat-bottom, thin, tiny/subpixel, screen boundaries, zero-covered RASTER, deterministic random RASTER triangles, randomized output backpressure, final-covered-pixel stall, reset at first/middle/final candidate, no output outside bbox, and exact completion timing |
+| GFX-010 attribute stepping | Direct mathematical comparison of signed42 raw R/G/B/Z for every accepted covered coordinate, including zero/positive/negative X/Y gradients, signed starts and extrema, long rows, row transitions, one-pixel and zero-covered cases, mixed coverage, output stalls/final stalls, reset/restart, deterministic randomized planes, and continued GFX-009 coordinate-sequence equality |
 
 ## Verification sequence
 
@@ -54,3 +55,13 @@ after final-candidate retirement; reset-abort cannot produce completion; and a
 finite non-empty bbox eventually terminates under an assumption that
 `covered_ready` is eventually asserted. These are planned properties only and
 are not claimed as proved by this specification task.
+
+## GFX-010 formal plan
+
+Future focused formal checks shall include: raw output stability under stall;
+row/current attribute stability on a covered stall; initialization equal to
+sign-extended starts; horizontal advance equal to prior current plus
+sign-extended dX; row advance equal to prior row plus sign-extended dY; current
+equal to the updated row after row transition; no X-gradient application at a
+row boundary; and reset suppression of stale raw attribute output. These are
+planned properties only.

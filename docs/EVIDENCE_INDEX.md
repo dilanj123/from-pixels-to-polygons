@@ -172,6 +172,15 @@ GFX-009 does not claim attribute stepping, fragment/Z, framebuffer,
 controller, complete renderer, synthesis, P&R, timing, throughput, or hardware
 evidence.
 
+## GFX-010-SPEC-FREEZE milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-031 freezes signed42 raw attribute stepping and output | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md`, `docs/FIXED_POINT.md` | Signed32 setup fields are sign-extended to signed42; raw R/G/B/Z output widths, initialization, X/Y stepping, stall, reset, and no-truncation rules are explicit | SPECIFIED |
+| GFX-010 verification and formal plan is recorded | `docs/VERIFICATION_PLAN.md` | Direct mathematical comparison and future formal properties are planned only | SPECIFIED |
+
+This milestone contains no attribute RTL or functional verification evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

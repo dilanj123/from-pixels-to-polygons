@@ -1,6 +1,6 @@
 # Source-level decisions
 
-The following D-001–D-030 decisions are the supplied authoritative source-level
+The following D-001–D-031 decisions are the supplied authoritative source-level
 decisions. They are subordinate to the Master Project Plan and Operating
 Instructions.
 
@@ -36,8 +36,11 @@ Instructions.
 | D-028 | RasterIX/Raster I/Pineda are references; Project F is reviewed infrastructure only; every reused file needs provenance, while core graphics work remains original. |
 | D-029 | Freeze the synthesizable triangle-setup result: `TRI_SETUP_RASTER=2'b00`, `TRI_SETUP_EMPTY=2'b01`, `TRI_SETUP_DEGENERATE=2'b10`, and `TRI_SETUP_BACKFACE=2'b11`; only RASTER enters the walker; non-RASTER bbox and initial edges canonicalize to zero; AREA, edge dx/dy, top-left flags, steps, tag, and all attributes remain valid for every legal input; the decoder owns coordinate-range errors and setup receives legal decoded coordinates as a precondition. |
 | D-030 | Freeze the coverage-only raster-walker handshake, candidate retirement, state-freeze under covered-output backpressure, row-major traversal, one-shot final-candidate completion, reset abort, and the GFX-009/GFX-010 scope boundary as specified in `docs/MICROARCHITECTURE.md`. |
+| D-031 | Freeze signed42 Q8 row/current R/G/B/Z attribute stepping, sign-extended signed32 setup coefficients, raw signed42 covered-fragment fields, stall/reset behavior, and the GFX-010/GFX-011 boundary as specified in `docs/MICROARCHITECTURE.md`. |
 
 ## Status
 
-These decisions are `SPECIFIED`. They have not yet been implemented or
-verified by simulation, formal, synthesis, timing, or hardware execution.
+These decisions are `SPECIFIED`. Individual decisions have separate evidence
+entries when implemented; D-031 is specification-only and has not yet been
+implemented or verified by simulation, formal, synthesis, timing, or hardware
+execution.

@@ -152,6 +152,77 @@ The baseline walker advances one candidate per `clk_sys` target cycle using
 signed32 edge additions. Future attribute accumulation and complete downstream
 fragment draining remain outside this coverage-only block.
 
+### Raw attribute stepping contract (D-031)
+
+GFX-010 extends the GFX-009 covered stream with the same candidate transaction:
+
+```text
+covered_valid
+covered_ready
+covered_x       [8:0]
+covered_y       [7:0]
+covered_r_raw   signed [41:0]
+covered_g_raw   signed [41:0]
+covered_b_raw   signed [41:0]
+covered_z_raw   signed [41:0]
+```
+
+The four raw fields are signed Q8 values for the candidate represented by x/y.
+They are meaningful only when `covered_valid=1`. No tag is required by this
+contract. No raw field may be truncated to signed32, quantized, clamped,
+packed to RGB332, or converted to a framebuffer address in GFX-010.
+
+For each attribute A in R/G/B/Z, the state is:
+
+```text
+row_A     signed [41:0]
+current_A signed [41:0]
+```
+
+The setup fields `A_start`, `dA_dx`, and `dA_dy` remain signed32 Q8. Each is
+sign-extended to signed42 before use. On RASTER setup acceptance:
+
+```text
+row_A = sign_extend_42(A_start)
+current_A = row_A
+```
+
+The start value is exactly the value at candidate `(xmin,ymin)`; no additional
+coordinate offset is applied. The independent mathematical oracle for any
+candidate `(x,y)` is:
+
+```text
+A(x,y) = sign_extend_42(A_start)
+       + (x-xmin) * sign_extend_42(dA_dx)
+       + (y-ymin) * sign_extend_42(dA_dy)
+```
+
+After retiring a candidate with `x<xmax`, update each `current_A` by its
+sign-extended `dA_dx`; `row_A` is unchanged. After retiring
+`x==xmax && y<ymax`, compute `next_row_A = row_A + sign_extend_42(dA_dy)`,
+assign `row_A=next_row_A`, and assign `current_A=next_row_A`. No X-gradient is
+applied across a row boundary. These updates occur for uncovered retired
+candidates and for covered candidates only when their output transfer occurs.
+
+When a covered output is stalled, x/y, all edge state, all row/current R/G/B/Z
+state, and all raw output fields remain stable until transfer. `covered_ready`
+does not stall or alter attribute progression for an uncovered candidate. A
+zero-covered RASTER triangle advances the attributes internally across every
+candidate and emits no raw transactions. D-030 final-candidate, completion,
+and reset-abort semantics remain unchanged; reset also discards all attribute
+state and suppresses stale raw output.
+
+The D-005 range derivation remains authoritative:
+
+```text
+|A| < (1 + 319 + 239) * 2^31 < 2^41
+```
+
+Signed42 is sufficient for legal v1 traversal. No saturation or expected
+wraparound occurs in the attribute walker. GFX-011 consumes the raw transaction
+and owns arithmetic shift-right by 8, RGB/Z clamping, RGB332 packing, address
+calculation, Z processing, and framebuffer writes.
+
 ## Fragment/Z path
 
 F0 quantizes RGB/Z and calculates the unsigned17 address; F1 issues the
