@@ -57,6 +57,34 @@ def sv32(value: int) -> str:
     return f"32'sh{value & 0xffffffff:08x}"
 
 
+def sv42(value: int) -> str:
+    return f"42'sh{value & ((1 << 42) - 1):011x}"
+
+
+def attributes_for(index: int, rng: random.Random) -> dict[str, tuple[int, int, int]]:
+    extrema = [0, 1, (1 << 31) - 1, -(1 << 31), -1]
+    if index == 0:
+        return {
+            "r": ((1 << 31) - 1, (1 << 31) - 1, 1),
+            "g": (-(1 << 31), -(1 << 31), -1),
+            "b": (-1, 1, (1 << 31) - 1),
+            "z": (0, 0, 1),
+        }
+    if index < len(extrema):
+        return {
+            channel: (extrema[(index + offset) % len(extrema)],
+                      extrema[(index + offset + 1) % len(extrema)],
+                      extrema[(index + offset + 2) % len(extrema)])
+            for offset, channel in enumerate(("r", "g", "b", "z"))
+        }
+    return {
+        channel: (rng.randint(-(1 << 31), (1 << 31) - 1),
+                  rng.randint(-(1 << 31), (1 << 31) - 1),
+                  rng.randint(-(1 << 31), (1 << 31) - 1))
+        for channel in ("r", "g", "b", "z")
+    }
+
+
 def generate() -> None:
     directed = [
         ((Q4Point(16, 16), Q4Point(160, 16), Q4Point(16, 160))),  # ordinary
@@ -74,9 +102,11 @@ def generate() -> None:
         ((Q4Point(320, 128), Q4Point(320, 320), Q4Point(128, 320))),  # shared rectangle B
     ]
     rng = random.Random(0x9009)
+    attr_rng = random.Random(0xA010)
     cases: list[dict[str, object]] = []
     for vertices in directed:
         case = setup_for(vertices)
+        case["attributes"] = attributes_for(len(cases), attr_rng)
         cases.append(case)
 
     while len(cases) < 48:
@@ -88,6 +118,7 @@ def generate() -> None:
             case = setup_for(vertices)  # only legal non-empty RASTER inputs
         except AssertionError:
             continue
+        case["attributes"] = attributes_for(len(cases), attr_rng)
         cases.append(case)
 
     max_covered = max(len(case["covered"]) for case in cases)
@@ -109,6 +140,7 @@ def generate() -> None:
         top = case["top"]
         covered = case["covered"]
         candidates = case["candidates"]
+        attributes = case["attributes"]
         assert isinstance(vertices, tuple)
         lines += [f"        {idx}: begin"]
         lines += ["            walk_in_payload.classification = gfx_pkg::TRI_SETUP_RASTER;"]
@@ -117,6 +149,11 @@ def generate() -> None:
         lines += [f"            walk_in_payload.xmax = 9'd{case['xmax']};"]
         lines += [f"            walk_in_payload.ymin = 8'd{case['ymin']};"]
         lines += [f"            walk_in_payload.ymax = 8'd{case['ymax']};"]
+        for channel in ("r", "g", "b", "z"):
+            start, dx, dy = attributes[channel]
+            lines += [f"            walk_in_payload.{channel}_start = {sv32(start)};"]
+            lines += [f"            walk_in_payload.{channel}_dx = {sv32(dx)};"]
+            lines += [f"            walk_in_payload.{channel}_dy = {sv32(dy)};"]
         for edge, (dx, dy) in enumerate(deltas):
             lines += [f"            walk_in_payload.edge{edge}_dx = 16'sh{dx & 0xffff:04x};"]
             lines += [f"            walk_in_payload.edge{edge}_dy = 16'sh{dy & 0xffff:04x};"]
@@ -127,6 +164,11 @@ def generate() -> None:
         lines += [f"            expected_count = {len(covered)};"]
         for out_idx, (x, y) in enumerate(covered):
             lines += [f"            expected_x[{out_idx}] = 9'd{x}; expected_y[{out_idx}] = 8'd{y};"]
+            for channel in ("r", "g", "b", "z"):
+                start, dx, dy = attributes[channel]
+                value = start + (x - case["xmin"]) * dx + (y - case["ymin"]) * dy
+                assert -(1 << 41) <= value < (1 << 41)
+                lines += [f"            expected_{channel}[{out_idx}] = {sv42(value)};"]
         lines += [f"            expected_candidates = {len(candidates)};"]
         lines += ["        end"]
     lines += [

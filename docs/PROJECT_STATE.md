@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Current phase: Gate 3 — Raster Primitive.
-- Gate 2: CLOSED. Gate 3: OPEN.
+- Current phase: Gate 4 — Complete Colour/Z Renderer.
+- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
 - Current known-good commit: `6ef29c180f6dc54f5e7f12cf3375a1459b2f6c84`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
@@ -18,11 +18,9 @@
 - Python reference: REFERENCE-MODEL VERIFIED.
 - No attribute stepping, fragment/Z integration, complete renderer, full
   graphics synthesis/P&R, timing, or physical hardware evidence exists yet.
-- Current next task: `GFX-010 — Attribute stepping`.
-- GFX-008 state synchronization is complete. GFX-009 implementation is waiting
-  only on the D-030 interface/completion freeze recorded here.
-- GFX-009 is accepted as RTL SIMULATION VERIFIED; GFX-010 implementation is
-  waiting only on the D-031 raw-attribute interface freeze recorded here.
+- Current next task: `GFX-011 — Fragment/Z stage`.
+- Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
+  sections below; the current Gate-4 state is authoritative here.
 
 ## GFX-006 — command decoder
 
@@ -47,7 +45,7 @@
   now complete, while raster, fragment/Z, display, Sobel, and
   command-execution integration remain unimplemented.
 
-## Current next task
+## Historical next task at GFX-008 state synchronization
 
 `GFX-010 — Attribute stepping`
 
@@ -113,6 +111,20 @@
 - This is specification evidence only. No attribute RTL, simulation, formal,
   synthesis, timing, or hardware evidence is claimed.
 - Gate 3 remains OPEN. Next task: `GFX-010 — Attribute stepping`.
+
+## GFX-010 — attribute stepping
+
+- GFX-010 is accepted as RTL SIMULATION VERIFIED. The existing GFX-009 walker
+  now maintains signed42 Q8 row/current R/G/B/Z state and emits raw signed42
+  attributes with the corresponding covered coordinate.
+- The independent vector suite compared 47,716 accepted raw fields across
+  deterministic geometry, attribute extrema, signed42 width expansion,
+  randomized backpressure, final stalls, reset/restart, and shared-edge cases.
+  Coordinate and R/G/B/Z mismatch counts were all zero.
+- No quantization, RGB332 packing, framebuffer address, depth, framebuffer,
+  controller, display, or Sobel logic was added. No attribute formal proof is
+  claimed.
+- Gate 3 is CLOSED. Gate 4 is OPEN. Next task: `GFX-011 — Fragment/Z stage`.
 
 ## GFX-007 — clear engine
 

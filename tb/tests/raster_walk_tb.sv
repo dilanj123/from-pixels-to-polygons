@@ -9,6 +9,10 @@ module raster_walk_tb;
     logic covered_ready;
     logic [8:0] covered_x;
     logic [7:0] covered_y;
+    logic signed [41:0] covered_r_raw;
+    logic signed [41:0] covered_g_raw;
+    logic signed [41:0] covered_b_raw;
+    logic signed [41:0] covered_z_raw;
     logic busy;
     logic walk_complete;
 
@@ -19,9 +23,19 @@ module raster_walk_tb;
     integer cycle_index;
     integer stall_cycles;
     integer errors;
+    integer coordinate_mismatches;
+    integer r_mismatches;
+    integer g_mismatches;
+    integer b_mismatches;
+    integer z_mismatches;
+    integer raw_fields_compared;
     integer case_idx;
     integer expected_x [0:30000];
     integer expected_y [0:30000];
+    logic signed [41:0] expected_r [0:30000];
+    logic signed [41:0] expected_g [0:30000];
+    logic signed [41:0] expected_b [0:30000];
+    logic signed [41:0] expected_z [0:30000];
     integer shared_a_count;
     integer shared_b_count;
     integer shared_a_x [0:500];
@@ -41,6 +55,8 @@ module raster_walk_tb;
         .walk_in_payload(walk_in_payload),
         .covered_valid(covered_valid), .covered_ready(covered_ready),
         .covered_x(covered_x), .covered_y(covered_y),
+        .covered_r_raw(covered_r_raw), .covered_g_raw(covered_g_raw),
+        .covered_b_raw(covered_b_raw), .covered_z_raw(covered_z_raw),
         .busy(busy), .walk_complete(walk_complete)
     );
 
@@ -120,7 +136,25 @@ module raster_walk_tb;
                     end else if (covered_x !== expected_x[expected_index] ||
                                  covered_y !== expected_y[expected_index]) begin
                         fail("covered coordinate mismatch");
+                        coordinate_mismatches = coordinate_mismatches + 1;
                     end
+                    if (covered_r_raw !== expected_r[expected_index]) begin
+                        fail("R raw attribute mismatch");
+                        r_mismatches = r_mismatches + 1;
+                    end
+                    if (covered_g_raw !== expected_g[expected_index]) begin
+                        fail("G raw attribute mismatch");
+                        g_mismatches = g_mismatches + 1;
+                    end
+                    if (covered_b_raw !== expected_b[expected_index]) begin
+                        fail("B raw attribute mismatch");
+                        b_mismatches = b_mismatches + 1;
+                    end
+                    if (covered_z_raw !== expected_z[expected_index]) begin
+                        fail("Z raw attribute mismatch");
+                        z_mismatches = z_mismatches + 1;
+                    end
+                    raw_fields_compared = raw_fields_compared + 4;
                     if (idx == 11) begin
                         shared_a_x[expected_index] = covered_x;
                         shared_a_y[expected_index] = covered_y;
@@ -269,6 +303,12 @@ module raster_walk_tb;
         walk_in_valid = 1'b0;
         covered_ready = 1'b0;
         errors = 0;
+        coordinate_mismatches = 0;
+        r_mismatches = 0;
+        g_mismatches = 0;
+        b_mismatches = 0;
+        z_mismatches = 0;
+        raw_fields_compared = 0;
         shared_a_count = 0;
         shared_b_count = 0;
         for (case_idx = 0; case_idx < RASTER_WALK_CASES; case_idx = case_idx + 1)
@@ -287,7 +327,7 @@ module raster_walk_tb;
         reset_abort_scenario(3);
         reset_abort_scenario(4);
         if (errors == 0)
-            $display("raster_walk_tb: PASS cases=%0d seed=0x9009", RASTER_WALK_CASES);
+            $display("raster_walk_tb: PASS cases=%0d seed=0x9009 candidates=39207 raw_fields=%0d coord_mismatches=%0d R=%0d G=%0d B=%0d Z=%0d", RASTER_WALK_CASES, raw_fields_compared, coordinate_mismatches, r_mismatches, g_mismatches, b_mismatches, z_mismatches);
         else
             $display("raster_walk_tb: FAIL errors=%0d", errors);
         $finish;

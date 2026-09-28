@@ -181,6 +181,18 @@ evidence.
 
 This milestone contains no attribute RTL or functional verification evidence.
 
+## GFX-010 attribute-stepping milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Raw signed42 R/G/B/Z values match the mathematical oracle | `GFX-010 commit` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, 47,716 accepted raw fields, coordinate/R/G/B/Z mismatches all zero | RTL-SIMULATED |
+| Signed42 expansion, stalls, reset, row transitions, and shared-edge association pass | `GFX-010 commit` | `tb/tests/raster_walk_tb.sv` | Signed extrema and width-expansion cases, ready seeds `1/7/19`, reset cases, and shared-edge raw planes passed | RTL-SIMULATED |
+| Gate 3 primitive requirements are evidenced | `GFX-010 commit` | Master Plan Gate 3 review and `04_MASTER_CHECKLIST.md` | Triangle setup, coverage, and attribute stepping verified; no Gate-4 claim | LOCAL OBSERVATION |
+| GFX-010 formal properties | — | not run | No attribute formal proof is claimed | NOT RUN |
+
+GFX-010 does not claim quantization, RGB332, framebuffer address, Z stage,
+complete renderer, synthesis, P&R, timing, or hardware evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

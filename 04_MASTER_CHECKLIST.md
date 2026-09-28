@@ -96,7 +96,7 @@ hardware requirements.
 
 ## Gate 3 — Raster Primitive
 
-Gate 3 — OPEN.
+Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 
 - [x] `gfx_pkg.sv`
 - [x] command FIFO simulation
@@ -113,7 +113,7 @@ Gate 3 — OPEN.
 - [x] raster coverage-only walker — GFX-009 RTL/reference sequence comparison
 - [x] shared-edge rectangle RTL matches reference
 - [x] subpixel/thin/extreme geometry tests
-- [ ] attribute stepping matches reference
+- [x] attribute stepping matches reference — GFX-010 signed42 raw-attribute comparison
 
 ## Gate 4 — Complete Colour/Z Renderer
 
