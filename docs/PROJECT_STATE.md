@@ -4,7 +4,7 @@
 
 - Current phase: Gate 3 — Raster Primitive.
 - Gate 2: CLOSED. Gate 3: OPEN.
-- Current known-good commit: `a04b38de4616da991fe9f4beb59d098db317011b`.
+- Current known-good commit: `9febc2d5a7031806c9ffe4ef761fedd370cfc54c`.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -94,9 +94,10 @@
   row-major order, applies the top-left rule, and emits covered coordinates
   matching the independent Python oracle.
 - The deterministic suite used 48 RASTER vectors from geometry seed `0x9009`,
-  including 3 zero-covered RASTER cases, with maximum covered output count
-  1,104. It passed no-stall, randomized backpressure, final-covered-output
-  stalls, and reset-abort/restart tests.
+  covering 39,207 candidates and 11,801 covered transfers, including 3
+  zero-covered RASTER cases, with maximum covered output count 1,104. It
+  passed no-stall, randomized backpressure, final-covered-output stalls, reset
+  abort/restart, and shared-edge union/no-overlap tests.
 - GFX-009 did not add attributes, fragment/Z, framebuffer writes, controller
   integration, display, Sobel, or optimization. No raster-walker formal proof
   was run or claimed.

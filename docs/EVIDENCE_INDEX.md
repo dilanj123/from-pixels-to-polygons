@@ -163,9 +163,9 @@ This milestone contains no raster-walker RTL or functional verification evidence
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
 |---|---|---|---|---|
-| Coverage sequence matches the independent Python oracle | `a04b38de4616da991fe9f4beb59d098db317011b` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, 3 zero-covered cases, maximum covered output 1,104, row-major comparison, zero mismatches | RTL-SIMULATED |
-| Backpressure, final-covered stalls, and reset abort are verified | `a04b38de4616da991fe9f4beb59d098db317011b` | `tb/tests/raster_walk_tb.sv` | Deterministic ready seeds `1`, `7`, `19`; stalled payload stability and restart checks passed | RTL-SIMULATED |
-| Shared-edge and subpixel/boundary coverage remains exact | `a04b38de4616da991fe9f4beb59d098db317011b` | focused vector suite and Python oracle | Shared-edge/reference geometry, thin, tiny, left/top/right/bottom cases included; no attribute or fragment claim | RTL-SIMULATED |
+| Coverage sequence matches the independent Python oracle | `9febc2d5a7031806c9ffe4ef761fedd370cfc54c` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, 39,207 candidates, 11,801 covered transfers, 3 zero-covered cases, maximum covered output 1,104, zero mismatches | RTL-SIMULATED |
+| Backpressure, final-covered stalls, and reset abort are verified | `9febc2d5a7031806c9ffe4ef761fedd370cfc54c` | `tb/tests/raster_walk_tb.sv` | Deterministic ready seeds `1`, `7`, `19`; stalled payload stability and restart checks passed | RTL-SIMULATED |
+| Shared-edge and subpixel/boundary coverage remains exact | `9febc2d5a7031806c9ffe4ef761fedd370cfc54c` | focused vector suite and Python oracle | Rectangle triangles produced 66 and 78 pixels; overlap 0, missing rectangle pixels 0; thin, tiny, left/top/right/bottom cases included | RTL-SIMULATED |
 | GFX-009 formal properties | — | not run | No formal raster-walker proof is claimed | NOT RUN |
 
 GFX-009 does not claim attribute stepping, fragment/Z, framebuffer,
