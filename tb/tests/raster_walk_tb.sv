@@ -217,6 +217,54 @@ module raster_walk_tb;
         end
     endtask
 
+    task automatic reset_abort_scenario(input integer scenario);
+        integer steps;
+        integer width;
+        begin
+            reset_dut();
+            load_raster_walk_case(0);
+            walk_in_valid = 1'b1;
+            covered_ready = 1'b1;
+            @(posedge clk_sys);
+            @(negedge clk_sys);
+            walk_in_valid = 1'b0;
+            steps = 0;
+            width = 9;
+            while (1) begin
+                covered_ready = 1'b1;
+                if ((scenario == 0 && steps == 0) ||
+                    (scenario == 1 && steps == 4) ||
+                    (scenario == 2 && steps == width) ||
+                    (scenario == 3 && steps == expected_candidates - 1)) begin
+                    rst = 1'b1;
+                    break;
+                end
+                if (scenario == 4 && covered_valid) begin
+                    covered_ready = 1'b0;
+                    @(posedge clk_sys);
+                    @(negedge clk_sys);
+                    rst = 1'b1;
+                    break;
+                end
+                @(posedge clk_sys);
+                #1;
+                steps = steps + 1;
+                if (steps > expected_candidates + 2) begin
+                    fail("reset scenario did not reach target");
+                    rst = 1'b1;
+                    break;
+                end
+                @(negedge clk_sys);
+            end
+            repeat (2) @(posedge clk_sys);
+            @(negedge clk_sys);
+            rst = 1'b0;
+            covered_ready = 1'b1;
+            if (busy || covered_valid || walk_complete)
+                fail("reset scenario left stale walker state");
+        end
+    endtask
+
     initial begin
         walk_in_valid = 1'b0;
         covered_ready = 1'b0;
@@ -233,6 +281,11 @@ module raster_walk_tb;
         run_case(0, 1, 1);
         run_case(0, 1, 7);
         reset_mid_walk();
+        reset_abort_scenario(0);
+        reset_abort_scenario(1);
+        reset_abort_scenario(2);
+        reset_abort_scenario(3);
+        reset_abort_scenario(4);
         if (errors == 0)
             $display("raster_walk_tb: PASS cases=%0d seed=0x9009", RASTER_WALK_CASES);
         else
