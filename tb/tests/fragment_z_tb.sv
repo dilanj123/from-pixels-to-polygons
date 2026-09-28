@@ -50,7 +50,14 @@ module fragment_z_tb;
     integer first_write_cycle = -1;
     integer last_accept_cycle = -1;
     integer last_write_cycle = -1;
-    integer seed = 32'h11011;
+    localparam integer RANDOM_SEED = 32'h11011;
+    integer seed = RANDOM_SEED;
+    integer random_addr;
+    integer random_gap;
+    integer random_r;
+    integer random_g;
+    integer random_b;
+    integer random_z;
     integer i;
     integer j;
 
@@ -321,21 +328,26 @@ module fragment_z_tb;
 
         clear_models(255);
         for (i = 0; i < 40; i = i + 1) begin
-            z_mem[(i * 37 + 700) % PIXELS] = (i % 4 == 0) ? 10 : 255;
-            expected_z_mem[(i * 37 + 700) % PIXELS] = z_mem[(i * 37 + 700) % PIXELS];
+            random_addr = 10000 + i * 17;
+            z_mem[random_addr] = (i % 3 == 0) ? 0 : ((i % 3 == 1) ? 100 : 255);
+            expected_z_mem[random_addr] = z_mem[random_addr];
         end
         pulse_reset();
         for (i = 0; i < 40; i = i + 1) begin
+            random_addr = 10000 + i * 17;
+            random_r = ($urandom(seed) % 2001) - 1000;
+            random_g = ($urandom(seed) % 2001) - 1000;
+            random_b = ($urandom(seed) % 2001) - 1000;
+            random_z = (i % 3 == 0) ? -64 : ((i % 3 == 1) ? 100 : 220);
+            random_gap = $urandom(seed) % 5;
             @(negedge clk);
-            set_fragment((i * 37 + 700) % 320, (i * 37 + 700) / 320,
-                         ((i * 13) - 7) * 256, ((i * 19) - 11) * 256,
-                         ((i * 23) - 17) * 256,
-                         (i % 4 == 0) ? 9*256 : ((i % 4 == 1) ? 10*256 : 11*256));
+            if (random_gap == 0)
+                set_idle();
+            else
+                set_fragment(random_addr % 320, random_addr / 320,
+                             random_r * 256, random_g * 256,
+                             random_b * 256, random_z * 256);
             @(posedge clk);
-            if ((i % 5) == 2) begin
-                @(negedge clk); set_idle();
-                @(posedge clk);
-            end
         end
         @(negedge clk); set_idle();
         run_cycles(10);
@@ -390,7 +402,7 @@ module fragment_z_tb;
                      hazard_count, stale_write_count,
                      first_accept_cycle,
                      first_read_cycle, first_write_cycle, last_accept_cycle,
-                     last_write_cycle, seed);
+                     last_write_cycle, RANDOM_SEED);
         else
             $display("fragment_z_tb: FAIL errors=%0d checks=%0d accepted=%0d reads=%0d decisions=%0d passes=%0d fails=%0d writes=%0d hazards=%0d stale=%0d",
                      errors, checks, accepted_count, read_count, decision_count,
