@@ -110,9 +110,9 @@ Gate 3 — OPEN.
 - [x] bbox tests
 - [x] top-left flags/tests
 - [x] initial edge-value tests
-- [ ] raster coverage-only walker
-- [ ] shared-edge rectangle RTL matches reference
-- [ ] subpixel/thin/extreme geometry tests
+- [x] raster coverage-only walker — GFX-009 RTL/reference sequence comparison
+- [x] shared-edge rectangle RTL matches reference
+- [x] subpixel/thin/extreme geometry tests
 - [ ] attribute stepping matches reference
 
 ## Gate 4 — Complete Colour/Z Renderer

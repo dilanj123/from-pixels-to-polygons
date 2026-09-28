@@ -159,6 +159,19 @@ framebuffer, controller, display, Sobel, timing, P&R, or hardware evidence.
 
 This milestone contains no raster-walker RTL or functional verification evidence.
 
+## GFX-009 raster-walker milestone
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Coverage sequence matches the independent Python oracle | `GFX-009 commit` | `make test-raster-walk` | 48 RASTER vectors, geometry seed `0x9009`, row-major coordinate comparison, zero-covered cases, zero mismatches | RTL-SIMULATED |
+| Backpressure, final-covered stalls, and reset abort are verified | `GFX-009 commit` | `tb/tests/raster_walk_tb.sv` | Deterministic ready seeds `1`, `7`, `19`; stalled payload stability and restart checks passed | RTL-SIMULATED |
+| Shared-edge and subpixel/boundary coverage remains exact | `GFX-009 commit` | focused vector suite and Python oracle | Shared-edge/reference geometry, thin, tiny, left/top/right/bottom cases included; no attribute or fragment claim | RTL-SIMULATED |
+| GFX-009 formal properties | — | not run | No formal raster-walker proof is claimed | NOT RUN |
+
+GFX-009 does not claim attribute stepping, fragment/Z, framebuffer,
+controller, complete renderer, synthesis, P&R, timing, throughput, or hardware
+evidence.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

@@ -19,7 +19,7 @@
 - No raster coverage RTL, attribute stepping, fragment/Z integration, complete
   renderer, full graphics synthesis/P&R, timing, or physical hardware evidence
   exists yet.
-- Current next task: `GFX-009 — Raster walker coverage only`.
+- Current next task: `GFX-010 — Attribute stepping`.
 - GFX-008 state synchronization is complete. GFX-009 implementation is waiting
   only on the D-030 interface/completion freeze recorded here.
 
@@ -48,7 +48,7 @@
 
 ## Current next task
 
-`GFX-009 — Raster walker coverage only`
+`GFX-010 — Attribute stepping`
 
 ## GFX-008 — triangle setup
 
@@ -86,6 +86,21 @@
 - This is specification evidence only. No raster-walker RTL, simulation, formal,
   synthesis, timing, or hardware evidence is claimed.
 - Gate 3 remains OPEN. Next task: `GFX-009 — Raster walker coverage only`.
+
+## GFX-009 — raster walker coverage only
+
+- GFX-009 is accepted as RTL SIMULATION VERIFIED. The standalone walker
+  consumes D-029 RASTER setup payloads, traverses every bbox candidate in
+  row-major order, applies the top-left rule, and emits covered coordinates
+  matching the independent Python oracle.
+- The deterministic suite used 48 RASTER vectors from geometry seed `0x9009`,
+  including 3 zero-covered RASTER cases, with maximum covered output count
+  1,104. It passed no-stall, randomized backpressure, final-covered-output
+  stalls, and reset-abort/restart tests.
+- GFX-009 did not add attributes, fragment/Z, framebuffer writes, controller
+  integration, display, Sobel, or optimization. No raster-walker formal proof
+  was run or claimed.
+- Gate 3 remains OPEN. Next task: `GFX-010 — Attribute stepping`.
 
 ## GFX-007 — clear engine
 
@@ -248,7 +263,7 @@
 
 ## Next task
 
-`GFX-009 — Raster walker coverage only`
+`GFX-010 — Attribute stepping`
 
 ## Historical Gate-0 closure interpretation
 
