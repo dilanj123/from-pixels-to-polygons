@@ -2,7 +2,7 @@
 
 ## Current state
 
-- Current phase: Gate 4 — Complete Colour/Z Renderer (complete).
+- Current phase: Gate 5 — Display / Presentation (specification frozen; implementation not started).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
 - Current known-good functional implementation commit: `01e0c728df3fc25ca20aa016925533b22156462c` (`Implement GFX-014 framebuffer readback`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
@@ -35,13 +35,15 @@
   is claimed.
 - No presentation/display path, full graphics synthesis/P&R, timing, or physical
   hardware evidence is claimed.
-- Current next task: `GATE5-PLAN — Display / Presentation investigation and reviewed execution plan`.
+- Current next task: `GFX-015 — Display simulation`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
-  Gate 4 are CLOSED. Gate 5 implementation has NOT STARTED; the next task is
-  `GATE5-PLAN — Display / Presentation investigation and reviewed execution plan`.
+  Gate 4 are CLOSED. D-036 Gate-5 timing, renderer memory composition, reset,
+  mailbox, and Project F timing-source contract is SPECIFIED. Gate 5
+  implementation has NOT STARTED; no Gate-5 simulation/formal/synthesis,
+  timing, board, or hardware evidence is claimed.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 

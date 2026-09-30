@@ -277,8 +277,10 @@ the next task.
 | D-035 freezes framing, packing, checksum, stalls, completion, and reset | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md`, `docs/COMMAND_PROTOCOL.md` | 19,206 words; 76,800 ordered pixel reads; four-byte little-endian packing; modulo-2^32 data-word checksum; accepted final checksum completion; abort/reset behavior | SPECIFIED |
 | GFX-014 verification and formal plan is recorded | `docs/VERIFICATION_PLAN.md` | Synchronous source model, full byte reconstruction, three-buffer snapshot tests, response stalls, reset matrix, production wrapper/rendered-frame compositions, and future formal properties are planned only | SPECIFIED |
 
-This task changes documentation only. GFX-014 RTL and functional/formal
-verification have not started. Gate 4 remains OPEN; D-035 is SPECIFIED.
+At the time of the GFX-014 specification freeze, implementation and
+verification had not started. The later implementation and acceptance evidence
+is recorded in the following GFX-014 section. D-035 remains classified
+`SPECIFIED`; implementation evidence is classified separately.
 
 ## GFX-014 — framebuffer readback implementation
 
@@ -297,6 +299,22 @@ verification-only reset-stall strengthening is recorded at
 `378addfa050deb3a791addceab16b5bd36a201ae`. Gate-4 state/checklist evidence is
 recorded in the documentation commit; bookkeeping commits are intentionally
 not used as self-referential functional-baseline SHAs.
+
+## GATE5-D036-SPEC-FREEZE — Gate-5 display and presentation contract
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-036 freezes the Gate-5 simulation timing and presentation contract | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | 640×480p60; 25.2 MHz logical `clk_pix`; H 640/16/96/48, V 480/10/2/33; negative sync; safe switch at raster origin `(-160,-45)` in vertical blank; one-cycle scanout metadata alignment after timing outputs; exact 2× and RGB332 expansion | SPECIFIED |
+| D-036 freezes NORMAL roles, CDC/reset, readback lock, and renderer memory boundary | `docs/MICROARCHITECTURE.md` | One-outstanding stable-payload toggle mailbox; FRONT/RENDER/SPARE initial 0/1/2; post-ACK rotation; common reset assertion and per-domain synchronized release; external renderer logical colour-write port routes only to RENDER; Z pipeline remains internal | SPECIFIED |
+| Project F timing support selected for future reviewed reuse | Project F `projf-explore`, commit `dd212c2e5e0e0d8bdcf93ba077630dbfd49ae708`, `lib/display/display_480p.sv` | SHA-256 `729b2a634735651925e37b02e3e51db035d149d035340c1c237c87e27ad68e50`; MIT root LICENSE at same commit; generic timing RTL only; no file imported by this task | SPECIFIED |
+| Gate-5 simulation verification and selected formal properties are planned | `docs/VERIFICATION_PLAN.md` | Timing/scanout, exact 2× all-source-pixel mapping, RAM latency, black-invalid, CDC/roles, readback lock, reset, multi-frame NORMAL, and selected safety properties; no run claimed | SPECIFIED |
+
+D-036 changes documentation only. Gate-5 checklist items remain unchecked.
+No Gate-5 RTL simulation, formal, synthesis, P&R, timing, board, or hardware
+evidence is added. Board revision, physical connector, oscillator, PLL,
+serializer, pins, programmer, monitor, and cable remain later physical
+implementation decisions. The pinned From RTL to Pixels dependency remains a
+Gate-6 dependency, not a Gate-5 prerequisite.
 
 ## GFX-005-FORMAL-ORDERING corrective milestone
 

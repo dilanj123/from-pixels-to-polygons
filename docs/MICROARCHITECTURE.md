@@ -755,3 +755,237 @@ valid FRONT ID, connects the selected physical framebuffer system read port,
 holds role assignments stable while active, forwards responses into shared
 response arbitration, and releases the role lock after completion. Those
 functions are outside GFX-014.
+
+## D-036 — Gate-5 simulation timing, renderer memory boundary and reviewed display support
+
+D-036 freezes the abstract Gate-5 presentation contract. It does not select a
+physical board revision, connector, pinout, board oscillator, serializer,
+programming tool, monitor, or cable. Those are board-specific implementation
+decisions for the later synthesis/hardware gates. The Master Plan names
+ECP5-85F-class hardware and a preferred ULX3S-85F candidate but explicitly
+defers current board/tool selection; Gate-5 simulation does not require board
+selection. No PLL or physical clock feasibility is claimed.
+
+### Scanout timing and pixel contract
+
+The logical pixel clock is `clk_pix = 25.2 MHz` (ideal simulation period
+`39.682539... ns`). The frozen 640×480p60 raster is:
+
+| Axis | Active | Front porch | Sync | Back porch | Total | Polarity |
+|---|---:|---:|---:|---:|---:|---|
+| Horizontal | 640 | 16 | 96 | 48 | 800 pixel clocks | active-low HSYNC |
+| Vertical | 480 | 10 | 2 | 33 | 525 lines | active-low VSYNC |
+
+The raster timing coordinates follow the selected Project F timing module:
+horizontal `h=-160..639` (800 pixel slots) and vertical `v=-45..479`
+(525 lines). The visible active region is exactly `h=0..639`, `v=0..479`;
+`active_video` is true there and false throughout blanking. HSYNC is low for
+`h=-144..-49`; VSYNC is low for `v=-35..-34`. The active-frame origin/first
+pixel is `(h,v)=(0,0)`, and its last pixel is `(639,479)`. The timing frame
+origin is `(-160,-45)`; raster wrap follows `(639,479)` to `(-160,-45)`.
+
+The exact 2× mapping is unchanged:
+
+```text
+src_x = h >> 1
+src_y = v >> 1
+src_addr = src_y*320 + src_x
+```
+
+Each source pixel appears at `(2x,2y)`, `(2x+1,2y)`, `(2x,2y+1)`, and
+`(2x+1,2y+1)`. There is no filtering. `src_addr` is in `0..76799` for every
+active pixel. The selected timing module registers `de`, sync, frame/line
+pulses, and screen coordinates together; the framebuffer then adds its
+one-cycle synchronous pixel-read latency. The scanout adapter shall delay that
+timing tuple (including selected FRONT ID) one additional `clk_pix` cycle to
+align with returned framebuffer data. The RGB value and delayed control tuple
+must refer to the same pixel slot, including first/last pixels and line/frame
+transitions. Output RGB is black when delayed `active_video=0` or
+`front_valid=0`.
+
+The safe presentation boundary is the Project F timing module's registered
+`frame` event for the raster origin `(-160,-45)`, the first slot of the
+vertical blanking/frame interval. A pending request may switch pixel-domain
+FRONT only on that event, never during active video. The display read pipeline
+is outside the active region at this boundary; the new buffer is selected well
+before the next active frame begins at `(0,0)`. `front_valid` becomes true at
+the first such acknowledged switch. Before then, visible RGB remains black
+regardless of RAM contents.
+
+RGB332 expands to RGB888 by the already-frozen bit replication:
+
+```text
+R8 = {R3, R3, R3[2:1]}
+G8 = {G3, G3, G3[2:1]}
+B8 = {B2, B2, B2, B2}
+```
+
+Zero maps to zero, each channel maximum maps to 255, and no gamma correction
+is applied. Gate-5 tests shall check all 256 RGB332 input bytes, not only
+representative colours.
+
+These numeric timing values adopt the Project F `display_480p.sv` candidate
+parameters at the exact reviewed revision listed below. They freeze the
+project contract; they do not establish monitor compatibility or physical
+clock realizability.
+
+### Logical clocks and reset
+
+`clk_sys` is the command, renderer, role-control, and readback system domain;
+the Master Plan's 60 MHz remains its target constraint, not a measured or
+achieved frequency.
+`clk_pix` is the scanout timing, pixel-memory-read, pixel-FRONT, and
+presentation-boundary domain. For Gate-5 correctness and CDC verification,
+these domains are treated as asynchronous: simulations use independent clock
+periods and randomized initial phase, with no phase/ratio assumption. A future
+board may derive them from related sources, but that does not alter this
+contract or remove the mailbox.
+
+There is one logical reset. Assertion is common and asynchronous; deassertion
+is synchronized independently into each functional clock domain with at least
+two stages. RAM arrays are never reset. Unilateral reset of only `clk_sys` or
+only `clk_pix` is outside the v1 contract. Reset in either active domain is
+therefore modeled as common assertion to both domains. Reset clears logical
+roles to FRONT=0, RENDER=1, SPARE=2, `front_valid=0`, mailbox request/ack
+state, pending completion, and scanout control state. No stale request,
+acknowledgment, role rotation, or FRAME_DONE may survive reset.
+
+### Presentation mailbox and role ownership
+
+The system domain owns `front_id_sys`, `render_id`, `spare_id`, requested FRONT
+payload, and request toggle. Initial IDs are FRONT=0, RENDER=1, SPARE=2; IDs
+remain pairwise distinct. The pixel domain owns its local active scanout FRONT
+selection and `front_valid`.
+
+Only one presentation request may be outstanding. The system registers the
+requested physical buffer ID before/with toggling the request and holds that
+payload stable until the matching acknowledgment is synchronized back. Only
+the one-bit request/ack toggles cross through synchronizers; the multi-bit ID
+is a stable-payload mailbox sampled after request synchronization. The pixel
+domain detects one new request, waits for the registered `frame` event at
+raster origin `(-160,-45)`, adopts that ID, sets `front_valid`, and returns
+exactly one matching acknowledgment. No second request is accepted while one
+is outstanding. Reset
+clears both sides under the common-reset rule and cannot synthesize a phantom
+ack.
+
+After the synchronized acknowledgment, and only after the role update, system
+control may generate/queue FRAME_DONE. For NORMAL presentation:
+
+```text
+new FRONT  = old RENDER
+new RENDER = old FRONT
+SPARE      = unchanged
+```
+
+Presentation is legal only after the accepted frame's renderer work has
+completed, `renderer_quiescent` is true (including Fragment/Z pipeline empty),
+and the RENDER contents are the completed frame to publish. An incomplete or
+aborted render is not presented. FRONT is never written; NORMAL rendering
+writes only RENDER and does not write SPARE. The role manager is the sole owner
+of role changes.
+
+GFX-014's `readback_active` locks its captured FRONT ID against role
+reassignment for the entire readback, including response stalls. System
+control shall not start a presentation while readback is active, and the role
+manager shall not rotate/reassign any role during the lock. The readback engine
+and its interface are not redesigned by D-036.
+
+### Renderer-to-three-framebuffer composition boundary
+
+In the current GFX-012 implementation, `renderer_core` directly instantiates
+one `framebuffer_dp` and connects its internal clear/fragment write mux to that
+memory. This is sufficient for its accepted single-surface tests but does not
+provide physical-buffer selection. D-036 freezes one narrow composition
+interface change for Gate 5: replace that internal colour-memory instance
+connection with a single logical system write port from `renderer_core`:
+
+```systemverilog
+output logic        render_fb_wr_en;
+output logic [16:0] render_fb_wr_addr;
+output logic [7:0]  render_fb_wr_data;
+```
+
+This port is the existing clear-versus-fragment ownership mux result. During
+CLEAR it carries the clear engine's colour write; during TRI_WALK/TRI_DRAIN it
+carries the passing Fragment/Z colour write; otherwise `render_fb_wr_en=0`.
+No framebuffer address/data arithmetic or raster/depth algorithm moves out of
+the existing renderer. The role manager does not enter the renderer datapath:
+the external memory bank routes every enabled logical write only to the
+physical instance selected by `render_id`.
+
+The Gate-5 top owns three unchanged `framebuffer_dp` instances. Their pixel
+ports receive the same scanout address; registered pixel data is selected
+using the FRONT ID delayed with the one-cycle read. The system write port
+routes the renderer's single logical write to RENDER only. The system read port
+routes GFX-014 readback requests to the captured FRONT ID; readback and
+render-write ownership are mutually exclusive under command-state legality.
+All non-selected buffers have writes disabled. The existing single Z buffer
+and its GFX-011 synchronous interface remain owned by `renderer_core`; no Z
+algorithm or memory semantics change is required. GFX-012 tests may supply a
+one-buffer memory shell around the new logical write port, preserving the same
+renderer behavior and algorithm. The external port extraction is an interface
+composition change, not permission for a renderer rewrite.
+
+### Reviewed Project F source selection
+
+The only Project F source selected for planned Gate-5 reuse is:
+
+```text
+Repository: https://github.com/projf/projf-explore.git
+Commit:     dd212c2e5e0e0d8bdcf93ba077630dbfd49ae708
+Path:       lib/display/display_480p.sv
+SHA-256:    729b2a634735651925e37b02e3e51db035d149d035340c1c237c87e27ad68e50
+License:    MIT, root LICENSE at the same commit
+Copyright:  ©2022 Will Green
+Destination: third_party/projectf/lib/display/display_480p.sv
+Purpose:    generic 640×480 timing/counter generator for simulation and scanout
+Disposition: planned unmodified copy; preserve source header and MIT LICENSE
+```
+
+This file is synthesizable generic timing RTL with no Xilinx or ECP5 primitive;
+it is usable in an ECP5 design but does not establish ECP5 implementation
+evidence. Its numeric timing parameters and signed raster-coordinate ranges
+are the values frozen above. Import is not performed by this decision task.
+When imported, both this file and its license shall be recorded in
+`THIRD_PARTY_NOTICES.md` and
+`docs/THIRD_PARTY_MANIFEST.md` with the exact commit and local hash.
+
+No other Project F file is selected for Gate 5. In particular,
+The source audit and dispositions are:
+
+| Repository / exact commit | Exact candidate path | Licence / copyright | Purpose and compatibility | D-036 disposition / local destination |
+|---|---|---|---|---|
+| `projf/projf-explore`, `dd212c2e5e0e0d8bdcf93ba077630dbfd49ae708` | `lib/display/display_480p.sv` | MIT; ©2022 Will Green | Generic 640×480 timing, signed coordinates, registered DE/sync/frame/line; no vendor primitive, ECP5-compatible | **Selected**, planned unmodified at `third_party/projectf/lib/display/display_480p.sv`; Gate-5 timing and simulation |
+| same | `graphics/fpga-graphics/simple_480p.sv` | MIT; ©2023 Will Green | Generic timing counter, but uses a different counter/porch convention and does not provide the selected registered frame/line tuple | Not selected; no local destination |
+| same | `lib/clock/xc7/clock_480p.sv` | MIT; ©Will Green (header) | 25.2 MHz 640×480 clock reference using Xilinx `MMCME2_BASE`/`BUFG`; not ECP5-compatible | Inspected as frequency reference only; not copied; no local destination; physical clocking is later |
+| same | `lib/clock/ecp5/clock2_gen.v` | MIT; ©Will Green | ECP5 `EHXPLLL` dual-clock generator; board/device clock implementation | Not selected without board/input-clock contract; later physical work; no local destination |
+| same | `lib/display/ecp5/dvi_generator.sv` | MIT; ©Will Green | ECP5 ODDRX1F-based DVI/TMDS serialization | Not needed for Gate-5 simulation; later physical output; no local destination |
+| same | `lib/display/tmds_encoder_dvi.sv` | MIT; ©Will Green | TMDS channel encoder for DVI output | Not needed for Gate-5 simulation; later physical output; no local destination |
+| same | `graphics/fpga-graphics/ecp5/ulx3s.lpf` | MIT; ©Will Green | ULX3S-85F-specific pin locations and 25 MHz input-clock constraint | No board/revision selected; later physical constraints; no local destination |
+| `projf/display_controller`, `dafbe3385749da4ae2100bba2945350ace7ec04e` | `rtl/display_timings.v`, `rtl/display_clocks.v`, `rtl/dvi_generator.v`, `rtl/serializer_10to1.v` | MIT; ©2019 Will Green | Generic timing and 25.2/126 MHz clock references plus DVI/serializer blocks; README notes Xilinx Series-7-specific SerDes support | Audited alternative, not selected; overlaps selected timing source and introduces unused clock/serializer scope; no local destination |
+
+Only the selected `display_480p.sv` is planned for Gate-5 reuse. No source is
+imported by D-036. When it is imported, the selected file and its root MIT
+LICENSE shall be recorded in `THIRD_PARTY_NOTICES.md` and
+`docs/THIRD_PARTY_MANIFEST.md` with the pinned commit and local hash.
+Project-owned 2× scanout mapping, role control, mailbox, and memory selection
+remain original RTL.
+
+The separate `from-rtl-to-pixels` dependency remains pinned at
+`v1.0.1-dependency-ready`, commit
+`ad35514c990f6e1c9eb9fa18aee9d906f9df7721`, top
+`rtl_to_pixels_top_pipelined`. It is not a Gate-5 dependency and no parent RTL,
+Sobel reader/writer/APB/bridge, or parent build integration is added here. Any
+source reuse/license issue is tracked as a Gate-6 dependency matter and does
+not block Gate-5 simulation.
+
+### Gate boundaries
+
+Gate 5 comprises deterministic timing/scanout simulation, exact 2× mapping and
+memory-latency alignment, front-invalid black output, three-buffer roles,
+presentation CDC, NORMAL switching, and multi-frame simulation. Gate 6 owns
+Sobel integration. Gate 9 owns full synthesis, P&R, resource and routed timing
+evidence. Gate 10 owns board programming, physical display, physical
+framebuffer comparison/readback, and physical Sobel validation. D-036 is
+`SPECIFIED`; it adds no implementation or verification evidence.

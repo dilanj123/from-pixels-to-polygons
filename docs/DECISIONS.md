@@ -1,6 +1,6 @@
 # Source-level decisions
 
-The following D-001–D-033 decisions are the supplied authoritative source-level
+The following D-001–D-036 decisions are the supplied authoritative source-level
 decisions. They are subordinate to the Master Project Plan and Operating
 Instructions.
 
@@ -41,10 +41,11 @@ Instructions.
 | D-033 | Freeze the baseline renderer integration boundary, local execution states, production framebuffer/Z wrapper contracts, mutually exclusive clear/fragment memory ownership, quiescent-frame verification boundary, and GFX-012/GFX-013/GFX-014 scope split as specified in `docs/MICROARCHITECTURE.md`. |
 | D-034 | Freeze unsigned32 modulo performance counters, lifetime/per-frame reset domains, exact increment events, cycle-count definitions, passive instrumentation boundaries, future presentation/Sobel event inputs, FIFO high-watermark sampling, and W1–W14 ordering as specified in `docs/MICROARCHITECTURE.md`. |
 | D-035 — Snapshot framebuffer readback, synchronous packing and response-stream contract | Freeze standalone framebuffer readback start/snapshot, FRONT role lock, one-cycle synchronous reads, little-endian four-pixel packing, exact 19206-word response, modulo checksum, backpressure, completion, reset-abort, and Gate-4/Gate-5 boundary as specified in `docs/MICROARCHITECTURE.md`. |
+| D-036 — Gate-5 simulation timing, renderer memory boundary and reviewed display support | Freeze the 640×480p60 logical scanout timing, exact 2× mapping and one-cycle memory alignment, reset/clock/mailbox semantics, NORMAL role/presentation behavior, renderer logical framebuffer-write port for three-buffer composition, and the sole selected Project F timing source file at its exact MIT-licensed commit, as specified in `docs/MICROARCHITECTURE.md`. Board pins, PLL/serializer, programming and physical display remain later implementation matters. |
 
 ## Status
 
-D-001 through D-035 are architectural decisions classified as `SPECIFIED`.
+D-001 through D-036 are architectural decisions classified as `SPECIFIED`.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation
@@ -53,4 +54,9 @@ commit `d7b6f60b7bcf4a10da0c23d39ba202b9d43a3e99`.
 This does not imply formal proof, synthesis, P&R, timing, or hardware evidence.
 
 D-035 specifies the GFX-014 standalone readback engine contract. Its
-implementation and verification have not started.
+implementation and verification are recorded as RTL SIMULATION VERIFIED in
+the GFX-014 evidence below.
+
+D-036 freezes the Gate-5 simulation/architectural presentation contract only.
+No Gate-5 RTL, simulation, formal, synthesis, timing, board, or hardware
+evidence is implied.

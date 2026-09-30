@@ -215,3 +215,91 @@ stall-stable responses, in-range sequential addresses, bounded data index,
 accepted-word-only checksum updates, final completion after all 19,200 data
 transfers, active through final transfer, and reset clearing active/pending
 state without stale completion.
+
+## D-036 / Gate-5 simulation verification plan
+
+The Gate-5 suite is simulation evidence only. It shall use independent
+`clk_sys` and `clk_pix` clocks with deterministic unrelated periods and
+randomized starting phase; it shall not assume a physical PLL or board.
+
+### Standalone timing and scanout
+
+Check the complete 800×525 timing raster: signed horizontal positions
+`-160..639`, vertical positions `-45..479`, 640 active pixels × 480 active
+lines, H front/sync/back `16/96/48`, V front/sync/back `10/2/33`, active-high
+`active_video`, active-low HSYNC/VSYNC (low at H `-144..-49`, V `-35..-34`),
+first active `(0,0)`, last active `(639,479)`, and frame event at
+`(-160,-45)`. Check first/last pixel and line, all four corners, blanking
+intervals, sync pulse widths/locations, and frame boundary.
+For every one of the 76,800 source coordinates, verify the four destination
+pixels `(2x,2y)`, `(2x+1,2y)`, `(2x,2y+1)`, `(2x+1,2y+1)` equal that source
+byte after RGB332→RGB888 expansion. Exercise all 256 RGB332 values and check
+zero/max channel endpoints and deterministic mapping.
+
+Use the actual `framebuffer_dp` registered pixel port and test patterns that
+expose address/control offsets (coordinate-derived, row/column bands,
+checker/alternating, and distinct first/last values). Verify the one-cycle
+data return aligns with delayed active-video, sync, pixel coordinate and
+selected FRONT ID at first/last pixel, row wrap and frame wrap. Fill RAM with
+nonblack data while `front_valid=0`; visible output must remain black. Check
+that front validity becomes visible only after the first acknowledged safe
+switch.
+
+### Roles, CDC and NORMAL presentation
+
+Check initial FRONT/RENDER/SPARE `0/1/2`, `front_valid=0`, and pairwise
+uniqueness continuously. Exercise repeated NORMAL presentations until all
+three buffer IDs have occupied every role. Independently track physical
+framebuffer writes and require every write target to equal RENDER and never
+FRONT or SPARE. Require renderer quiescence and empty Fragment/Z pipeline
+before request acceptance.
+
+Drive requests immediately before and after the registered `frame` event for
+the raster origin `(-160,-45)`, while well away from the boundary, and under
+unrelated clock ratios/random phase. Confirm the pixel FRONT ID changes only
+at the boundary, never during active video; one
+request yields exactly one ACK; no second request is accepted pending ACK;
+the requested-ID payload stays stable until ACK; and roles/FRAME_DONE do not
+advance before synchronized ACK. Verify `FRAME_DONE` occurs after the system
+role update, exactly once per accepted NORMAL PRESENT. Test several complete
+BEGIN/DRAW/PRESENT NORMAL frames with distinct buffer images and verify the
+new front is first used on the next active frame, with no tearing, skipped
+frame, wrong-buffer selection, or premature RENDER reuse.
+
+For readback interaction, hold `readback_active` from accepted readback start
+through completion, change unrelated live IDs where legal, and prove the
+captured FRONT remains selected and no role reassignment/presentation starts
+until the lock clears. Verify the readback response still matches D-035.
+
+### Reset and composition
+
+Assert common reset while idle, during scanout, with request pending, at the
+safe boundary, after pixel switch but before system ACK, and with a readback
+lock. Require reset roles `0/1/2`, invalid FRONT/black visible output, cleared
+mailbox state, and no stale ACK, role rotation, or FRAME_DONE. Unilateral
+domain reset is not generated because it is outside the frozen v1 contract.
+
+Integrate the existing GFX-012 renderer through its single logical colour
+write port into three production `framebuffer_dp` instances, with writes routed
+only to `render_id`, scanout reads only from pixel-domain FRONT, and readback
+through the captured FRONT system port. Compare multi-frame NORMAL
+presentation and renderer-produced source images against existing reference
+frame data; retain all Gate-4 regressions. The renderer's setup, raster,
+attribute, Fragment/Z, Z memory, and counter behavior must remain unchanged.
+
+### Gate-5 formal properties (planned only)
+
+After RTL exists, selected formal checks shall cover: role IDs pairwise
+distinct and FRONT != RENDER; no FRONT writes; stable request payload through
+ACK; at most one ACK per request and no ACK without a pending request; no
+second request while outstanding; FRONT changes only on the safe-boundary
+event; readback lock blocks reassignment; scanout address `<76800` and equals
+`(display_y>>1)*320 + (display_x>>1)` in the active region; invalid FRONT
+forces black; reset suppresses stale presentation; and FRAME_DONE implies a
+matching ACK and completed system role update.
+
+Assumptions shall state common reset assertion with synchronized per-domain
+release, clocks continue to provide edges, mailbox payload remains stable by
+design, and a safe-boundary event eventually occurs for any liveness claim.
+Formal does not model analog metastability or establish CDC MTBF. No formal
+result is claimed by this plan.
