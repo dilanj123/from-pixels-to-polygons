@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 4 — Complete Colour/Z Renderer.
-- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: OPEN.
-- Current known-good functional implementation commit: `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079` (`Implement GFX-013 performance counters`).
+- Current phase: Gate 4 — Complete Colour/Z Renderer (complete).
+- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
+- Current known-good functional implementation commit: `01e0c728df3fc25ca20aa016925533b22156462c` (`Implement GFX-014 framebuffer readback`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -28,15 +28,20 @@
   `7dca4584635ff4aa5c8f0b0f11ced5f4d47bd079`; passive candidate and
   depth instrumentation preserved renderer output and timing. No formal proof
   is claimed.
-- No complete presentation path, GET_COUNTERS serialization, readback, full graphics
-  synthesis/P&R, timing, or physical hardware evidence exists yet.
-- Current next task: `GFX-014 — Readback engine`.
+- GFX-014 readback engine: RTL SIMULATION VERIFIED at implementation commit
+  `01e0c728df3fc25ca20aa016925533b22156462c`; exact framing, full-byte
+  reconstruction, synchronous production-memory composition, rendered-frame
+  composition, response stalls, and reset abort/recovery passed. No formal proof
+  is claimed.
+- No presentation/display path, full graphics synthesis/P&R, timing, or physical
+  hardware evidence is claimed.
+- Current next task: `GATE5-PLAN — Display / Presentation investigation and reviewed execution plan`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
-  GET_COUNTERS serializer, presentation, Sobel, readback, synthesis, P&R,
-  timing, or hardware claim is made.
-- D-035 GFX-014 readback contract: SPECIFIED; readback implementation is NOT
-  STARTED. Gate 3 is CLOSED, Gate 4 is OPEN, and the next task is
-  `GFX-014 — Readback engine`.
+  GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
+- D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
+  its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
+  Gate 4 are CLOSED. Gate 5 implementation has NOT STARTED; the next task is
+  `GATE5-PLAN — Display / Presentation investigation and reviewed execution plan`.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 

@@ -280,6 +280,22 @@ the next task.
 This task changes documentation only. GFX-014 RTL and functional/formal
 verification have not started. Gate 4 remains OPEN; D-035 is SPECIFIED.
 
+## GFX-014 — framebuffer readback implementation
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Readback response framing, synchronous reads, packing, checksum, and completion pass | `01e0c728df3fc25ca20aa016925533b22156462c` | `make lint-readback`; `make test-readback` | 17 complete transfers; each emitted 19,206 accepted words and made 76,800 ordered requests (0..76799); 11 reset-abort points each followed by a successful full transfer; BEGIN/data/END word checks, response stability, and byte/checksum comparisons had zero mismatches | RTL SIMULATION VERIFIED |
+| Full-frame patterns and captured three-buffer selection pass | `01e0c728df3fc25ca20aa016925533b22156462c` | `tb/tests/readback_engine_tb.sv` | All-zero, all-FF, address-derived, alternating, deterministic pseudorandom, and GFX-012 reference-rendered images; IDs 0/1/2; live tag/ID changed after start; deterministic ready seeds and forced stalls through BEGIN, first/middle/final data, and END | RTL SIMULATION VERIFIED |
+| Production framebuffer synchronous-read composition passes | `01e0c728df3fc25ca20aa016925533b22156462c` | `make test-readback-framebuffer` | Actual `framebuffer_dp.sys_rdata` registered system read port; 76,800 source bytes reconstructed, zero mismatches; no memory-array reset added | RTL SIMULATION VERIFIED |
+| Renderer-produced framebuffer readback passes | `01e0c728df3fc25ca20aa016925533b22156462c` | `make test-renderer` | GFX-012 rendered frame 4; 76,800 bytes; zero byte/word mismatches; checksum `c581ecbf`; this is not FRONT-role or presentation evidence | RTL SIMULATION VERIFIED |
+| Gate-4 requirements are evidenced and Gate 4 closes | `01e0c728df3fc25ca20aa016925533b22156462c` | Gate-4 regression and `04_MASTER_CHECKLIST.md` audit | Readback item now evidenced; GFX-011/012/013 evidence retained; every Gate-4 checkbox is supported; no Gate-5, synthesis, P&R, timing, display, or hardware result is claimed | LOCAL OBSERVATION |
+| GFX-014 formal properties | — | not run | No formal proof is claimed | NOT RUN |
+
+The implementation commit above contains RTL/tests/Makefile only. Gate-4
+state/checklist evidence is recorded in the subsequent documentation commit;
+that bookkeeping commit is intentionally not used as a self-referential
+functional-baseline SHA.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
