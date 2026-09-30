@@ -633,3 +633,125 @@ also record separate actual resource evidence for the admitted 320×240 parent
 at the pinned commit. Combined target-device feasibility is assessed before deep
 raster RTL. No EBR packing, integrated resource, timing, or Fmax result is
 claimed here.
+
+## GFX-014 standalone framebuffer readback
+
+GFX-014 implements the standalone readback streamer. The later system
+controller determines READ_FRONT legality (`IDLE`, `front_valid_sys`, and no
+presentation outstanding) and issues a legal start. GFX-014 does not implement
+the role manager, FRONT rotation, presentation CDC, `front_valid`, PRESENT,
+FRAME_DONE, top-level command legality, or response arbitration.
+
+### Start and snapshot
+
+The start interface is:
+
+```text
+start_valid
+start_ready
+start_tag      [15:0]
+start_front_id [1:0]
+```
+
+A start transfers only on `start_valid && start_ready`. The engine captures
+the tag and FRONT ID at that edge. Live input changes afterward cannot affect
+the transaction. IDs 0, 1, and 2 are the valid physical buffers; ID 3 is an
+integration-precondition violation. The conservative ready rule is
+`start_ready = !readback_active`, with no refill on the final response edge.
+
+`readback_active` is asserted for the accepted transaction through every
+header, source read, data word, trailer, and response stall. It clears only
+when the final checksum response transfers. `role_lock` may be exposed as an
+alias and, if present, equals `readback_active`. The captured FRONT ID stays
+constant and selects every source read and descriptor field. The later role
+manager must not rotate or reassign that physical buffer while active.
+
+### Synchronous source reads and data packing
+
+The source interface is:
+
+```text
+fb_rd_en
+fb_rd_addr      [16:0]
+fb_rd_buffer_id [1:0]
+fb_rd_data      [7:0]
+```
+
+The source memory samples an enabled address on the rising edge and presents
+its byte during the following cycle. The engine captures returned data only
+when a corresponding one-cycle-delayed request is valid. Every request uses
+the captured FRONT ID. A successful uninterrupted transaction issues exactly
+76,800 requests, with addresses `0..76799` exactly once and in order. The
+selected framebuffer is read-only for the transaction; the later role/control
+layer guarantees that no writer targets the captured FRONT while active.
+GFX-014 does not arbitrate or suppress those writes. The production
+`framebuffer_dp` system read port has one-cycle latency and needs no physical
+read-enable; integration may use `fb_rd_en` for ownership and response-valid
+bookkeeping while driving its address to that port.
+
+After the three BEGIN words have transferred, pixels are read and grouped in
+four-byte words. For data word `n=0..19199`, addresses are `4*n+0` through
+`4*n+3`, packed as:
+
+```text
+rsp_data[7:0]   = pixel[4*n+0]
+rsp_data[15:8]  = pixel[4*n+1]
+rsp_data[23:16] = pixel[4*n+2]
+rsp_data[31:24] = pixel[4*n+3]
+```
+
+The baseline finishes one packed word, holds it until accepted, and only then
+consumes the next four-pixel group. It uses only the fixed storage needed for
+one packed word and read alignment; no deep prefetch queue or throughput
+optimization is part of GFX-014.
+
+### Response framing and checksum
+
+The response interface is canonical ready/valid:
+
+```text
+rsp_valid
+rsp_ready
+rsp_data [31:0]
+```
+
+A stalled response (`rsp_valid && !rsp_ready`) keeps valid and all 32 data bits
+stable. Its address/group index, logical response position, and checksum do
+not advance twice or skip. A successful transfer is exactly 19,206 accepted
+words, in this order:
+
+| Position | Value |
+|---|---|
+| BEGIN W0 | `{4'hC, 12'h000, snapshot_tag}` |
+| BEGIN W1 | `32'd19200` data-word count |
+| BEGIN W2 | `{3'b000, 8'd1, snapshot_front_id, 9'd240, 10'd320}` |
+| Data | 19,200 four-pixel words in ascending address order |
+| END W0 | `{4'hD, 12'h000, snapshot_tag}` |
+| END W1 | `32'h00000000` success status |
+| END W2 | modulo-2^32 unsigned sum of the 19,200 data words |
+
+No framebuffer read is issued before BEGIN W2 transfers. The checksum excludes
+headers, descriptor, and trailer. It updates exactly once when each data word
+transfers (`rsp_valid && rsp_ready`), never on assembly or while stalled.
+There are no additional GFX-014 readback error codes; illegal READ_FRONT
+dispatch is owned by outer control.
+
+`readback_complete` is a one-cycle pulse on acceptance of the final END W2
+checksum word. It does not pulse when the last pixel is sampled, the last data
+word is assembled, or END begins. `readback_active` remains high through that
+transfer and deasserts after it; no same-edge restart is accepted.
+
+### Reset and integration boundary
+
+Reset aborts any active transaction: it clears active and response valid,
+pending read bookkeeping, partial packed data, checksum, and completion state.
+It emits no synthetic END for an aborted request, and no pre-reset data or
+completion may leak into a later transaction. RAM contents are not reset. A
+new accepted request starts at address zero with its own captured tag/ID and a
+zero checksum.
+
+The later Gate-5/system integration verifies READ_FRONT legality, captures the
+valid FRONT ID, connects the selected physical framebuffer system read port,
+holds role assignments stable while active, forwards responses into shared
+response arbitration, and releases the role lock after completion. Those
+functions are outside GFX-014.

@@ -40,13 +40,17 @@ Instructions.
 | D-032 | Freeze the fixed-latency F0–F3 fragment/Z pipeline: signed42 Q8 quantization, RGB332 and unsigned17 address conversion, one-cycle synchronous Z-read alignment, strict-less-than depth testing, coincident pass writes, no-write fails, pipeline drain, reset flushing, and the no-equal-address Z read/write integration hazard as specified in `docs/MICROARCHITECTURE.md`. |
 | D-033 | Freeze the baseline renderer integration boundary, local execution states, production framebuffer/Z wrapper contracts, mutually exclusive clear/fragment memory ownership, quiescent-frame verification boundary, and GFX-012/GFX-013/GFX-014 scope split as specified in `docs/MICROARCHITECTURE.md`. |
 | D-034 | Freeze unsigned32 modulo performance counters, lifetime/per-frame reset domains, exact increment events, cycle-count definitions, passive instrumentation boundaries, future presentation/Sobel event inputs, FIFO high-watermark sampling, and W1–W14 ordering as specified in `docs/MICROARCHITECTURE.md`. |
+| D-035 — Snapshot framebuffer readback, synchronous packing and response-stream contract | Freeze standalone framebuffer readback start/snapshot, FRONT role lock, one-cycle synchronous reads, little-endian four-pixel packing, exact 19206-word response, modulo checksum, backpressure, completion, reset-abort, and Gate-4/Gate-5 boundary as specified in `docs/MICROARCHITECTURE.md`. |
 
 ## Status
 
-D-001 through D-034 are architectural decisions classified as `SPECIFIED`.
+D-001 through D-035 are architectural decisions classified as `SPECIFIED`.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation
 commit `d7b6f60b7bcf4a10da0c23d39ba202b9d43a3e99`.
 
 This does not imply formal proof, synthesis, P&R, timing, or hardware evidence.
+
+D-035 specifies the GFX-014 standalone readback engine contract. Its
+implementation and verification have not started.

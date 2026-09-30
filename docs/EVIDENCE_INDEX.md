@@ -269,6 +269,17 @@ role rotation, display, Sobel, READ_FRONT, UART, optimization, synthesis,
 P&R, timing, or hardware behavior. Gate 4 remains OPEN; GFX-014 readback is
 the next task.
 
+## GFX-014-SPEC-FREEZE — D-035 milestone
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| D-035 freezes the standalone READ_FRONT streamer boundary | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | Legal-start responsibility, captured tag/FRONT ID, role lock, synchronous reads, source stability precondition, and later Gate-5 integration ownership are explicit | SPECIFIED |
+| D-035 freezes framing, packing, checksum, stalls, completion, and reset | `docs/MICROARCHITECTURE.md`, `docs/VERIFICATION_PLAN.md`, `docs/COMMAND_PROTOCOL.md` | 19,206 words; 76,800 ordered pixel reads; four-byte little-endian packing; modulo-2^32 data-word checksum; accepted final checksum completion; abort/reset behavior | SPECIFIED |
+| GFX-014 verification and formal plan is recorded | `docs/VERIFICATION_PLAN.md` | Synchronous source model, full byte reconstruction, three-buffer snapshot tests, response stalls, reset matrix, production wrapper/rendered-frame compositions, and future formal properties are planned only | SPECIFIED |
+
+This task changes documentation only. GFX-014 RTL and functional/formal
+verification have not started. Gate 4 remains OPEN; D-035 is SPECIFIED.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |

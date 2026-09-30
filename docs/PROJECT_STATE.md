@@ -34,6 +34,9 @@
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, Sobel, readback, synthesis, P&R,
   timing, or hardware claim is made.
+- D-035 GFX-014 readback contract: SPECIFIED; readback implementation is NOT
+  STARTED. Gate 3 is CLOSED, Gate 4 is OPEN, and the next task is
+  `GFX-014 — Readback engine`.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 

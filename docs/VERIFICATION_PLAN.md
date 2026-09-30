@@ -28,6 +28,7 @@ the command, result, conditions, and evidence path.
 | GFX-010 attribute stepping | Direct mathematical comparison of signed42 raw R/G/B/Z for every accepted covered coordinate, including zero/positive/negative X/Y gradients, signed starts and extrema, long rows, row transitions, one-pixel and zero-covered cases, mixed coverage, output stalls/final stalls, reset/restart, deterministic randomized planes, and continued GFX-009 coordinate-sequence equality |
 | GFX-011 fragment/Z stage | Arithmetic signed42 Q8 shift and clamp boundaries, exact RGB332 packing, unsigned17 address extrema/range, one-cycle synchronous Z-read alignment, strict-less-than and equal-depth rejection, coincident pass writes, fail no-write, valid gaps, back-to-back fragments, pipeline drain, forbidden equal-address Z read/write, and reset flushing |
 | GFX-012 baseline renderer integration | Decoded NOP/BEGIN_FRAME/DRAW execution, clear/setup/walk/drain orchestration, production framebuffer/Z wrappers, renderer quiescence, full 76800-byte colour/Z comparison, depth/order/rejection cases, reset recovery, deterministic random frames, and raw decoder smoke composition |
+| GFX-014 standalone readback | Exact 19206 accepted-word framing, captured tag/FRONT ID, response stability under stalls at every header/data/trailer region, exactly 76800 sequential one-cycle synchronous reads, little-endian four-pixel packing, once-per-accepted-data-word modulo checksum, final-word completion, reset abort/restart, and role-lock lifetime |
 
 ## Verification sequence
 
@@ -176,3 +177,41 @@ candidate one-pulse accounting, mutually exclusive depth results,
 nondecreasing high watermark except reset, high watermark dominance over the
 sampled FIFO level, and passive integration with no renderer-control feedback.
 These properties are planned only and are not claimed as proved.
+
+## GFX-014 readback verification plan
+
+Use a genuine one-cycle synchronous framebuffer model that samples the
+selected memory byte on the rising edge when `fb_rd_en` is asserted. For each
+complete test source, verify exactly 76,800 requests at addresses 0 through
+76,799 in order, 19,200 data responses packed little-endian, 19,206 total
+accepted words, one completion pulse, and byte-for-byte reconstruction of all
+76,800 source bytes. Independently calculate the modulo-2^32 sum of the data
+words; checksum agreement supplements the byte comparison.
+
+Run full sources of all-zero, all-one, address-derived, alternating,
+deterministic pseudorandom, and a known reference-rendered RGB332 frame. Model
+three distinct buffers and test captured IDs 0, 1, and 2. Change live tag and
+ID after start and confirm headers, descriptor, and every read continue using
+the snapshot. Treat the selected buffer's no-write condition during active
+readback as an integration precondition and future assertion target.
+
+Apply response backpressure independently to BEGIN W0/W1/W2, first/middle/
+last data words, and END W0/W1/W2. Confirm each stalled tuple stays stable and
+that no address, data index, or checksum update repeats or skips. Reset during
+the header, descriptor, source read, partial four-byte group, stalled data,
+near-final address, END header, and stalled checksum. After every abort,
+require inactive/invalid outputs and prove a new readback starts at address
+zero with no stale data or completion.
+
+Also compose the engine with the production `framebuffer_dp.sv` system read
+port and verify its one-cycle latency. Read a known GFX-012/reference-rendered
+RGB332 memory image through a test harness and reconstruct it exactly. This
+demonstrates readback against rendered bytes, not architectural FRONT-role or
+presentation correctness. No readback RTL/formal/synthesis result is claimed
+by this plan.
+
+Future formal properties shall cover idle-only start, stable captured tag/ID,
+stall-stable responses, in-range sequential addresses, bounded data index,
+accepted-word-only checksum updates, final completion after all 19,200 data
+transfers, active through final transfer, and reset clearing active/pending
+state without stale completion.
