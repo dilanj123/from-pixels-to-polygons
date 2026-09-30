@@ -288,13 +288,15 @@ verification have not started. Gate 4 remains OPEN; D-035 is SPECIFIED.
 | Full-frame patterns and captured three-buffer selection pass | `01e0c728df3fc25ca20aa016925533b22156462c` | `tb/tests/readback_engine_tb.sv` | All-zero, all-FF, address-derived, alternating, deterministic pseudorandom, and GFX-012 reference-rendered images; IDs 0/1/2; live tag/ID changed after start; deterministic ready seeds and forced stalls through BEGIN, first/middle/final data, and END | RTL SIMULATION VERIFIED |
 | Production framebuffer synchronous-read composition passes | `01e0c728df3fc25ca20aa016925533b22156462c` | `make test-readback-framebuffer` | Actual `framebuffer_dp.sys_rdata` registered system read port; 76,800 source bytes reconstructed, zero mismatches; no memory-array reset added | RTL SIMULATION VERIFIED |
 | Renderer-produced framebuffer readback passes | `01e0c728df3fc25ca20aa016925533b22156462c` | `make test-renderer` | GFX-012 rendered frame 4; 76,800 bytes; zero byte/word mismatches; checksum `c581ecbf`; this is not FRONT-role or presentation evidence | RTL SIMULATION VERIFIED |
-| Gate-4 requirements are evidenced and Gate 4 closes | `01e0c728df3fc25ca20aa016925533b22156462c` | Gate-4 regression and `04_MASTER_CHECKLIST.md` audit | Readback item now evidenced; GFX-011/012/013 evidence retained; every Gate-4 checkbox is supported; no Gate-5, synthesis, P&R, timing, display, or hardware result is claimed | LOCAL OBSERVATION |
+| Reset abort while data and final checksum responses are stalled | `378addfa050deb3a791addceab16b5bd36a201ae` | `make test-readback` | Reset asserted only after multiple held cycles at the first data response and final END checksum response; no stale response/completion, followed by full successful recovery | RTL SIMULATION VERIFIED |
+| Gate-4 requirements are evidenced and Gate 4 closes | `df4a881a12a0769e043815ed7a8f4f1af7d8b96e` | Gate-4 regression and `04_MASTER_CHECKLIST.md` audit | Readback item now evidenced; GFX-011/012/013 evidence retained; every Gate-4 checkbox is supported; no Gate-5, synthesis, P&R, timing, display, or hardware result is claimed | LOCAL OBSERVATION |
 | GFX-014 formal properties | — | not run | No formal proof is claimed | NOT RUN |
 
-The implementation commit above contains RTL/tests/Makefile only. Gate-4
-state/checklist evidence is recorded in the subsequent documentation commit;
-that bookkeeping commit is intentionally not used as a self-referential
-functional-baseline SHA.
+The implementation commit above contains RTL/tests/Makefile only. The
+verification-only reset-stall strengthening is recorded at
+`378addfa050deb3a791addceab16b5bd36a201ae`. Gate-4 state/checklist evidence is
+recorded in the documentation commit; bookkeeping commits are intentionally
+not used as self-referential functional-baseline SHAs.
 
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
