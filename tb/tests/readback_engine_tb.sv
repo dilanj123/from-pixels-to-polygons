@@ -28,7 +28,7 @@ module readback_engine_tb;
     integer cycle_count, seed, mode, id, addr, n, k;
     integer stall_target, stall_hold, run_count, forced_stall_cycles;
     logic [31:0] ready_seed_value;
-    logic abort_stall_data;
+    integer abort_stall_index;
     integer expected_checksum;
     logic [31:0] checksum_model;
     logic [31:0] previous_rsp;
@@ -62,7 +62,7 @@ module readback_engine_tb;
         end else begin
             lfsr <= {lfsr[30:0], lfsr[31] ^ lfsr[21] ^ lfsr[1] ^ lfsr[0]};
             if ((rsp_valid && accepted_words == stall_target && stall_hold < 3) ||
-                (abort_stall_data && rsp_valid && accepted_words == 3)) begin
+                (abort_stall_index >= 0 && rsp_valid && accepted_words == abort_stall_index)) begin
                 rsp_ready <= 1'b0;
                 if (stall_hold < 3) stall_hold <= stall_hold + 1;
                 forced_stall_cycles = forced_stall_cycles + 1;
@@ -238,7 +238,7 @@ module readback_engine_tb;
                 end
                 4: while (!(fb_rd_en && fb_rd_addr == 17'd2)) begin @(negedge clk); guard=guard+1; if(guard>100)$fatal(1,"reset target timeout"); end
                 5: begin
-                    abort_stall_data = 1;
+                    abort_stall_index = 3;
                     while (!(rsp_valid && accepted_words == 3)) begin @(negedge clk); guard=guard+1; if(guard>100)$fatal(1,"reset target timeout"); end
                     repeat (3) @(negedge clk);
                 end
@@ -246,14 +246,18 @@ module readback_engine_tb;
                 7: while (!(fb_rd_en && fb_rd_addr == 17'd76799)) begin @(negedge clk); guard=guard+1; if(guard>300000)$fatal(1,"reset target timeout"); end
                 8: while (!(rsp_valid && rsp_data[31:28] == 4'hd)) begin @(negedge clk); guard=guard+1; if(guard>300000)$fatal(1,"reset target timeout"); end
                 9: while (!(rsp_valid && accepted_words == 19204)) begin @(negedge clk); guard=guard+1; if(guard>300000)$fatal(1,"reset target timeout"); end
-                10: while (!(rsp_valid && accepted_words == 19205)) begin @(negedge clk); guard=guard+1; if(guard>300000)$fatal(1,"reset target timeout"); end
+                10: begin
+                    abort_stall_index = 19205;
+                    while (!(rsp_valid && accepted_words == 19205)) begin @(negedge clk); guard=guard+1; if(guard>300000)$fatal(1,"reset target timeout"); end
+                    repeat (3) @(negedge clk);
+                end
             endcase
             rst = 1;
             repeat (2) @(posedge clk);
             #1;
             if (readback_active || rsp_valid || readback_complete) $fatal(1, "reset abort outputs target=%0d", target_kind);
             @(negedge clk); rst = 0;
-            abort_stall_data = 0;
+            abort_stall_index = -1;
             repeat (3) @(posedge clk);
             #1;
             if (readback_active || rsp_valid || fb_rd_en || readback_complete) $fatal(1, "stale activity target=%0d", target_kind);
@@ -269,7 +273,7 @@ module readback_engine_tb;
         rc = $value$plusargs("VEC_DIR=%s", vec_dir);
         ready_seed_value = 32'h91e10da5;
         lfsr = 32'h91e10da5;
-        run_count = 0; stall_target = -1; stall_hold = 0; forced_stall_cycles = 0; abort_stall_data = 0;
+        run_count = 0; stall_target = -1; stall_hold = 0; forced_stall_cycles = 0; abort_stall_index = -1;
         repeat (3) @(posedge clk);
         @(negedge clk); rst = 0;
 
