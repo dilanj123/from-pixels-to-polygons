@@ -132,12 +132,12 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 
 ## Gate 5 — Display / Presentation
 
-- [ ] reviewed third-party display support selected
-- [ ] third-party manifest updated
-- [ ] deterministic framebuffer scanout test
-- [ ] exact 2× scaling test
-- [ ] synchronous RAM latency aligned
-- [ ] front_valid black output
+- [x] reviewed third-party display support selected — D-036 pinned Project F timing source
+- [x] third-party manifest updated — GFX-015 exact source/license provenance recorded
+- [x] deterministic framebuffer scanout test — GFX-015 complete raster comparison
+- [x] exact 2× scaling test — GFX-015 all 307,200 active pixels
+- [x] synchronous RAM latency aligned — GFX-015 production framebuffer simulation
+- [x] front_valid black output — GFX-015 full-frame invalid-front check
 - [ ] buffer-role manager
 - [ ] role uniqueness simulation/formal
 - [ ] CDC mailbox

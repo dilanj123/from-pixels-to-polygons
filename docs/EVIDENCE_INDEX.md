@@ -309,12 +309,37 @@ not used as self-referential functional-baseline SHAs.
 | Project F timing support selected for future reviewed reuse | Project F `projf-explore`, commit `dd212c2e5e0e0d8bdcf93ba077630dbfd49ae708`, `lib/display/display_480p.sv` | SHA-256 `729b2a634735651925e37b02e3e51db035d149d035340c1c237c87e27ad68e50`; MIT root LICENSE at same commit; generic timing RTL only; no file imported by this task | SPECIFIED |
 | Gate-5 simulation verification and selected formal properties are planned | `docs/VERIFICATION_PLAN.md` | Timing/scanout, exact 2× all-source-pixel mapping, RAM latency, black-invalid, CDC/roles, readback lock, reset, multi-frame NORMAL, and selected safety properties; no run claimed | SPECIFIED |
 
-D-036 changes documentation only. Gate-5 checklist items remain unchecked.
-No Gate-5 RTL simulation, formal, synthesis, P&R, timing, board, or hardware
-evidence is added. Board revision, physical connector, oscillator, PLL,
+At the D-036 specification-freeze milestone, only documentation changed; no
+Gate-5 implementation evidence was added by that milestone. Board revision,
+physical connector, oscillator, PLL,
 serializer, pins, programmer, monitor, and cable remain later physical
 implementation decisions. The pinned From RTL to Pixels dependency remains a
 Gate-6 dependency, not a Gate-5 prerequisite.
+
+## GFX-015 — standalone 640×480 scanout simulation
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| D-036 timing, sync and frame geometry pass simulation | `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` | `source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s scanout_2x_tb -o /tmp/scanout_2x_tb rtl/gfx_pkg.sv third_party/projectf/lib/display/display_480p.sv rtl/framebuffer_dp.sv rtl/scanout_2x.sv tb/tests/scanout_2x_tb.sv && vvp /tmp/scanout_2x_tb` | One full 800×525 frame: 420,000 raster slots, 525 line starts, exact D-036 `(-160,-45)` frame boundary, porch and sync coordinate/polarity checks; no mismatch | RTL SIMULATION VERIFIED |
+| Full 2× scanout, registered RAM alignment and RGB332 expansion pass | `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` | Same self-checking test using production `rtl/framebuffer_dp.sv` and `rtl/scanout_2x.sv` | 307,200 active display pixels checked in row-major order, 76,800 source addresses represented four times each, all 256 RGB332 byte values, zero pixel/address/timing mismatches | RTL SIMULATION VERIFIED |
+| Invalid FRONT produces black without disturbing timing | `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` | Same full-frame test | Nonblack framebuffer while `front_valid=0`; all active outputs black and DE/sync geometry still correct | RTL SIMULATION VERIFIED |
+| Selected Project F timing source has recorded provenance | `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` | `third_party/projectf/lib/display/display_480p.sv`, `third_party/projectf/LICENSE`, `THIRD_PARTY_NOTICES.md`, `docs/THIRD_PARTY_MANIFEST.md` | Exact pinned commit; source SHA-256 recorded; upstream source unmodified | SPECIFIED |
+
+Simulation used Icarus Verilog 14.0 development build and Verilator 5.053
+development build. Standalone lint command:
+`source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 --top-module scanout_2x third_party/projectf/lib/display/display_480p.sv rtl/scanout_2x.sv`
+and the Icarus simulation command above both exited 0.
+The test's deterministic pixel pattern covers all byte values. No presentation
+CDC, role manager, renderer-to-three-buffer composition, synthesis, timing
+closure, or physical display evidence is claimed.
+
+The following existing regressions also passed in this campaign: memory
+wrappers, renderer (9 frames), renderer reset, decoder composition, renderer
+counters, readback/framebuffer, readback engine, Fragment/Z, raster walker,
+triangle setup, clear, decoder, FIFO, performance counters, and all 31 Python
+reference tests. Existing Icarus `sorry: constant selects in always_*` notices
+from triangle-setup/decoder compilation remain simulator sensitivity-analysis
+notices; no new warning was emitted by the focused scanout compile or lint.
 
 ## GFX-005-FORMAL-ORDERING corrective milestone
 

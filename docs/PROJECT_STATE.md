@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 5 — Display / Presentation (specification frozen; implementation not started).
+- Current phase: Gate 5 — Display / Presentation (standalone scanout implemented and RTL-simulation verified; presentation integration not started).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
-- Current known-good functional implementation commit: `01e0c728df3fc25ca20aa016925533b22156462c` (`Implement GFX-014 framebuffer readback`).
+- Current known-good functional implementation commit: `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` (`Implement GFX-015 display simulation`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -33,17 +33,24 @@
   reconstruction, synchronous production-memory composition, rendered-frame
   composition, response stalls, and reset abort/recovery passed. No formal proof
   is claimed.
-- No presentation/display path, full graphics synthesis/P&R, timing, or physical
+- GFX-015 standalone display scanout: RTL SIMULATION VERIFIED at implementation
+  commit `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1`; exact pinned
+  Project F timing source, full 800×525 raster, complete 2× frame mapping,
+  synchronous framebuffer latency, RGB332 expansion, and invalid-front black
+  passed. No presentation/role/CDC integration is included.
+- No CDC presentation path, full graphics synthesis/P&R, timing, or physical
   hardware evidence is claimed.
-- Current next task: `GFX-015 — Display simulation`.
+- Current next task: `GFX-016 — Presentation CDC/buffer manager`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
   Gate 4 are CLOSED. D-036 Gate-5 timing, renderer memory composition, reset,
   mailbox, and Project F timing-source contract is SPECIFIED. Gate 5
-  implementation has NOT STARTED; no Gate-5 simulation/formal/synthesis,
-  timing, board, or hardware evidence is claimed.
+  implementation is underway: GFX-015 scanout simulation is verified; GFX-016
+  presentation/role/CDC and GFX-017 integrated multi-frame presentation remain
+  outstanding. No Gate-5 formal/synthesis, timing, board, or hardware evidence
+  is claimed.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
