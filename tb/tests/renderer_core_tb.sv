@@ -28,12 +28,19 @@ module renderer_core_tb;
     logic rb_active, rb_complete;
     integer rb_reads, rb_byte_errors, rb_word_errors, rb_i, rb_word, rb_expected;
     logic [31:0] rb_checksum;
+    logic fb_wr_en;
+    logic [16:0] fb_wr_addr;
+    logic [7:0] fb_wr_data;
 
     renderer_core dut (
         .clk_sys(clk), .rst(rst),
         .render_cmd_valid(render_cmd_valid), .render_cmd_ready(render_cmd_ready),
-        .render_cmd(render_cmd), .renderer_quiescent(renderer_quiescent)
+        .render_cmd(render_cmd), .renderer_quiescent(renderer_quiescent),
+        .render_fb_wr_en(fb_wr_en), .render_fb_wr_addr(fb_wr_addr), .render_fb_wr_data(fb_wr_data)
     );
+
+    framebuffer_dp fb_mem (.clk_pix(clk), .pix_addr(17'd0), .pix_rdata(), .clk_sys(clk),
+                           .sys_addr(fb_wr_addr), .sys_we(fb_wr_en), .sys_wdata(fb_wr_data), .sys_rdata());
 
     readback_engine readback_i (
         .clk_sys(clk), .rst(rst),
@@ -46,7 +53,7 @@ module renderer_core_tb;
 
     // Test-only synchronous source adapter over the renderer's production RAM.
     always @(posedge clk)
-        if (rb_rd_en) rb_rd_data <= dut.framebuffer_i.mem[rb_rd_addr];
+        if (rb_rd_en) rb_rd_data <= fb_mem.mem[rb_rd_addr];
 
     always @(posedge clk) begin
         if (!rst) begin
@@ -105,8 +112,8 @@ module renderer_core_tb;
             $readmemh(path, expected_z);
             mismatches = 0;
             for (i = 0; i < PIXELS; i = i + 1) begin
-                if (dut.framebuffer_i.mem[i] !== expected_fb[i][7:0]) begin
-                    if (mismatches == 0) $display("FB mismatch frame=%0d addr=%0d exp=%02x act=%02x", index, i, expected_fb[i], dut.framebuffer_i.mem[i]);
+                if (fb_mem.mem[i] !== expected_fb[i][7:0]) begin
+                    if (mismatches == 0) $display("FB mismatch frame=%0d addr=%0d exp=%02x act=%02x", index, i, expected_fb[i], fb_mem.mem[i]);
                     mismatches = mismatches + 1;
                 end
                 if (dut.zbuffer_i.mem[i] !== expected_z[i][7:0]) begin

@@ -14,6 +14,9 @@ module renderer_decoder_smoke_tb;
     integer expected_fb [0:PIXELS-1];
     integer expected_z [0:PIXELS-1];
     string vec_dir, path;
+    logic fb_wr_en;
+    logic [16:0] fb_wr_addr;
+    logic [7:0] fb_wr_data;
 
     cmd_decoder decoder (
         .clk_sys(clk), .rst(rst), .fifo_valid(fifo_valid), .fifo_ready(fifo_ready),
@@ -24,8 +27,11 @@ module renderer_decoder_smoke_tb;
     renderer_core renderer (
         .clk_sys(clk), .rst(rst), .render_cmd_valid(dec_valid),
         .render_cmd_ready(dec_ready), .render_cmd(dec_data),
-        .renderer_quiescent(renderer_quiescent)
+        .renderer_quiescent(renderer_quiescent), .render_fb_wr_en(fb_wr_en),
+        .render_fb_wr_addr(fb_wr_addr), .render_fb_wr_data(fb_wr_data)
     );
+    framebuffer_dp fb_mem (.clk_pix(clk), .pix_addr(17'd0), .pix_rdata(), .clk_sys(clk),
+                           .sys_addr(fb_wr_addr), .sys_we(fb_wr_en), .sys_wdata(fb_wr_data), .sys_rdata());
 
     logic [31:0] words [0:18];
     integer word_count, index;
@@ -66,8 +72,8 @@ module renderer_decoder_smoke_tb;
         path = $sformatf("%s/frame_1_z.hex", vec_dir); $readmemh(path, expected_z);
         mismatches = 0;
         for (i = 0; i < PIXELS; i = i + 1) begin
-            if (renderer.framebuffer_i.mem[i] !== expected_fb[i][7:0]) begin
-                if (mismatches == 0) $display("first FB mismatch addr=%0d exp=%02x act=%02x", i, expected_fb[i], renderer.framebuffer_i.mem[i]);
+            if (fb_mem.mem[i] !== expected_fb[i][7:0]) begin
+                if (mismatches == 0) $display("first FB mismatch addr=%0d exp=%02x act=%02x", i, expected_fb[i], fb_mem.mem[i]);
                 mismatches = mismatches + 1;
             end
             if (renderer.zbuffer_i.mem[i] !== expected_z[i][7:0]) begin

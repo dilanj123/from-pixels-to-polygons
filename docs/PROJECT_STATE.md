@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 5 — Display / Presentation (standalone scanout implemented and RTL-simulation verified; presentation integration not started).
+- Current phase: Gate 5 — Display / Presentation (scanout, presentation CDC, role manager, and NORMAL multi-frame integration RTL-simulation verified).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
-- Current known-good functional implementation commit: `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` (`Implement GFX-015 display simulation`).
+- Current known-good functional implementation commit: `41a59fa04e4d4fbe7ded70ac74be10800e7e1ac2` (`Repair Gate-5 reset CDC and framebuffer composition evidence`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -38,19 +38,19 @@
   Project F timing source, full 800×525 raster, complete 2× frame mapping,
   synchronous framebuffer latency, RGB332 expansion, and invalid-front black
   passed. No presentation/role/CDC integration is included.
-- No CDC presentation path, full graphics synthesis/P&R, timing, or physical
-  hardware evidence is claimed.
-- Current next task: `GFX-016 — Presentation CDC/buffer manager`.
+- No full graphics synthesis/P&R, timing, or physical hardware evidence is
+  claimed.
+- GFX-016 and GFX-017 are complete through the exercised Gate-5 RTL simulation
+  scope; GFX-018 is the next explicitly deferred task.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
   Gate 4 are CLOSED. D-036 Gate-5 timing, renderer memory composition, reset,
   mailbox, and Project F timing-source contract is SPECIFIED. Gate 5
-  implementation is underway: GFX-015 scanout simulation is verified; GFX-016
-  presentation/role/CDC and GFX-017 integrated multi-frame presentation remain
-  outstanding. No Gate-5 formal/synthesis, timing, board, or hardware evidence
-  is claimed.
+  implementation is complete for scanout, presentation/role/CDC, and NORMAL
+  multi-frame simulation. No Gate-5 formal/synthesis, timing, board, or
+  hardware evidence is claimed.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -384,6 +384,40 @@
 ## Historical next task
 
 `GFX-010 — Attribute stepping`
+
+## GFX-016/GFX-017 — Gate-5 presentation integration
+
+- Base SHA for this implementation task: `8a06e6df7a876be2251f384b8340f1b297be8556`.
+- `rtl/presentation_manager.sv` implements the specified common-reset
+  FRONT/RENDER/SPARE role manager and one-outstanding stable-payload request /
+  ACK toggle mailbox. Initial roles are `0/1/2`; role rotation occurs only
+  after the synchronized ACK, and pixel FRONT changes only on the supplied
+  frame-boundary event.
+- `rtl/renderer_core.sv` exposes the existing clear/fragment colour write mux
+  through the D-036 logical render write port without changing renderer
+  arithmetic or depth ownership.
+- `rtl/graphics_system.sv` composes the renderer with three physical colour
+  memories, selected FRONT scanout, the role manager, and `scanout_2x`.
+- `make test-presentation` passed with variable-period unrelated clocks,
+  boundary-adjacent requests, stable mailbox payload checking, readback lock,
+  pending/boundary/after-switch reset, and continuous role uniqueness checks.
+- `make test-graphics-system` passed with two renderer-produced NORMAL frames,
+  distinct physical-buffer contents (`0x1c` then `0xe3`), scanout colour
+  selection, and continuous render-write ownership checking.
+- Reset release is implemented by `rtl/reset_sync.sv`: common asynchronous
+  assertion with independent two-flop synchronous release in `clk_sys` and
+  `clk_pix` domains.
+- `renderer_core` no longer instantiates a colour framebuffer. Its exposed
+  logical colour write port is the sole Gate-5 colour-memory path; the three
+  physical framebuffer instances are owned by `graphics_system`.
+- `make lint-presentation` and `make lint-graphics-system` passed. Existing
+  Icarus constant-select notices are informational.
+- Retained regressions passed: `make test-renderer-reset`,
+  `make test-renderer-decoder`, and `make test-readback-framebuffer`.
+- This is `RTL SIMULATION VERIFIED` for the exercised scenarios. No formal,
+  synthesis, placed/routed timing, or physical hardware evidence is claimed.
+- GFX-018 was not entered: the pinned RTL-to-Pixels dependency was neither
+  imported nor modified.
 
 ## Historical Gate-0 closure interpretation
 

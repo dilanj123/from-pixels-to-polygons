@@ -9,7 +9,10 @@ module renderer_core (
     input  logic                      sobel_cycle,
     input  logic [10:0]               command_fifo_level,
     output gfx_pkg::performance_counters_t perf_counters,
-    output logic                      renderer_quiescent
+    output logic                      renderer_quiescent,
+    output logic                      render_fb_wr_en,
+    output logic [16:0]               render_fb_wr_addr,
+    output logic [7:0]                render_fb_wr_data
 );
     typedef enum logic [2:0] {
         S_IDLE,
@@ -45,7 +48,6 @@ module renderer_core (
     logic [16:0] z_rd_addr, z_wr_addr, fb_wr_addr;
     logic [7:0] z_rd_data, z_wr_data, fb_wr_data;
 
-    logic [7:0] fb_pix_rdata, fb_sys_rdata;
     logic [7:0] z_unused_rdata;
 
     logic in_receptive_state;
@@ -61,7 +63,7 @@ module renderer_core (
 
     assign begin_frame_event = command_fire &&
                                (render_cmd.opcode == gfx_pkg::CMD_BEGIN_FRAME) &&
-                               (state_q == S_IDLE);
+                               ((state_q == S_IDLE) || (state_q == S_FRAME_ACTIVE));
     assign triangle_submitted_event = command_fire &&
                                       (render_cmd.opcode == gfx_pkg::CMD_DRAW_TRIANGLE);
 
@@ -85,6 +87,13 @@ module renderer_core (
 
     assign clear_owner = (state_q == S_CLEAR);
     assign fragment_owner = (state_q == S_TRI_WALK) || (state_q == S_TRI_DRAIN);
+
+    // Gate-5 composition boundary: expose the existing colour write mux
+    // without moving any raster/depth arithmetic out of this renderer.
+    assign render_fb_wr_en = clear_owner ? clear_fb_we :
+                              (fragment_owner && fb_wr_en);
+    assign render_fb_wr_addr = clear_owner ? clear_fb_addr : fb_wr_addr;
+    assign render_fb_wr_data = clear_owner ? clear_fb_wdata : fb_wr_data;
 
     clear_engine clear_i (
         .clk_sys(clk_sys), .rst(rst),
@@ -141,15 +150,6 @@ module renderer_core (
         .command_fifo_level(command_fifo_level), .counters(perf_counters)
     );
 
-    framebuffer_dp framebuffer_i (
-        .clk_pix(clk_sys), .pix_addr('0), .pix_rdata(fb_pix_rdata),
-        .clk_sys(clk_sys),
-        .sys_addr(clear_owner ? clear_fb_addr : fb_wr_addr),
-        .sys_we(clear_owner ? clear_fb_we : (fragment_owner && fb_wr_en)),
-        .sys_wdata(clear_owner ? clear_fb_wdata : fb_wr_data),
-        .sys_rdata(fb_sys_rdata)
-    );
-
     zbuffer zbuffer_i (
         .clk_sys(clk_sys),
         .rd_addr(z_rd_addr), .rd_data(z_rd_data),
@@ -184,7 +184,10 @@ module renderer_core (
                         state_q <= S_FRAME_ACTIVE;
                 end
                 S_FRAME_ACTIVE: begin
-                    if (command_fire && (render_cmd.opcode == gfx_pkg::CMD_DRAW_TRIANGLE)) begin
+                    if (command_fire && (render_cmd.opcode == gfx_pkg::CMD_BEGIN_FRAME)) begin
+                        clear_colour_q <= render_cmd.clear_rgb332;
+                        state_q <= S_CLEAR;
+                    end else if (command_fire && (render_cmd.opcode == gfx_pkg::CMD_DRAW_TRIANGLE)) begin
                         draw_q <= render_cmd;
                         setup_submitted_q <= 1'b0;
                         state_q <= S_TRI_SETUP;

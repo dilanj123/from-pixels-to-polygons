@@ -307,7 +307,19 @@ not used as self-referential functional-baseline SHAs.
 | D-036 freezes the Gate-5 simulation timing and presentation contract | `docs/DECISIONS.md`, `docs/MICROARCHITECTURE.md` | 640×480p60; 25.2 MHz logical `clk_pix`; H 640/16/96/48, V 480/10/2/33; negative sync; safe switch at raster origin `(-160,-45)` in vertical blank; one-cycle scanout metadata alignment after timing outputs; exact 2× and RGB332 expansion | SPECIFIED |
 | D-036 freezes NORMAL roles, CDC/reset, readback lock, and renderer memory boundary | `docs/MICROARCHITECTURE.md` | One-outstanding stable-payload toggle mailbox; FRONT/RENDER/SPARE initial 0/1/2; post-ACK rotation; common reset assertion and per-domain synchronized release; external renderer logical colour-write port routes only to RENDER; Z pipeline remains internal | SPECIFIED |
 | Project F timing support selected for future reviewed reuse | Project F `projf-explore`, commit `dd212c2e5e0e0d8bdcf93ba077630dbfd49ae708`, `lib/display/display_480p.sv` | SHA-256 `729b2a634735651925e37b02e3e51db035d149d035340c1c237c87e27ad68e50`; MIT root LICENSE at same commit; generic timing RTL only; no file imported by this task | SPECIFIED |
-| Gate-5 simulation verification and selected formal properties are planned | `docs/VERIFICATION_PLAN.md` | Timing/scanout, exact 2× all-source-pixel mapping, RAM latency, black-invalid, CDC/roles, readback lock, reset, multi-frame NORMAL, and selected safety properties; no run claimed | SPECIFIED |
+| Gate-5 simulation verification and selected formal properties are planned | `docs/VERIFICATION_PLAN.md` | Timing/scanout, exact 2× all-source-pixel mapping, RAM latency, black-invalid, CDC/roles, readback lock, reset, multi-frame NORMAL, and selected safety properties | SPECIFIED |
+
+## GATE5-GFX016-GFX017 — Presentation CDC, roles, and NORMAL system
+
+| Claim | Evidence | Conditions | Classification |
+|---|---|---|---|
+| Stable-payload CDC mailbox, reset release, and role manager pass | `make test-presentation`; `tb/tests/presentation_manager_tb.sv` | Variable-period unrelated clocks; boundary-adjacent requests; one outstanding request; payload stability through ACK; readback lock; reset while pending/at boundary/after switch; initial `0/1/2`; boundary-only pixel FRONT changes; ACK-driven rotation; continuous role uniqueness | RTL SIMULATION VERIFIED |
+| Presentation and graphics-system lint pass | `make lint-presentation`; `make lint-graphics-system` | Verilator 5.053 devel; no lint errors | RTL SIMULATION VERIFIED |
+| Renderer plus three physical buffers present multiple NORMAL frames | `make test-graphics-system`; `tb/tests/graphics_system_tb.sv` | Two renderer-produced clears (`0x1c` and `0xe3`), distinct buffer contents, scanout selects second front colour, continuous writes target RENDER and never FRONT/SPARE; expected transitions `0/1/2 -> 1/0/2 -> 0/1/2` | RTL SIMULATION VERIFIED |
+| Common asynchronous reset assertion and per-domain two-flop release | `rtl/reset_sync.sv`; `make lint-presentation`; `make test-presentation`; `make test-graphics-system` | Independent `clk_sys`/`clk_pix` reset release; no stale pending request/ACK/roles after reset cases exercised | RTL SIMULATION VERIFIED |
+| Renderer has no duplicate colour framebuffer | `rtl/renderer_core.sv`; `rtl/graphics_system.sv`; retained renderer regressions | Renderer exports the existing colour write mux; only top-level three physical memories instantiate `framebuffer_dp` for Gate-5 composition | RTL SIMULATION VERIFIED |
+| Existing renderer/readback behavior retained | `make test-renderer-reset`; `make test-renderer-decoder`; `make test-readback-framebuffer` | Reset, decoder smoke, and 76800-byte framebuffer readback checks pass | RTL SIMULATION VERIFIED |
+| GFX-018 dependency import | No parent source imported; pinned boundary retained in docs | `v1.0.1-dependency-ready` / `ad35514c990f6e1c9eb9fa18aee9d906f9df7721` / `rtl_to_pixels_top_pipelined` | NOT ENTERED |
 
 At the D-036 specification-freeze milestone, only documentation changed; no
 Gate-5 implementation evidence was added by that milestone. Board revision,

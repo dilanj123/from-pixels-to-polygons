@@ -7,10 +7,16 @@ module renderer_reset_tb;
     gfx_pkg::decoded_command_t cmd;
     logic quiescent;
     integer i, stale_writes, clear_fb_count, clear_z_count;
+    logic fb_wr_en;
+    logic [16:0] fb_wr_addr;
+    logic [7:0] fb_wr_data;
 
     renderer_core dut (.clk_sys(clk), .rst(rst), .render_cmd_valid(cmd_valid),
                        .render_cmd_ready(cmd_ready), .render_cmd(cmd),
-                       .renderer_quiescent(quiescent));
+                       .renderer_quiescent(quiescent), .render_fb_wr_en(fb_wr_en),
+                       .render_fb_wr_addr(fb_wr_addr), .render_fb_wr_data(fb_wr_data));
+    framebuffer_dp fb_mem (.clk_pix(clk), .pix_addr(17'd0), .pix_rdata(), .clk_sys(clk),
+                           .sys_addr(fb_wr_addr), .sys_we(fb_wr_en), .sys_wdata(fb_wr_data), .sys_rdata());
 
     always @(posedge clk) begin
         if (!rst) begin
@@ -50,7 +56,7 @@ module renderer_reset_tb;
     task automatic check_clear(input logic [7:0] colour);
         begin
             for (i = 0; i < PIXELS; i = i + 1) begin
-                if (dut.framebuffer_i.mem[i] !== colour) $fatal(1, "clear fb mismatch addr=%0d", i);
+                if (fb_mem.mem[i] !== colour) $fatal(1, "clear fb mismatch addr=%0d", i);
                 if (dut.zbuffer_i.mem[i] !== 8'hFF) $fatal(1, "clear z mismatch addr=%0d", i);
             end
         end

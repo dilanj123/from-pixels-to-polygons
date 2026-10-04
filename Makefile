@@ -1,4 +1,4 @@
-.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer
+.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer lint-presentation test-presentation lint-graphics-system test-graphics-system
 
 help:
 	@printf '%s\n' 'Available targets:' '  make doctor          Report bootstrap environment status' '  make bootstrap-smoke Run read-only Phase-0 checks' '  make synth-memory    Run the GFX-004 ECP5 memory inference spike'
@@ -93,3 +93,15 @@ test-readback:
 
 test-readback-framebuffer:
 	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s readback_framebuffer_tb -o /tmp/readback_framebuffer_tb rtl/gfx_pkg.sv rtl/framebuffer_dp.sv rtl/readback_engine.sv tb/tests/readback_framebuffer_tb.sv && vvp /tmp/readback_framebuffer_tb
+
+lint-presentation:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 --top-module presentation_manager rtl/reset_sync.sv rtl/presentation_manager.sv
+
+test-presentation:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s presentation_manager_tb -o /tmp/presentation_manager_tb rtl/reset_sync.sv rtl/presentation_manager.sv tb/tests/presentation_manager_tb.sv && vvp /tmp/presentation_manager_tb
+
+lint-graphics-system:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 --top-module graphics_system third_party/projectf/lib/display/display_480p.sv rtl/reset_sync.sv rtl/gfx_pkg.sv rtl/clear_engine.sv rtl/triangle_setup.sv rtl/raster_walk.sv rtl/fragment_z.sv rtl/perf_counters.sv rtl/framebuffer_dp.sv rtl/zbuffer.sv rtl/renderer_core.sv rtl/scanout_2x.sv rtl/presentation_manager.sv rtl/graphics_system.sv
+
+test-graphics-system:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s graphics_system_tb -o /tmp/graphics_system_tb third_party/projectf/lib/display/display_480p.sv rtl/reset_sync.sv rtl/gfx_pkg.sv rtl/clear_engine.sv rtl/triangle_setup.sv rtl/raster_walk.sv rtl/fragment_z.sv rtl/perf_counters.sv rtl/framebuffer_dp.sv rtl/zbuffer.sv rtl/renderer_core.sv rtl/scanout_2x.sv rtl/presentation_manager.sv rtl/graphics_system.sv tb/tests/graphics_system_tb.sv && vvp /tmp/graphics_system_tb
