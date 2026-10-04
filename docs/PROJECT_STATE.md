@@ -4,7 +4,7 @@
 
 - Current phase: Gate 5 — Display / Presentation (scanout, presentation CDC, role manager, and NORMAL multi-frame integration RTL-simulation verified).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
-- Current known-good functional implementation commit: `41a59fa04e4d4fbe7ded70ac74be10800e7e1ac2` (`Repair Gate-5 reset CDC and framebuffer composition evidence`).
+- Current known-good functional implementation commit: `6288fc418a07c51e5c8443a4025bf52c020b5591` (`repair: close GFX-016 and GFX-017 review findings`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
