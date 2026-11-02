@@ -147,23 +147,23 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 
 ## Gate 6 — RTL-to-Pixels Integration
 
-- [ ] parent project known-good commit/tag selected
-- [ ] parent regression re-run locally
-- [ ] dependency pinned
-- [ ] dependency evidence recorded
-- [ ] RGB332→RGB888 adapter
-- [ ] Sobel framebuffer reader
-- [ ] Sobel framebuffer writer
-- [ ] adapter random stalls
-- [ ] APB master/wrapper
-- [ ] threshold programming test
-- [ ] bypass programming test
+- [x] parent project known-good commit/tag selected — exact v1.0.1 tag/commit
+- [x] parent regression re-run locally — lint, unit, integration, and 320×240 suites
+- [x] dependency pinned — immutable Git submodule pointer at admitted SHA
+- [x] dependency evidence recorded — interface/parameter results and rights status
+- [x] RGB332→RGB888 adapter — full-frame reader transfer checked
+- [x] Sobel framebuffer reader — sync read, 76,800 addresses/transfers, metadata
+- [x] Sobel framebuffer writer — 76,800 writes, conversion and malformed metadata
+- [x] adapter backpressure/reset checks — deterministic reader stalls and abort
+- [x] APB master — CONTROL/THRESHOLD setup/access and PREADY/PSLVERR
+- [x] threshold programming test
+- [x] bypass programming test — asserted and cleared
 - [ ] actual Sobel instantiated at 320×240
-- [ ] exact input pixel count
-- [ ] exact output pixel count
-- [ ] SOF/EOL positions checked
-- [ ] W+1 alignment checked
-- [ ] final-drain completion checked
+- [x] exact input pixel count — 76,800 in adapter mock and parent 320×240 tests
+- [x] exact output pixel count — 76,800 writer transfers and parent outputs
+- [x] SOF/EOL positions checked — every accepted pixel in adapter and parent tests
+- [x] W+1 alignment checked — pinned parent full-frame reference comparisons at 320×240
+- [x] final-drain completion checked — parent streaming drain-backpressure regression
 - [ ] complete postprocessed framebuffer matches composed reference
 - [ ] NORMAL→SOBEL transition
 - [ ] SOBEL→SOBEL transition

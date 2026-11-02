@@ -394,3 +394,29 @@ The corrective formal run is bounded rather than a literal 1024-entry RAM
 proof. Earlier GFX-005 safety properties were proven with depth-25
 k-induction; this milestone adds explicit bounded ordering/conservation
 evidence without changing production RTL.
+
+## G6-DEPENDENCY-ADAPTERS — GFX-018/019/020
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| Exact upstream revision is pinned and unchanged | `ip/rtl-to-pixels` submodule at tag `v1.0.1-dependency-ready`, commit `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`; tag object peeled to that SHA | Selected `rtl_to_pixels_top_pipelined`; local inspection confirms RGB24 ready/valid + SOF/EOL, edge-byte ready/valid + SOF/EOL, APB. Upstream is not modified or copied into project RTL. | SPECIFIED / LOCAL OBSERVATION |
+| Upstream regression passes | In dependency: `make doctor`; `make lint`; `make test-unit`; `make test`; raw logs `results/raw/gfx018-parent-doctor.log`, `results/raw/gfx018-parent-lint.log`, `results/raw/gfx018-parent-test-unit.log`, `results/raw/gfx018-parent-test-integration.log` | All exit 0. `make test-unit`: 13 Python tests plus 104 Cocotb tests. `make test`: 156 Cocotb tests spanning both architectures at 3×3, 5×4, and 8×5. No failure or warning lines in regression logs. | RTL SIMULATION VERIFIED (upstream baseline only) |
+| 320×240 parameter compatibility and W+1/reference behavior pass | `IMG_WIDTH=320 IMG_HEIGHT=240 make -f tb/tests/Makefile.rtl_to_pixels_top_pipelined_dimension_image`; `IMG_WIDTH=320 IMG_HEIGHT=240 make -f tb/tests/Makefile.rtl_to_pixels_top_pipelined_streaming`; saved XML: `results/raw/gfx018-parent-320x240-dimension.xml`, `results/raw/gfx018-parent-320x240-streaming.xml` | First run: 1 cocotb test, 3 full frames, each 76,800 input and output transfers, 0 reference mismatches. Streaming run: 5 tests; source-gap, random backpressure, combined gaps/stalls, SOF/EOL stability, and drain-backpressure; each frame exact 76,800 count, zero reference mismatches. W+1 alignment is checked through full reference output correspondence; final drain is held under backpressure. | RTL SIMULATION VERIFIED (upstream baseline only) |
+| Reader handles synchronous RGB332 memory and stream stalls | `make lint-sobel-adapters`; `make test-sobel-adapters`; log `results/raw/gfx018-020-adapter-lint.log`, `results/raw/gfx018-020-adapters.log` | Reader capacity is two results including the in-flight synchronous read; addresses 0..76799 once; 76,800 stream transfers; RGB332 expansion, one SOF, 240 EOLs, output payload stability during 92,159 deterministic stall cycles, and active reset abort checked. | RTL SIMULATION VERIFIED |
+| Writer conversion, row-major writes, metadata rejection and reset pass | Same adapter test | 76,800 accepted mock outputs and ordered writes; every destination byte compared to an independent deterministic transform and RGB332 conversion; malformed first-pixel SOF rejected before write; active reset abort tested. | RTL SIMULATION VERIFIED |
+| APB master configures the admitted register contract before streaming | Same adapter test plus upstream APB register regression | CONTROL enable/bypass and THRESHOLD writes checked for bypass=1 and bypass=0; PREADY-low access remains stable; PSLVERR sets config error; reset clears control state. Upstream register tests cover reset defaults, register readback/status, shadow-to-active SOF semantics, W1C, invalid accesses, and frame count. | RTL SIMULATION VERIFIED |
+
+The selected upstream top is parameterized at `IMG_WIDTH=320` and
+`IMG_HEIGHT=240`; these parameters were explicitly passed to both dedicated
+full-frame cocotb runs. Upstream tools were Verilator 5.052 and cocotb 2.1.0;
+the project adapter test used Icarus Verilog from the local OSS CAD Suite and
+Verilator 5.053 for lint. `make doctor` exited 0 while reporting optional
+formal and ECP5 implementation tools missing; no formal/synthesis/P&R/timing
+claim is made.
+
+The parent `COPYRIGHT.md` states all rights reserved and supplies no general
+reuse license. The project records a Git submodule pointer only and claims no
+redistribution or downstream product-use rights. Explicit permission remains
+required before those uses. No Sobel integration, W+1 bridge datapath, parent
+frame completion wiring, SPARE routing, or three-role Sobel rotation is
+implemented by GFX-018/019/020; those belong to GFX-021/022.

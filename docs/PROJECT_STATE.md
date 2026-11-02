@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 5 — Display / Presentation CLOSED; Gate 6 has not started.
+- Current phase: Gate 6 — RTL-to-Pixels/Sobel integration (adapter milestones complete; real datapath/role integration not started).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
-- Current known-good functional implementation commit: `03bb43786012a99bc268d179ad49bc680d8356e8` (`Implement Gate-5 presentation and frame composition`).
+- Current known-good functional implementation commit: `dc1bf20` (`Implement GFX-018/019/020 Sobel adapters`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -50,10 +50,20 @@
   vectors matched all 76,800 colour and Z bytes before presentation; each
   presented image matched all 307,200 active scanout pixels. A full GFX-014
   readback from selected FRONT reconstructed 76,800 bytes with zero mismatch.
-- Gate 5 is CLOSED. Gate 6 — RTL-to-Pixels integration has NOT STARTED. No
-  Sobel, synthesis/P&R, timing closure, board, or physical-display evidence is
-  claimed. Formal role/CDC checks were NOT RUN.
-- Current next task: `G6-DEPENDENCY-ADAPTERS (GFX-018 through GFX-020)`.
+- GFX-018 dependency verification and GFX-019/020 framebuffer/APB adapters are
+  RTL SIMULATION VERIFIED by the G6-DEPENDENCY-ADAPTERS campaign. The exact
+  parent tag/commit is pinned as `ip/rtl-to-pixels`; parent lint, unit,
+  integration, and explicit 320×240 dimension/streaming regressions passed.
+  The local two-entry reader and writer/mock path transferred 76,800 pixels,
+  checked row-major addresses, RGB conversion, SOF/EOL, deterministic stalls,
+  reset abort, malformed metadata rejection, and APB enable/threshold/bypass.
+  No actual parent Sobel instance or triple-buffer postprocess routing is
+  integrated yet.
+- Gate 5 is CLOSED. Gate 6 is OPEN; GFX-021/022 remain outstanding. No
+  complete Sobel datapath, Gate-6 role rotation, synthesis/P&R, timing,
+  board, or physical display evidence is claimed. Gate-8 adapter formal was
+  NOT RUN.
+- Current next task: `G6-SOBEL-CLOSE (GFX-021 + GFX-022)`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
@@ -62,6 +72,10 @@
   the Gate-5 scanout, presentation, ownership and multi-frame simulation
   evidence. No Gate-5 formal/synthesis, timing, board, or hardware evidence is
   claimed.
+- Dependency rights note: upstream `COPYRIGHT.md` is all-rights-reserved and
+  grants no general reuse permission. The superproject records a submodule
+  pointer only; no parent RTL is copied or relicensed. Explicit permission for
+  redistribution or downstream product use remains unestablished.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 
@@ -332,7 +346,7 @@
 - Dependency tag: `v1.0.1-dependency-ready`.
 - Dependency commit: `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`.
 - Selected parent top: `rtl_to_pixels_top_pipelined`.
-- Dependency admission: SATISFIED for this project; no source import or upstream modification performed.
+- Dependency admission: exact immutable revision pinned by submodule pointer; upstream source unmodified and not vendored into project-owned RTL. Reuse rights remain as stated in the third-party notices.
 
 ## Contract status
 
