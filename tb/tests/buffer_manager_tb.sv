@@ -32,6 +32,8 @@ module buffer_manager_tb #(
     always @(posedge clk_sys) if (!rst) begin
         if ((front_sys == render_id) || (front_sys == spare_id) || (render_id == spare_id))
             role_errors = role_errors + 1;
+        if (dut.mailbox_i.request_pending_sys && dut.mailbox_i.requested_id_sys != render_id)
+            role_errors = role_errors + 1;
         if (frame_done) begin
             completions = completions + 1;
             if ((front_sys != front_pix) || frame_done_tag != present_tag)
@@ -99,8 +101,11 @@ module buffer_manager_tb #(
             $fatal(1, "first NORMAL role swap incorrect");
         if (frame_done_tag != 16'h1001) $fatal(1, "completion tag mismatch");
 
+        // A request arriving just after a safe event must wait for the next one.
+        pulse_boundary();
         issue_present(16'h1002);
         repeat (8) @(posedge clk_pix);
+        if (front_pix != 1 || completions != 1) $fatal(1, "post-boundary request switched early");
         pulse_boundary();
         wait_done();
         if (front_sys != 0 || render_id != 1 || spare_id != 2)
