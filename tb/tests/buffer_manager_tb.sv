@@ -127,6 +127,8 @@ module buffer_manager_tb #(
         repeat (12) @(posedge clk_pix);
         pulse_boundary();
         wait(front_pix == 2'd1);
+        if (front_sys != 0 || render_id != 1 || completions != 2)
+            $fatal(1, "system roles changed before synchronized ACK");
         #1 rst=1;
         repeat (3) @(posedge clk_sys);
         rst=0;
