@@ -138,12 +138,12 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 - [x] exact 2× scaling test — GFX-015 all 307,200 active pixels
 - [x] synchronous RAM latency aligned — GFX-015 production framebuffer simulation
 - [x] front_valid black output — GFX-015 full-frame invalid-front check
-- [ ] buffer-role manager
-- [ ] role uniqueness simulation/formal
-- [ ] CDC mailbox
-- [ ] random clock phase simulation
-- [ ] VBlank-only front switch
-- [ ] multi-frame NORMAL presentation
+- [x] buffer-role manager — GFX-016 system/pixel role state and three physical framebuffer integration
+- [x] role uniqueness simulation/formal — GFX-016 phase-varied assertions and NORMAL swap checks (simulation; formal not run)
+- [x] CDC mailbox — GFX-016 one-outstanding stable-payload toggle request/ack simulation
+- [x] random clock phase simulation — GFX-016 deterministic unrelated clock periods and three starting phases
+- [x] VBlank-only front switch — GFX-016 safe raster-origin event checks, no switch outside event
+- [x] multi-frame NORMAL presentation — GFX-017 three complete reference-rendered frames
 
 ## Gate 6 — RTL-to-Pixels Integration
 

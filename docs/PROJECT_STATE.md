@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 5 — Display / Presentation (standalone scanout implemented and RTL-simulation verified; presentation integration not started).
+- Current phase: Gate 5 — Display / Presentation CLOSED; Gate 6 has not started.
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
-- Current known-good functional implementation commit: `45ae6cfb0bffe3cace5908e1b1778bd8ca39bcd1` (`Implement GFX-015 display simulation`).
+- Current known-good functional implementation commit: `03bb43786012a99bc268d179ad49bc680d8356e8` (`Implement Gate-5 presentation and frame composition`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -38,19 +38,30 @@
   Project F timing source, full 800×525 raster, complete 2× frame mapping,
   synchronous framebuffer latency, RGB332 expansion, and invalid-front black
   passed. No presentation/role/CDC integration is included.
-- No CDC presentation path, full graphics synthesis/P&R, timing, or physical
-  hardware evidence is claimed.
-- Current next task: `GFX-016 — Presentation CDC/buffer manager`.
+- GFX-016 presentation mailbox, NORMAL role manager, and three-framebuffer
+  composition are RTL SIMULATION VERIFIED at `03bb43786012a99bc268d179ad49bc680d8356e8`.
+  NORMAL swaps FRONT/RENDER and leaves SPARE unchanged. Simulation used three
+  unrelated clock period/phase settings; it is functional CDC evidence only,
+  not metastability or CDC-MTBF proof. Formal was NOT RUN.
+  The boundary-after-request and reset-after-pixel-switch regression was
+  strengthened in test commit `6386ea7d00e067fd4265377f16852e4cdab367a3`.
+- GFX-017 NORMAL renderer/presentation integration is RTL SIMULATION VERIFIED
+  at the same implementation commit. Three complete Python-reference frame
+  vectors matched all 76,800 colour and Z bytes before presentation; each
+  presented image matched all 307,200 active scanout pixels. A full GFX-014
+  readback from selected FRONT reconstructed 76,800 bytes with zero mismatch.
+- Gate 5 is CLOSED. Gate 6 — RTL-to-Pixels integration has NOT STARTED. No
+  Sobel, synthesis/P&R, timing closure, board, or physical-display evidence is
+  claimed. Formal role/CDC checks were NOT RUN.
+- Current next task: `G6-DEPENDENCY-ADAPTERS (GFX-018 through GFX-020)`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
-  Gate 4 are CLOSED. D-036 Gate-5 timing, renderer memory composition, reset,
-  mailbox, and Project F timing-source contract is SPECIFIED. Gate 5
-  implementation is underway: GFX-015 scanout simulation is verified; GFX-016
-  presentation/role/CDC and GFX-017 integrated multi-frame presentation remain
-  outstanding. No Gate-5 formal/synthesis, timing, board, or hardware evidence
-  is claimed.
+  Gate 4 are CLOSED. D-036 remains SPECIFIED; GFX-015 through GFX-017 provide
+  the Gate-5 scanout, presentation, ownership and multi-frame simulation
+  evidence. No Gate-5 formal/synthesis, timing, board, or hardware evidence is
+  claimed.
 - Historical GFX-008/GFX-009 state-sync notes are retained in their milestone
   sections below; the current Gate-4 state is authoritative here.
 

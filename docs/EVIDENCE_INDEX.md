@@ -341,6 +341,45 @@ reference tests. Existing Icarus `sorry: constant selects in always_*` notices
 from triangle-setup/decoder compilation remain simulator sensitivity-analysis
 notices; no new warning was emitted by the focused scanout compile or lint.
 
+## GFX-016/GFX-017 — NORMAL presentation and three-buffer integration
+
+| Claim | Commit | Command/evidence | Conditions | Classification |
+|---|---|---|---|---|
+| Renderer colour-write extraction preserves GFX-012 output | `03bb43786012a99bc268d179ad49bc680d8356e8` | `make test-renderer`, `make test-renderer-reset`, `make test-renderer-decoder`, `make test-renderer-counters` | Nine complete renderer/reference frames, clear/reset checks, decoder smoke, and counter scoreboard pass after replacing the internal colour RAM with the documented logical write port | RTL SIMULATION VERIFIED |
+| NORMAL presentation mailbox and ownership checks pass | RTL `03bb43786012a99bc268d179ad49bc680d8356e8`; focused test refinement `6386ea7d00e067fd4265377f16852e4cdab367a3` | `make lint-presentation`; `make test-presentation` | Three independent clock period/phase configurations; initial IDs 0/1/2; FRONT/RENDER alternate; SPARE stays 2; before/after-boundary requests; readback lock; pending and post-pixel-switch reset; pre-ACK roles stable; zero role/early-switch errors | RTL SIMULATION VERIFIED |
+| Three-frame renderer/scanout composition matches reference | `03bb43786012a99bc268d179ad49bc680d8356e8` | `make test-graphics-core` | Three generated Python-reference command frames; each full 76,800-byte colour and Z surface compared; all 307,200 active pixels per presented frame checked; 3 FRAME_DONE events after role update; zero out-of-boundary switches | RTL SIMULATION VERIFIED |
+| GFX-014 reads the selected physical FRONT through the three-memory bank | `03bb43786012a99bc268d179ad49bc680d8356e8` | `make test-graphics-core` | 19,206 response words, 76,800 sequential synchronous reads, response stalls, presentation attempt blocked under the active readback lock, all reconstructed bytes and response words match | RTL SIMULATION VERIFIED |
+| NORMAL-only role clarification resolves the lower-level verification contradiction | `03bb43786012a99bc268d179ad49bc680d8356e8` | `docs/VERIFICATION_PLAN.md` reviewed against the Master Plan and D-036 | NORMAL swaps FRONT/RENDER and leaves SPARE unchanged; three-way rotation remains Gate-6 SOBEL behavior | SPECIFIED |
+
+`make test-presentation` used Icarus Verilog 14.0 development build. Its
+configurations were `clk_sys/clk_pix` half-periods and pixel start phases
+`5/7/1 ns`, `4/9/3 ns`, and `7/5/2 ns`; these are functional asynchronous-clock
+simulation cases, not physical metastability evidence. `make test-graphics-core`
+used the same Icarus build, and `make lint-presentation` used Verilator 5.053
+development build. Selected Gate-5 formal properties were NOT RUN. No
+synthesis, P&R, timing, board, serializer, physical display, or Sobel result is
+claimed. `FRAME_DONE` is exposed as a tagged local event; response serialization
+and the complete host command controller remain later work.
+
+The relevant existing regressions passed: `make lint-perf-counters`,
+`make test-perf-counters`, `make test-renderer-counters`, `make lint-renderer`,
+`make test-renderer`, `make test-renderer-reset`, `make test-renderer-decoder`,
+`make test-memory-wrappers`, `make lint-readback`, `make test-readback`,
+`make test-readback-framebuffer`, `make lint-fragment-z`, `make test-fragment-z`,
+`make lint-raster-walk`, `make test-raster-walk`, `make lint-triangle-setup`,
+`make test-triangle-setup`, `make lint-clear`, `make test-clear`,
+`make lint-decoder`, `make test-decoder`, `make lint-fifo`, `make test-fifo`,
+the GFX-015 full-raster scanout command above, and all 31 Python reference
+tests. `make doctor`, `make bootstrap-smoke`, and `git diff --check` passed.
+The first bootstrap-smoke attempt exposed that its HDL allowlist omitted the
+already-approved GFX-015 scanout files; the allowlist was corrected for those
+files and the new Gate-5 files, then bootstrap-smoke passed.
+
+Gate 5 is CLOSED by the Master Plan criteria. Gate 6 has not started. The
+NORMAL presentation tests intentionally do not require all three IDs to enter
+every role: the frozen NORMAL operation leaves SPARE unchanged; Gate-6 SOBEL
+presentation owns the three-way rotation.
+
 ## GFX-005-FORMAL-ORDERING corrective milestone
 
 | Claim | Commit | Command/evidence | Conditions | Classification |
