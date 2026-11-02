@@ -15,7 +15,7 @@ module renderer_counter_tb;
     integer event_degenerate, event_backface;
 
     renderer_core dut (
-        .clk_sys(clk), .rst(rst), .render_cmd_valid(render_cmd_valid),
+        .clk_sys(clk), .rst(rst), .frame_restart(1'b0), .render_cmd_valid(render_cmd_valid),
         .render_cmd_ready(render_cmd_ready), .render_cmd(render_cmd),
         .frame_completed_event(frame_completed_event),
         .present_wait_cycle(present_wait_cycle), .sobel_cycle(sobel_cycle),

@@ -248,11 +248,12 @@ switch.
 ### Roles, CDC and NORMAL presentation
 
 Check initial FRONT/RENDER/SPARE `0/1/2`, `front_valid=0`, and pairwise
-uniqueness continuously. Exercise repeated NORMAL presentations until all
-three buffer IDs have occupied every role. Independently track physical
-framebuffer writes and require every write target to equal RENDER and never
-FRONT or SPARE. Require renderer quiescence and empty Fragment/Z pipeline
-before request acceptance.
+uniqueness continuously. NORMAL presentation swaps FRONT and RENDER while
+SPARE remains unchanged, so repeated NORMAL presentations alternate the two
+roles. Full three-buffer rotation is reserved for Gate-6 SOBEL presentation.
+Independently track physical framebuffer writes and require every write target
+to equal RENDER and never FRONT or SPARE. Require renderer quiescence and an
+empty Fragment/Z pipeline before request acceptance.
 
 Drive requests immediately before and after the registered `frame` event for
 the raster origin `(-160,-45)`, while well away from the boundary, and under

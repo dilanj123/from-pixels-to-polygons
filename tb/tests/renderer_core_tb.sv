@@ -9,6 +9,8 @@ module renderer_core_tb;
     logic render_cmd_ready;
     gfx_pkg::decoded_command_t render_cmd;
     logic renderer_quiescent;
+    logic render_fb_wr_en; logic [16:0] render_fb_wr_addr; logic [7:0] render_fb_wr_data;
+    logic [7:0] test_fb_pix, test_fb_sys;
     integer frame_count, fd, rc, frame, i, mismatches;
     integer v [0:20];
     integer expected_fb [0:PIXELS-1];
@@ -30,9 +32,17 @@ module renderer_core_tb;
     logic [31:0] rb_checksum;
 
     renderer_core dut (
-        .clk_sys(clk), .rst(rst),
+        .clk_sys(clk), .rst(rst), .frame_restart(1'b0),
         .render_cmd_valid(render_cmd_valid), .render_cmd_ready(render_cmd_ready),
-        .render_cmd(render_cmd), .renderer_quiescent(renderer_quiescent)
+        .render_cmd(render_cmd), .render_fb_wr_en(render_fb_wr_en),
+        .render_fb_wr_addr(render_fb_wr_addr), .render_fb_wr_data(render_fb_wr_data),
+        .renderer_quiescent(renderer_quiescent)
+    );
+
+    framebuffer_dp test_framebuffer (
+        .clk_pix(clk), .pix_addr(17'd0), .pix_rdata(test_fb_pix),
+        .clk_sys(clk), .sys_addr(render_fb_wr_addr), .sys_we(render_fb_wr_en),
+        .sys_wdata(render_fb_wr_data), .sys_rdata(test_fb_sys)
     );
 
     readback_engine readback_i (
@@ -46,7 +56,7 @@ module renderer_core_tb;
 
     // Test-only synchronous source adapter over the renderer's production RAM.
     always @(posedge clk)
-        if (rb_rd_en) rb_rd_data <= dut.framebuffer_i.mem[rb_rd_addr];
+        if (rb_rd_en) rb_rd_data <= test_framebuffer.mem[rb_rd_addr];
 
     always @(posedge clk) begin
         if (!rst) begin
@@ -105,8 +115,8 @@ module renderer_core_tb;
             $readmemh(path, expected_z);
             mismatches = 0;
             for (i = 0; i < PIXELS; i = i + 1) begin
-                if (dut.framebuffer_i.mem[i] !== expected_fb[i][7:0]) begin
-                    if (mismatches == 0) $display("FB mismatch frame=%0d addr=%0d exp=%02x act=%02x", index, i, expected_fb[i], dut.framebuffer_i.mem[i]);
+                if (test_framebuffer.mem[i] !== expected_fb[i][7:0]) begin
+                    if (mismatches == 0) $display("FB mismatch frame=%0d addr=%0d exp=%02x act=%02x", index, i, expected_fb[i], test_framebuffer.mem[i]);
                     mismatches = mismatches + 1;
                 end
                 if (dut.zbuffer_i.mem[i] !== expected_z[i][7:0]) begin

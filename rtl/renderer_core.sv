@@ -1,6 +1,7 @@
 module renderer_core (
     input  logic                      clk_sys,
     input  logic                      rst,
+    input  logic                      frame_restart,
     input  logic                      render_cmd_valid,
     output logic                      render_cmd_ready,
     input  gfx_pkg::decoded_command_t render_cmd,
@@ -9,6 +10,10 @@ module renderer_core (
     input  logic                      sobel_cycle,
     input  logic [10:0]               command_fifo_level,
     output gfx_pkg::performance_counters_t perf_counters,
+    output logic                      render_fb_wr_en,
+    output logic [16:0]               render_fb_wr_addr,
+    output logic [7:0]                render_fb_wr_data,
+    output logic                      renderer_idle,
     output logic                      renderer_quiescent
 );
     typedef enum logic [2:0] {
@@ -45,7 +50,6 @@ module renderer_core (
     logic [16:0] z_rd_addr, z_wr_addr, fb_wr_addr;
     logic [7:0] z_rd_data, z_wr_data, fb_wr_data;
 
-    logic [7:0] fb_pix_rdata, fb_sys_rdata;
     logic [7:0] z_unused_rdata;
 
     logic in_receptive_state;
@@ -141,14 +145,9 @@ module renderer_core (
         .command_fifo_level(command_fifo_level), .counters(perf_counters)
     );
 
-    framebuffer_dp framebuffer_i (
-        .clk_pix(clk_sys), .pix_addr('0), .pix_rdata(fb_pix_rdata),
-        .clk_sys(clk_sys),
-        .sys_addr(clear_owner ? clear_fb_addr : fb_wr_addr),
-        .sys_we(clear_owner ? clear_fb_we : (fragment_owner && fb_wr_en)),
-        .sys_wdata(clear_owner ? clear_fb_wdata : fb_wr_data),
-        .sys_rdata(fb_sys_rdata)
-    );
+    assign render_fb_wr_en = clear_owner ? clear_fb_we : (fragment_owner && fb_wr_en);
+    assign render_fb_wr_addr = clear_owner ? clear_fb_addr : fb_wr_addr;
+    assign render_fb_wr_data = clear_owner ? clear_fb_wdata : fb_wr_data;
 
     zbuffer zbuffer_i (
         .clk_sys(clk_sys),
@@ -161,9 +160,16 @@ module renderer_core (
     assign renderer_quiescent = (state_q == S_FRAME_ACTIVE) &&
                                 !clear_busy && !setup_out_valid &&
                                 !walk_busy && fragment_empty;
+    assign renderer_idle = (state_q == S_IDLE);
 
     always_ff @(posedge clk_sys or posedge rst) begin
         if (rst) begin
+            state_q <= S_IDLE;
+            draw_q <= '0;
+            setup_q <= '0;
+            clear_colour_q <= '0;
+            setup_submitted_q <= 1'b0;
+        end else if (frame_restart && renderer_quiescent) begin
             state_q <= S_IDLE;
             draw_q <= '0;
             setup_q <= '0;

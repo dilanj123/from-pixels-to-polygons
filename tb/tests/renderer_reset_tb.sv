@@ -6,11 +6,20 @@ module renderer_reset_tb;
     logic cmd_valid, cmd_ready;
     gfx_pkg::decoded_command_t cmd;
     logic quiescent;
+    logic render_fb_wr_en; logic [16:0] render_fb_wr_addr; logic [7:0] render_fb_wr_data;
+    logic [7:0] test_fb_pix, test_fb_sys;
     integer i, stale_writes, clear_fb_count, clear_z_count;
 
-    renderer_core dut (.clk_sys(clk), .rst(rst), .render_cmd_valid(cmd_valid),
+    renderer_core dut (.clk_sys(clk), .rst(rst), .frame_restart(1'b0), .render_cmd_valid(cmd_valid),
                        .render_cmd_ready(cmd_ready), .render_cmd(cmd),
-                       .renderer_quiescent(quiescent));
+                       .render_fb_wr_en(render_fb_wr_en), .render_fb_wr_addr(render_fb_wr_addr),
+                       .render_fb_wr_data(render_fb_wr_data), .renderer_quiescent(quiescent));
+
+    framebuffer_dp test_framebuffer (
+        .clk_pix(clk), .pix_addr(17'd0), .pix_rdata(test_fb_pix),
+        .clk_sys(clk), .sys_addr(render_fb_wr_addr), .sys_we(render_fb_wr_en),
+        .sys_wdata(render_fb_wr_data), .sys_rdata(test_fb_sys)
+    );
 
     always @(posedge clk) begin
         if (!rst) begin
@@ -50,7 +59,7 @@ module renderer_reset_tb;
     task automatic check_clear(input logic [7:0] colour);
         begin
             for (i = 0; i < PIXELS; i = i + 1) begin
-                if (dut.framebuffer_i.mem[i] !== colour) $fatal(1, "clear fb mismatch addr=%0d", i);
+                if (test_framebuffer.mem[i] !== colour) $fatal(1, "clear fb mismatch addr=%0d", i);
                 if (dut.zbuffer_i.mem[i] !== 8'hFF) $fatal(1, "clear z mismatch addr=%0d", i);
             end
         end
