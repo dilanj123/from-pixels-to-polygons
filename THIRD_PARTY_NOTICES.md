@@ -12,8 +12,13 @@
   `third_party/projectf/LICENSE` (Copyright ©2023 Will Green, Project F).
 - Changes: none; imported byte-for-byte for generic display timing.
 
-The admitted `from-rtl-to-pixels` repository is recorded as an external,
-immutable dependency baseline only; its production RTL is not present here.
+## From RTL to Pixels dependency
 
-The admitted `from-rtl-to-pixels` repository is recorded as an external,
-immutable dependency baseline only; its production RTL is not present here.
+- Repository: <https://github.com/dilanj123/from-rtl-to-pixels>
+- Tag/commit: `v1.0.1-dependency-ready` / `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`
+- Local path: `ip/rtl-to-pixels` (Git submodule pointer; detached at the pinned commit)
+- Selected top for the specified interface: `rtl_to_pixels_top_pipelined`, `IMG_WIDTH=320`, `IMG_HEIGHT=240`
+- Copyright/status: upstream `COPYRIGHT.md` says Copyright ©2026 Dilan Jayasena, all rights reserved. It allows viewing for evaluation and educational review; it grants no general copying, modification, redistribution, publication, sublicensing, or use in another project.
+- Licence: no permissive licence is supplied. This project does not claim MIT or other reuse rights.
+- Local treatment: source remains unmodified in its own repository; no parent RTL has been copied into this project. Local contract inspection and verification were performed against the pinned checkout.
+- Distribution boundary: the superproject records only the submodule URL and commit. Permission for source redistribution or downstream product use is not established; obtain explicit authorization before such use.

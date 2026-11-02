@@ -1,0 +1,3 @@
+[submodule "ip/rtl-to-pixels"]
+	path = ip/rtl-to-pixels
+	url = https://github.com/dilanj123/from-rtl-to-pixels.git
