@@ -3,6 +3,7 @@ module buffer_manager (
     input  logic       rst_sys,
     input  logic       present_valid,
     output logic       present_ready,
+    input  logic       present_sobel,
     input  logic [15:0] present_tag,
     input  logic       renderer_quiescent,
     input  logic       readback_active,
@@ -22,6 +23,7 @@ module buffer_manager (
     logic request_ready, request_ack, request_pending;
     logic [1:0] request_front_id;
     logic accepted_present;
+    logic sobel_mode_q;
 
     typedef enum logic [1:0] {M_IDLE, M_WAIT_ACK, M_DONE} manager_state_t;
     manager_state_t state_q;
@@ -30,7 +32,7 @@ module buffer_manager (
     assign present_ready = (state_q == M_IDLE) && renderer_quiescent &&
                            !readback_active && request_ready && !rst_sys;
     assign accepted_present = present_valid && present_ready;
-    assign request_front_id = render_id;
+    assign request_front_id = present_sobel ? spare_id : render_id;
     assign presentation_pending = (state_q != M_IDLE) || request_pending;
     present_cdc mailbox_i (
         .clk_sys(clk_sys), .rst_sys(rst_sys),
@@ -50,6 +52,7 @@ module buffer_manager (
             front_valid_sys <= 1'b0;
             state_q <= M_IDLE;
             tag_q <= 16'd0;
+            sobel_mode_q <= 1'b0;
             frame_done <= 1'b0;
             frame_done_tag <= 16'd0;
         end else begin
@@ -57,11 +60,18 @@ module buffer_manager (
             case (state_q)
                 M_IDLE: if (accepted_present) begin
                     tag_q <= present_tag;
+                    sobel_mode_q <= present_sobel;
                     state_q <= M_WAIT_ACK;
                 end
                 M_WAIT_ACK: if (request_ack) begin
-                    render_id <= front_id_sys;
-                    front_id_sys <= render_id;
+                    if (sobel_mode_q) begin
+                        render_id <= front_id_sys;
+                        spare_id <= render_id;
+                        front_id_sys <= spare_id;
+                    end else begin
+                        render_id <= front_id_sys;
+                        front_id_sys <= render_id;
+                    end
                     front_valid_sys <= 1'b1;
                     state_q <= M_DONE;
                 end
@@ -81,8 +91,9 @@ module buffer_manager (
                          (front_id_sys == spare_id) ||
                          (render_id == spare_id)))
             $error("buffer role uniqueness violation");
-        if (!rst_sys && (spare_id != 2'd2))
-            $error("NORMAL presentation changed SPARE");
+        if (!rst_sys && ((front_id_sys > 2'd2) || (render_id > 2'd2) ||
+                         (spare_id > 2'd2)))
+            $error("invalid framebuffer role ID");
     end
 `endif
 endmodule

@@ -5,7 +5,9 @@ module graphics_core_tb;
     always #5 clk_sys = ~clk_sys;
     initial begin #2; forever #3 clk_pix = ~clk_pix; end
 
-    logic cmd_valid, cmd_ready, present_valid, present_ready;
+    logic cmd_valid, cmd_ready, present_valid, present_ready, present_sobel;
+    logic [7:0] sobel_threshold;
+    logic sobel_bypass, sobel_busy, sobel_error;
     gfx_pkg::decoded_command_t cmd;
     logic [15:0] present_tag, done_tag;
     logic frame_done, rb_start_valid, rb_start_ready;
@@ -30,6 +32,8 @@ module graphics_core_tb;
         .clk_sys(clk_sys), .clk_pix(clk_pix), .arst(arst),
         .render_cmd_valid(cmd_valid), .render_cmd_ready(cmd_ready), .render_cmd(cmd),
         .present_valid(present_valid), .present_ready(present_ready), .present_tag(present_tag),
+        .present_sobel(present_sobel), .sobel_threshold(sobel_threshold),
+        .sobel_bypass(sobel_bypass), .sobel_busy(sobel_busy), .sobel_error(sobel_error),
         .frame_done(frame_done), .frame_done_tag(done_tag),
         .readback_start_valid(rb_start_valid), .readback_start_ready(rb_start_ready),
         .readback_start_tag(rb_tag), .readback_rsp_valid(rb_rsp_valid),
@@ -211,7 +215,8 @@ module graphics_core_tb;
     end
 
     initial begin
-        cmd_valid=0; cmd='0; present_valid=0; present_tag=0; rb_start_valid=0; rb_tag=0;
+        cmd_valid=0; cmd='0; present_valid=0; present_sobel=0; sobel_threshold=8'd128;
+        sobel_bypass=0; present_tag=0; rb_start_valid=0; rb_tag=0;
         rb_rsp_ready=0; frame_done_count=0; switch_count=0; active_pixels=0;
         prior_front_pix=0; prior_safe=0; errors=0; accepted=0; data_words=0; safe_count=0;
         if(!$value$plusargs("VEC_DIR=%s",vec_dir)) vec_dir="/tmp/gfx012_vectors";

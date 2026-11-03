@@ -1,13 +1,27 @@
-.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer lint-presentation test-presentation test-graphics-core lint-sobel-adapters test-sobel-adapters
+.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer lint-presentation test-presentation test-graphics-core lint-sobel-adapters test-sobel-adapters lint-sobel-integration test-sobel-integration test-sobel-modes test-sobel-controller
+
+SOBEL_PARENT_RTL = ip/rtl-to-pixels/rtl/pixel_pkg.sv ip/rtl-to-pixels/rtl/rgb_to_gray.sv \
+	ip/rtl-to-pixels/rtl/elastic_stage.sv ip/rtl-to-pixels/rtl/apb_regs.sv \
+	ip/rtl-to-pixels/rtl/pixel_control.sv ip/rtl-to-pixels/rtl/line_buffer.sv \
+	ip/rtl-to-pixels/rtl/window_3x3.sv ip/rtl-to-pixels/rtl/sobel_compact.sv \
+	ip/rtl-to-pixels/rtl/magnitude_clamp.sv ip/rtl-to-pixels/rtl/threshold_stage.sv \
+	ip/rtl-to-pixels/rtl/output_control.sv ip/rtl-to-pixels/rtl/rtl_to_pixels_top_pipelined.sv
+SOBEL_PYTHON ?= python3
+SOBEL_GRAPHICS_RTL = rtl/gfx_pkg.sv third_party/projectf/lib/display/display_480p.sv \
+	rtl/scanout_2x.sv rtl/clear_engine.sv rtl/triangle_setup.sv rtl/raster_walk.sv \
+	rtl/fragment_z.sv rtl/perf_counters.sv rtl/zbuffer.sv rtl/framebuffer_dp.sv \
+	rtl/renderer_core.sv rtl/readback_engine.sv rtl/present_cdc.sv rtl/buffer_manager.sv \
+	rtl/sobel_fb_reader.sv rtl/sobel_fb_writer.sv rtl/sobel_apb_master.sv rtl/sobel_controller.sv \
+	$(SOBEL_PARENT_RTL) rtl/graphics_core.sv
 
 help:
-	@printf '%s\n' 'Available targets:' '  make doctor             Report bootstrap environment status' '  make bootstrap-smoke    Run read-only Phase-0 checks' '  make synth-memory       Run the GFX-004 ECP5 memory inference spike' '  make lint-presentation  Lint Gate-5 renderer/display composition' '  make test-presentation  Check mailbox/role CDC at three clock phases' '  make test-graphics-core Run three NORMAL reference-rendered frames' '  make lint-sobel-adapters Lint GFX-018/019/020 adapters' '  make test-sobel-adapters Run full-frame adapter/mock regression'
+	@printf '%s\n' 'Available targets:' '  make doctor             Report bootstrap environment status' '  make bootstrap-smoke    Run read-only Phase-0 checks' '  make synth-memory       Run the GFX-004 ECP5 memory inference spike' '  make lint-presentation  Lint Gate-5 renderer/display composition' '  make test-presentation  Check mailbox/role CDC at three clock phases' '  make test-graphics-core Run three NORMAL reference-rendered frames' '  make lint-sobel-adapters Lint GFX-018/019/020 adapters' '  make test-sobel-adapters Run full-frame adapter/mock regression' '  make lint-sobel-integration Lint real Sobel graphics composition' '  make test-sobel-integration Run renderer-to-Sobel full composition' '  make test-sobel-controller Compare five parent frames to Python oracle' '  make test-sobel-modes Check NORMAL/SOBEL role transitions'
 
 doctor:
 	@python3 scripts/doctor.py
 
 bootstrap-smoke: doctor
-	@set -eu; test -f 00_MASTER_PROJECT_PLAN.md; test -f 01_CHATGPT_PROJECT_OPERATING_INSTRUCTIONS.md; test -f 04_MASTER_CHECKLIST.md; test -f docs/PROJECT_STATE.md; test -f docs/EVIDENCE_INDEX.md; if find rtl ip sw tb formal -type f \( -name '*.sv' -o -name '*.v' -o -name '*.vhd' \) ! -path 'rtl/memory_spike/*' ! -path 'ip/rtl-to-pixels/*' ! -path 'rtl/gfx_pkg.sv' ! -path 'rtl/cmd_fifo.sv' ! -path 'rtl/cmd_decoder.sv' ! -path 'rtl/clear_engine.sv' ! -path 'rtl/triangle_setup.sv' ! -path 'rtl/raster_walk.sv' ! -path 'rtl/fragment_z.sv' ! -path 'rtl/perf_counters.sv' ! -path 'rtl/framebuffer_dp.sv' ! -path 'rtl/zbuffer.sv' ! -path 'rtl/renderer_core.sv' ! -path 'rtl/readback_engine.sv' ! -path 'rtl/present_cdc.sv' ! -path 'rtl/buffer_manager.sv' ! -path 'rtl/graphics_core.sv' ! -path 'rtl/scanout_2x.sv' ! -path 'rtl/sobel_fb_reader.sv' ! -path 'rtl/sobel_fb_writer.sv' ! -path 'rtl/sobel_apb_master.sv' ! -path 'tb/tests/gfx_pkg_tb.sv' ! -path 'tb/tests/cmd_fifo_tb.sv' ! -path 'tb/tests/cmd_decoder_tb.sv' ! -path 'tb/tests/clear_engine_tb.sv' ! -path 'tb/tests/triangle_setup_tb.sv' ! -path 'tb/tests/raster_walk_tb.sv' ! -path 'tb/tests/fragment_z_tb.sv' ! -path 'tb/tests/memory_wrappers_tb.sv' ! -path 'tb/tests/renderer_core_tb.sv' ! -path 'tb/tests/renderer_decoder_smoke_tb.sv' ! -path 'tb/tests/renderer_reset_tb.sv' ! -path 'tb/tests/perf_counters_tb.sv' ! -path 'tb/tests/renderer_counter_tb.sv' ! -path 'tb/tests/readback_engine_tb.sv' ! -path 'tb/tests/readback_framebuffer_tb.sv' ! -path 'tb/tests/buffer_manager_tb.sv' ! -path 'tb/tests/graphics_core_tb.sv' ! -path 'tb/tests/scanout_2x_tb.sv' ! -path 'tb/tests/sobel_adapters_tb.sv' ! -path 'formal/cmd_fifo_formal.sv' ! -path 'formal/cmd_fifo.sby' ! -path 'formal/cmd_fifo/*' ! -path 'formal/cmd_decoder_formal.sv' ! -path 'formal/cmd_decoder.sby' ! -path 'formal/cmd_decoder/*' ! -path 'formal/clear_engine_formal.sv' ! -path 'formal/clear_engine.sby' ! -path 'formal/clear_engine/*' -print -quit | grep -q .; then echo 'ERROR: out-of-scope functional implementation HDL found in bootstrap smoke scope' >&2; exit 1; fi; echo 'bootstrap-smoke: PASS (structure; authorized GFX primitive, renderer, readback, Gate-5 and GFX-018/019/020 HDL excluded)'
+	@set -eu; test -f 00_MASTER_PROJECT_PLAN.md; test -f 01_CHATGPT_PROJECT_OPERATING_INSTRUCTIONS.md; test -f 04_MASTER_CHECKLIST.md; test -f docs/PROJECT_STATE.md; test -f docs/EVIDENCE_INDEX.md; if find rtl ip sw tb formal -type f \( -name '*.sv' -o -name '*.v' -o -name '*.vhd' \) ! -path 'rtl/memory_spike/*' ! -path 'ip/rtl-to-pixels/*' ! -path 'rtl/gfx_pkg.sv' ! -path 'rtl/cmd_fifo.sv' ! -path 'rtl/cmd_decoder.sv' ! -path 'rtl/clear_engine.sv' ! -path 'rtl/triangle_setup.sv' ! -path 'rtl/raster_walk.sv' ! -path 'rtl/fragment_z.sv' ! -path 'rtl/perf_counters.sv' ! -path 'rtl/framebuffer_dp.sv' ! -path 'rtl/zbuffer.sv' ! -path 'rtl/renderer_core.sv' ! -path 'rtl/readback_engine.sv' ! -path 'rtl/present_cdc.sv' ! -path 'rtl/buffer_manager.sv' ! -path 'rtl/graphics_core.sv' ! -path 'rtl/scanout_2x.sv' ! -path 'rtl/sobel_fb_reader.sv' ! -path 'rtl/sobel_fb_writer.sv' ! -path 'rtl/sobel_apb_master.sv' ! -path 'rtl/sobel_controller.sv' ! -path 'tb/tests/gfx_pkg_tb.sv' ! -path 'tb/tests/cmd_fifo_tb.sv' ! -path 'tb/tests/cmd_decoder_tb.sv' ! -path 'tb/tests/clear_engine_tb.sv' ! -path 'tb/tests/triangle_setup_tb.sv' ! -path 'tb/tests/raster_walk_tb.sv' ! -path 'tb/tests/fragment_z_tb.sv' ! -path 'tb/tests/memory_wrappers_tb.sv' ! -path 'tb/tests/renderer_core_tb.sv' ! -path 'tb/tests/renderer_decoder_smoke_tb.sv' ! -path 'tb/tests/renderer_reset_tb.sv' ! -path 'tb/tests/perf_counters_tb.sv' ! -path 'tb/tests/renderer_counter_tb.sv' ! -path 'tb/tests/readback_engine_tb.sv' ! -path 'tb/tests/readback_framebuffer_tb.sv' ! -path 'tb/tests/buffer_manager_tb.sv' ! -path 'tb/tests/graphics_core_tb.sv' ! -path 'tb/tests/scanout_2x_tb.sv' ! -path 'tb/tests/sobel_adapters_tb.sv' ! -path 'tb/tests/sobel_modes_tb.sv' ! -path 'tb/tests/sobel_integration_tb.sv' ! -path 'tb/tests/sobel_controller_tb.sv' ! -path 'formal/cmd_fifo_formal.sv' ! -path 'formal/cmd_fifo.sby' ! -path 'formal/cmd_fifo/*' ! -path 'formal/cmd_decoder_formal.sv' ! -path 'formal/cmd_decoder.sby' ! -path 'formal/cmd_decoder/*' ! -path 'formal/clear_engine_formal.sv' ! -path 'formal/clear_engine.sby' ! -path 'formal/clear_engine/*' -print -quit | grep -q .; then echo 'ERROR: out-of-scope functional implementation HDL found in bootstrap smoke scope' >&2; exit 1; fi; echo 'bootstrap-smoke: PASS (structure; authorized GFX primitive, renderer, readback, Gate-5 and GFX-018/019/020/021/022 HDL excluded)'
 
 synth-memory:
 	@scripts/synth/run_memory_spike.sh
@@ -96,17 +110,32 @@ test-readback-framebuffer:
 
 
 lint-presentation:
-	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 -Wno-TIMESCALEMOD --top-module graphics_core rtl/gfx_pkg.sv third_party/projectf/lib/display/display_480p.sv rtl/scanout_2x.sv rtl/clear_engine.sv rtl/triangle_setup.sv rtl/raster_walk.sv rtl/fragment_z.sv rtl/perf_counters.sv rtl/zbuffer.sv rtl/framebuffer_dp.sv rtl/renderer_core.sv rtl/readback_engine.sv rtl/present_cdc.sv rtl/buffer_manager.sv rtl/graphics_core.sv
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 -Wno-TIMESCALEMOD --top-module graphics_core $(SOBEL_GRAPHICS_RTL)
 
 test-presentation:
 	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && for spec in '5 7 1' '4 9 3' '7 5 2'; do set -- $$spec; iverilog -g2012 -s buffer_manager_tb -Pbuffer_manager_tb.SYS_HALF=$$1 -Pbuffer_manager_tb.PIX_HALF=$$2 -Pbuffer_manager_tb.PIX_PHASE=$$3 -o /tmp/buffer_manager_tb rtl/present_cdc.sv rtl/buffer_manager.sv tb/tests/buffer_manager_tb.sv && vvp /tmp/buffer_manager_tb || exit $$?; done
 
 test-graphics-core:
 	@python3 tb/tests/generate_renderer_vectors.py
-	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s graphics_core_tb -o /tmp/graphics_core_tb rtl/gfx_pkg.sv third_party/projectf/lib/display/display_480p.sv rtl/scanout_2x.sv rtl/clear_engine.sv rtl/triangle_setup.sv rtl/raster_walk.sv rtl/fragment_z.sv rtl/perf_counters.sv rtl/zbuffer.sv rtl/framebuffer_dp.sv rtl/renderer_core.sv rtl/readback_engine.sv rtl/present_cdc.sv rtl/buffer_manager.sv rtl/graphics_core.sv tb/tests/graphics_core_tb.sv && vvp /tmp/graphics_core_tb +VEC_DIR=/tmp/gfx012_vectors
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s graphics_core_tb -o /tmp/graphics_core_tb $(SOBEL_GRAPHICS_RTL) tb/tests/graphics_core_tb.sv && vvp /tmp/graphics_core_tb +VEC_DIR=/tmp/gfx012_vectors
 
 lint-sobel-adapters:
 	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 --top-module sobel_fb_reader rtl/sobel_fb_reader.sv && verilator --lint-only --language 1800-2012 --top-module sobel_fb_writer rtl/sobel_fb_writer.sv && verilator --lint-only --language 1800-2012 --top-module sobel_apb_master rtl/sobel_apb_master.sv
 
 test-sobel-adapters:
 	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s sobel_adapters_tb -o /tmp/sobel_adapters_tb rtl/sobel_fb_reader.sv rtl/sobel_fb_writer.sv rtl/sobel_apb_master.sv tb/tests/sobel_adapters_tb.sv && vvp /tmp/sobel_adapters_tb
+
+lint-sobel-integration:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 -Wno-TIMESCALEMOD --top-module graphics_core $(SOBEL_GRAPHICS_RTL)
+
+test-sobel-integration:
+	@python3 tb/tests/generate_renderer_vectors.py
+	@$(SOBEL_PYTHON) tb/tests/generate_sobel_vectors.py /tmp/gfx021_vectors /tmp/gfx012_vectors
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s sobel_integration_tb -o /tmp/sobel_integration_tb $(SOBEL_GRAPHICS_RTL) tb/tests/sobel_integration_tb.sv && vvp /tmp/sobel_integration_tb +VEC_DIR=/tmp/gfx012_vectors
+
+test-sobel-controller:
+	@$(SOBEL_PYTHON) tb/tests/generate_sobel_vectors.py /tmp/gfx021_vectors /tmp/gfx012_vectors
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s sobel_controller_tb -o /tmp/sobel_controller_tb $(SOBEL_GRAPHICS_RTL) tb/tests/sobel_controller_tb.sv && vvp /tmp/sobel_controller_tb +VEC_DIR=/tmp/gfx021_vectors
+
+test-sobel-modes:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s sobel_modes_tb -o /tmp/sobel_modes_tb rtl/present_cdc.sv rtl/buffer_manager.sv tb/tests/sobel_modes_tb.sv && vvp /tmp/sobel_modes_tb

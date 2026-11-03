@@ -7,7 +7,12 @@ module graphics_core (
     input  gfx_pkg::decoded_command_t render_cmd,
     input  logic                       present_valid,
     output logic                       present_ready,
+    input  logic                       present_sobel,
     input  logic [15:0]                present_tag,
+    input  logic [7:0]                 sobel_threshold,
+    input  logic                       sobel_bypass,
+    output logic                       sobel_busy,
+    output logic                       sobel_error,
     output logic                       frame_done,
     output logic [15:0]                frame_done_tag,
     input  logic                       readback_start_valid,
@@ -43,12 +48,22 @@ module graphics_core (
     logic [7:0] render_fb_wr_data, rb_data;
     logic [1:0] rb_buffer_id;
     logic rb_engine_start_ready, rb_rd_en;
+    logic sobel_start_ready, sobel_rd_en, sobel_wr_en;
+    logic [16:0] sobel_rd_addr, sobel_wr_addr;
+    logic [7:0] sobel_rd_data, sobel_wr_data;
+    logic [1:0] sobel_source_id, sobel_destination_id;
+    logic sobel_role_valid, sobel_role_ready, sobel_role_mode;
+    logic [15:0] sobel_role_tag;
+    logic normal_role_valid, role_valid_mux, role_mode_mux;
+    logic [15:0] role_tag_mux;
     logic [7:0] pix_data0, pix_data1, pix_data2, selected_pix_data;
     logic [7:0] sys_data0, sys_data1, sys_data2;
     logic [1:0] front_id_pix_d;
     logic scan_fb_valid, scan_frame_start, scan_line_start;
     logic signed [15:0] raster_x, raster_y, pixel_x, pixel_y;
     logic [2:0] fb_sys_we;
+    logic [16:0] fb_sys_addr [0:2];
+    logic [7:0] fb_sys_wdata [0:2];
 
     always_ff @(posedge clk_sys or posedge arst) begin
         if (arst) sys_reset_release <= 2'b11;
@@ -61,15 +76,35 @@ module graphics_core (
     assign rst_sys = sys_reset_release[1];
     assign rst_pix = pix_reset_release[1];
 
-    assign present_ready = roles_present_ready && !readback_start_valid;
+    assign present_ready = present_sobel ?
+                           (sobel_start_ready && !presentation_pending && !readback_start_valid && !sobel_error) :
+                           (roles_present_ready && !readback_start_valid && !sobel_busy && !sobel_error);
+    assign normal_role_valid = present_valid && !present_sobel && present_ready;
+    assign role_valid_mux = normal_role_valid || sobel_role_valid;
+    assign role_mode_mux = sobel_role_valid ? sobel_role_mode : 1'b0;
+    assign role_tag_mux = sobel_role_valid ? sobel_role_tag : present_tag;
     assign render_cmd_ready = render_ready_core && !presentation_pending && !readback_active &&
+                              !sobel_busy && !sobel_error &&
                               !frame_done &&
                               !(present_valid && present_ready) &&
                               !(readback_start_valid && readback_start_ready);
     assign render_valid_core = render_cmd_valid && render_cmd_ready;
-    assign fb_sys_we[0] = render_fb_wr_en && (render_id == 2'd0);
-    assign fb_sys_we[1] = render_fb_wr_en && (render_id == 2'd1);
-    assign fb_sys_we[2] = render_fb_wr_en && (render_id == 2'd2);
+    always_comb begin
+        for (integer bank = 0; bank < 3; bank = bank + 1) begin
+            fb_sys_addr[bank] = render_fb_wr_addr;
+            fb_sys_wdata[bank] = render_fb_wr_data;
+            fb_sys_we[bank] = render_fb_wr_en && (render_id == bank[1:0]);
+            if (rb_rd_en && (rb_buffer_id == bank[1:0]))
+                fb_sys_addr[bank] = rb_addr;
+            if (sobel_rd_en && (sobel_source_id == bank[1:0]))
+                fb_sys_addr[bank] = sobel_rd_addr;
+            if (sobel_wr_en && (sobel_destination_id == bank[1:0])) begin
+                fb_sys_addr[bank] = sobel_wr_addr;
+                fb_sys_wdata[bank] = sobel_wr_data;
+                fb_sys_we[bank] = 1'b1;
+            end
+        end
+    end
 
     renderer_core renderer_i (
         .clk_sys(clk_sys), .rst(rst_sys), .frame_restart(frame_done),
@@ -84,8 +119,8 @@ module graphics_core (
 
     buffer_manager roles_i (
         .clk_sys(clk_sys), .rst_sys(rst_sys),
-        .present_valid(present_valid && present_ready), .present_ready(roles_present_ready),
-        .present_tag(present_tag), .renderer_quiescent(renderer_quiescent),
+        .present_valid(role_valid_mux), .present_ready(roles_present_ready),
+        .present_sobel(role_mode_mux), .present_tag(role_tag_mux), .renderer_quiescent(renderer_quiescent),
         .readback_active(readback_active), .clk_pix(clk_pix), .rst_pix(rst_pix),
         .safe_frame_start(scan_frame_start && (raster_x == -16'sd160) &&
                           (raster_y == -16'sd45)),
@@ -95,9 +130,24 @@ module graphics_core (
         .frame_done(frame_done), .frame_done_tag(frame_done_tag)
     );
 
+    sobel_controller sobel_control_i (
+        .clk_sys(clk_sys), .rst(rst_sys),
+        .start_valid(present_valid && present_sobel && present_ready),
+        .start_ready(sobel_start_ready), .start_tag(present_tag),
+        .render_id(render_id), .spare_id(spare_id),
+        .renderer_quiescent(renderer_quiescent), .readback_active(readback_active),
+        .cfg_threshold(sobel_threshold), .cfg_bypass(sobel_bypass),
+        .busy(sobel_busy), .done(), .error(sobel_error),
+        .source_id(sobel_source_id), .destination_id(sobel_destination_id),
+        .fb_rd_en(sobel_rd_en), .fb_rd_addr(sobel_rd_addr), .fb_rd_data(sobel_rd_data),
+        .fb_wr_en(sobel_wr_en), .fb_wr_addr(sobel_wr_addr), .fb_wr_data(sobel_wr_data),
+        .present_valid(sobel_role_valid), .present_ready(roles_present_ready),
+        .present_done_event(frame_done), .present_sobel(sobel_role_mode), .present_tag(sobel_role_tag)
+    );
+
     assign readback_start_ready = rb_engine_start_ready && front_valid_sys &&
                                   renderer_idle &&
-                                  !presentation_pending && !rst_sys;
+                                  !presentation_pending && !sobel_busy && !sobel_error && !rst_sys;
     readback_engine readback_i (
         .clk_sys(clk_sys), .rst(rst_sys),
         .start_valid(readback_start_valid && readback_start_ready),
@@ -112,24 +162,24 @@ module graphics_core (
     assign rb_data = (rb_buffer_id == 2'd0) ? sys_data0 :
                      (rb_buffer_id == 2'd1) ? sys_data1 :
                      (rb_buffer_id == 2'd2) ? sys_data2 : 8'h00;
+    assign sobel_rd_data = (sobel_source_id == 2'd0) ? sys_data0 :
+                           (sobel_source_id == 2'd1) ? sys_data1 :
+                           (sobel_source_id == 2'd2) ? sys_data2 : 8'h00;
 
     framebuffer_dp fb0 (
         .clk_pix(clk_pix), .pix_addr(scan_addr), .pix_rdata(pix_data0),
         .clk_sys(clk_sys),
-        .sys_addr((rb_rd_en && rb_buffer_id == 2'd0) ? rb_addr : render_fb_wr_addr),
-        .sys_we(fb_sys_we[0]), .sys_wdata(render_fb_wr_data), .sys_rdata(sys_data0)
+        .sys_addr(fb_sys_addr[0]), .sys_we(fb_sys_we[0]), .sys_wdata(fb_sys_wdata[0]), .sys_rdata(sys_data0)
     );
     framebuffer_dp fb1 (
         .clk_pix(clk_pix), .pix_addr(scan_addr), .pix_rdata(pix_data1),
         .clk_sys(clk_sys),
-        .sys_addr((rb_rd_en && rb_buffer_id == 2'd1) ? rb_addr : render_fb_wr_addr),
-        .sys_we(fb_sys_we[1]), .sys_wdata(render_fb_wr_data), .sys_rdata(sys_data1)
+        .sys_addr(fb_sys_addr[1]), .sys_we(fb_sys_we[1]), .sys_wdata(fb_sys_wdata[1]), .sys_rdata(sys_data1)
     );
     framebuffer_dp fb2 (
         .clk_pix(clk_pix), .pix_addr(scan_addr), .pix_rdata(pix_data2),
         .clk_sys(clk_sys),
-        .sys_addr((rb_rd_en && rb_buffer_id == 2'd2) ? rb_addr : render_fb_wr_addr),
-        .sys_we(fb_sys_we[2]), .sys_wdata(render_fb_wr_data), .sys_rdata(sys_data2)
+        .sys_addr(fb_sys_addr[2]), .sys_we(fb_sys_we[2]), .sys_wdata(fb_sys_wdata[2]), .sys_rdata(sys_data2)
     );
 
     always_ff @(posedge clk_pix or posedge rst_pix) begin
@@ -160,6 +210,15 @@ module graphics_core (
             $error("renderer write targets FRONT");
         if (!rst_sys && render_fb_wr_en && (fb_sys_we[spare_id]))
             $error("renderer write targets SPARE");
+        if (!rst_sys && sobel_wr_en && (sobel_destination_id != spare_id))
+            $error("Sobel write destination is not SPARE");
+        if (!rst_sys && sobel_rd_en && (sobel_source_id != render_id))
+            $error("Sobel read source is not RENDER");
+        if (!rst_sys && readback_active && sobel_busy)
+            $error("readback overlaps Sobel ownership");
+        if (!rst_sys && sobel_rd_en && sobel_wr_en &&
+            (sobel_source_id == sobel_destination_id))
+            $error("Sobel source/destination bank collision");
     end
     always @(posedge clk_pix) begin
         if (!rst_pix && scan_fb_valid && (scan_addr >= 17'd76800))

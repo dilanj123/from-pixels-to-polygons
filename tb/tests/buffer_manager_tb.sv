@@ -9,6 +9,7 @@ module buffer_manager_tb #(
     initial begin #(PIX_PHASE); forever #(PIX_HALF) clk_pix = ~clk_pix; end
 
     logic present_valid, present_ready, renderer_quiescent, readback_active;
+    logic present_sobel;
     logic [15:0] present_tag;
     logic safe_frame_start;
     logic [1:0] front_sys, render_id, spare_id, front_pix;
@@ -21,6 +22,7 @@ module buffer_manager_tb #(
     buffer_manager dut (
         .clk_sys(clk_sys), .rst_sys(rst), .present_valid(present_valid),
         .present_ready(present_ready), .present_tag(present_tag),
+        .present_sobel(present_sobel),
         .renderer_quiescent(renderer_quiescent), .readback_active(readback_active),
         .clk_pix(clk_pix), .rst_pix(rst), .safe_frame_start(safe_frame_start),
         .front_id_sys(front_sys), .render_id(render_id), .spare_id(spare_id),
@@ -76,7 +78,7 @@ module buffer_manager_tb #(
     endtask
 
     initial begin
-        present_valid=0; present_tag=0; renderer_quiescent=0; readback_active=0;
+        present_valid=0; present_sobel=0; present_tag=0; renderer_quiescent=0; readback_active=0;
         safe_frame_start=0; accepts=0; completions=0; role_errors=0; early_switches=0;
         prior_front_pix=0;
         safe_seen_q=0;
