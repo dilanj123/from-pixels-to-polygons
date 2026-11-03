@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Current phase: Gate 6 — RTL-to-Pixels/Sobel integration.
-- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: OPEN.
-- Current known-good functional implementation commit: `dc1bf20` (`Implement GFX-018/019/020 Sobel adapters`).
+- Current phase: Gate 7 — Full-system regression; Gate 8 — Selected formal.
+- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: CLOSED.
+- Current known-good functional implementation commit: `7cb2f9741d6ffc7cef79bce5bee872ceebbb1293` (`docs: record repeated Sobel mode verification`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
@@ -80,9 +80,11 @@
   readbacks, allowing the final checksum to transfer before the scoreboard
   observed it. The checker now accepts each sampled word with a one-response
   ready pulse. No production RTL changed. Gate-6 formal was NOT RUN.
-- Current next task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025.
-- D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
-  GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
+- Current task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025; implementation
+  has not started. The public command/response controller and UART transport
+  remain to be implemented. Gate 7 and Gate 8 remain OPEN.
+- D-034 performance-counter contract: SPECIFIED and implemented by GFX-013;
+  GET_COUNTERS serialization remains unimplemented.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
   Gate 4 are CLOSED. D-036 remains SPECIFIED; GFX-015 through GFX-017 provide
