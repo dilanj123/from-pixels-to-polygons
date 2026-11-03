@@ -59,9 +59,8 @@
   reset abort, malformed metadata rejection, and APB enable/threshold/bypass.
   At the GFX-018/019/020 milestone, no actual parent Sobel instance or
   triple-buffer postprocess routing had yet been integrated.
-- GFX-021/022 implementation blocks and single-frame behaviours have RTL
-  SIMULATION VERIFIED evidence; the full Gate-6 acceptance campaign remains
-  OPEN for repeated graphics-core mode integration.
+- GFX-021/022 implementation blocks, single-frame behaviours, and repeated
+  graphics-core mode integration have RTL SIMULATION VERIFIED evidence.
   The pinned 320×240 parent is instantiated with the existing reader, writer,
   and APB adapter. Five complete source patterns (including a renderer scene)
   each transferred 76,800 input/output pixels and matched the independent
@@ -71,13 +70,17 @@
   transitions and active Sobel reset abort were also simulated. The role-mode
   test used a synthetic safe-boundary event; it did not repeat full parent
   processing for every mode transition.
-- Gate 5 is CLOSED. Gate 6 remains OPEN because the repeated NORMAL→SOBEL,
-  SOBEL→SOBEL, SOBEL→NORMAL sequence has not passed at the graphics-core
-  integration boundary. A focused role-manager test covers those role
-  transitions, and a separate graphics-core test covers one full Sobel frame
-  and readback. A combined repeated-mode run stalled before a second
-  presentation completed and was not accepted as evidence. Formal was NOT RUN.
-- Current next task: finish GFX-021/022 repeated graphics-core mode integration.
+- Gate 5 and Gate 6 are CLOSED. The bounded graphics-core
+  NORMAL→SOBEL→SOBEL→NORMAL regression uses the actual pinned parent for both
+  Sobel frames. Both Sobel outputs and GFX-014 readbacks match all 76,800
+  expected bytes; first/final NORMAL scanout comparisons each check all
+  307,200 active pixels. Four tagged completions and the expected role
+  permutations are checked. The earlier timeout was a testbench readback
+  handshake race: `rb_rsp_ready` remained asserted between separate
+  readbacks, allowing the final checksum to transfer before the scoreboard
+  observed it. The checker now accepts each sampled word with a one-response
+  ready pulse. No production RTL changed. Gate-6 formal was NOT RUN.
+- Current next task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;

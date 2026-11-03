@@ -165,15 +165,16 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 - [x] W+1 alignment checked — pinned parent full-frame reference comparisons at 320×240
 - [x] final-drain completion checked — parent streaming drain-backpressure regression
 - [x] complete postprocessed framebuffer matches composed reference — five complete frames, 76,800 bytes each, zero mismatches
-- [ ] NORMAL→SOBEL full graphics-core mode sequence — role-mode and single-Sobel composition pass separately; repeated top-level sequence remains unverified
-- [ ] SOBEL→SOBEL full graphics-core mode sequence — role-manager transition passes; repeated parent processing remains unverified
-- [ ] SOBEL→NORMAL full graphics-core mode sequence — role-manager transition passes; post-Sobel render/presentation remains unverified
+- [x] NORMAL→SOBEL full graphics-core mode sequence — bounded repeated-mode integration; normal scanout, Sobel reference and readback comparisons pass
+- [x] SOBEL→SOBEL full graphics-core mode sequence — second actual parent frame, correct roles, full reference and readback comparisons
+- [x] SOBEL→NORMAL full graphics-core mode sequence — final renderer frame and full scanout comparison pass
 - [x] triple-buffer role rotation verified — pairwise uniqueness throughout NORMAL/SOBEL transitions
 
-Gate 6 remains OPEN. The parent datapath and one complete graphics-core Sobel
-presentation pass, and the role manager passes the transition matrix in
-isolation. The end-to-end multi-mode sequence is still required before Gate 6
-can close. Formal, synthesis/P&R, timing, and hardware evidence are not claimed.
+Gate 6 — CLOSED. The bounded graphics-core NORMAL→SOBEL→SOBEL→NORMAL
+integration passes with the real pinned parent, complete Sobel frame and
+readback comparisons, normal scanout comparisons, expected role transitions,
+and exactly one tagged completion per presentation. Formal, synthesis/P&R,
+timing, and hardware evidence are not claimed.
 
 ## Gate 7 — Deep Regression
 
