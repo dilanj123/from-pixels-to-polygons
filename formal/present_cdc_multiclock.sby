@@ -1,0 +1,16 @@
+[options]
+multiclock on
+mode bmc
+depth 32
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -D SYNTHESIS -sv present_cdc.sv buffer_manager.sv present_cdc_multiclock_formal.sv
+prep -top present_cdc_multiclock_formal
+
+[files]
+rtl/present_cdc.sv
+rtl/buffer_manager.sv
+formal/present_cdc_multiclock_formal.sv
