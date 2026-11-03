@@ -28,10 +28,27 @@ module sobel_integration_tb;
     integer monitor_sobel, monitor_reads, monitor_inputs, monitor_outputs, monitor_writes;
     integer monitor_in_sof, monitor_out_sof, monitor_in_eol, monitor_out_eol;
     integer expected_read_addr, expected_write_addr, done_before;
+    integer cycle_count, sequence_step;
     logic [31:0] checksum;
     logic [1:0] prior_front_pix;
     logic prior_safe;
     string vec_dir, path;
+
+    always @(posedge clk_sys) cycle_count=cycle_count+1;
+
+    task automatic diag(input string waiting_for);
+        begin
+            $display("MODE_STALL step=%0d wait=%s cycle=%0d cmd_ready=%b renderer_state=%0d quiescent=%b present=%b/%b sobel_busy/error=%b/%b ctrl_state=%0d reader=%b/%b writer=%b/%b counts=%0d/%0d manager_state=%0d pending=%b req_pending=%b req=%b ack_sync=%b roles=%0d/%0d/%0d frame_done=%b tag=%h rb_active=%b",
+                sequence_step,waiting_for,cycle_count,cmd_ready,dut.renderer_i.state_q,quiescent,
+                present_valid,present_ready,sobel_busy,sobel_error,dut.sobel_control_i.state_q,
+                dut.sobel_control_i.reader_busy,dut.sobel_control_i.reader_done,
+                dut.sobel_control_i.writer_busy,dut.sobel_control_i.writer_done,
+                dut.sobel_control_i.input_count_q,dut.sobel_control_i.output_count_q,
+                dut.roles_i.state_q,pending,dut.roles_i.mailbox_i.request_pending_sys,
+                dut.roles_i.mailbox_i.request_toggle_sys,dut.roles_i.mailbox_i.acknowledge_sync_sys,
+                front_sys,render_id,spare_id,frame_done,done_tag,rb_active);
+        end
+    endtask
 
     graphics_core dut (
         .clk_sys(clk_sys), .clk_pix(clk_pix), .arst(arst),
@@ -56,8 +73,13 @@ module sobel_integration_tb;
     function automatic [7:0] exp_b(input [7:0] p); exp_b={p[1:0],p[1:0],p[1:0],p[1:0]}; endfunction
 
     task automatic send_vector_command;
+        integer ready_guard;
         begin
-            while (!cmd_ready) @(negedge clk_sys);
+            ready_guard=0;
+            while (!cmd_ready) begin
+                @(negedge clk_sys); ready_guard=ready_guard+1;
+                if(ready_guard>500000) begin diag("render command ready"); $fatal(1,"render command ready timeout"); end
+            end
             @(negedge clk_sys);
             cmd.opcode=values[0][3:0]; cmd.tag=values[1][15:0]; cmd.clear_rgb332=values[2][7:0];
             cmd.v0_x=values[3][12:0]; cmd.v0_y=values[4][12:0];
@@ -77,7 +99,7 @@ module sobel_integration_tb;
             guard=0;
             while (!quiescent) begin
                 @(posedge clk_sys); guard=guard+1;
-                if (guard > 200000) $fatal(1,"renderer quiescent timeout");
+                if (guard > 500000) begin diag("renderer quiescent"); $fatal(1,"renderer quiescent timeout"); end
             end
         end
     endtask
@@ -139,13 +161,38 @@ module sobel_integration_tb;
         end
     endtask
 
+    task automatic present_normal(input logic [15:0] tag_value);
+        integer old_front, old_render, old_spare, before_done, ready_guard, done_guard;
+        begin
+            old_front=front_sys; old_render=render_id; old_spare=spare_id;
+            before_done=frame_done_count;
+            @(negedge clk_sys); present_tag=tag_value; present_sobel=0; present_valid=1;
+            ready_guard=0;
+            while(!present_ready) begin
+                @(negedge clk_sys); ready_guard=ready_guard+1;
+                if(ready_guard>500000) begin diag("NORMAL present ready"); $fatal(1,"NORMAL present-ready timeout"); end
+            end
+            @(posedge clk_sys); #1;
+            @(negedge clk_sys); present_valid=0;
+            done_guard=0;
+            while(frame_done_count==before_done) begin
+                @(posedge clk_sys); #1; done_guard=done_guard+1;
+                if(done_guard>500000) begin diag("NORMAL FRAME_DONE"); $fatal(1,"NORMAL FRAME_DONE timeout"); end
+            end
+            if(front_sys!==old_render || front_pix!==old_render || render_id!==old_front ||
+               spare_id!==old_spare || done_tag!==tag_value)
+                $fatal(1,"NORMAL transition mismatch tag=%h F/R/S=%0d/%0d/%0d",tag_value,front_sys,render_id,spare_id);
+            $display("GFX017 NORMAL present tag=%h roles=%0d/%0d/%0d FRAME_DONE=1",tag_value,front_sys,render_id,spare_id);
+        end
+    endtask
+
     task automatic begin_empty_render_frame;
         integer guard_ready;
         begin
             guard_ready=0;
             while(!cmd_ready) begin
                 @(negedge clk_sys); guard_ready=guard_ready+1;
-                if(guard_ready>500000) $fatal(1,"BEGIN_FRAME ready timeout quiescent=%b pending=%b busy=%b",quiescent,pending,sobel_busy);
+                if(guard_ready>500000) begin diag("BEGIN_FRAME ready"); $fatal(1,"BEGIN_FRAME ready timeout"); end
             end
             @(negedge clk_sys);
             cmd='0;
@@ -175,18 +222,27 @@ module sobel_integration_tb;
     endtask
 
     task automatic readback_expected_front(input integer vector_id);
-        integer word_index, byte_index, expected_word;
+        integer word_index, byte_index, expected_word, start_guard, response_guard;
         reg [31:0] expected_sum;
         begin
             $readmemh($sformatf("%s/sobel_expected_%0d.hex", "/tmp/gfx021_vectors", vector_id), sobel_expected);
-            @(negedge clk_sys); rb_tag=16'h6a00+vector_id; rb_start_valid=1;
-            while(!rb_start_ready) @(negedge clk_sys);
+            @(negedge clk_sys); rb_rsp_ready=0; rb_tag=16'h6a00+vector_id; rb_start_valid=1;
+            start_guard=0;
+            while(!rb_start_ready) begin
+                @(negedge clk_sys); start_guard=start_guard+1;
+                if(start_guard>100000) begin diag("readback start ready"); $fatal(1,"readback start-ready timeout"); end
+            end
             @(posedge clk_sys); #1;
             @(negedge clk_sys); rb_start_valid=0;
             word_index=0; byte_errors=0; word_errors=0; expected_sum=0;
             while(word_index<19206) begin
-                @(negedge clk_sys); rb_rsp_ready=1;
-                while(!rb_rsp_valid) @(negedge clk_sys);
+                response_guard=0;
+                @(negedge clk_sys);
+                while(!rb_rsp_valid) begin
+                    @(negedge clk_sys); response_guard=response_guard+1;
+                    if(response_guard>100000) begin diag("readback response valid"); $fatal(1,"readback response timeout word=%0d",word_index); end
+                end
+                rb_word=word_index;
                 case(word_index)
                     0: expected_word=32'hc0000000 | (16'h6a00+vector_id);
                     1: expected_word=19200;
@@ -204,10 +260,12 @@ module sobel_integration_tb;
                     end
                 endcase
                 if(rb_rsp_data!==expected_word[31:0]) word_errors=word_errors+1;
-                @(posedge clk_sys); #1; word_index=word_index+1;
+                rb_rsp_ready=1;
+                @(posedge clk_sys); #1; rb_rsp_ready=0; word_index=word_index+1;
             end
             if(byte_errors || word_errors || !rb_complete || rb_active)
                 $fatal(1,"Sobel FRONT readback mismatch vector=%0d bytes=%0d words=%0d",vector_id,byte_errors,word_errors);
+            $display("GFX021 Sobel readback vector=%0d words=19206 bytes=76800 byte_mismatches=0 word_mismatches=0",vector_id);
         end
     endtask
 
@@ -232,7 +290,7 @@ module sobel_integration_tb;
             while(frame_done_count==done_before) begin
                 @(posedge clk_sys); #1; guard=guard+1;
                 if(sobel_error) $fatal(1,"Sobel controller error vector=%0d",vector_id);
-                if(guard>500000) $fatal(1,"Sobel frame timeout vector=%0d",vector_id);
+                if(guard>500000) begin diag("Sobel FRAME_DONE"); $fatal(1,"Sobel frame timeout vector=%0d",vector_id); end
             end
             monitor_sobel=0;
             if(monitor_reads!=PIXELS || monitor_inputs!=PIXELS || monitor_outputs!=PIXELS || monitor_writes!=PIXELS ||
@@ -244,6 +302,7 @@ module sobel_integration_tb;
             if(front_sys!=old_spare || front_pix!=old_spare || render_id!=old_front || spare_id!=old_render ||
                done_tag!=(16'h7200+vector_id) || !front_valid_sys || sobel_error)
                 $fatal(1,"Sobel role/tag transition failed vector=%0d F/R/S=%0d/%0d/%0d",vector_id,front_sys,render_id,spare_id);
+            $display("GFX021 Sobel present tag=%h roles=%0d/%0d/%0d FRAME_DONE=1",16'h7200+vector_id,front_sys,render_id,spare_id);
             mismatch_count=0;
             for(k=0;k<PIXELS;k=k+1) begin
                 case(old_spare)
@@ -303,26 +362,28 @@ module sobel_integration_tb;
     endtask
 
     task automatic compare_scanout_frame;
-        integer scan_errors, output_addr;
+        integer scan_errors, output_addr, scan_cycles;
         begin
-            active_pixels=0; scan_errors=0;
-            while(active_pixels<640*480) begin
+            active_pixels=0; scan_errors=0; scan_cycles=0;
+            while(active_pixels<640*480 && scan_cycles<2*800*525) begin
                 @(negedge clk_pix);
+                scan_cycles=scan_cycles+1;
                 if(active_video) begin
                     output_addr=(dut.pixel_y/2)*320+(dut.pixel_x/2);
                     if(dut.pixel_x<0 || dut.pixel_x>639 || dut.pixel_y<0 || dut.pixel_y>479 ||
                        red!==exp_r(exp_fb[output_addr][7:0]) ||
                        green!==exp_g(exp_fb[output_addr][7:0]) ||
                        blue!==exp_b(exp_fb[output_addr][7:0])) begin
-                        if(scan_errors==0) $display("scan mismatch frame=%0d x/y=%0d/%0d addr=%0d rgb=%h%h%h expected=%h",
-                            frame,dut.pixel_x,dut.pixel_y,output_addr,red,green,blue,exp_fb[output_addr]);
+                        if(scan_errors==0) $display("scan mismatch step=%0d x/y=%0d/%0d addr=%0d rgb=%h%h%h expected=%h",
+                            sequence_step,dut.pixel_x,dut.pixel_y,output_addr,red,green,blue,exp_fb[output_addr]);
                         scan_errors=scan_errors+1;
                     end
                     active_pixels=active_pixels+1;
                 end
             end
+            if(active_pixels!=640*480) begin diag("complete scanout frame"); $fatal(1,"scanout watchdog active=%0d cycles=%0d",active_pixels,scan_cycles); end
             if(scan_errors) $fatal(1,"full scanout errors=%0d",scan_errors);
-            $display("GFX017 complete scanout frame=%0d active_pixels=%0d mismatches=0",frame,active_pixels);
+            $display("GFX017 complete scanout step=%0d active_pixels=%0d mismatches=0",sequence_step,active_pixels);
         end
     endtask
 
@@ -413,6 +474,7 @@ module sobel_integration_tb;
     end
 
     initial begin
+        cycle_count=0; sequence_step=0;
         cmd_valid=0; cmd='0; present_valid=0; present_sobel=0; sobel_threshold=8'd128;
         sobel_bypass=0; present_tag=0; rb_start_valid=0; rb_tag=0;
         rb_rsp_ready=0; frame_done_count=0; switch_count=0; active_pixels=0;
@@ -428,12 +490,30 @@ module sobel_integration_tb;
         end
         repeat(5) @(posedge clk_sys);
         if(front_sys!=0 || render_id!=1 || spare_id!=2 || front_valid_pix) $fatal(1,"initial role state");
+        sequence_step=1;
+        render_vector(0);
+        present_normal(16'h7100);
+        compare_scanout_frame();
+
+        sequence_step=2;
         render_vector(0);
         run_sobel_case(4,8'd96,1'b0,1'b0);
+
+        sequence_step=3;
+        run_sobel_case(1,8'd72,1'b0,1'b1);
+
+        sequence_step=4;
+        render_vector(0);
+        present_normal(16'h7101);
+        compare_scanout_frame();
+        if(front_sys!==2 || render_id!==0 || spare_id!==1 || frame_done_count!=4)
+            $fatal(1,"NORMAL->SOBEL->SOBEL->NORMAL final state F/R/S=%0d/%0d/%0d done=%0d",
+                   front_sys,render_id,spare_id,frame_done_count);
         if(switch_count!=0) $fatal(1,"mid-frame front changes=%0d",switch_count);
-        $display("GFX021 real renderer→parent Sobel→SPARE→FRONT PASS frame_done=%0d safe_switches=%0d",
+        $display("GFX021 NORMAL->SOBEL->SOBEL->NORMAL PASS frame_done=%0d safe_switches=%0d",
                  frame_done_count,safe_count);
 
+        sequence_step=5;
         begin_empty_render_frame();
         load_render_source(0);
         monitor_reads=0; monitor_inputs=0; monitor_outputs=0; monitor_writes=0;
