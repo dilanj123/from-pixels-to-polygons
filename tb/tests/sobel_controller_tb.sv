@@ -21,7 +21,7 @@ module sobel_controller_tb;
     string vec_dir, path;
 
     sobel_controller dut (
-        .clk_sys(clk),.rst(rst),.start_valid(start_valid),.start_ready(start_ready),
+        .clk_sys(clk),.rst(rst),.recover(1'b0),.start_valid(start_valid),.start_ready(start_ready),
         .start_tag(start_tag),.render_id(render_id),.spare_id(spare_id),
         .renderer_quiescent(renderer_quiescent),.readback_active(readback_active),
         .cfg_threshold(threshold),.cfg_bypass(bypass),.busy(busy),.done(done),.error(error),

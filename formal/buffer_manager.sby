@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 16
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -D SYNTHESIS -sv present_cdc.sv buffer_manager.sv buffer_manager_formal.sv
+prep -top buffer_manager_formal
+
+[files]
+rtl/present_cdc.sv
+rtl/buffer_manager.sv
+formal/buffer_manager_formal.sv

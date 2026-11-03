@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 12
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -D SYNTHESIS -sv gfx_pkg.sv raster_walk.sv raster_bounds_formal.sv
+prep -top raster_bounds_formal
+
+[files]
+rtl/gfx_pkg.sv
+rtl/raster_walk.sv
+formal/raster_bounds_formal.sv

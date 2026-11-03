@@ -17,6 +17,7 @@ module buffer_manager (
     output logic       front_valid_sys,
     output logic       front_valid_pix,
     output logic       presentation_pending,
+    output logic       present_wait_cycle,
     output logic       frame_done,
     output logic [15:0] frame_done_tag
 );
@@ -34,6 +35,7 @@ module buffer_manager (
     assign accepted_present = present_valid && present_ready;
     assign request_front_id = present_sobel ? spare_id : render_id;
     assign presentation_pending = (state_q != M_IDLE) || request_pending;
+    assign present_wait_cycle = (state_q == M_WAIT_ACK);
     present_cdc mailbox_i (
         .clk_sys(clk_sys), .rst_sys(rst_sys),
         .request_valid(accepted_present), .request_ready(request_ready),

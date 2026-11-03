@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 8
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv gfx_pkg.sv fragment_z.sv fragment_depth_formal.sv
+prep -top fragment_depth_formal
+
+[files]
+rtl/gfx_pkg.sv
+rtl/fragment_z.sv
+formal/fragment_depth_formal.sv

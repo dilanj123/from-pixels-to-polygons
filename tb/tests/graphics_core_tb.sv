@@ -30,6 +30,7 @@ module graphics_core_tb;
 
     graphics_core dut (
         .clk_sys(clk_sys), .clk_pix(clk_pix), .arst(arst),
+        .fatal_recover(1'b0), .command_fifo_level(11'd0),
         .render_cmd_valid(cmd_valid), .render_cmd_ready(cmd_ready), .render_cmd(cmd),
         .present_valid(present_valid), .present_ready(present_ready), .present_tag(present_tag),
         .present_sobel(present_sobel), .sobel_threshold(sobel_threshold),

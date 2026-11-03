@@ -2,6 +2,8 @@ module graphics_core (
     input  logic                       clk_sys,
     input  logic                       clk_pix,
     input  logic                       arst,
+    input  logic                       fatal_recover,
+    input  logic [10:0]                command_fifo_level,
     input  logic                       render_cmd_valid,
     output logic                       render_cmd_ready,
     input  gfx_pkg::decoded_command_t render_cmd,
@@ -43,6 +45,7 @@ module graphics_core (
     logic rst_sys, rst_pix;
     logic render_ready_core, render_valid_core, renderer_idle;
     logic roles_present_ready;
+    logic present_wait_cycle;
     logic render_fb_wr_en;
     logic [16:0] render_fb_wr_addr, rb_addr, scan_addr;
     logic [7:0] render_fb_wr_data, rb_data;
@@ -107,10 +110,12 @@ module graphics_core (
     end
 
     renderer_core renderer_i (
-        .clk_sys(clk_sys), .rst(rst_sys), .frame_restart(frame_done),
+        .clk_sys(clk_sys), .rst(rst_sys),
+        .frame_restart(frame_done || (fatal_recover && renderer_quiescent)),
         .render_cmd_valid(render_valid_core), .render_cmd_ready(render_ready_core),
         .render_cmd(render_cmd), .frame_completed_event(frame_done),
-        .present_wait_cycle(1'b0), .sobel_cycle(1'b0), .command_fifo_level(11'd0),
+        .present_wait_cycle(present_wait_cycle), .sobel_cycle(sobel_busy),
+        .command_fifo_level(command_fifo_level),
         .perf_counters(perf_counters), .render_fb_wr_en(render_fb_wr_en),
         .render_fb_wr_addr(render_fb_wr_addr), .render_fb_wr_data(render_fb_wr_data),
         .renderer_idle(renderer_idle),
@@ -127,11 +132,12 @@ module graphics_core (
         .front_id_sys(front_id_sys), .render_id(render_id), .spare_id(spare_id),
         .front_id_pix(front_id_pix), .front_valid_sys(front_valid_sys),
         .front_valid_pix(front_valid_pix), .presentation_pending(presentation_pending),
+        .present_wait_cycle(present_wait_cycle),
         .frame_done(frame_done), .frame_done_tag(frame_done_tag)
     );
 
     sobel_controller sobel_control_i (
-        .clk_sys(clk_sys), .rst(rst_sys),
+        .clk_sys(clk_sys), .rst(rst_sys), .recover(fatal_recover),
         .start_valid(present_valid && present_sobel && present_ready),
         .start_ready(sobel_start_ready), .start_tag(present_tag),
         .render_id(render_id), .spare_id(spare_id),

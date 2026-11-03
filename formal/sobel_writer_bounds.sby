@@ -1,0 +1,13 @@
+[options]
+mode prove
+
+[engines]
+abc pdr
+
+[script]
+read -formal -sv sobel_fb_writer.sv sobel_writer_bounds_formal.sv
+prep -top sobel_writer_bounds_formal
+
+[files]
+rtl/sobel_fb_writer.sv
+formal/sobel_writer_bounds_formal.sv

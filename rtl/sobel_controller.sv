@@ -1,6 +1,7 @@
 module sobel_controller (
     input  logic        clk_sys,
     input  logic        rst,
+    input  logic        recover,
     input  logic        start_valid,
     output logic        start_ready,
     input  logic [15:0] start_tag,
@@ -161,6 +162,25 @@ module sobel_controller (
             status_q <= 0;
             done <= 0;
             error <= 0;
+        end else if (recover) begin
+            state_q <= S_IDLE;
+            tag_q <= 16'd0;
+            source_id_q <= 2'd0;
+            destination_id_q <= 2'd0;
+            baseline_count_q <= 32'd0;
+            timeout_q <= 32'd0;
+            input_count_q <= 17'd0;
+            output_count_q <= 17'd0;
+            input_eol_count_q <= 9'd0;
+            output_eol_count_q <= 9'd0;
+            input_sof_seen_q <= 1'b0;
+            output_sof_seen_q <= 1'b0;
+            input_done_seen_q <= 1'b0;
+            output_done_seen_q <= 1'b0;
+            final_output_eol_q <= 1'b0;
+            status_q <= 8'd0;
+            done <= 1'b0;
+            error <= 1'b0;
         end else begin
             done <= 0;
             case (state_q)

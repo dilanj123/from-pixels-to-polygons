@@ -1,4 +1,4 @@
-.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer lint-presentation test-presentation test-graphics-core lint-sobel-adapters test-sobel-adapters lint-sobel-integration test-sobel-integration test-sobel-modes test-sobel-controller
+.PHONY: help doctor bootstrap-smoke synth-memory lint-fifo test-fifo formal-fifo lint-decoder test-decoder formal-decoder lint-clear test-clear formal-clear lint-triangle-setup test-triangle-setup lint-raster-walk test-raster-walk lint-fragment-z test-fragment-z lint-perf-counters test-perf-counters lint-renderer test-renderer test-memory-wrappers test-renderer-decoder test-renderer-reset test-renderer-counters lint-readback test-readback test-readback-framebuffer lint-presentation test-presentation test-graphics-core lint-sobel-adapters test-sobel-adapters lint-sobel-integration test-sobel-integration test-sobel-modes test-sobel-controller lint-command-system test-command-system lint-uart test-uart test-host test-uart-system formal-buffer-manager formal-fragment-depth formal-sobel-addresses formal-raster-bounds formal-gate8
 
 SOBEL_PARENT_RTL = ip/rtl-to-pixels/rtl/pixel_pkg.sv ip/rtl-to-pixels/rtl/rgb_to_gray.sv \
 	ip/rtl-to-pixels/rtl/elastic_stage.sv ip/rtl-to-pixels/rtl/apb_regs.sv \
@@ -13,15 +13,16 @@ SOBEL_GRAPHICS_RTL = rtl/gfx_pkg.sv third_party/projectf/lib/display/display_480
 	rtl/renderer_core.sv rtl/readback_engine.sv rtl/present_cdc.sv rtl/buffer_manager.sv \
 	rtl/sobel_fb_reader.sv rtl/sobel_fb_writer.sv rtl/sobel_apb_master.sv rtl/sobel_controller.sv \
 	$(SOBEL_PARENT_RTL) rtl/graphics_core.sv
+SYSTEM_COMMAND_RTL = rtl/gfx_pkg.sv rtl/cmd_fifo.sv rtl/cmd_decoder.sv $(filter-out rtl/gfx_pkg.sv,$(SOBEL_GRAPHICS_RTL)) rtl/graphics_command_top.sv
 
 help:
-	@printf '%s\n' 'Available targets:' '  make doctor             Report bootstrap environment status' '  make bootstrap-smoke    Run read-only Phase-0 checks' '  make synth-memory       Run the GFX-004 ECP5 memory inference spike' '  make lint-presentation  Lint Gate-5 renderer/display composition' '  make test-presentation  Check mailbox/role CDC at three clock phases' '  make test-graphics-core Run three NORMAL reference-rendered frames' '  make lint-sobel-adapters Lint GFX-018/019/020 adapters' '  make test-sobel-adapters Run full-frame adapter/mock regression' '  make lint-sobel-integration Lint real Sobel graphics composition' '  make test-sobel-integration Run renderer-to-Sobel full composition' '  make test-sobel-controller Compare five parent frames to Python oracle' '  make test-sobel-modes Check NORMAL/SOBEL role transitions'
+	@printf '%s\n' 'Available targets:' '  make doctor             Report bootstrap environment status' '  make bootstrap-smoke    Run read-only Phase-0 checks' '  make synth-memory       Run the GFX-004 ECP5 memory inference spike' '  make lint-command-system Lint host command/response integration' '  make test-command-system Run command-path protocol regression' '  make lint-uart          Lint UART word bridge' '  make test-uart          Run UART serial loopback regression' '  make test-host          Run host protocol helper tests' '  make lint-presentation  Lint Gate-5 renderer/display composition' '  make test-presentation  Check mailbox/role CDC at three clock phases' '  make test-graphics-core Run three NORMAL reference-rendered frames' '  make lint-sobel-adapters Lint GFX-018/019/020 adapters' '  make test-sobel-adapters Run full-frame adapter/mock regression' '  make lint-sobel-integration Lint real Sobel graphics composition' '  make test-sobel-integration Run renderer-to-Sobel full composition' '  make test-sobel-controller Compare five parent frames to Python oracle' '  make test-sobel-modes Check NORMAL/SOBEL role transitions'
 
 doctor:
-	@python3 scripts/doctor.py
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && python3 scripts/doctor.py
 
 bootstrap-smoke: doctor
-	@set -eu; test -f 00_MASTER_PROJECT_PLAN.md; test -f 01_CHATGPT_PROJECT_OPERATING_INSTRUCTIONS.md; test -f 04_MASTER_CHECKLIST.md; test -f docs/PROJECT_STATE.md; test -f docs/EVIDENCE_INDEX.md; if find rtl ip sw tb formal -type f \( -name '*.sv' -o -name '*.v' -o -name '*.vhd' \) ! -path 'rtl/memory_spike/*' ! -path 'ip/rtl-to-pixels/*' ! -path 'rtl/gfx_pkg.sv' ! -path 'rtl/cmd_fifo.sv' ! -path 'rtl/cmd_decoder.sv' ! -path 'rtl/clear_engine.sv' ! -path 'rtl/triangle_setup.sv' ! -path 'rtl/raster_walk.sv' ! -path 'rtl/fragment_z.sv' ! -path 'rtl/perf_counters.sv' ! -path 'rtl/framebuffer_dp.sv' ! -path 'rtl/zbuffer.sv' ! -path 'rtl/renderer_core.sv' ! -path 'rtl/readback_engine.sv' ! -path 'rtl/present_cdc.sv' ! -path 'rtl/buffer_manager.sv' ! -path 'rtl/graphics_core.sv' ! -path 'rtl/scanout_2x.sv' ! -path 'rtl/sobel_fb_reader.sv' ! -path 'rtl/sobel_fb_writer.sv' ! -path 'rtl/sobel_apb_master.sv' ! -path 'rtl/sobel_controller.sv' ! -path 'tb/tests/gfx_pkg_tb.sv' ! -path 'tb/tests/cmd_fifo_tb.sv' ! -path 'tb/tests/cmd_decoder_tb.sv' ! -path 'tb/tests/clear_engine_tb.sv' ! -path 'tb/tests/triangle_setup_tb.sv' ! -path 'tb/tests/raster_walk_tb.sv' ! -path 'tb/tests/fragment_z_tb.sv' ! -path 'tb/tests/memory_wrappers_tb.sv' ! -path 'tb/tests/renderer_core_tb.sv' ! -path 'tb/tests/renderer_decoder_smoke_tb.sv' ! -path 'tb/tests/renderer_reset_tb.sv' ! -path 'tb/tests/perf_counters_tb.sv' ! -path 'tb/tests/renderer_counter_tb.sv' ! -path 'tb/tests/readback_engine_tb.sv' ! -path 'tb/tests/readback_framebuffer_tb.sv' ! -path 'tb/tests/buffer_manager_tb.sv' ! -path 'tb/tests/graphics_core_tb.sv' ! -path 'tb/tests/scanout_2x_tb.sv' ! -path 'tb/tests/sobel_adapters_tb.sv' ! -path 'tb/tests/sobel_modes_tb.sv' ! -path 'tb/tests/sobel_integration_tb.sv' ! -path 'tb/tests/sobel_controller_tb.sv' ! -path 'formal/cmd_fifo_formal.sv' ! -path 'formal/cmd_fifo.sby' ! -path 'formal/cmd_fifo/*' ! -path 'formal/cmd_decoder_formal.sv' ! -path 'formal/cmd_decoder.sby' ! -path 'formal/cmd_decoder/*' ! -path 'formal/clear_engine_formal.sv' ! -path 'formal/clear_engine.sby' ! -path 'formal/clear_engine/*' -print -quit | grep -q .; then echo 'ERROR: out-of-scope functional implementation HDL found in bootstrap smoke scope' >&2; exit 1; fi; echo 'bootstrap-smoke: PASS (structure; authorized GFX primitive, renderer, readback, Gate-5 and GFX-018/019/020/021/022 HDL excluded)'
+	@set -eu; test -f 00_MASTER_PROJECT_PLAN.md; test -f 01_CHATGPT_PROJECT_OPERATING_INSTRUCTIONS.md; test -f 04_MASTER_CHECKLIST.md; test -f docs/PROJECT_STATE.md; test -f docs/EVIDENCE_INDEX.md; if find rtl ip sw tb formal -type f \( -name '*.sv' -o -name '*.v' -o -name '*.vhd' \) ! -path 'rtl/memory_spike/*' ! -path 'ip/rtl-to-pixels/*' ! -path 'rtl/gfx_pkg.sv' ! -path 'rtl/cmd_fifo.sv' ! -path 'rtl/cmd_decoder.sv' ! -path 'rtl/clear_engine.sv' ! -path 'rtl/triangle_setup.sv' ! -path 'rtl/raster_walk.sv' ! -path 'rtl/fragment_z.sv' ! -path 'rtl/perf_counters.sv' ! -path 'rtl/framebuffer_dp.sv' ! -path 'rtl/zbuffer.sv' ! -path 'rtl/renderer_core.sv' ! -path 'rtl/readback_engine.sv' ! -path 'rtl/present_cdc.sv' ! -path 'rtl/buffer_manager.sv' ! -path 'rtl/graphics_core.sv' ! -path 'rtl/scanout_2x.sv' ! -path 'rtl/sobel_fb_reader.sv' ! -path 'rtl/sobel_fb_writer.sv' ! -path 'rtl/sobel_apb_master.sv' ! -path 'rtl/sobel_controller.sv' ! -path 'rtl/graphics_command_top.sv' ! -path 'rtl/uart_word_bridge.sv' ! -path 'rtl/graphics_uart_top.sv' ! -path 'tb/tests/graphics_command_top_tb.sv' ! -path 'tb/tests/graphics_uart_top_tb.sv' ! -path 'tb/tests/uart_word_bridge_tb.sv' ! -path 'tb/tests/gfx_pkg_tb.sv' ! -path 'tb/tests/cmd_fifo_tb.sv' ! -path 'tb/tests/cmd_decoder_tb.sv' ! -path 'tb/tests/clear_engine_tb.sv' ! -path 'tb/tests/triangle_setup_tb.sv' ! -path 'tb/tests/raster_walk_tb.sv' ! -path 'tb/tests/fragment_z_tb.sv' ! -path 'tb/tests/memory_wrappers_tb.sv' ! -path 'tb/tests/renderer_core_tb.sv' ! -path 'tb/tests/renderer_decoder_smoke_tb.sv' ! -path 'tb/tests/renderer_reset_tb.sv' ! -path 'tb/tests/perf_counters_tb.sv' ! -path 'tb/tests/renderer_counter_tb.sv' ! -path 'tb/tests/readback_engine_tb.sv' ! -path 'tb/tests/readback_framebuffer_tb.sv' ! -path 'tb/tests/buffer_manager_tb.sv' ! -path 'tb/tests/graphics_core_tb.sv' ! -path 'tb/tests/scanout_2x_tb.sv' ! -path 'tb/tests/sobel_adapters_tb.sv' ! -path 'tb/tests/sobel_modes_tb.sv' ! -path 'tb/tests/sobel_integration_tb.sv' ! -path 'tb/tests/sobel_controller_tb.sv' ! -path 'formal/cmd_fifo_formal.sv' ! -path 'formal/cmd_fifo.sby' ! -path 'formal/cmd_fifo/*' ! -path 'formal/cmd_decoder_formal.sv' ! -path 'formal/cmd_decoder.sby' ! -path 'formal/cmd_decoder/*' ! -path 'formal/clear_engine_formal.sv' ! -path 'formal/clear_engine.sby' ! -path 'formal/clear_engine/*' ! -path 'formal/buffer_manager_formal.sv' ! -path 'formal/buffer_manager.sby' ! -path 'formal/fragment_depth_formal.sv' ! -path 'formal/fragment_depth.sby' ! -path 'formal/sobel_reader_bounds_formal.sv' ! -path 'formal/sobel_reader_bounds.sby' ! -path 'formal/sobel_writer_bounds_formal.sv' ! -path 'formal/sobel_writer_bounds.sby' ! -path 'formal/raster_bounds_formal.sv' ! -path 'formal/raster_bounds.sby' ! -path 'formal/buffer_manager/*' ! -path 'formal/fragment_depth/*' ! -path 'formal/sobel_reader_bounds/*' ! -path 'formal/sobel_writer_bounds/*' ! -path 'formal/raster_bounds/*' -print -quit | grep -q .; then echo 'ERROR: out-of-scope functional implementation HDL found in bootstrap smoke scope' >&2; exit 1; fi; echo 'bootstrap-smoke: PASS (structure; authorized GFX primitive, renderer, readback, Gate-5 and GFX-018/019/020/021/022 HDL excluded)'
 
 synth-memory:
 	@scripts/synth/run_memory_spike.sh
@@ -139,3 +140,36 @@ test-sobel-controller:
 
 test-sobel-modes:
 	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s sobel_modes_tb -o /tmp/sobel_modes_tb rtl/present_cdc.sv rtl/buffer_manager.sv tb/tests/sobel_modes_tb.sv && vvp /tmp/sobel_modes_tb
+
+lint-command-system:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 -Wno-TIMESCALEMOD --top-module graphics_command_top $(SYSTEM_COMMAND_RTL) && verilator --lint-only --language 1800-2012 -Wno-TIMESCALEMOD --top-module graphics_uart_top $(SYSTEM_COMMAND_RTL) rtl/uart_word_bridge.sv rtl/graphics_uart_top.sv
+
+test-command-system:
+	@python3 tb/tests/generate_command_system_vectors.py
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s graphics_command_top_tb -o /tmp/graphics_command_top_tb $(SYSTEM_COMMAND_RTL) tb/tests/graphics_command_top_tb.sv && vvp /tmp/graphics_command_top_tb
+
+lint-uart:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && verilator --lint-only --language 1800-2012 --top-module uart_word_bridge rtl/uart_word_bridge.sv
+
+test-uart:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s uart_word_bridge_tb -o /tmp/uart_word_bridge_tb rtl/uart_word_bridge.sv tb/tests/uart_word_bridge_tb.sv && vvp /tmp/uart_word_bridge_tb
+
+test-uart-system:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && iverilog -g2012 -s graphics_uart_top_tb -o /tmp/graphics_uart_top_tb $(SYSTEM_COMMAND_RTL) rtl/uart_word_bridge.sv rtl/graphics_uart_top.sv tb/tests/graphics_uart_top_tb.sv && vvp /tmp/graphics_uart_top_tb
+
+test-host:
+	@PYTHONPATH=sw/host python3 -m unittest -v test_gfx_host
+
+formal-buffer-manager:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && sby -f formal/buffer_manager.sby
+
+formal-fragment-depth:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && sby -f formal/fragment_depth.sby
+
+formal-sobel-addresses:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && sby -f formal/sobel_reader_bounds.sby && sby -f formal/sobel_writer_bounds.sby
+
+formal-raster-bounds:
+	@source /Users/Dilan/eda/wire-to-decision/oss-cad-suite/environment && sby -f formal/raster_bounds.sby
+
+formal-gate8: formal-fifo formal-buffer-manager formal-raster-bounds formal-fragment-depth formal-sobel-addresses
