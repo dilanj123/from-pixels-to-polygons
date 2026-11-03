@@ -451,3 +451,21 @@ CLOSED based on the checked simulation requirements. The earlier stalled run
 is retained as debugging history; the corrected regression now passes the
 complete graphics-core mode sequence. Next task: G7-G8-SYSTEM-VERIFY —
 GFX-023 through GFX-025.
+
+## G7-G8-SYSTEM-VERIFY — GFX-023/024/025
+
+See `results/processed/G7-G8-SYSTEM-VERIFY.md` for exact scope, runs,
+assumptions and remaining gates.
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| Public 32-bit command controller traverses four NORMAL/SOBEL presentations | `make test-command-system` | Real FIFO/decoder/graphics core, pinned parent, presentation and readback; four tagged completions; 307,200 readback bytes compared; final triangle image compared to independent Python output | RTL SIMULATION VERIFIED |
+| STATUS, COUNTERS, ERROR and FRAME_DONE stream semantics | `make test-command-system` | Packet lengths/tags, W1/W9 counter fields, frozen payloads, stalled STATUS/COUNTERS header, illegal-state and unknown-opcode errors | RTL SIMULATION VERIFIED |
+| UART word link and command-top composition | `make test-uart`, `make test-uart-system` | CPB=16 digital simulation; little-endian word order; NOP+GET_STATUS; framing/overrun block behavior | RTL SIMULATION VERIFIED |
+| Python host encoding/response helpers | `make test-host` | Four stdlib tests; includes exact 76,800-byte READ_FRONT reconstruction/checksum | HOST SOFTWARE UNIT TESTED |
+| Selected FIFO/role/raster/depth/Sobel formal checks | `make formal-gate8`; `make formal-decoder formal-clear` | Exact bounded, reduced and PDR scopes are recorded in processed report; CDC uses same-clock abstraction | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+
+Gate 7 remains OPEN for the full response backpressure/reset/fatal-error and
+all-counter public-path matrix. Gate 8 remains OPEN because asynchronous-clock
+CDC safety is not established by the same-clock formal abstraction. No
+synthesis, timing, physical UART, or hardware evidence is claimed.

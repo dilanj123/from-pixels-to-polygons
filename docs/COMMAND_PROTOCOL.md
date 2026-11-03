@@ -108,6 +108,68 @@ W11 triangle_setup_cycles       W12 present_wait_cycles
 W13 sobel_cycles                W14 command_fifo_high_watermark
 ```
 
+## GFX-023 response payload clarification (D-037)
+
+The response packet lengths and header above remain unchanged. The previously
+unspecified trailing words are frozen as follows:
+
+```text
+FRAME_DONE W1 = 32'h00000000
+ERROR      W1[7:0] = error_code; W1[31:8] = 0
+
+STATUS W1 flags:
+  bit 0 frame_active
+  bit 1 front_valid
+  bit 2 presentation_pending
+  bit 3 readback_active
+  bit 4 sobel_busy
+  bit 5 sticky CMD_ERROR
+  bit 6 sobel_config_valid
+  bits 31:7 = 0
+
+STATUS W2 roles:
+  bits 1:0 FRONT_ID
+  bits 3:2 RENDER_ID
+  bits 5:4 SPARE_ID
+  bits 31:6 = 0
+```
+
+The status flags are architectural conditions, not internal FSM encodings.
+FRAME_DONE carries its tag in W0; W1 is reserved zero for forward-compatible
+success status. The ERROR code is the existing frozen 0x01–0x09 code.
+
+NOP, BEGIN_FRAME, DRAW_TRIANGLE, and SET_SOBEL have no success response.
+PRESENT produces FRAME_DONE after synchronized presentation acknowledgment
+and role update. Syntax/runtime rejection produces ERROR. READ_FRONT,
+GET_STATUS, and GET_COUNTERS produce their specified response streams.
+
+## GFX-023 UART word transport (D-038)
+
+The UART adapter is a byte transport around the canonical 32-bit word
+ready/valid interface; it does not add command framing or opcodes. Both
+directions use asynchronous 8N1 bytes (one low start bit, eight data bits LSB
+first, one high stop bit). Within each 32-bit word, byte 0 carries bits 7:0,
+then bits 15:8, 23:16, and 31:24. The word is handed to the command/response
+interface only when all four bytes have been received/transmitted as a word.
+
+The baud divider is `CLKS_PER_BIT`, default 217 for a nominal 25 MHz system
+clock and 115200 baud; simulation may override it. This is a logical transport
+setting, not a board clock or physical UART claim. There is no hardware flow
+control. The bridge has one pending command-word register. If a further
+complete RX word arrives while that register is occupied and downstream
+`cmd_ready` is low, it sets sticky `rx_overrun`, drops the overflowing word,
+and disables further command delivery until reset. A bad stop bit sets sticky
+`rx_framing_error`, discards the partial word, and likewise blocks command
+delivery until reset. The host shall submit no more than the documented
+774-word guaranteed frame list and wait for FRAME_DONE/ERROR before submitting
+the next frame. Status remains available to host software through the logical
+command interface; the UART wrapper does not invent an in-band error packet.
+
+The TX bridge accepts a response word only when its 32-bit holding register is
+free, then serializes its four bytes in the same little-endian order. It holds
+the upstream response stable by deasserting `rsp_ready` while that word is
+being serialized. UART simulation verifies digital framing/ordering only.
+
 ## READ_FRONT framing
 
 READ_FRONT is legal only in IDLE with `front_valid_sys=1` and no presentation

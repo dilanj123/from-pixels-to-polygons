@@ -178,29 +178,29 @@ timing, and hardware evidence are not claimed.
 
 ## Gate 7 — Deep Regression
 
-- [ ] command valid gaps
-- [ ] command FIFO stress
+- [x] command valid gaps — decoder tests and public command-path packet atomicity
+- [x] command FIFO stress — 1024-word fill/drain and ordering regression
 - [ ] response backpressure
 - [ ] reset matrix
-- [ ] randomized legal triangles
-- [ ] randomized rejection cases
-- [ ] multiple frames
-- [ ] async display/system phase variation
-- [ ] readback regression
-- [ ] performance-counter scoreboard
-- [ ] requirement→test traceability
-- [ ] regression for every known functional defect
+- [x] randomized legal triangles — renderer fixed-seed reference comparisons
+- [x] randomized rejection cases — decoder malformed/resynchronization regression
+- [x] multiple frames — public NORMAL/SOBEL/SOBEL/NORMAL command-path sequence
+- [x] async display/system phase variation — three Gate-5 deterministic phase cases
+- [x] readback regression — four public-path full-frame readbacks plus GFX-014 regression
+- [x] performance-counter scoreboard — GFX-013 renderer scoreboard; public W1/W9 checks
+- [x] requirement→test traceability — G7-G8 evidence report
+- [x] regression for every known functional defect — illegal active-state query regression
 
 ## Gate 8 — Formal Depth
 
-- [ ] FIFO formal
-- [ ] buffer-role formal
-- [ ] CDC safety formal
-- [ ] address-bound formal
-- [ ] selected raster counter formal
-- [ ] depth write implication formal
-- [ ] Sobel bridge counter formal
-- [ ] formal assumptions/limitations documented
+- [x] FIFO formal — depth-4 scalar ghost queue, bounded depth 12
+- [x] buffer-role formal — role uniqueness/tagged completion, bounded depth 16
+- [ ] CDC safety formal — same-clock digital abstraction only; unrelated-clock safety remains open
+- [x] address-bound formal — Sobel reader/writer address and transfer sequence PDR
+- [x] selected raster counter formal — reduced 4×3 bbox, bounded depth 12
+- [x] depth write implication formal — bounded depth 8
+- [x] Sobel bridge counter formal — reader/writer accepted address ordering PDR
+- [x] formal assumptions/limitations documented — G7-G8 evidence report
 
 ## Gate 9 — Synthesis / Route Baseline
 

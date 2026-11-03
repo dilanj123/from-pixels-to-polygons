@@ -42,10 +42,12 @@ Instructions.
 | D-034 | Freeze unsigned32 modulo performance counters, lifetime/per-frame reset domains, exact increment events, cycle-count definitions, passive instrumentation boundaries, future presentation/Sobel event inputs, FIFO high-watermark sampling, and W1–W14 ordering as specified in `docs/MICROARCHITECTURE.md`. |
 | D-035 — Snapshot framebuffer readback, synchronous packing and response-stream contract | Freeze standalone framebuffer readback start/snapshot, FRONT role lock, one-cycle synchronous reads, little-endian four-pixel packing, exact 19206-word response, modulo checksum, backpressure, completion, reset-abort, and Gate-4/Gate-5 boundary as specified in `docs/MICROARCHITECTURE.md`. |
 | D-036 — Gate-5 simulation timing, renderer memory boundary and reviewed display support | Freeze the 640×480p60 logical scanout timing, exact 2× mapping and one-cycle memory alignment, reset/clock/mailbox semantics, NORMAL role/presentation behavior, renderer logical framebuffer-write port for three-buffer composition, and the sole selected Project F timing source file at its exact MIT-licensed commit, as specified in `docs/MICROARCHITECTURE.md`. Board pins, PLL/serializer, programming and physical display remain later implementation matters. |
+| D-037 — Command response payload words | Freeze previously unspecified FRAME_DONE W1 as zero, ERROR W1[7:0] as the existing error code with upper bits zero, and STATUS W1/W2 as the documented architectural flags and FRONT/RENDER/SPARE IDs in `docs/COMMAND_PROTOCOL.md`; packet types, lengths, tags, and counter order are unchanged. |
+| D-038 — UART word transport | Freeze GFX-023 UART as 8N1, LSB-first serial bytes, four-byte little-endian 32-bit words, parameterized `CLKS_PER_BIT` default 217 at nominal 25 MHz/115200 baud, one pending RX word, and sticky framing/overrun block-until-reset behavior, as specified in `docs/COMMAND_PROTOCOL.md`. No physical baud/clock claim is implied. |
 
 ## Status
 
-D-001 through D-036 are architectural decisions classified as `SPECIFIED`.
+D-001 through D-038 are architectural decisions classified as `SPECIFIED`.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation

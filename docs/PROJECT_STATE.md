@@ -80,11 +80,22 @@
   readbacks, allowing the final checksum to transfer before the scoreboard
   observed it. The checker now accepts each sampled word with a one-response
   ready pulse. No production RTL changed. Gate-6 formal was NOT RUN.
-- Current task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025; implementation
-  has not started. The public command/response controller and UART transport
-  remain to be implemented. Gate 7 and Gate 8 remain OPEN.
+- Current task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025. The canonical
+  command/response controller, D-037 payloads, D-038 UART word bridge, and
+  standard-library host utility are implemented in this worktree. The bounded
+  command-top simulation covers four NORMAL/SOBEL presentations, a real
+  command-path triangle against the Python renderer, four complete readbacks,
+  GET_STATUS, GET_COUNTERS, ERROR, and incomplete packet atomicity. A UART
+  command/response loopback and framing/overrun tests pass. Gate 7 remains OPEN
+  because the full response-stall/reset/fatal-error matrix and all-counter
+  public-path scoreboard are not complete. Selected Gate-8 FIFO, role/mailbox,
+  address, reduced raster, depth-write, and Sobel bridge properties pass under
+  documented bounds. CDC formal uses a shared-clock digital abstraction and
+  does not establish asynchronous-clock safety; Gate 8 remains OPEN.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013;
-  GET_COUNTERS serialization remains unimplemented.
+  GET_COUNTERS serialization is implemented by the GFX-023 system controller
+  and has focused packet/snapshot simulation evidence. The full 14-word
+  independent public-path counter scoreboard remains open.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
   Gate 4 are CLOSED. D-036 remains SPECIFIED; GFX-015 through GFX-017 provide
@@ -369,9 +380,11 @@
 
 ## Contract status
 
-- D-001 through D-034: recorded in `docs/DECISIONS.md`; D-034 is reflected in
+- D-001 through D-038: recorded in `docs/DECISIONS.md`; D-034 is reflected in
   the relevant microarchitecture, verification, project-state, and evidence
   documents without changing higher-authority requirements or the Master Plan.
+- D-037 freezes response payload meanings and D-038 freezes the logical UART
+  transport; both are SPECIFIED and exercised by the G7-G8 focused tests.
 - Master Plan Gate 0–12 numbering is canonical and reflected in
   `04_MASTER_CHECKLIST.md`.
 - The parent dependency hold is satisfied, but future consumers must still
