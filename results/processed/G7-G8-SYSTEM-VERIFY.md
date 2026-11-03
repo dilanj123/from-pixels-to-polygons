@@ -2,11 +2,11 @@
 
 ## Result
 
-The public command/response controller and UART transport are implemented and
-have focused RTL simulation evidence. The mission does **not** close Gate 7 or
-Gate 8: the remaining response backpressure/reset/fatal-recovery matrix is
-incomplete, and the CDC formal harness uses a shared-clock abstraction rather
-than unrelated formal clocks.
+The public command/response controller and UART transport have RTL simulation
+evidence. The corrective verification addendum below closes the outstanding
+Gate-7 public-path checks and adds a bounded two-clock digital CDC check for
+Gate 8. These results do not establish analog metastability safety, synthesis,
+timing, or hardware operation.
 
 The dependency remains the unchanged `ip/rtl-to-pixels` submodule at
 `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`.
@@ -67,7 +67,8 @@ pattern/reference regressions.
 The test also verifies incomplete BEGIN_FRAME atomicity, illegal STATUS in
 FRAME_ACTIVE, unknown-opcode ERROR, STATUS response stability during a stall,
 COUNTERS snapshot/header stability and W1/W9 values, and reset abort of a
-stalled READ_FRONT stream.
+stalled READ_FRONT stream. The corrective response matrix and complete public
+counter scoreboard are recorded below.
 
 `make test-uart` passes four checks: RX/TX byte order, framing-error blocking,
 and overrun blocking. `make test-uart-system` passes an actual UART NOP followed
@@ -102,22 +103,85 @@ through Yosys. The suite was invoked after sourcing
 | Decoder | `make formal-decoder`; documented packet harness, BMC depth 25 | PASS, bounded (136 s) |
 | Clear engine | `make formal-clear`; 8-pixel reduced instance, BMC depth 20 | PASS, reduced bounded |
 
-The role/mailbox harness runs both RTL clock ports from the same formal clock.
+At the original G7-G8-SYSTEM-VERIFY checkpoint, the role/mailbox harness ran
+both RTL clock ports from the same formal clock.
 It checks uniqueness, valid IDs, readback lock, role update only with an
 outstanding presentation, safe-boundary gating of the pixel FRONT, and tagged
 completion. It does not model unrelated clock edges or metastability. Therefore
-the Gate-8 CDC safety checkbox remains open. Formal runs also emit expected
+the Gate-8 CDC safety checkbox was left open at that checkpoint. Formal runs also emit expected
 unconstrained-input/no-clock-driver notices for symbolic inputs and the formal
 global clock; no analog CDC or full-system proof is claimed.
 
-## Remaining work
+## G7-G8-CLOSE corrective verification
 
-Gate 7 remains open for a complete response-stall matrix across each response
-type, a controller-level reset matrix (render/presentation/Sobel plus partial
-command), fatal Sobel/internal error recovery through the public ERROR path,
-and an independent scoreboard for all fourteen public COUNTERS words. Gate 8
-remains open for asynchronous-clock CDC safety evidence. No synthesis, P&R,
-timing, physical UART, or hardware evidence is claimed.
+Starting state was clean `main` at `d38dafdf3e7a0d4a6a648aa355b5d60e58df1e3e`,
+equal to `origin/main`; the pinned Sobel parent remained unchanged.
+
+`make test-command-system` passes the expanded 71-check public-system test.
+FRAME_DONE and ERROR words are each held under backpressure before each
+transfer; all three STATUS words and all fifteen COUNTERS words are stalled
+and checked; READ_FRONT stalls cover BEGIN W0/W1/W2, the first data word,
+middle/final data positions, END header/status/checksum. The complete
+19,206-word READ_FRONT stream reconstructs 76,800 bytes and independently
+checks the modulo-32-bit checksum. No response word was skipped or repeated.
+
+The public reset matrix covers an incomplete command packet, active clear,
+pending NORMAL presentation before the safe event, active Sobel, and stalled
+READ_FRONT. Each reset returns the controller to IDLE and roles to 0/1/2,
+invalidates FRONT, aborts active local work, verifies all architectural
+counters are zero after global reset, and produces no stale
+response/completion. The existing
+`make test-presentation` case also resets after pixel FRONT switches but before
+system ACK and verifies no stale completion.
+
+Fatal recovery is injected only in the testbench by forcing the existing
+`sobel_error` boundary after a public PRESENT SOBEL command reaches its
+completion wait. The public ERROR packet carries the original tag and frozen
+error code 8, remains stable under stall, causes no destination writes or role
+rotation, and rearms the local Sobel controller only after ERROR transfer. A
+subsequent STATUS response checks sticky CMD_ERROR, front_valid, Sobel
+configuration and post-recovery role fields. A new legal BEGIN_FRAME and
+NORMAL presentation then complete. No production fault-injection port was
+added.
+
+The independent testbench model observes event handshakes/cycles and FIFO
+occupancy; it never reads the DUT counter bank. It compares W1-W14 at three
+snapshots. For tag `1006`, actual/expected values are
+`1,0,0,0,0,0,0,0,76800,0,0,133192,0,1`; for `1015`,
+`2,0,0,0,0,0,0,0,76800,0,0,35530,151072,1`; for `1028`,
+`4,4,1,1,6000,3000,1500,1500,76800,6014,8,145109,0,50`.
+During the final stalled COUNTERS packet, 64 NOPs raise live FIFO occupancy
+above the captured high-watermark; the transmitted W14 remains the captured
+value 50. W0 tag and all 14 words match the independent snapshot.
+
+The new `formal/present_cdc_multiclock_formal.sv` harness uses separate
+symbolic `clk_sys` and `clk_pix` event traces on the SBY global formal
+time-step clock, `multiclock on`, a common asynchronous reset assertion, and
+separate two-stage synchronized reset release. The environment excludes
+coincident rising edges but imposes no fixed frequency or phase. The DUT's
+captured mailbox payload is checked through destination-ID correspondence at
+the returned ACK; the environment assumes well-formed safe-frame-start pulses
+and no unilateral reset.
+`make formal-gate8` passes the two-clock SBY/Z3 BMC safety task at depth 32 and
+the separate cover task at depth 48. Covers reach request acceptance, pixel
+switch, ACK, completed manager presentation, reset while outstanding, and
+both NORMAL and SOBEL completion. This is bounded digital clock-interleaving
+safety evidence, not an analog metastability or MTBF proof. The captured
+formal command result and cover reach points are preserved in the run index.
+
+The formal harness required a narrow `bootstrap-smoke` allowlist update for
+its authorized source and generated work directories. No production RTL,
+command/response format, or upstream dependency was changed. The first
+regression invocation of the two Python-generated Sobel suites used the
+system Python and failed before simulation because NumPy was absent; reruns
+with the documented Python 3.11/NumPy 1.25.2 interpreter passed.
+
+Gate 7 — CLOSED based on the public response/backpressure, reset, fatal
+recovery, counter, UART, full graphics/Sobel, and regression evidence.
+Gate 8 — CLOSED for the selected bounded formal property set, including the
+new two-clock CDC safety model. This is not a claim of complete or analog CDC
+proof. No synthesis, P&R, timing, physical UART, or hardware evidence is
+claimed.
 
 The upstream parent is all-rights-reserved. The project retains only the pinned
 submodule; this work does not establish redistribution or downstream product

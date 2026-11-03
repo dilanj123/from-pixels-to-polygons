@@ -180,14 +180,15 @@ timing, and hardware evidence are not claimed.
 
 - [x] command valid gaps — decoder tests and public command-path packet atomicity
 - [x] command FIFO stress — 1024-word fill/drain and ordering regression
-- [ ] response backpressure
-- [ ] reset matrix
+- [x] response backpressure — public command-system test stalls every word of FRAME_DONE, ERROR, STATUS and COUNTERS, plus selected READ_FRONT header/data/trailer words; exact order and stability checked
+- [x] reset matrix — incomplete command, active clear, pending presentation, active Sobel, stalled READ_FRONT; verifies idle/roles/front_valid/counter reset; Gate-5 test covers reset after pixel switch before system ACK
 - [x] randomized legal triangles — renderer fixed-seed reference comparisons
 - [x] randomized rejection cases — decoder malformed/resynchronization regression
 - [x] multiple frames — public NORMAL/SOBEL/SOBEL/NORMAL command-path sequence
 - [x] async display/system phase variation — three Gate-5 deterministic phase cases
 - [x] readback regression — four public-path full-frame readbacks plus GFX-014 regression
-- [x] performance-counter scoreboard — GFX-013 renderer scoreboard; public W1/W9 checks
+- [x] performance-counter scoreboard — independent public-path event/cycle model checks W1–W14 at three snapshots, including snapshot stability while live FIFO watermark rises
+- [x] fatal Sobel recovery — testbench-injected existing Sobel error boundary; public tagged ERROR, no writes/role rotation, local rearm and subsequent NORMAL completion
 - [x] requirement→test traceability — G7-G8 evidence report
 - [x] regression for every known functional defect — illegal active-state query regression
 
@@ -195,12 +196,17 @@ timing, and hardware evidence are not claimed.
 
 - [x] FIFO formal — depth-4 scalar ghost queue, bounded depth 12
 - [x] buffer-role formal — role uniqueness/tagged completion, bounded depth 16
-- [ ] CDC safety formal — same-clock digital abstraction only; unrelated-clock safety remains open
+- [x] CDC safety formal — separate symbolic clock events; two-clock digital safety BMC depth 32 and transaction covers depth 48; no analog metastability claim
 - [x] address-bound formal — Sobel reader/writer address and transfer sequence PDR
 - [x] selected raster counter formal — reduced 4×3 bbox, bounded depth 12
 - [x] depth write implication formal — bounded depth 8
 - [x] Sobel bridge counter formal — reader/writer accepted address ordering PDR
 - [x] formal assumptions/limitations documented — G7-G8 evidence report
+
+Gate 7 — CLOSED. Gate 8 — CLOSED for the selected bounded and inductive
+property set recorded in `results/processed/G7-G8-SYSTEM-VERIFY.md`. The
+two-clock CDC result is a digital interleaving model, not analog metastability
+or MTBF evidence. Gate 9 remains open.
 
 ## Gate 9 — Synthesis / Route Baseline
 

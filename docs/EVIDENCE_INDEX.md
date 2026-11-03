@@ -460,12 +460,14 @@ assumptions and remaining gates.
 | Claim | Command/evidence | Conditions | Classification |
 |---|---|---|---|
 | Public 32-bit command controller traverses four NORMAL/SOBEL presentations | `make test-command-system` | Real FIFO/decoder/graphics core, pinned parent, presentation and readback; four tagged completions; 307,200 readback bytes compared; final triangle image compared to independent Python output | RTL SIMULATION VERIFIED |
-| STATUS, COUNTERS, ERROR and FRAME_DONE stream semantics | `make test-command-system` | Packet lengths/tags, W1/W9 counter fields, frozen payloads, stalled STATUS/COUNTERS header, illegal-state and unknown-opcode errors | RTL SIMULATION VERIFIED |
+| Public response backpressure | `make test-command-system` | FRAME_DONE/ERROR every word, STATUS all 3 words, COUNTERS all 15 words, READ_FRONT selected header/data/trailer words; stable tuple and exact transfers | RTL SIMULATION VERIFIED |
+| Public STATUS and COUNTERS | `make test-command-system` | Frozen STATUS flags/roles and independent W1–W14 event/cycle scoreboard at three snapshots; live FIFO high-water rises during one stalled snapshot | RTL SIMULATION VERIFIED |
+| Fatal Sobel public recovery and reset matrix | `make test-command-system`, `make test-presentation` | Testbench-only injection at existing Sobel error boundary; tagged ERROR stalls, no writes/rotation, rearm and subsequent NORMAL; reset partial packet/clear/presentation/Sobel/readback and post-pixel-switch CDC case | RTL SIMULATION VERIFIED |
 | UART word link and command-top composition | `make test-uart`, `make test-uart-system` | CPB=16 digital simulation; little-endian word order; NOP+GET_STATUS; framing/overrun block behavior | RTL SIMULATION VERIFIED |
 | Python host encoding/response helpers | `make test-host` | Four stdlib tests; includes exact 76,800-byte READ_FRONT reconstruction/checksum | HOST SOFTWARE UNIT TESTED |
-| Selected FIFO/role/raster/depth/Sobel formal checks | `make formal-gate8`; `make formal-decoder formal-clear` | Exact bounded, reduced and PDR scopes are recorded in processed report; CDC uses same-clock abstraction | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Selected FIFO/role/raster/depth/Sobel formal checks | `make formal-gate8`; `make formal-decoder formal-clear` | Exact bounded, reduced and PDR scopes are recorded in processed report | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Presentation CDC mailbox / roles | `make formal-gate8` | Separate symbolic `clk_sys`/`clk_pix` event traces, common async assertion, per-domain two-stage reset release; BMC safety depth 32, covers depth 48; digital model only | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
 
-Gate 7 remains OPEN for the full response backpressure/reset/fatal-error and
-all-counter public-path matrix. Gate 8 remains OPEN because asynchronous-clock
-CDC safety is not established by the same-clock formal abstraction. No
-synthesis, timing, physical UART, or hardware evidence is claimed.
+Gate 7 and Gate 8 are CLOSED for their checked requirements and documented
+formal scopes. Gate 9 remains open. No synthesis, P&R, timing, physical UART,
+analog CDC/MTBF, or hardware evidence is claimed.

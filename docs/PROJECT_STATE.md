@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Current phase: Gate 7 — Full-system regression; Gate 8 — Selected formal.
-- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: CLOSED.
+- Current phase: Gate 9 — Synthesis / Route Baseline (GFX-026 not started).
+- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: CLOSED. Gate 7: CLOSED. Gate 8: CLOSED for the selected property set.
 - Current known-good functional implementation commit: `7cb2f9741d6ffc7cef79bce5bee872ceebbb1293` (`docs: record repeated Sobel mode verification`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
@@ -80,22 +80,26 @@
   readbacks, allowing the final checksum to transfer before the scoreboard
   observed it. The checker now accepts each sampled word with a one-response
   ready pulse. No production RTL changed. Gate-6 formal was NOT RUN.
-- Current task: G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025. The canonical
-  command/response controller, D-037 payloads, D-038 UART word bridge, and
-  standard-library host utility are implemented in this worktree. The bounded
-  command-top simulation covers four NORMAL/SOBEL presentations, a real
-  command-path triangle against the Python renderer, four complete readbacks,
-  GET_STATUS, GET_COUNTERS, ERROR, and incomplete packet atomicity. A UART
-  command/response loopback and framing/overrun tests pass. Gate 7 remains OPEN
-  because the full response-stall/reset/fatal-error matrix and all-counter
-  public-path scoreboard are not complete. Selected Gate-8 FIFO, role/mailbox,
-  address, reduced raster, depth-write, and Sobel bridge properties pass under
-  documented bounds. CDC formal uses a shared-clock digital abstraction and
-  does not establish asynchronous-clock safety; Gate 8 remains OPEN.
+- GFX-023/024/025 system implementation remains RTL SIMULATION VERIFIED.
+  Corrective public-path verification now stalls all words for FRAME_DONE,
+  ERROR, STATUS and COUNTERS, selected READ_FRONT framing/data/checksum words,
+  tests the controller reset matrix and fatal Sobel recovery, and checks W1–W14
+  against an independent event/cycle scoreboard. The public command-system
+  test passes the four-mode NORMAL/SOBEL/SOBEL/NORMAL sequence and complete
+  readbacks. Gate 7 is CLOSED.
+- Gate 8 selected formal requirements are CLOSED for the documented scope.
+  Existing FIFO, role, address, raster, depth and Sobel bridge proofs retain
+  their bounded/reduced/inductive classifications. A separate symbolic-clock
+  SBY/Z3 presentation mailbox/role harness passes bounded safety at depth 32
+  and transaction covers at depth 48 with independent clock event traces,
+  common asynchronous reset assertion and separate synchronized release.
+  This is digital asynchronous-clock modelling only, not analog metastability
+  or MTBF proof.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013;
-  GET_COUNTERS serialization is implemented by the GFX-023 system controller
-  and has focused packet/snapshot simulation evidence. The full 14-word
-  independent public-path counter scoreboard remains open.
+  GET_COUNTERS serialization is implemented by the GFX-023 system controller.
+  The public W1–W14 words are checked against an independent event/cycle
+  scoreboard at three snapshots, including a stalled snapshot while live FIFO
+  occupancy increases.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
   its implementation is now RTL SIMULATION VERIFIED. Gate 3 and
   Gate 4 are CLOSED. D-036 remains SPECIFIED; GFX-015 through GFX-017 provide
