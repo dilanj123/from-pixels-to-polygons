@@ -120,6 +120,7 @@ module sobel_integration_tb;
     task automatic send_sobel_present(input logic [15:0] tag_value,
                                       input logic [7:0] threshold_value,
                                       input logic bypass_value);
+        integer guard_ready;
         begin
             @(negedge clk_sys);
             present_tag=tag_value;
@@ -127,15 +128,25 @@ module sobel_integration_tb;
             sobel_bypass=bypass_value;
             present_sobel=1;
             present_valid=1;
-            while(!present_ready) @(negedge clk_sys);
+            guard_ready=0;
+            while(!present_ready) begin
+                @(negedge clk_sys); guard_ready=guard_ready+1;
+                if(guard_ready>500000) $fatal(1,"Sobel start-ready timeout quiescent=%b pending=%b busy=%b error=%b",
+                    quiescent,pending,sobel_busy,sobel_error);
+            end
             @(posedge clk_sys); #1;
             @(negedge clk_sys); present_valid=0; present_sobel=0;
         end
     endtask
 
     task automatic begin_empty_render_frame;
+        integer guard_ready;
         begin
-            while(!cmd_ready) @(negedge clk_sys);
+            guard_ready=0;
+            while(!cmd_ready) begin
+                @(negedge clk_sys); guard_ready=guard_ready+1;
+                if(guard_ready>500000) $fatal(1,"BEGIN_FRAME ready timeout quiescent=%b pending=%b busy=%b",quiescent,pending,sobel_busy);
+            end
             @(negedge clk_sys);
             cmd='0;
             cmd.opcode=gfx_pkg::CMD_BEGIN_FRAME;

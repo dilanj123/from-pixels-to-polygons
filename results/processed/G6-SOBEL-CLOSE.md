@@ -1,8 +1,9 @@
 # G6-SOBEL-CLOSE — GFX-021/022 evidence
 
-## Result
+## Result: partial Gate-6 closure evidence
 
-GFX-021/022 functional RTL simulation passed. The unchanged parent submodule is
+The individual GFX-021/022 RTL components and single-frame flows have passing
+simulation evidence; Gate-6 acceptance remains open. The unchanged parent submodule is
 at `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`
 (`v1.0.1-dependency-ready`). The actual `rtl_to_pixels_top_pipelined` was
 instantiated with `IMG_WIDTH=320`, `IMG_HEIGHT=240` and connected to the
@@ -69,7 +70,7 @@ make doctor
 make bootstrap-smoke
 ```
 
-All exited zero. The Python suite ran 31 tests. The bootstrap smoke initially
+All listed regression commands exited zero. The Python suite ran 31 tests. The bootstrap smoke initially
 identified the new focused controller testbench as an unlisted HDL file; the
 Gate-6 testbench allowlist was updated and the rerun passed.
 
@@ -86,4 +87,8 @@ claimed.
 The role transition test and full Sobel-frame test are separate focused
 compositions. Full Sobel datapath processing was performed end-to-end at
 graphics-core level for the renderer scene; the other four image patterns
-were checked at the controller/memory boundary.
+were checked at the controller/memory boundary. An expanded top-level
+NORMAL→SOBEL→SOBEL→NORMAL attempt stalled after its first Sobel presentation
+while waiting to begin the next operation and was manually stopped. It did
+not produce a pass and is not counted as evidence. Gate 6 remains OPEN until
+that repeated graphics-core mode sequence is debugged and passes.

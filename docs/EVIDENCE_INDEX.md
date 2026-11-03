@@ -434,13 +434,18 @@ implemented by GFX-018/019/020; those belong to GFX-021/022.
 The focused project simulations used Icarus Verilog from the local OSS CAD
 Suite; lint used Verilator 5.053. Icarus emitted its known `constant selects
 in always_*` sensitivity notices in triangle setup, the pinned Sobel sources,
-and the framebuffer-bank mux. No functional failure remained. `make doctor`
+and the framebuffer-bank mux. No functional failure remained in the listed
+passing regressions; repeated graphics-core mode integration is still open.
+`make doctor`
 and the corrected `make bootstrap-smoke` passed. `make doctor` reports Yosys,
 SBY/solvers, and ECP5 implementation tools unavailable; formal, synthesis,
 P&R, timing, hardware, and physical-display results are not claimed.
 
 The parent source remains an unchanged submodule at the pinned commit. Its
 all-rights-reserved notice is preserved; this evidence makes no general
-redistribution or downstream-use permission claim. Gate 5 and Gate 6 are
-CLOSED by their simulation criteria. Next task: `G7-G8-SYSTEM-VERIFY —
-GFX-023 through GFX-025`.
+redistribution or downstream-use permission claim. Gate 5 is CLOSED. Gate 6
+remains OPEN because the repeated NORMAL→SOBEL→SOBEL→NORMAL sequence has not
+passed at the graphics-core integration boundary. A longer attempt stalled
+before the second presentation and was stopped; it is not counted as evidence.
+The standalone manager transition matrix and single full Sobel composition
+remain passing. Next task: focused GFX-021/022 repeated-mode integration.
