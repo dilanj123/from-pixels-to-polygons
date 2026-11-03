@@ -420,3 +420,27 @@ redistribution or downstream product-use rights. Explicit permission remains
 required before those uses. No Sobel integration, W+1 bridge datapath, parent
 frame completion wiring, SPARE routing, or three-role Sobel rotation is
 implemented by GFX-018/019/020; those belong to GFX-021/022.
+
+## G6-SOBEL-CLOSE — GFX-021/022
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| Real parent Sobel datapath with adapter/controller integration | `SOBEL_PYTHON=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 make test-sobel-controller` | Pinned submodule SHA `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`; `rtl_to_pixels_top_pipelined`, 320×240. Five complete cases: solid black, edge pattern, gradient, deterministic random, renderer-produced scene. Threshold and bypass settings exercised. Each case had 76,800 synchronous source reads and 76,800 destination writes, all bytes matched the independent parent Python Sobel reference. | RTL SIMULATION VERIFIED |
+| Renderer → Sobel → SPARE → presentation → readback composition | `SOBEL_PYTHON=... make test-sobel-integration` | Actual GFX renderer-produced source frame. Exact 76,800 input and output handshakes, one SOF per stream, 240 EOLs per stream, ordered source/destination addresses, zero output byte mismatch, one tagged completion after VBlank role update, and a complete 19,206-word GFX-014 readback reconstructing 76,800 bytes with zero mismatch. Active reset aborted a second Sobel after 10 source reads without stale completion. | RTL SIMULATION VERIFIED |
+| NORMAL/SOBEL role mode transitions | `make test-sobel-modes`; `make test-presentation` | NORMAL→SOBEL→SOBEL→NORMAL, expected IDs checked after each transition, all IDs remain pairwise distinct, FRONT does not change before safe-boundary event/ACK, one tagged done per accepted request, and readback lock blocks presentation. This focused role test uses a synthetic safe-boundary event; it is not a multi-frame parent-Sobel composition. | RTL SIMULATION VERIFIED |
+| Existing NORMAL rendering/display behavior retained | `make test-graphics-core` | Three complete reference-rendered frames; 76,800 colour and Z bytes matched per rendered frame; 307,200 active pixels matched per scanout frame; no out-of-boundary FRONT switch. | RTL SIMULATION VERIFIED |
+| Adapter and prior renderer/readback/primitive regressions | Commands listed in G6-SOBEL-CLOSE campaign report | Adapter mock, renderer, counters, readback, memory wrappers, Fragment/Z, raster, setup, clear, decoder, FIFO, and 31 Python reference tests passed. | RTL SIMULATION VERIFIED / REFERENCE-MODEL VERIFIED |
+
+The focused project simulations used Icarus Verilog from the local OSS CAD
+Suite; lint used Verilator 5.053. Icarus emitted its known `constant selects
+in always_*` sensitivity notices in triangle setup, the pinned Sobel sources,
+and the framebuffer-bank mux. No functional failure remained. `make doctor`
+and the corrected `make bootstrap-smoke` passed. `make doctor` reports Yosys,
+SBY/solvers, and ECP5 implementation tools unavailable; formal, synthesis,
+P&R, timing, hardware, and physical-display results are not claimed.
+
+The parent source remains an unchanged submodule at the pinned commit. Its
+all-rights-reserved notice is preserved; this evidence makes no general
+redistribution or downstream-use permission claim. Gate 5 and Gate 6 are
+CLOSED by their simulation criteria. Next task: `G7-G8-SYSTEM-VERIFY —
+GFX-023 through GFX-025`.

@@ -158,17 +158,22 @@ Gate 3 — CLOSED based on GFX-005 through GFX-010 primitive evidence.
 - [x] APB master — CONTROL/THRESHOLD setup/access and PREADY/PSLVERR
 - [x] threshold programming test
 - [x] bypass programming test — asserted and cleared
-- [ ] actual Sobel instantiated at 320×240
+- [x] actual Sobel instantiated at 320×240 — GFX-021 controller/core and graphics composition
 - [x] exact input pixel count — 76,800 in adapter mock and parent 320×240 tests
 - [x] exact output pixel count — 76,800 writer transfers and parent outputs
 - [x] SOF/EOL positions checked — every accepted pixel in adapter and parent tests
 - [x] W+1 alignment checked — pinned parent full-frame reference comparisons at 320×240
 - [x] final-drain completion checked — parent streaming drain-backpressure regression
-- [ ] complete postprocessed framebuffer matches composed reference
-- [ ] NORMAL→SOBEL transition
-- [ ] SOBEL→SOBEL transition
-- [ ] SOBEL→NORMAL transition
-- [ ] triple-buffer role rotation verified
+- [x] complete postprocessed framebuffer matches composed reference — five complete frames, 76,800 bytes each, zero mismatches
+- [x] NORMAL→SOBEL transition — role-mode regression plus real Sobel composition
+- [x] SOBEL→SOBEL transition — repeated SOBEL role transitions checked
+- [x] SOBEL→NORMAL transition — role-mode regression checks the return swap
+- [x] triple-buffer role rotation verified — pairwise uniqueness throughout NORMAL/SOBEL transitions
+
+Gate 6 is CLOSED on RTL simulation evidence. The role transition matrix is a
+focused buffer-manager test; full parent-Sobel processing at graphics-core
+level is additionally checked for the renderer-produced scene. Formal,
+synthesis/P&R, timing, and hardware evidence are not claimed.
 
 ## Gate 7 — Deep Regression
 

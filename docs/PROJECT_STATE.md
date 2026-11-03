@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Current phase: Gate 6 — RTL-to-Pixels/Sobel integration (adapter milestones complete; real datapath/role integration not started).
-- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED.
+- Current phase: Gate 7 — Deep Regression.
+- Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: CLOSED.
 - Current known-good functional implementation commit: `dc1bf20` (`Implement GFX-018/019/020 Sobel adapters`).
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
@@ -57,13 +57,22 @@
   The local two-entry reader and writer/mock path transferred 76,800 pixels,
   checked row-major addresses, RGB conversion, SOF/EOL, deterministic stalls,
   reset abort, malformed metadata rejection, and APB enable/threshold/bypass.
-  No actual parent Sobel instance or triple-buffer postprocess routing is
-  integrated yet.
-- Gate 5 is CLOSED. Gate 6 is OPEN; GFX-021/022 remain outstanding. No
-  complete Sobel datapath, Gate-6 role rotation, synthesis/P&R, timing,
-  board, or physical display evidence is claimed. Gate-8 adapter formal was
-  NOT RUN.
-- Current next task: `G6-SOBEL-CLOSE (GFX-021 + GFX-022)`.
+  At the GFX-018/019/020 milestone, no actual parent Sobel instance or
+  triple-buffer postprocess routing had yet been integrated.
+- GFX-021/022 are RTL SIMULATION VERIFIED by the G6-SOBEL-CLOSE campaign.
+  The pinned 320×240 parent is instantiated with the existing reader, writer,
+  and APB adapter. Five complete source patterns (including a renderer scene)
+  each transferred 76,800 input/output pixels and matched the independent
+  Sobel reference at every destination byte. A graphics-core composition
+  verified the renderer-produced frame through Sobel, SPARE presentation,
+  tagged completion, and complete GFX-014 FRONT readback. NORMAL/SOBEL role
+  transitions and active Sobel reset abort were also simulated. The role-mode
+  test used a synthetic safe-boundary event; it did not repeat full parent
+  processing for every mode transition.
+- Gate 5 and Gate 6 are CLOSED. No synthesis/P&R, timing, board, physical
+  display, CDC metastability, or hardware evidence is claimed. Formal was NOT
+  RUN.
+- Current next task: `G7-G8-SYSTEM-VERIFY — GFX-023 through GFX-025`.
 - D-034 performance-counter contract: SPECIFIED and implemented by GFX-013; no
   GET_COUNTERS serializer, presentation, or Sobel implementation is claimed.
 - D-035 GFX-014 readback contract remains SPECIFIED as an architectural decision;
