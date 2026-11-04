@@ -497,6 +497,17 @@ Full logs, exact tool versions, warnings, pin/clock assumptions and route-attemp
 The trial is not the accepted production implementation. Historical accepted GFX-026 reports are preserved. No timing exception, target change, hardware claim, Gate-10 work or Gate-11 optimization was made.
 
 
+## G9-SOBEL-TIMING-INVESTIGATION — same-netlist placer diagnostic
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| One controlled heap placement and router1 route completed | `reports/gfx026/nextpnr_route_sobel_heap.txt`; compressed routed JSON/config; `reports/gfx026/SOBEL-PLACER-TRIAL.md` | Same mapped netlist SHA as D-040 route, nextpnr 0.11.1-34-gc4fbb55a, LFE5U-85F-6BG381C, same LPFs, router1, seed 1, 60 MHz sys constraint; only placer changed | PLACED/ROUTED — TIMING FAILING |
+| Timing remains noncompliant | Same route report | `clk_sys` 48.9788 MHz, 20.417 ns, approximately −3.751 ns slack; other reported constrained clocks pass. Heap result is 0.1951 MHz lower than static 49.1739 MHz | PLACED/ROUTED — TIMING FAILING |
+| New limiting path is renderer DRAW→triangle-setup AREA cone | Detailed path in `nextpnr_route_sobel_heap.txt` and JSON; source mapping discussion in trial report | Same-domain path; 29 logic and 30 routing arcs plus clock-to-Q; source attributes map renderer sequential block through triangle_setup.sv:85 AREA multiplier to triangle_setup sequential block; bit-specific aliases unavailable | IMPLEMENTATION DIAGNOSTIC |
+| Gate 9 remains open | `04_MASTER_CHECKLIST.md`; `docs/PROJECT_STATE.md` | No timing-clean result or bitstream; no RTL/dependency changes | LOCAL OBSERVATION |
+
+The placer-only trial does not establish that the pinned Sobel parent alone is the unavoidable limit: the static route exposes the parent Sobel cone, while heap placement exposes the renderer DRAW→triangle-setup AREA cone at similar delay. No additional placer sweep or RTL correction was run.
+
 ## G9-TRIANGLE-SETUP-PIPELINE — D-040 timing correction
 
 | Claim | Command/evidence | Conditions | Classification |

@@ -1,6 +1,44 @@
 # GFX-026 — ECP5 implementation baseline and FIFO corrective investigation
 
 Date: 2026-11-04
+
+## G9-SOBEL-TIMING-INVESTIGATION — same-netlist heap placer trial
+
+Starting at `a45eef1460b74ace54aced04302a6f1244263a50`, one bounded heap
+placer/router1 run used the exact already-synthesized JSON (SHA-256
+`b1243e4b13135a5840bd4f15d7b40ebb3aad63a99dbeef3eee031896b39cf34e`). The
+only implementation setting changed from the completed static-placer route
+was `--placer heap`; target, LPFs, `router1`, seed 1, `--freq 60`, and the
+nextpnr 0.11.1-34-gc4fbb55a build were retained. Router1 completed in the
+reported 106.77 s. The 300 s bounded command exited 1 because the 60 MHz
+`clk_sys` constraint failed; it produced the full route config and JSON report.
+
+Heap route results: `clk_sys` 48.9788 MHz / 20.417 ns / about −3.751 ns slack
+(FAIL); pixel 40.7830 MHz at 25.2048 MHz (PASS); serializer 396.0396 MHz at
+126.0239 MHz (PASS); intermediate 1053.7407 MHz at 315.0598 MHz (PASS).
+Resources: 10,511 TRELLIS_COMB, 6,702 TRELLIS_FF, 156 DP16KD, 17 MULT18X18D,
+3 EHXPLLL, 8 TRELLIS_IO. The log records zero warnings and one timing error.
+
+The system estimate is 0.1951 MHz below the static route (49.1739 MHz), with
+about 0.081 ns more delay. The limiting path moved from the Sobel reader FIFO through the pinned parent's
+line-buffer/Sobel arithmetic cone to the renderer DRAW→triangle-setup AREA
+cone. Although the heap path has flattened physical names beginning with a
+`zbuffer_i.mem...` alias, Yosys source attributes map its launch FF to the
+renderer sequential block (`renderer_core.sv:165-222`), the multiplier to
+`triangle_setup.sv:85`, and its capture FF to the triangle-setup sequential
+block (`triangle_setup.sv:164-182`). The logical dataflow is `draw_q` through
+the Stage-1 AREA expression into the registered prepared setup value
+(`prep_calculated.base.area` into `prep_q`). The source mapping does not expose
+bit-specific launch/capture aliases, so the signal-level identification is
+reconstructed from the source mapping and RTL dataflow. The heap path has 61
+arcs, 0.525 ns clock-to-Q, 7.609 ns logic, and 12.283 ns routing.
+
+This single placer trial does not identify a placement-only timing remedy and
+does not show that the pinned Sobel parent alone is the unavoidable limit: the
+static and heap runs expose different near-critical cones with similar delay.
+Gate 9 remains OPEN. No RTL changed, no functional/formal suite was rerun, no
+timing exception or clock change was made, and no bitstream was generated.
+Detailed evidence and artifact hashes: `reports/gfx026/SOBEL-PLACER-TRIAL.md`.
 Starting repository commit: `eb4e18a587f03f19c61f4c91451ae6358f2c8389`
 Implementation commit: `be25ccb` (`Add ULX3S ECP5 baseline build`)
 Original baseline result: **full hierarchy synthesized; the register-expanded FIFO made routing impractical; Gate 9 remained OPEN.**

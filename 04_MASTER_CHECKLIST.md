@@ -217,13 +217,13 @@ or MTBF evidence. Gate 9 remains open.
 - [x] EBR count recorded — original 154; corrected 156 DP16KD (FIFO adds 2)
 - [x] DSP count recorded — FIFO-corrected baseline 11; two-stage setup 17 MULT18X18D
 - [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
-- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; two-stage setup approximately −3.670 ns on routed `clk_sys`; target 60 MHz
-- [x] critical path recorded — baseline renderer DRAW→triangle setup path and updated Sobel reader→pinned Sobel line-buffer/arithmetic path; detailed timing JSON and source mapping in `reports/gfx026/RESULTS.md`
+- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; static two-stage route approximately −3.670 ns; heap placer trial approximately −3.751 ns; target 60 MHz
+- [x] critical path recorded — static route: Sobel reader→pinned parent line-buffer/arithmetic; same-netlist heap trial: renderer DRAW→triangle-setup AREA cone. Both detailed reports are retained under `reports/gfx026/`
 - [x] warnings reviewed — original FIFO mem2reg diagnosed/fixed; remaining memory conversions, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
 - [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,018 cycles after approved added setup cycle (baseline 6,014)
 - [x] Sobel-cycle metrics recorded — public counter scoreboard scenario tag `0x1015`: W13=151,072 cycles
-- [x] timing classification correct — full route completed; latest routed `clk_sys` estimate 49.17 MHz fails 60 MHz; no timing-closure claim
+- [x] timing classification correct — full static and heap routes completed; latest `clk_sys` estimate 48.98 MHz fails 60 MHz; no timing-closure claim
 - [x] no unsupported Fmax claim
 
 ## Gate 10 — Physical Hardware

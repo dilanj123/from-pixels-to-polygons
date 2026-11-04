@@ -1,0 +1,713 @@
+Info: constraining clock net 'clk_25m' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:      9993/83640    11%
+Info:         logic LUTs:   7523/83640     8%
+Info:         carry LUTs:   2470/83640     2%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:      6702/83640     8%
+
+Info: Packing IOs..
+Info: pin 'gpdi_dp[3]$tr_io' constrained to Bel 'X116/Y0/PIOA'.
+Info: pin 'gpdi_dp[2]$tr_io' constrained to Bel 'X76/Y0/PIOA'.
+Info: pin 'gpdi_dp[1]$tr_io' constrained to Bel 'X83/Y0/PIOA'.
+Info: pin 'gpdi_dp[0]$tr_io' constrained to Bel 'X110/Y0/PIOA'.
+Info: pin 'ftdi_txd$tr_io' constrained to Bel 'X0/Y89/PIOB'.
+Info: pin 'ftdi_rxd$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'clk_25m$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn_rst_n$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: IOLOGIC component dvi_i.serialize_ch2 connected to PIO Bel X76/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch1 connected to PIO Bel X83/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch0 connected to PIO Bel X110/Y0/PIOA
+Info: placed PLL 'pll_sys_i.pll_i' at bel 'X1/Y4/EHXPLL_UL'
+Info: placed PLL 'pll_mid_i.pll_i' at bel 'X2/Y94/EHXPLL_LL'
+Info: placed PLL 'pll_video_i.pll_i' at bel 'X124/Y94/EHXPLL_LR'
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     3551 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll_sys_i.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 300.0 MHz for net pll_mid_i.clk_in
+Info:     Derived frequency constraint of 60.0 MHz for net graphics_i.graphics_i.clk_sys
+Info:     Input frequency of PLL 'pll_mid_i.pll_i' is constrained to 300.0 MHz
+Info:     Derived frequency constraint of 315.1 MHz for net pll_mid_i.clk_5x_out
+Info:     Derived frequency constraint of 315.1 MHz for net clk_315m_aux
+Info:     Input frequency of PLL 'pll_video_i.pll_i' is constrained to 315.1 MHz
+Info:     Derived frequency constraint of 126.0 MHz for net dvi_i.clk_pix_5x
+Info:     Derived frequency constraint of 25.2 MHz for net gpdi_dp[3]$TRELLIS_IO_OUT
+Info: Promoting globals...
+Info:     promoting clock net graphics_i.graphics_i.clk_sys to global network
+Info:     promoting clock net gpdi_dp[3]$TRELLIS_IO_OUT to global network
+Info:     promoting clock net dvi_i.clk_pix_5x to global network
+Info: Checksum: 0x4a6f8522
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       8/    365     2%
+Info: 	                DCCA:       3/     56     5%
+Info: 	              DP16KD:     156/    208    75%
+Info: 	          MULT18X18D:      17/    156    10%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       3/      4    75%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       3/    141     2%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    6702/  83640     8%
+Info: 	        TRELLIS_COMB:   10511/  83640    12%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 14 cells based on constraints.
+Info: Creating initial analytic placement for 10037 cells, random placement wirelen = 1147265.
+Info:     at initial placer iter 0, wirelen = 5459
+Info:     at initial placer iter 1, wirelen = 4562
+Info:     at initial placer iter 2, wirelen = 4549
+Info:     at initial placer iter 3, wirelen = 4506
+Info: Running main analytical placer, max placement attempts per cell = 37858051.
+Info:     at iteration #1, type ALL: wirelen solved = 4525, spread = 314594, legal = 323768; time = 1.04s
+Info:     at iteration #2, type ALL: wirelen solved = 16746, spread = 207016, legal = 226073; time = 0.97s
+Info:     at iteration #3, type ALL: wirelen solved = 23794, spread = 183708, legal = 204087; time = 0.94s
+Info:     at iteration #4, type ALL: wirelen solved = 28789, spread = 167930, legal = 191288; time = 0.96s
+Info:     at iteration #5, type ALL: wirelen solved = 31391, spread = 156084, legal = 176008; time = 0.91s
+Info:     at iteration #6, type ALL: wirelen solved = 33625, spread = 158541, legal = 177111; time = 0.90s
+Info:     at iteration #7, type ALL: wirelen solved = 34236, spread = 158331, legal = 178927; time = 0.91s
+Info:     at iteration #8, type ALL: wirelen solved = 35490, spread = 156229, legal = 175739; time = 0.88s
+Info:     at iteration #9, type ALL: wirelen solved = 36467, spread = 155302, legal = 174943; time = 0.88s
+Info:     at iteration #10, type ALL: wirelen solved = 37994, spread = 155234, legal = 176476; time = 0.90s
+Info:     at iteration #11, type ALL: wirelen solved = 37834, spread = 155820, legal = 175986; time = 0.92s
+Info:     at iteration #12, type ALL: wirelen solved = 39302, spread = 155261, legal = 177960; time = 0.90s
+Info:     at iteration #13, type ALL: wirelen solved = 39668, spread = 154526, legal = 179148; time = 0.90s
+Info:     at iteration #14, type ALL: wirelen solved = 40942, spread = 156190, legal = 177608; time = 0.95s
+Info: HeAP Placer Time: 15.05s
+Info:   of which solving equations: 4.18s
+Info:   of which spreading cells: 0.47s
+Info:   of which strict legalisation: 9.56s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 2087, wirelen = 174943
+Info:   at iteration #5: temp = 0.000000, timing cost = 5516, wirelen = 148654
+Info:   at iteration #10: temp = 0.000000, timing cost = 3842, wirelen = 139395
+Info:   at iteration #15: temp = 0.000000, timing cost = 5407, wirelen = 135145
+Info:   at iteration #20: temp = 0.000000, timing cost = 5751, wirelen = 133246
+Info:   at iteration #25: temp = 0.000000, timing cost = 5909, wirelen = 132720
+Info:   at iteration #30: temp = 0.000000, timing cost = 5817, wirelen = 132550
+Info:   at iteration #33: temp = 0.000000, timing cost = 5819, wirelen = 132509 
+Info: SA placement time 24.82s
+
+Info: Max frequency for clock                          'clk_315m_aux': 995.02 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 285.31 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 35.33 MHz (PASS at 25.20 MHz)
+Info: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 43.20 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 11.46 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 9.76 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 1.88 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.42 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 10.05 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 9.42 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 10.86 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 5.51 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 67 endpoint(s)
+Info:          + represents [1,67) endpoint(s)
+Info: [ -6480,  -4210) |*+
+Info: [ -4210,  -1940) |******************+
+Info: [ -1940,    330) |***************************+
+Info: [   330,   2600) |***********************+
+Info: [  2600,   4870) |*********************************+
+Info: [  4870,   7140) |*************************************+
+Info: [  7140,   9410) |**********************************+
+Info: [  9410,  11680) |************************************************************ 
+Info: [ 11680,  13950) |********************************************************+
+Info: [ 13950,  16220) |**********************************+
+Info: [ 16220,  18490) |+
+Info: [ 18490,  20760) | 
+Info: [ 20760,  23030) | 
+Info: [ 23030,  25300) |+
+Info: [ 25300,  27570) |***+
+Info: [ 27570,  29840) |*******+
+Info: [ 29840,  32110) |******+
+Info: [ 32110,  34380) |***+
+Info: [ 34380,  36650) |*+
+Info: [ 36650,  38920) |**+
+Info: Checksum: 0x92639b47
+Info: Routing globals...
+Info:     routing clock net $glbnet$dvi_i.clk_pix_5x using global 0
+Info:     routing clock net $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT using global 1
+Info:     routing clock net $glbnet$graphics_i.graphics_i.clk_sys using global 2
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 50359 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      550        449 |  550   449 |     50128|       0.59       0.59|
+Info:       2000 |     1064        935 |  514   486 |     49882|       0.27       0.86|
+Info:       3000 |     1671       1328 |  607   393 |     49719|       0.24       1.10|
+Info:       4000 |     2139       1860 |  468   532 |     49485|       0.28       1.37|
+Info:       5000 |     2703       2296 |  564   436 |     49289|       0.26       1.64|
+Info:       6000 |     3271       2728 |  568   432 |     49131|       0.34       1.97|
+Info:       7000 |     3818       3181 |  547   453 |     48963|       0.41       2.38|
+Info:       8000 |     4279       3720 |  461   539 |     48743|       0.43       2.81|
+Info:       9000 |     4780       4219 |  501   499 |     48541|       0.44       3.25|
+Info:      10000 |     5355       4644 |  575   425 |     48388|       0.57       3.82|
+Info:      11000 |     5645       5354 |  290   710 |     48325|       0.39       4.21|
+Info:      12000 |     6037       5962 |  392   608 |     48223|       0.47       4.68|
+Info:      13000 |     6492       6507 |  455   545 |     47934|       0.72       5.40|
+Info:      14000 |     6975       7024 |  483   517 |     47635|       0.80       6.20|
+Info:      15000 |     7419       7580 |  444   556 |     47300|       0.86       7.07|
+Info:      16000 |     7684       8315 |  265   735 |     47038|       0.80       7.87|
+Info:      17000 |     7991       9008 |  307   693 |     46503|       0.54       8.40|
+Info:      18000 |     8327       9672 |  336   664 |     46255|       0.38       8.78|
+Info:      19000 |     8701      10298 |  374   626 |     45866|       0.40       9.18|
+Info:      20000 |     9137      10862 |  436   564 |     45584|       0.37       9.56|
+Info:      21000 |     9462      11537 |  325   675 |     45076|       0.47      10.03|
+Info:      22000 |     9764      12235 |  302   698 |     44611|       0.58      10.61|
+Info:      23000 |    10131      12868 |  367   633 |     44403|       0.34      10.95|
+Info:      24000 |    10498      13501 |  367   633 |     44025|       0.37      11.32|
+Info:      25000 |    10744      14255 |  246   754 |     43608|       0.33      11.65|
+Info:      26000 |    11182      14817 |  438   562 |     43317|       0.46      12.12|
+Info:      27000 |    11469      15530 |  287   713 |     42968|       0.45      12.57|
+Info:      28000 |    11821      16178 |  352   648 |     42539|       0.40      12.97|
+Info:      29000 |    12173      16826 |  352   648 |     42202|       0.33      13.30|
+Info:      30000 |    12518      17481 |  345   655 |     41825|       0.56      13.86|
+Info:      31000 |    12816      18183 |  298   702 |     41458|       0.37      14.23|
+Info:      32000 |    13097      18902 |  281   719 |     41066|       0.44      14.67|
+Info:      33000 |    13379      19620 |  282   718 |     40752|       0.50      15.17|
+Info:      34000 |    13690      20309 |  311   689 |     40356|       0.68      15.85|
+Info:      35000 |    14008      20991 |  318   682 |     39993|       0.50      16.35|
+Info:      36000 |    14354      21645 |  346   654 |     39594|       0.60      16.95|
+Info:      37000 |    14588      22411 |  234   766 |     39199|       0.38      17.33|
+Info:      38000 |    14796      23203 |  208   792 |     38868|       0.40      17.74|
+Info:      39000 |    15045      23954 |  249   751 |     38318|       0.41      18.14|
+Info:      40000 |    15266      24733 |  221   779 |     37715|       0.28      18.42|
+Info:      41000 |    15560      25439 |  294   706 |     37610|       0.60      19.02|
+Info:      42000 |    15753      26246 |  193   807 |     37111|       0.37      19.40|
+Info:      43000 |    16040      26959 |  287   713 |     36542|       0.35      19.75|
+Info:      44000 |    16268      27731 |  228   772 |     35944|       0.46      20.21|
+Info:      45000 |    16498      28501 |  230   770 |     35426|       0.30      20.51|
+Info:      46000 |    16771      29228 |  273   727 |     34947|       0.31      20.83|
+Info:      47000 |    17004      29995 |  233   767 |     34328|       0.30      21.13|
+Info:      48000 |    17263      30736 |  259   741 |     33789|       0.28      21.41|
+Info:      49000 |    17508      31491 |  245   755 |     33391|       0.31      21.72|
+Info:      50000 |    17715      32284 |  207   793 |     32914|       0.32      22.04|
+Info:      51000 |    17931      33068 |  216   784 |     32300|       0.27      22.30|
+Info:      52000 |    18141      33858 |  210   790 |     32087|       0.34      22.65|
+Info:      53000 |    18411      34588 |  270   730 |     31652|       0.35      23.00|
+Info:      54000 |    18655      35344 |  244   756 |     31032|       0.25      23.25|
+Info:      55000 |    18913      36086 |  258   742 |     30622|       0.47      23.72|
+Info:      56000 |    19187      36812 |  274   726 |     30104|       0.28      24.00|
+Info:      57000 |    19470      37529 |  283   717 |     29820|       0.44      24.44|
+Info:      58000 |    19714      38285 |  244   756 |     29271|       0.25      24.69|
+Info:      59000 |    20028      38971 |  314   686 |     28880|       0.34      25.04|
+Info:      60000 |    20362      39637 |  334   666 |     28624|       0.35      25.38|
+Info:      61000 |    20691      40308 |  329   671 |     28222|       0.41      25.80|
+Info:      62000 |    21031      40968 |  340   660 |     27614|       0.22      26.01|
+Info:      63000 |    21397      41602 |  366   634 |     27168|       0.33      26.34|
+Info:      64000 |    21700      42299 |  303   697 |     26960|       0.26      26.61|
+Info:      65000 |    22012      42987 |  312   688 |     26542|       0.30      26.91|
+Info:      66000 |    22377      43622 |  365   635 |     26212|       0.38      27.29|
+Info:      67000 |    22769      44230 |  392   608 |     25831|       0.26      27.54|
+Info:      68000 |    23070      44929 |  301   699 |     25249|       0.24      27.78|
+Info:      69000 |    23306      45693 |  236   764 |     24755|       0.28      28.06|
+Info:      70000 |    23609      46358 |  303   665 |     24281|       0.31      28.37|
+Info:      71000 |    23975      46955 |  366   597 |     23761|       0.27      28.64|
+Info:      72000 |    24316      47605 |  341   650 |     26095|       0.54      29.18|
+Info:      73000 |    24702      48219 |  386   614 |     25510|       0.91      30.09|
+Info:      74000 |    25070      48851 |  368   632 |     25060|       0.91      31.00|
+Info:      75000 |    25376      49545 |  306   694 |     24428|       1.00      32.00|
+Info:      76000 |    25718      50203 |  342   658 |     24918|       1.03      33.03|
+Info:      77000 |    26140      50781 |  422   578 |     24544|       3.14      36.17|
+Info:      78000 |    26533      51388 |  393   607 |     24340|       2.74      38.91|
+Info:      79000 |    26989      51932 |  456   544 |     24477|       2.79      41.70|
+Info:      80000 |    27420      52501 |  431   569 |     24143|       4.21      45.91|
+Info:      81000 |    27836      53085 |  416   584 |     25115|       3.19      49.10|
+Info:      82000 |    28321      53600 |  485   515 |     24790|       6.47      55.57|
+Info:      83000 |    28722      54199 |  401   599 |     24540|       5.10      60.67|
+Info:      84000 |    29100      54821 |  378   622 |     24226|       4.15      64.82|
+Info:      85000 |    29381      55540 |  281   719 |     23748|       2.26      67.08|
+Info:      86000 |    29803      56072 |  422   532 |     23324|       0.32      67.39|
+Info:      87000 |    30147      56724 |  344   652 |     23352|       0.74      68.13|
+Info:      88000 |    30443      57361 |  296   637 |     22888|       0.22      68.35|
+Info:      89000 |    30810      57935 |  367   574 |     22407|       0.23      68.57|
+Info:      90000 |    31113      58568 |  303   633 |     21833|       0.30      68.87|
+Info:      91000 |    31375      59271 |  262   703 |     21309|       0.18      69.06|
+Info:      92000 |    31690      59871 |  315   600 |     20788|       0.33      69.39|
+Info:      93000 |    32005      60520 |  315   649 |     20307|       0.36      69.75|
+Info:      94000 |    32219      61264 |  214   744 |     19669|       0.35      70.10|
+Info:      95000 |    32384      62050 |  165   786 |     18942|       0.19      70.29|
+Info:      96000 |    32614      62786 |  230   736 |     18290|       0.50      70.79|
+Info:      97000 |    32807      63576 |  193   790 |     19624|       1.39      72.18|
+Info:      98000 |    33193      64190 |  386   614 |     19225|       6.33      78.50|
+Info:      99000 |    33486      64897 |  293   707 |     18735|       4.04      82.54|
+Info:     100000 |    33641      65740 |  155   843 |     17961|       0.61      83.16|
+Info:     101000 |    33880      66469 |  239   729 |     17392|       0.32      83.47|
+Info:     102000 |    34073      67259 |  193   790 |     16711|       0.30      83.78|
+Info:     103000 |    34221      68084 |  148   825 |     16166|       0.26      84.04|
+Info:     104000 |    34399      68879 |  178   795 |     15601|       0.29      84.33|
+Info:     105000 |    34563      69695 |  164   816 |     14828|       0.23      84.56|
+Info:     106000 |    34747      70492 |  184   797 |     14146|       0.26      84.81|
+Info:     107000 |    35032      71198 |  285   706 |     13660|       0.50      85.32|
+Info:     108000 |    35241      71960 |  209   762 |     13107|       0.33      85.65|
+Info:     109000 |    35487      72695 |  246   735 |     12588|       0.30      85.96|
+Info:     110000 |    35678      73432 |  191   737 |     12083|       0.43      86.39|
+Info:     111000 |    35896      74129 |  218   697 |     11436|       0.35      86.74|
+Info:     112000 |    36123      74803 |  227   674 |     10795|       0.39      87.13|
+Info:     113000 |    36353      75468 |  230   665 |     10251|       0.34      87.47|
+Info:     114000 |    36657      76132 |  304   664 |     10013|       0.68      88.14|
+Info:     115000 |    36934      76745 |  277   613 |      9509|       0.34      88.49|
+Info:     116000 |    37260      77385 |  326   640 |      9143|       0.47      88.95|
+Info:     117000 |    37488      78065 |  228   680 |      8659|       0.46      89.41|
+Info:     118000 |    37776      78735 |  288   670 |      8342|       1.21      90.62|
+Info:     119000 |    38021      79378 |  245   643 |      7704|       0.30      90.92|
+Info:     120000 |    38345      80023 |  324   645 |      7410|       1.18      92.10|
+Info:     121000 |    38571      80729 |  226   706 |      6841|       0.91      93.01|
+Info:     122000 |    38733      81449 |  162   720 |      6163|       0.24      93.25|
+Info:     123000 |    39091      82080 |  358   631 |      6001|       1.13      94.37|
+Info:     124000 |    39283      82835 |  192   755 |      5345|       0.46      94.83|
+Info:     125000 |    39597      83460 |  314   625 |      5037|       0.71      95.54|
+Info:     126000 |    39964      84093 |  367   633 |      5064|       2.13      97.68|
+Info:     127000 |    40288      84769 |  324   676 |      4976|       1.23      98.91|
+Info:     128000 |    40529      85528 |  241   759 |      4455|       0.36      99.27|
+Info:     129000 |    40895      86154 |  366   626 |      4064|       0.63      99.90|
+Info:     130000 |    41135      86910 |  240   756 |      3488|       0.36     100.26|
+Info:     131000 |    41493      87552 |  358   642 |      3227|       0.66     100.92|
+Info:     132000 |    41935      88110 |  442   558 |      2969|       0.93     101.85|
+Info:     133000 |    42335      88710 |  400   600 |      2903|       0.81     102.66|
+Info:     134000 |    42586      89459 |  251   749 |      2356|       1.10     103.76|
+Info:     135000 |    42922      90123 |  336   664 |      2049|       1.72     105.47|
+Info:     136000 |    43106      90834 |  184   711 |      1361|       0.58     106.05|
+Info:     137000 |    43207      91556 |  101   722 |       571|       0.24     106.29|
+Info:     138000 |    43376      92287 |  169   731 |        60|       0.40     106.69|
+Info:     138061 |    43378      92334 |    2    47 |         0|       0.08     106.77|
+Info: Routing complete.
+Info: Router1 time 106.77s
+Info: Checksum: 0x2d597222
+
+Info: Critical path report for clock 'clk_315m_aux' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.locked_sync_TRELLIS_FF_Q.Q
+Info:    routing  0.42  0.95 Net pll_mid_i.locked_sync (11,7) -> (11,7)
+Info:                          Sink pll_mid_i.clk_locked_TRELLIS_FF_Q.M
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/clock/ecp5/clock2_gen.v:66.9-66.20
+Info:      setup  0.00  0.95 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.M
+Info: 0.52 ns logic, 0.42 ns routing
+
+Info: Critical path report for clock '$glbnet$dvi_i.clk_pix_5x' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_1.Q
+Info:    routing  1.90  2.42 Net dvi_i.tmds_ch0_shift[1] (91,2) -> (110,0)
+Info:                          Sink gpdi_dp[0]$tr_io$IOL.TXDATA1
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/display/ecp5/dvi_generator.sv:54.17-54.31
+Info:      setup  0.10  2.53 Source gpdi_dp[0]$tr_io$IOL.TXDATA1
+Info: 0.62 ns logic, 1.90 ns routing
+
+Info: Critical path report for clock '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  5.83  5.83 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.35.DOB3
+Info:    routing  2.74  8.57 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.35_DOB3[2] (64,82) -> (88,69)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  8.81 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_Z.F
+Info:    routing  3.63  12.43 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3[3] (88,69) -> (88,16)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_D.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  12.67 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_D.F
+Info:    routing  1.04  13.71 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_D_Z[2] (88,16) -> (90,12)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_D_Z_LUT4_D.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  13.95 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.37_DOB3_LUT4_D_Z_LUT4_D.F
+Info:    routing  0.53  14.48 Net graphics_i.graphics_i.graphics_i.fb1.mem.0.37_DOB3_LUT4_C_Z[3] (90,12) -> (91,13)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.23_DOB3_LUT4_C_Z_LUT4_C_Z_LUT4_Z_2.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  14.72 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.23_DOB3_LUT4_C_Z_LUT4_C_Z_LUT4_Z_2.F
+Info:    routing  0.62  15.34 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.23_DOB3_LUT4_C_Z_LUT4_C_Z[3] (91,13) -> (91,13)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.30_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0_TRELLIS_FF_DI_Q_LUT4_Z_3.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  15.57 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.30_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0_TRELLIS_FF_DI_Q_LUT4_Z_3.F
+Info:    routing  0.71  16.29 Net graphics_i.graphics_i.graphics_i.fb1.mem.0.37_DOB3_LUT4_C_Z_LUT4_C_Z_PFUMX_BLUT_Z[5] (91,13) -> (91,12)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  16.54 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C_L6MUX21_Z_2_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  16.54 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C_L6MUX21_Z_2_D1 (91,12) -> (91,12)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  16.78 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C_L6MUX21_Z_2_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  1.41  18.20 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z_C[2] (91,12) -> (88,9)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  18.43 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z.F
+Info:    routing  1.04  19.47 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D[1] (88,9) -> (87,9)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0_CIN_CCU2C_COUT$CCU2_COMB1.B
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.45  19.92 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0_CIN_CCU2C_COUT$CCU2_COMB1.FCO
+Info:    routing  0.00  19.92 Net dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0_CIN (87,9) -> (87,9)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  20.36 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0$CCU2_COMB0.F
+Info:    routing  0.63  20.99 Net dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_4_DI_LUT4_Z_A_LUT4_D_Z_CCU2C_B0_S0[1] (87,9) -> (86,9)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  21.23 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1_LUT4_Z.F
+Info:    routing  0.85  22.08 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1 (86,9) -> (88,8)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN$CCU2_COMB1.A
+Info:      logic  0.45  22.53 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN$CCU2_COMB1.FCO
+Info:    routing  0.00  22.53 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT (88,8) -> (88,8)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  22.97 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN$CCU2_COMB0.F
+Info:    routing  0.93  23.90 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0[4] (88,8) -> (85,8)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  24.15 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.37  24.52 Net dvi_i.encode_ch2.bias_TRELLIS_FF_Q_4_DI (85,8) -> (85,8)
+Info:                          Sink dvi_i.encode_ch2.bias_TRELLIS_FF_Q_4.M
+Info:      setup  0.00  24.52 Source dvi_i.encode_ch2.bias_TRELLIS_FF_Q_4.M
+Info: 10.02 ns logic, 14.50 ns routing
+
+Info: Critical path report for clock '$glbnet$graphics_i.graphics_i.clk_sys' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_B9_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q.Q
+Info:    routing  1.55  2.08 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_B9_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1[1] (50,24) -> (57,23)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_B9_TRELLIS_FF_Q_DI_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.B
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  2.31 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_B9_TRELLIS_FF_Q_DI_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT$CCU2_COMB0.F
+Info:    routing  1.13  3.44 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_B9_TRELLIS_FF_Q_DI_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0[0] (57,23) -> (60,24)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.A
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  3.68 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  3.68 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_ALUT (60,24) -> (60,24)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:141.30-141.32
+Info:      logic  0.17  3.84 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.00  3.84 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1 (60,24) -> (60,24)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:141.38-141.40
+Info:      logic  0.24  4.09 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.64  4.72 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z_D[1] (60,24) -> (59,24)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  4.96 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z_LUT4_Z.F
+Info:    routing  1.63  6.59 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_LUT4_D_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_D_Z[1] (59,24) -> (58,10)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26.B17
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  3.93  10.51 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26.P1
+Info:    routing  2.27  12.79 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_P1 (58,10) -> (57,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1$CCU2_COMB1.A
+Info:      logic  0.45  13.23 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.23 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_COUT (57,25) -> (57,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.31 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.31 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1$CCU2_FCI_INT (57,25) -> (57,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.31 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.31 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P1_CCU2C_B1_S1_CCU2C_S1_COUT (57,25) -> (57,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.38 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.38 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1$CCU2_FCI_INT (57,25) -> (57,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.38 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.38 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_COUT (57,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.45 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  13.45 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0$CCU2_FCI_INT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  13.45 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  13.45 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P5_CCU2C_B1_S1_CCU2C_S0_COUT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.52 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.52 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1$CCU2_FCI_INT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.52 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.52 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_COUT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.59 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.59 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1$CCU2_FCI_INT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.59 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.59 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P9_CCU2C_B1_S1_CCU2C_S1_COUT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.66 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.66 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1$CCU2_FCI_INT (58,25) -> (58,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.66 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.66 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_COUT (58,25) -> (59,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.73 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.73 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1$CCU2_FCI_INT (59,25) -> (59,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.73 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.73 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P13_CCU2C_B1_S1_CCU2C_S1_COUT (59,25) -> (59,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  13.80 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1$CCU2_COMB0.FCO
+Info:    routing  0.00  13.80 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1$CCU2_FCI_INT (59,25) -> (59,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1$CCU2_COMB1.FCI
+Info:      logic  0.00  13.80 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  13.80 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1_COUT (59,25) -> (59,25)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/triangle_setup.sv:85.16-85.67
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  14.24 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1_S1_CCU2C_S1$CCU2_COMB0.F
+Info:    routing  1.15  15.39 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_B0_MULT18X18D_P26_P17_CCU2C_B1_S1[2] (59,25) -> (59,24)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_A9_TRELLIS_FF_Q_DI_PFUMX_Z_ALUT_LUT4_Z_D_CCU2C_S1_S0_LUT4_Z_1_D_LUT4_Z_1.C
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  15.63 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_A9_TRELLIS_FF_Q_DI_PFUMX_Z_ALUT_LUT4_Z_D_CCU2C_S1_S0_LUT4_Z_1_D_LUT4_Z_1.F
+Info:    routing  0.87  16.50 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_A9_TRELLIS_FF_Q_DI_PFUMX_Z_ALUT_LUT4_Z_D_CCU2C_S1_S0_LUT4_Z_1_D[0] (59,24) -> (60,26)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_A9_TRELLIS_FF_Q_DI_PFUMX_Z_ALUT_LUT4_Z_D_CCU2C_S1_S0_LUT4_Z_1.B
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  16.73 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI_Q_MULT18X18D_A11_P9_MULT18X18D_P9_A9_TRELLIS_FF_Q_DI_PFUMX_Z_ALUT_LUT4_Z_D_CCU2C_S1_S0_LUT4_Z_1.F
+Info:    routing  0.88  17.61 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S0_CIN_CCU2C_COUT_S0[1] (60,26) -> (61,28)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  17.85 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z.F
+Info:    routing  0.69  18.54 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_A_LUT4_C_Z_LUT4_Z_1_A_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B[0] (61,28) -> (60,28)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_ALUT_LUT4_Z.A
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  18.77 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_ALUT_LUT4_Z.F
+Info:    routing  0.00  18.77 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_ALUT (60,28) -> (60,28)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:133.22-133.24
+Info:      logic  0.17  18.94 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_BLUT_LUT4_Z.OFX
+Info:    routing  1.48  20.42 Net graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_Z (60,28) -> (44,28)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI.M
+Info:      setup  0.00  20.42 Source graphics_i.graphics_i.graphics_i.renderer_i.zbuffer_i.mem.0.36_DOB0_LUT4_D_Z_LUT4_D_Z_CCU2C_B0_A1_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_A1_CCU2C_B0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_LUT4_Z_B_LUT4_C_Z_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_B_LUT4_Z_C_CCU2C_S1_S0_CCU2C_S0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_LUT4_Z_1_A_CCU2C_S0_CIN_CCU2C_COUT_A0_MULT18X18D_P26_A9_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_CCU2C_S1_1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_S1_CCU2C_S1_B0_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_TRELLIS_FF_Q_DI_CCU2C_S0_A0_LUT4_Z_D_TRELLIS_FF_DI_Q_MULT18X18D_B12_P9_MULT18X18D_P27_1_A12_TRELLIS_FF_Q_DI_PFUMX_Z_C0_CCU2C_S0_S1_PFUMX_C0_Z_TRELLIS_FF_DI.M
+Info: 8.13 ns logic, 12.28 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source btn_rst_n$tr_io.O
+Info:    routing  2.54  2.54 Net btn_rst_n$TRELLIS_IO_IN (6,0) -> (24,6)
+Info:                          Sink btn_rst_n_LUT4_D.D
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:3.24-3.33
+Info:      logic  0.24  2.77 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.60  6.37 Net btn_rst_n_LUT4_D_Z[1] (24,6) -> (87,5)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  6.60 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.92  7.53 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (87,5) -> (85,8)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info:      setup  0.42  7.95 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info: 0.90 ns logic, 7.05 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source ftdi_txd$tr_io.O
+Info:    routing  6.55  6.55 Net ftdi_txd$TRELLIS_IO_IN (0,89) -> (24,7)
+Info:                          Sink ftdi_txd_TRELLIS_FF_DI.M
+Info:                          Defined in:
+Info:                               rtl/uart_word_bridge.sv:6.25-6.32
+Info:      setup  0.00  6.55 Source ftdi_txd_TRELLIS_FF_DI.M
+Info: 0.00 ns logic, 6.55 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' -> 'posedge $glbnet$dvi_i.clk_pix_5x':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source dvi_i.encode_ch0.tmds_TRELLIS_FF_Q_3.Q
+Info:    routing  1.17  1.69 Net dvi_i.encode_ch0.tmds[3] (88,6) -> (90,4)
+Info:                          Sink dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_3_DI_LUT4_Z.B
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/display/tmds_encoder_dvi.sv:14.30-14.34
+Info:      logic  0.24  1.93 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_3_DI_LUT4_Z.F
+Info:    routing  0.13  2.06 Net dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_3_DI (90,4) -> (90,4)
+Info:                          Sink dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_3.DI
+Info:      setup  0.00  2.06 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_3.DI
+Info: 0.76 ns logic, 1.30 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_video_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  0.62  1.14 Net pll_video_locked (24,6) -> (24,6)
+Info:                          Sink btn_rst_n_LUT4_D.C
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.43-10.59
+Info:      logic  0.24  1.38 Source btn_rst_n_LUT4_D.F
+Info:    routing  1.21  2.59 Net btn_rst_n_LUT4_D_Z[1] (24,6) -> (41,6)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_1_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_LUT4_C_Z_TRELLIS_FF_CE_Q_LUT4_D_Z_TRELLIS_FF_Q.LSR
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      setup  0.42  3.01 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_1_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_LUT4_C_Z_TRELLIS_FF_CE_Q_LUT4_D_Z_TRELLIS_FF_Q.LSR
+Info: 1.18 ns logic, 1.83 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$graphics_i.graphics_i.clk_sys' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source ftdi_rxd_TRELLIS_FF_Q.Q
+Info:    routing  5.85  6.38 Net ftdi_rxd$TRELLIS_IO_OUT (75,28) -> (0,56)
+Info:                          Sink ftdi_rxd$tr_io.I
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:5.24-5.32
+Info: 0.52 ns logic, 5.85 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$graphics_i.graphics_i.clk_sys' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_sys_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  0.57  1.10 Net pll_sys_locked (23,6) -> (24,6)
+Info:                          Sink btn_rst_n_LUT4_D.B
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.11-10.25
+Info:      logic  0.24  1.33 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.60  4.93 Net btn_rst_n_LUT4_D_Z[1] (24,6) -> (87,5)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  5.16 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.92  6.08 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (87,5) -> (85,8)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info:      setup  0.42  6.51 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info: 1.42 ns logic, 5.09 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk_315m_aux' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  1.42  1.95 Net pll_mid_locked (11,7) -> (24,6)
+Info:                          Sink btn_rst_n_LUT4_D.A
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.27-10.41
+Info:      logic  0.24  2.18 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.60  5.78 Net btn_rst_n_LUT4_D_Z[1] (24,6) -> (87,5)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  6.01 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.92  6.93 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (87,5) -> (85,8)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info:      setup  0.42  7.36 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_2.LSR
+Info: 1.42 ns logic, 5.94 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk_315m_aux' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  1.42  1.95 Net pll_mid_locked (11,7) -> (24,6)
+Info:                          Sink btn_rst_n_LUT4_D.A
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.27-10.41
+Info:      logic  0.24  2.18 Source btn_rst_n_LUT4_D.F
+Info:    routing  1.21  3.39 Net btn_rst_n_LUT4_D_Z[1] (24,6) -> (41,6)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_1_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_LUT4_C_Z_TRELLIS_FF_CE_Q_LUT4_D_Z_TRELLIS_FF_Q.LSR
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      setup  0.42  3.82 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.37_DOB3_TRELLIS_FF_Q_1_DI_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_1_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_LUT4_C_Z_TRELLIS_FF_CE_Q_LUT4_D_Z_TRELLIS_FF_Q.LSR
+Info: 1.18 ns logic, 2.63 ns routing
+
+Info: Max frequency for clock                          'clk_315m_aux': 1053.74 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 396.04 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 40.78 MHz (PASS at 25.20 MHz)
+ERROR: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 48.98 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 7.95 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 6.55 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 2.06 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.01 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 6.38 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 6.51 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 7.36 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.82 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 84 endpoint(s)
+Info:          + represents [1,84) endpoint(s)
+Info: [ -3751,  -1627) |*+
+Info: [ -1627,    497) |+
+Info: [   497,   2621) |********+
+Info: [  2621,   4745) |***************************+
+Info: [  4745,   6869) |*******************************************************+
+Info: [  6869,   8993) |*****************+
+Info: [  8993,  11117) |******************************+
+Info: [ 11117,  13241) |************************************************************ 
+Info: [ 13241,  15365) |************************************************+
+Info: [ 15365,  17489) |**********+
+Info: [ 17489,  19613) |+
+Info: [ 19613,  21737) |+
+Info: [ 21737,  23861) | 
+Info: [ 23861,  25985) | 
+Info: [ 25985,  28109) |+
+Info: [ 28109,  30233) |***+
+Info: [ 30233,  32357) |******+
+Info: [ 32357,  34481) |****+
+Info: [ 34481,  36605) |*+
+Info: [ 36605,  38729) |*+
+0 warnings, 1 error
+
+Info: Program finished normally.
