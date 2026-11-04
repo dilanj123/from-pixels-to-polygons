@@ -148,3 +148,63 @@ The reports are digital verification/implementation-tool evidence only. No graph
 ## Gate-9 disposition
 
 Gate 9 remains **OPEN**. Full-chip synthesis and routing, resource use, routed slack and a critical path are now recorded. The required 60 MHz `clk_sys` target is not met, and compliant-clock throughput metrics are not established. No bitstream, programming, physical video or hardware evidence exists. The next task should address the measured renderer/control critical path within the project’s approved Gate-9 scope before any physical baseline can be claimed.
+
+
+## G9-CRITICAL-PATH-CLOSE investigation (2026-11-04)
+
+Starting commit: `5c31a1de4d98306836ab062e90740ea510227249`. The FIFO-corrected production baseline and pinned Sobel dependency were unchanged. No clock, device, LPF, PLL, source list, seed, or timing constraint was changed.
+
+### Path reconstruction
+
+The detailed nextpnr path has 133 timing arcs on a real `clk_sys` posedge-to-posedge path. The long name of the launch cell contains `u_apb_regs.run_enable_o`, and the capture name contains Z-buffer memory plumbing; those names are synthesized aliases and are not the logical register identity. Mapping the endpoints through the matching Yosys JSON `attributes.src` identifies:
+
+- Launch: `draw_q` state in `rtl/renderer_core.sv:165-222`, captured on an accepted DRAW.
+- Capture: `result_q` in `rtl/triangle_setup.sv:127-139`.
+- The path traverses setup coordinate-delta and edge/AREA/initial-edge arithmetic (`triangle_setup.sv`, including the product/subtraction cones identified by detailed source spans), with ECP5 carry-chain and multiplier cells. It is the combinational DRAW-to-setup-result cone, not a path launched by the Sobel APB enable or through the production FIFO.
+- Both endpoints are clocked by the PLL-derived 60 MHz `clk_sys`. It is correctly constrained as a single-cycle setup path. No protocol rule establishes a multicycle path, and no false-path or multicycle exception is justified.
+
+The baseline route's detailed timing is 25.517 ns, 11.437 ns logic and 13.555 ns routing, with approximately −8.851 ns slack. The path has 65 logic arcs and 66 routed nets (plus clock-to-Q and setup). This is a genuine architectural path through unregistered setup arithmetic; the constraint model is not the cause.
+
+### Bounded-width trial (not retained)
+
+A local trial replaced sign-extended 32-bit products in AREA/initial-edge evaluation with explicitly bounded signed16×signed14 products and signed31 subtraction, based on legal Q4 coordinate limits in `docs/FIXED_POINT.md`. The triangle setup vector test passed (160 vectors, 5,474 field comparisons), and the relevant complete graphics/Sobel/readback regression passed while the trial was present. The implementation retained the same result register/ready-valid timing.
+
+The same Yosys/nextpnr versions and full route recipe were then run (Yosys `0.69+154`, nextpnr `0.11.1-34-gc4fbb55a`, static placer, router1, seed 1, `--freq 60`). Synthesis exited 0. Routing completed in 57.98 seconds but returned failure because `clk_sys` still missed 60 MHz. Trial routed estimate was 39.8979 MHz (25.064 ns, about −8.397 ns slack); placement estimate was 38.91 MHz. The path remained 133 arcs from renderer DRAW state to triangle-setup result. Thus the trial moved the implementation only slightly and did not remove the critical cone.
+
+| Metric | Accepted FIFO-EBR baseline | Width-only trial |
+|---|---:|---:|
+| nextpnr pre-pack LUT4 | 9,822 | 10,461 |
+| TRELLIS_FF | 6,011 | 6,005 |
+| DP16KD | 156 | 156 |
+| MULT18X18D | 11 | 11 |
+| EHXPLLL | 3 | 3 |
+| routed `clk_sys` estimate | 39.1896 MHz | 39.8979 MHz |
+
+Because the trial increased LUT4 use and left a substantial timing failure, it was **not retained**. Production `rtl/triangle_setup.sv` is restored to the starting commit. The original accepted full-chip reports remain unchanged. Trial artifacts are separately retained as `yosys_synth_triangle_width.txt`, `nextpnr_route_triangle_width.txt`, `nextpnr_route_triangle_width.json.gz`, and `ulx3s_graphics_triangle_width.config.gz`. No bitstream was generated.
+
+Commands and results:
+
+- `make synth-ecp5` — exit 0.
+- `/usr/bin/time -p make route-ecp5` — make exit 2 because nextpnr reported timing failure; full routing completed, then nextpnr emitted `ERROR: Max frequency ... clk_sys: 39.90 MHz (FAIL at 60.00 MHz)`. Wall time 57.98 s.
+- `make lint-triangle-setup test-triangle-setup` — exit 0. `make test-raster-walk test-fragment-z` — exit 0 (48 walker cases; Fragment/Z accepted 61, reads 61, decisions 60, writes 28, zero memory/address mismatches).
+- `SOBEL_PYTHON=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 make test-triangle-setup test-renderer test-renderer-reset test-renderer-decoder test-renderer-counters test-command-system test-sobel-integration test-sobel-controller test-sobel-modes test-readback test-readback-framebuffer test-presentation test-graphics-core` — exit 0.
+- `/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m unittest discover -s sw/reference -p 'test_*.py' -v` — exit 0, 31 tests.
+- `make lint-triangle-setup lint-renderer lint-command-system lint-sobel-integration lint-presentation lint-fifo` — exit 0.
+- `make formal-gate8` — exit 0, including two-clock mailbox BMC and cover.
+- `make doctor` — exit 0; `make bootstrap-smoke` — exit 0; `git diff --check` — exit 0.
+
+Yosys 0.69+154 and nextpnr-ecp5 0.11.1-34-gc4fbb55a were used. Yosys warnings: four small array-to-register conversions (`pixel_fifo`, framebuffer helper arrays, decoder packet array), three Project F DVI `.RST` width resizes, and the experimental `write_xaiger2` notice (8 unique messages total). nextpnr emitted no warnings and one timing error. The initial default-Python regression invocation stopped at the Sobel integration target because the active `python3` lacked NumPy; rerunning the entire batch with the documented Python 3.11 interpreter passed.
+
+Artifact SHA-256:
+
+| Artifact | SHA-256 |
+|---|---|
+| `nextpnr_route_triangle_width.txt` | `f91ea8af4e45d737cacb6c16abbbb92b899891b179c339f55a6030d92c1c6942` |
+| `yosys_synth_triangle_width.txt` | `071375f42f88cf1c60e0581d7e5e21e49e289fc3e8d768be775507f13e82f901` |
+| `nextpnr_route_triangle_width.json.gz` | `010b9903d4cb811b2b18e1083589e2eac0c6862ae80d03b8b1be862838174c3f` |
+| `ulx3s_graphics_triangle_width.config.gz` | `e2d65b665b140c13f57cbba0e489828e47d35b0c2a5a4b897383b90bfaffef9d` |
+| Trial mapped JSON (local build artifact) | `fe58f6ff01dbc4e626afd6896610c79b5ce190899e9a6c71d38862c30ce7009b` |
+
+### Decision / remaining blocker
+
+There is no demonstrated constraint or mapping defect to correct, and the only bounded-width trial is not a useful retained tradeoff. Reaching 60 MHz requires breaking the DRAW-to-setup-result arithmetic cone with additional setup pipeline/state and preserving the accepted geometry semantics, command backpressure, renderer sequencing, counters and frame completion. Smallest decision-ready option: permit a two-stage setup transaction internally—stage one captures DRAW and computes deltas/bounds/AREA/classification; stage two computes the three pixel-centre initial edges and presents the unchanged `triangle_setup_result_t`. Keep the external ready/valid interface and result semantics, but explicitly accept the added setup cycle and update the setup-cycle counter expectations. Before implementation, approve that latency change and require full setup-vector plus renderer/counter/system regressions and a repeat route. Gate 9 remains OPEN; do not begin Gate 10 or Gate 11.

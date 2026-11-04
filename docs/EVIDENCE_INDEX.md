@@ -484,3 +484,14 @@ analog CDC/MTBF, or hardware evidence is claimed.
 | Gate-9 functional/formal regression | `reports/gfx026/functional_regression.log`; `make formal-gate8`; Python unittest | Relevant simulation batch exit 0; reference suite 31/31; selected prior formal suite exit 0, including two-clock presentation BMC depth 32 and cover depth 48. These do not establish physical timing or hardware. | RTL SIMULATION VERIFIED / FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
 
 Full logs, exact tool versions, warnings, pin/clock assumptions and route-attempt details are in `reports/gfx026/RESULTS.md`. Gate 9 remains OPEN because routed `clk_sys` timing fails the 60 MHz target and compliant-clock throughput is not established. No Fmax, bitstream or physical operation is claimed.
+
+
+## G9-CRITICAL-PATH-CLOSE — GFX-026 timing-path investigation
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| Gate-9 system-clock failure is a genuine setup arithmetic path | Baseline `nextpnr_route_fifo_ebr.json.gz` plus mapped ECP5 netlist endpoint `attributes.src`; detailed diagnosis in `reports/gfx026/RESULTS.md` | Renderer DRAW state to triangle-setup result register, same `clk_sys`; no justified timing exception | PLACED/ROUTED — TIMING FAILING |
+| Bounded-width arithmetic trial is functionally equivalent in exercised vectors/regressions but not retained | `make lint-triangle-setup test-triangle-setup`; documented full relevant regression; trial Yosys/nextpnr logs and route report | 160 vectors/5,474 field comparisons; trial route 39.8979 MHz at 60 MHz constraint and LUT4 count increased, so production RTL restored | RTL SIMULATION VERIFIED (trial only); SYNTHESISED; PLACED/ROUTED — TIMING FAILING |
+| Gate 9 remains open | `reports/gfx026/RESULTS.md`; `04_MASTER_CHECKLIST.md` | No timing-clean result or bitstream; setup pipeline/control decision required before another correction | LOCAL OBSERVATION |
+
+The trial is not the accepted production implementation. Historical accepted GFX-026 reports are preserved. No timing exception, target change, hardware claim, Gate-10 work or Gate-11 optimization was made.

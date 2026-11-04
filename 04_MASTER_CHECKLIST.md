@@ -218,7 +218,7 @@ or MTBF evidence. Gate 9 remains open.
 - [x] DSP count recorded — 11 MULT18X18D
 - [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
 - [x] worst slack recorded — approximately −8.851 ns on routed `clk_sys`; target 60 MHz
-- [x] critical path recorded — routed `clk_sys` path endpoints/arcs in `reports/gfx026/RESULTS.md`
+- [x] critical path recorded — baseline path remapped to renderer DRAW state → triangle-setup result arithmetic using Yosys source attributes and routed timing JSON; details in `reports/gfx026/RESULTS.md`
 - [x] warnings reviewed — original FIFO mem2reg diagnosed/fixed; remaining memory conversions, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
 - [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,014 cycles
