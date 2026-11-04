@@ -42,6 +42,24 @@ module cmd_fifo_tb;
         end
     endtask
 
+    task automatic reset_partial_occupancy;
+        begin
+            drive_and_check(1, 32'hbad00001, 0);
+            drive_and_check(1, 32'hbad00002, 0);
+            if (count != 2) $fatal(1, "reset test setup failed");
+            @(negedge clk); in_valid = 0; out_ready = 0; rst = 1;
+            #1;
+            if (level !== 0 || out_valid !== 0 || out_data !== 0)
+                $fatal(1, "asynchronous reset did not clear FIFO-visible state");
+            repeat (2) @(posedge clk);
+            #1; rst = 0; head = 0; tail = 0; count = 0;
+            check_state();
+            drive_and_check(1, 32'h600d0001, 0);
+            drive_and_check(0, 0, 1);
+            if (count != 0) $fatal(1, "FIFO did not recover after partial reset");
+        end
+    endtask
+
     initial begin
         in_valid = 0; in_data = 0; out_ready = 0; head = 0; tail = 0; count = 0;
         repeat (3) @(posedge clk); #1; rst = 0; check_state();
@@ -51,6 +69,7 @@ module cmd_fifo_tb;
         drive_and_check(1, 32'hdeadbeef, 0);
         drive_and_check(1, 32'hcafebabe, 1);
         while (count != 0) drive_and_check(0, 0, 1);
+        reset_partial_occupancy();
         for (integer round = 0; round < 4; round = round + 1) begin
             for (integer i = 0; i < 300; i = i + 1) drive_and_check(1, (round << 20) | i, 0);
             for (integer i = 0; i < 300; i = i + 1) drive_and_check(1, 32'h80000000 | (round << 12) | i, 1);
