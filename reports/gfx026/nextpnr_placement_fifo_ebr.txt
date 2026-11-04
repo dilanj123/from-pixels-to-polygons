@@ -1,0 +1,308 @@
+Info: constraining clock net 'clk_25m' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:      9822/83640    11%
+Info:         logic LUTs:   7354/83640     8%
+Info:         carry LUTs:   2468/83640     2%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:      6011/83640     7%
+
+Info: Packing IOs..
+Info: pin 'gpdi_dp[3]$tr_io' constrained to Bel 'X116/Y0/PIOA'.
+Info: pin 'gpdi_dp[2]$tr_io' constrained to Bel 'X76/Y0/PIOA'.
+Info: pin 'gpdi_dp[1]$tr_io' constrained to Bel 'X83/Y0/PIOA'.
+Info: pin 'gpdi_dp[0]$tr_io' constrained to Bel 'X110/Y0/PIOA'.
+Info: pin 'ftdi_txd$tr_io' constrained to Bel 'X0/Y89/PIOB'.
+Info: pin 'ftdi_rxd$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'clk_25m$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn_rst_n$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: IOLOGIC component dvi_i.serialize_ch2 connected to PIO Bel X76/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch1 connected to PIO Bel X83/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch0 connected to PIO Bel X110/Y0/PIOA
+Info: placed PLL 'pll_sys_i.pll_i' at bel 'X1/Y4/EHXPLL_UL'
+Info: placed PLL 'pll_mid_i.pll_i' at bel 'X2/Y94/EHXPLL_LL'
+Info: placed PLL 'pll_video_i.pll_i' at bel 'X124/Y94/EHXPLL_LR'
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     3324 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll_sys_i.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 300.0 MHz for net pll_mid_i.clk_in
+Info:     Derived frequency constraint of 60.0 MHz for net graphics_i.graphics_i.clk_sys
+Info:     Input frequency of PLL 'pll_mid_i.pll_i' is constrained to 300.0 MHz
+Info:     Derived frequency constraint of 315.1 MHz for net pll_mid_i.clk_5x_out
+Info:     Derived frequency constraint of 315.1 MHz for net clk_315m_aux
+Info:     Input frequency of PLL 'pll_video_i.pll_i' is constrained to 315.1 MHz
+Info:     Derived frequency constraint of 126.0 MHz for net dvi_i.clk_pix_5x
+Info:     Derived frequency constraint of 25.2 MHz for net gpdi_dp[3]$TRELLIS_IO_OUT
+Info: Promoting globals...
+Info:     promoting clock net graphics_i.graphics_i.clk_sys to global network
+Info:     promoting clock net gpdi_dp[3]$TRELLIS_IO_OUT to global network
+Info:     promoting clock net dvi_i.clk_pix_5x to global network
+Info: Checksum: 0x19415300
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       8/    365     2%
+Info: 	                DCCA:       3/     56     5%
+Info: 	              DP16KD:     156/    208    75%
+Info: 	          MULT18X18D:      11/    156     7%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       3/      4    75%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       3/    141     2%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    6011/  83640     7%
+Info: 	        TRELLIS_COMB:   10340/  83640    12%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Running Static placer...
+Info: ⌁ bel grid 127x96, placer grid 127x95...
+Info: ⌁ initialising bels...
+Info: ⌁ initialising cells...
+Info: ⌁ inserting dark nodes...
+Info: ⌁   group RAM inserted a total of 11649 dark nodes
+Info: ⌁   group MUL inserted a total of 11831 dark nodes
+Info: ⌁ inserting spacers...
+Info: ⌁   group COMB pre-spacer utilisation 12.36% (target 70.00%)
+Info: ⌁   group COMB inserted a total of 48207 spacers
+Info: ⌁   group FF pre-spacer utilisation 7.19% (target 70.00%)
+Info: ⌁   group FF inserted a total of 52536 spacers
+Info: ⌁   group RAM pre-spacer utilisation 75.00% (target 70.00%)
+Info: ⌁   group MUL pre-spacer utilisation 7.05% (target 70.00%)
+Info: ⌁   group MUL inserted a total of 98 spacers
+Info: initial density penalty: 0.000123
+Info: initial steplen=0.010000 next steplen = 0.781889
+Info: iter=0 steplen=0.781889 a=1.000000 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1493250 hpwl: 16496
+Info:    overlap: COMB=99.3%, FF=98.8%, RAM=96.5%, MUL=86.4%
+Info: iter=10 steplen=0.382550 a=6.463116 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1516589 hpwl: 5434
+Info:    overlap: COMB=99.4%, FF=99.0%, RAM=98.1%, MUL=90.9%
+Info: iter=20 steplen=0.397930 a=11.609499 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1503883 hpwl: 3892
+Info:    overlap: COMB=99.4%, FF=98.9%, RAM=99.4%, MUL=90.9%
+Info: iter=30 steplen=0.388851 a=16.700390 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1494589 hpwl: 3449
+Info:    overlap: COMB=99.5%, FF=98.8%, RAM=99.4%, MUL=90.9%
+Info: iter=40 steplen=0.379449 a=21.766623 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1482201 hpwl: 3368
+Info:    overlap: COMB=99.4%, FF=98.6%, RAM=99.4%, MUL=90.9%
+Info: iter=50 steplen=0.388221 a=26.818802 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1472034 hpwl: 3418
+Info:    overlap: COMB=99.4%, FF=98.7%, RAM=99.4%, MUL=90.9%
+Info: iter=60 steplen=0.382301 a=31.861877 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1457320 hpwl: 3505
+Info:    overlap: COMB=99.3%, FF=98.5%, RAM=99.4%, MUL=90.9%
+Info: iter=70 steplen=0.387493 a=36.898563 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1443946 hpwl: 3600
+Info:    overlap: COMB=99.3%, FF=98.5%, RAM=99.4%, MUL=90.9%
+Info: iter=80 steplen=0.391025 a=41.930519 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1425067 hpwl: 3706
+Info:    overlap: COMB=99.1%, FF=98.4%, RAM=99.4%, MUL=90.9%
+Info: iter=90 steplen=0.392987 a=46.958832 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1409236 hpwl: 3806
+Info:    overlap: COMB=99.0%, FF=98.1%, RAM=99.4%, MUL=90.9%
+Info: iter=100 steplen=0.401397 a=51.984253 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1390097 hpwl: 3909
+Info:    overlap: COMB=98.9%, FF=97.9%, RAM=99.4%, MUL=90.9%
+Info: iter=110 steplen=0.411327 a=57.007309 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1370463 hpwl: 4033
+Info:    overlap: COMB=98.7%, FF=97.8%, RAM=99.4%, MUL=90.9%
+Info: iter=120 steplen=0.426455 a=62.028416 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1346924 hpwl: 4177
+Info:    overlap: COMB=98.7%, FF=97.7%, RAM=99.4%, MUL=90.9%
+Info: iter=130 steplen=0.442920 a=67.047867 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1301080 hpwl: 4385
+Info:    overlap: COMB=98.7%, FF=97.6%, RAM=98.7%, MUL=90.9%
+Info: iter=140 steplen=0.474049 a=72.065910 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1250067 hpwl: 4668
+Info:    overlap: COMB=98.5%, FF=97.5%, RAM=98.4%, MUL=90.9%
+Info: iter=150 steplen=0.553950 a=77.082741 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1167478 hpwl: 5036
+Info:    overlap: COMB=98.2%, FF=96.8%, RAM=98.4%, MUL=90.9%
+Info: iter=160 steplen=0.549634 a=82.098495 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 1062164 hpwl: 5534
+Info:    overlap: COMB=97.8%, FF=96.3%, RAM=97.8%, MUL=81.8%
+Info: iter=170 steplen=0.515597 a=87.113312 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 971634 hpwl: 6074
+Info:    overlap: COMB=97.4%, FF=95.6%, RAM=97.4%, MUL=81.8%
+Info: iter=180 steplen=0.511441 a=92.127312 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 845984 hpwl: 6577
+Info:    overlap: COMB=96.8%, FF=94.4%, RAM=97.1%, MUL=72.7%
+Info: iter=190 steplen=0.539740 a=97.140572 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 732040 hpwl: 7103
+Info:    overlap: COMB=95.6%, FF=93.1%, RAM=96.2%, MUL=72.7%
+Info: iter=200 steplen=0.561649 a=102.153145 penalty=[0.02, 0.02, 0.02, 0.02]
+Info:    system potential: 621059 hpwl: 7701
+Info:    overlap: COMB=94.5%, FF=91.3%, RAM=96.8%, MUL=81.8%
+Info: iter=210 steplen=0.571787 a=107.165123 penalty=[0.02, 0.02, 0.02, 0.02]
+Info:    system potential: 532869 hpwl: 8403
+Info:    overlap: COMB=93.1%, FF=89.6%, RAM=96.8%, MUL=81.8%
+Info: iter=220 steplen=0.591477 a=112.176537 penalty=[0.03, 0.03, 0.03, 0.03]
+Info:    system potential: 445567 hpwl: 9206
+Info:    overlap: COMB=91.9%, FF=87.4%, RAM=96.2%, MUL=72.7%
+Info: iter=230 steplen=0.561950 a=117.187462 penalty=[0.04, 0.04, 0.04, 0.04]
+Info:    system potential: 373420 hpwl: 10072
+Info:    overlap: COMB=89.9%, FF=84.4%, RAM=96.2%, MUL=72.7%
+Info: iter=240 steplen=0.569523 a=122.197929 penalty=[0.05, 0.05, 0.05, 0.05]
+Info:    system potential: 322352 hpwl: 10897
+Info:    overlap: COMB=87.6%, FF=81.9%, RAM=95.8%, MUL=72.7%
+Info: iter=250 steplen=0.548016 a=127.207970 penalty=[0.06, 0.06, 0.06, 0.06]
+Info:    system potential: 284209 hpwl: 11708
+Info:    overlap: COMB=85.4%, FF=78.0%, RAM=95.5%, MUL=63.6%
+Info: iter=260 steplen=0.524690 a=132.217606 penalty=[0.08, 0.08, 0.08, 0.08]
+Info:    system potential: 249670 hpwl: 12438
+Info:    overlap: COMB=82.6%, FF=74.5%, RAM=94.9%, MUL=72.7%
+Info: iter=270 steplen=0.523063 a=137.226898 penalty=[0.10, 0.10, 0.10, 0.10]
+Info:    system potential: 213583 hpwl: 13269
+Info:    overlap: COMB=80.4%, FF=70.7%, RAM=94.2%, MUL=68.2%
+Info: iter=280 steplen=0.577208 a=142.235855 penalty=[0.12, 0.12, 0.12, 0.12]
+Info:    system potential: 170236 hpwl: 14252
+Info:    overlap: COMB=78.0%, FF=67.8%, RAM=94.2%, MUL=63.6%
+Info: iter=290 steplen=0.599722 a=147.244492 penalty=[0.16, 0.16, 0.16, 0.16]
+Info:    system potential: 132577 hpwl: 15486
+Info:    overlap: COMB=75.1%, FF=63.8%, RAM=93.3%, MUL=54.5%
+Info: iter=300 steplen=0.590979 a=152.252853 penalty=[0.20, 0.20, 0.20, 0.20]
+Info:    system potential: 111357 hpwl: 16845
+Info:    overlap: COMB=72.5%, FF=58.9%, RAM=89.7%, MUL=54.5%
+Info: iter=310 steplen=0.570492 a=157.260956 penalty=[0.26, 0.26, 0.26, 0.26]
+Info:    system potential: 92386 hpwl: 18356
+Info:    overlap: COMB=68.3%, FF=53.5%, RAM=87.2%, MUL=59.1%
+Info: iter=320 steplen=0.578433 a=162.268799 penalty=[0.33, 0.33, 0.33, 0.33]
+Info:    system potential: 78019 hpwl: 19974
+Info:    overlap: COMB=63.8%, FF=47.9%, RAM=86.9%, MUL=54.5%
+Info: iter=330 steplen=0.582023 a=167.276382 penalty=[0.42, 0.42, 0.42, 0.42]
+Info:    system potential: 64349 hpwl: 21524
+Info:    overlap: COMB=60.6%, FF=42.3%, RAM=83.7%, MUL=59.1%
+Info: iter=340 steplen=0.572326 a=172.283768 penalty=[0.54, 0.54, 0.54, 0.54]
+Info:    system potential: 56209 hpwl: 22997
+Info:    overlap: COMB=57.4%, FF=38.9%, RAM=82.4%, MUL=54.5%
+Info: iter=350 steplen=0.602178 a=177.290939 penalty=[0.70, 0.70, 0.70, 0.70]
+Info:    system potential: 49515 hpwl: 24456
+Info:    overlap: COMB=52.4%, FF=34.3%, RAM=80.4%, MUL=59.1%
+Info: iter=360 steplen=0.606930 a=182.297882 penalty=[0.89, 0.89, 0.89, 0.89]
+Info:    system potential: 42539 hpwl: 25830
+Info:    overlap: COMB=48.7%, FF=30.2%, RAM=78.5%, MUL=59.1%
+Info: iter=370 steplen=0.616619 a=187.304642 penalty=[1.14, 1.14, 1.14, 1.14]
+Info:    system potential: 38715 hpwl: 27204
+Info:    overlap: COMB=44.8%, FF=25.8%, RAM=75.6%, MUL=59.1%
+Info: iter=380 steplen=0.605967 a=192.311218 penalty=[1.46, 1.46, 1.46, 1.46]
+Info:    system potential: 33596 hpwl: 28631
+Info:    overlap: COMB=41.0%, FF=23.1%, RAM=69.9%, MUL=50.0%
+Info: iter=390 steplen=0.618199 a=197.317673 penalty=[1.87, 1.87, 1.87, 1.87]
+Info:    system potential: 30992 hpwl: 30234
+Info:    overlap: COMB=38.1%, FF=19.8%, RAM=65.7%, MUL=63.6%
+Info: iter=400 steplen=0.626636 a=202.323944 penalty=[2.39, 2.39, 2.39, 2.39]
+Info:    system potential: 27850 hpwl: 31824
+Info:    overlap: COMB=35.4%, FF=14.3%, RAM=64.1%, MUL=59.1%
+Info: iter=410 steplen=0.642671 a=207.330063 penalty=[3.06, 3.06, 3.06, 3.06]
+Info:    system potential: 25531 hpwl: 33485
+Info:    overlap: COMB=30.3%, FF=11.7%, RAM=60.9%, MUL=40.9%
+Info: iter=420 steplen=0.686405 a=212.336014 penalty=[3.92, 3.92, 3.92, 3.92]
+Info:    system potential: 22260 hpwl: 35195
+Info:    overlap: COMB=28.5%, FF=10.2%, RAM=55.4%, MUL=31.8%
+Info: iter=430 steplen=0.745003 a=217.341812 penalty=[5.02, 5.02, 5.02, 5.02]
+Info:    system potential: 18901 hpwl: 36997
+Info:    overlap: COMB=25.1%, FF=8.1%, RAM=51.9%, MUL=54.5%
+Info: iter=440 steplen=0.802124 a=222.347504 penalty=[6.42, 6.42, 6.42, 6.42]
+Info:    system potential: 15432 hpwl: 39144
+Info:    overlap: COMB=22.6%, FF=7.1%, RAM=46.2%, MUL=45.5%
+Info: iter=450 steplen=0.879364 a=227.353073 penalty=[8.22, 8.22, 8.22, 8.22]
+Info:    system potential: 13443 hpwl: 41422
+Info:    overlap: COMB=19.7%, FF=5.1%, RAM=45.2%, MUL=40.9%
+Info: iter=460 steplen=1.026741 a=232.358536 penalty=[10.52, 10.52, 10.52, 10.52]
+Info:    system potential: 11286 hpwl: 44075
+Info:    overlap: COMB=17.9%, FF=4.5%, RAM=41.7%, MUL=36.4%
+Info: iter=470 steplen=1.117332 a=237.363861 penalty=[13.47, 13.47, 13.47, 13.47]
+Info:    system potential: 9989 hpwl: 46411
+Info:    overlap: COMB=16.2%, FF=3.2%, RAM=35.9%, MUL=27.3%
+Info: iter=480 steplen=1.218976 a=242.369064 penalty=[17.24, 17.24, 17.24, 17.24]
+Info:    system potential: 9202 hpwl: 48266
+Info:    overlap: COMB=13.4%, FF=2.8%, RAM=26.9%, MUL=18.2%
+Info: iter=490 steplen=1.306662 a=247.374161 penalty=[22.07, 22.07, 22.07, 22.07]
+Info:    system potential: 8707 hpwl: 49184
+Info:    overlap: COMB=11.6%, FF=1.8%, RAM=26.0%, MUL=18.2%
+Info: iter=500 steplen=1.466932 a=252.379166 penalty=[28.25, 28.25, 28.25, 28.25]
+Info:    system potential: 8169 hpwl: 49998
+Info:    overlap: COMB=11.2%, FF=2.3%, RAM=16.0%, MUL=22.7%
+Info: iter=510 steplen=1.631204 a=257.384064 penalty=[36.16, 36.16, 36.16, 36.16]
+Info:    system potential: 7999 hpwl: 50824
+Info:    overlap: COMB=8.7%, FF=2.0%, RAM=9.3%, MUL=18.2%
+Info: Strict legalising 184 cells...
+Info: HPWL after legalise: 104922.648438 (delta: 54022.933594)
+Info: final iter=512 system potential: 10580 hpwl: 105083
+Info: Strict legalising 9187 cells...
+Info: HPWL after legalise: 112302.000000 (delta: 7218.992188)
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 2763, wirelen = 111808
+Info:   at iteration #5: temp = 0.000000, timing cost = 2774, wirelen = 92098
+Info:   at iteration #10: temp = 0.000000, timing cost = 2454, wirelen = 89331
+Info:   at iteration #15: temp = 0.000000, timing cost = 2616, wirelen = 87848
+Info:   at iteration #20: temp = 0.000000, timing cost = 2632, wirelen = 87347
+Info:   at iteration #25: temp = 0.000000, timing cost = 2614, wirelen = 87147
+Info:   at iteration #30: temp = 0.000000, timing cost = 2666, wirelen = 87075
+Info:   at iteration #34: temp = 0.000000, timing cost = 2656, wirelen = 87040 
+Info: SA placement time 27.35s
+
+Info: Max frequency for clock                          'clk_315m_aux': 995.02 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 149.14 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 31.80 MHz (PASS at 25.20 MHz)
+Info: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 38.92 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 14.98 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 8.02 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 2.44 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 2.46 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 6.05 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 8.78 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 11.42 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 4.47 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 77 endpoint(s)
+Info:          + represents [1,77) endpoint(s)
+Info: [ -9027,  -6629) |*+
+Info: [ -6629,  -4231) |+
+Info: [ -4231,  -1833) |***+
+Info: [ -1833,    565) |**************+
+Info: [   565,   2963) |*********************************+
+Info: [  2963,   5361) |*************************+
+Info: [  5361,   7759) |***************************************+
+Info: [  7759,  10157) |***************************+
+Info: [ 10157,  12555) |************************************************************ 
+Info: [ 12555,  14953) |***********************************+
+Info: [ 14953,  17351) |***************+
+Info: [ 17351,  19749) | 
+Info: [ 19749,  22147) | 
+Info: [ 22147,  24545) | 
+Info: [ 24545,  26943) |+
+Info: [ 26943,  29341) |*+
+Info: [ 29341,  31739) |******+
+Info: [ 31739,  34137) |******+
+Info: [ 34137,  36535) |***+
+Info: [ 36535,  38933) |*+
+Info: Checksum: 0xbc58d861
+
+Info: Program finished normally.

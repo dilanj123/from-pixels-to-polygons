@@ -1,0 +1,51 @@
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.060 MB sources in 4 modules, into 0.027 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.033 s (elab=0.007, cvt=0.013, bld=0.000); cpu 0.014 s on 1 threads; allocated 11.641 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.064 MB sources in 4 modules, into 0.052 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.009 s (elab=0.001, cvt=0.004, bld=0.000); cpu 0.009 s on 1 threads; allocated 12.438 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.059 MB sources in 4 modules, into 0.022 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.007 s (elab=0.001, cvt=0.002, bld=0.000); cpu 0.006 s on 1 threads; allocated 11.344 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.064 MB sources in 4 modules, into 0.081 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.011 s (elab=0.001, cvt=0.005, bld=0.000); cpu 0.010 s on 1 threads; allocated 12.594 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.066 MB sources in 4 modules, into 0.057 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.010 s (elab=0.001, cvt=0.004, bld=0.000); cpu 0.009 s on 1 threads; allocated 12.688 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.063 MB sources in 4 modules, into 0.036 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.009 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.008 s on 1 threads; allocated 12.141 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.063 MB sources in 4 modules, into 0.041 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.007 s on 1 threads; allocated 11.766 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.363 MB sources in 11 modules, into 0.170 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.025 s (elab=0.004, cvt=0.012, bld=0.000); cpu 0.023 s on 1 threads; allocated 15.828 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.041 MB sources in 3 modules, into 0.043 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.007 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.007 s on 1 threads; allocated 11.906 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 2.561 MB sources in 33 modules, into 0.461 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.071 s (elab=0.009, cvt=0.038, bld=0.000); cpu 0.066 s on 1 threads; allocated 24.297 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.039 MB sources in 3 modules, into 0.034 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.006 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.006 s on 1 threads; allocated 11.641 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.037 MB sources in 3 modules, into 0.032 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.000, cvt=0.002, bld=0.000); cpu 0.005 s on 1 threads; allocated 11.375 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.039 MB sources in 3 modules, into 0.038 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.006 s (elab=0.000, cvt=0.003, bld=0.000); cpu 0.006 s on 1 threads; allocated 11.656 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 2.561 MB sources in 33 modules, into 0.461 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.062 s (elab=0.010, cvt=0.035, bld=0.000); cpu 0.062 s on 1 threads; allocated 24.109 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 3.061 MB sources in 36 modules, into 0.662 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.080 s (elab=0.012, cvt=0.046, bld=0.000); cpu 0.079 s on 1 threads; allocated 26.984 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 3.432 MB sources in 38 modules, into 0.735 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.082 s (elab=0.012, cvt=0.046, bld=0.000); cpu 0.081 s on 1 threads; allocated 28.188 MB
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-119-g014c9820d (mod)
+- Verilator: Built from 0.042 MB sources in 3 modules, into 0.046 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.007 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.007 s on 1 threads; allocated 12.047 MB

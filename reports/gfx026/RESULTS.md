@@ -1,9 +1,11 @@
-# GFX-026 — ECP5 implementation baseline attempt
+# GFX-026 — ECP5 implementation baseline and FIFO corrective investigation
 
 Date: 2026-11-04
 Starting repository commit: `eb4e18a587f03f19c61f4c91451ae6358f2c8389`
 Implementation commit: `be25ccb` (`Add ULX3S ECP5 baseline build`)
-Result: **full hierarchy synthesized; placement-stage timing estimate fails; full route not completed; Gate 9 remains OPEN.**
+Original baseline result: **full hierarchy synthesized; the register-expanded FIFO made routing impractical; Gate 9 remained OPEN.**
+
+Current corrective result (starting from `45672e74d515a6e237332dba4f9d0cd23964cda6`): the FIFO now maps to two DP16KD blocks, full synthesis and full routing complete, but the routed `clk_sys` estimate is 39.19 MHz against 60 MHz. Result: **PLACED/ROUTED — TIMING FAILING; Gate 9 remains OPEN.** Original baseline logs and results below are retained unchanged as historical evidence.
 
 ## Target and assumptions
 
@@ -81,6 +83,68 @@ The successful command was `make test-command-system test-uart test-uart-system 
 
 Selected simulation counter observations retained by the passing public command regression include a draw scenario with 6,014 render cycles and a Sobel scenario with 151,072 Sobel cycles. These are RTL simulation counter readings, not measured board throughput. No hardware throughput is derived because 60 MHz timing is not met.
 
+## Corrective investigation — production command FIFO EBR mapping
+
+Starting commit: `45672e74d515a6e237332dba4f9d0cd23964cda6`. FIFO correction commit: `5cb5e00a4a7269ec9eb15ff6d1d0cc2b426c5db7`. The pinned Sobel dependency remains `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`. The only functional RTL and test changes are `rtl/cmd_fifo.sv` and `tb/tests/cmd_fifo_tb.sv`; FIFO capacity and public ready/valid interface remain 1024×32.
+
+### Diagnosis and correction
+
+The original production FIFO placed the dynamic memory write, `mem[rd_ptr+1]` read, pointer/count logic and asynchronously reset `out_data` in one `always_ff @(posedge clk_sys or posedge rst)` process. Yosys emitted `Replacing memory \\mem with list of registers` in the Verilog frontend, before ECP5 memory mapping. A standalone synthesis of the original source from the starting commit, stopped after ECP5 `map_ram`, shows 1,024 32-bit `$dffe` words (32,768 data bits), no `DP16KD`, and no remaining memory for `memory_libmap`. This establishes an RTL inference-pattern/reset-process cause, rather than a missing synthesis-flow option. The GFX-004 spike's simple synchronous FIFO memory used a separate unreset RAM process and mapped to two EBRs.
+
+The production correction separates the synchronous RAM read/write process from asynchronously reset FIFO control. Its RAM read-data register is separate from a first-word bypass register; this lets Yosys infer the registered RAM read without the bypass-data mux. An empty-to-nonempty push still supplies the first word immediately through the bypass register. When a queued head transfers and more words remain, the next word is synchronously read on that same edge. Output is stable under stalls, simultaneous push/pop, full behavior, order and pointer wrap are preserved, and no extra output bubble is added. RAM contents are not reset. `out_data` is zero while invalid; as specified by ready/valid, only data with `out_valid=1` is meaningful.
+
+Standalone corrected command:
+
+```text
+yosys -p 'read_verilog -sv rtl/cmd_fifo.sv; hierarchy -top cmd_fifo; synth_ecp5 -top cmd_fifo -json /tmp/gfx026_cmd_fifo_corrected.json; stat'
+```
+
+It exits 0 and maps the actual 1024×32 production FIFO to 2 `DP16KD` and 64 `TRELLIS_FF`, without a memory-to-register warning. Reports: `cmd_fifo_original_map.txt` and `cmd_fifo_ebr_standalone.txt`.
+
+### Corrected full-chip synthesis
+
+`make synth-ecp5` exits 0 with the unchanged ULX3S source list and device. Corrected full log: `yosys_synth_fifo_ebr.txt`. Original baseline files remain unchanged. Tool: Yosys 0.69+154, git `30d62572e` (environment build reports dirty).
+
+| Resource | Original full-chip baseline | FIFO-corrected full-chip synthesis |
+|---|---:|---:|
+| LUT4 (nextpnr pre-pack total) | 38,481 | 9,822 |
+| FF | 38,778 | 6,011 |
+| DP16KD | 154 | 156 |
+| MULT18X18D | 11 | 11 |
+| EHXPLLL | 3 | 3 |
+
+The two additional EBRs are the command FIFO. Existing framebuffer/Z and Sobel memories remain present; the full graphics/UART/parent hierarchy remains elaborated. Yosys hierarchy and `check -assert` report no problems. There is no FIFO-to-register warning in the corrected full log. Remaining array-to-register warnings are for the small Sobel reader queue, renderer selection helper arrays and decoder packet storage. Other reviewed notices are three Project F `.RST(0)` width resizes, experimental `write_xaiger2`, and ABC diagnostics.
+
+### Placement and completed route
+
+The corrected netlist uses the same ULX3S-85F reference, LFE5U-85F-6BG381C / CABGA381 speed grade 6, both LPFs, seed 1, static placer, router1, and existing `--freq 60`. No target, clock constraint or seed was relaxed.
+
+| Clock | Target | Placement-only estimate | Completed-route estimate |
+|---|---:|---:|---:|
+| `clk_sys` | 60 MHz | 38.92 MHz — FAIL | 39.1896 MHz — FAIL |
+| pixel output | 25.2 MHz | 31.80 MHz — PASS | 39.8470 MHz — PASS |
+| serializer | 126 MHz | 149.14 MHz — PASS | 217.6752 MHz — PASS |
+| intermediate PLL clock | 315.06 MHz | 995.02 MHz — PASS | 1053.7407 MHz — PASS |
+
+The original placement estimate was 20.38 MHz on `clk_sys`; the FIFO correction raises it to 38.92 MHz. Router1 completed all 71,351 arcs in 16.36 seconds after the static placer/SA stage (SA reports 25.69 seconds). Routing progress is no longer blocked, but the system clock still misses the target.
+
+The routed timing JSON reports a worst `clk_sys` path of 25.517 ns against a 16.666 ns period, approximately **−8.851 ns slack**. The path has 133 timing arcs: 1 clock-to-Q, 66 routed nets, 65 logic arcs and 1 setup. Its reported source is the Sobel APB `run_enable_o` register; its endpoint is a renderer Z-buffer write-side element. It traverses carry-chain/multiplier-related mapped cells and is not a FIFO path. Detailed output: `nextpnr_route_fifo_ebr.txt` and compressed `nextpnr_route_fifo_ebr.json.gz`; compressed routed config: `ulx3s_graphics_fifo_ebr.config.gz`.
+
+Classification: **PLACED/ROUTED — TIMING FAILING**. No bitstream was generated because the frozen 60 MHz system target is unmet. No timing-clean, physical-clock, Fmax or hardware claim is made.
+
+### PLL report precision
+
+`ecppll` accepts the unchanged 25→300/60, 300→315 and 315→126/25.2 MHz calculations. nextpnr reports 315.059845 MHz (displayed period 3.174 ns), while the nominal 315 MHz period is 3.174603 ns. The 0.000603 ns period representation difference explains the ~0.06 MHz report difference (~0.02%); no divider or constraint change is justified. This is tool-model precision, not a physical clock measurement or PLL-lock test.
+
+### Corrective regressions
+
+- `make lint-fifo`, `make test-fifo`, `make formal-fifo`, `make test-decoder`, and `make test-command-system`: pass. FIFO simulation covers full/empty, ordering, wrap, stalls, simultaneous push/pop, and asynchronous reset during partial occupancy followed by recovery. Depth-4 FIFO BMC at depth 12 passes with the independent ghost queue and output-stability properties; Z3 runtime was about 78 seconds.
+- Full relevant functional batch exits 0: public command-system, UART/UART-system/host, presentation, graphics-core, Sobel integration/controller/modes/adapters, renderer/reset/decoder/counters, readback/framebuffer, wrappers, Fragment/Z, raster, triangle setup, clear, decoder and FIFO. Public NORMAL/SOBEL/SOBEL/NORMAL and complete framebuffer/readback comparisons remain passing.
+- `make formal-gate8` exits 0, including FIFO, role, raster, depth, Sobel bounds and two-clock presentation safety/cover.
+- Relevant lint exits 0; Python reference suite exits 0; `make doctor` and `make bootstrap-smoke` exit 0. Logs: `functional_regression_fifo_ebr.log`, `formal_gate8_fifo_ebr.log`, `lint_fifo_ebr.log`.
+
+The reports are digital verification/implementation-tool evidence only. No graphics algorithm, clock, constraint, target, or architecture was changed; no Gate-11 experiment was started. Gate 9 remains **OPEN** because routed `clk_sys` timing fails and throughput at a compliant clock is not established.
+
 ## Gate-9 disposition
 
-Gate 9 remains **OPEN**. Full-chip synthesis is established and resources are recorded. Required full routing, routed slack/path, and timing closure are not established; throughput baseline metrics are not complete. No bitstream, programming, physical video, or hardware evidence exists. The next task should investigate the placement-stage `clk_sys` timing path and nextpnr routing behavior without changing the frozen architecture or claiming optimization results.
+Gate 9 remains **OPEN**. Full-chip synthesis and routing, resource use, routed slack and a critical path are now recorded. The required 60 MHz `clk_sys` target is not met, and compliant-clock throughput metrics are not established. No bitstream, programming, physical video or hardware evidence exists. The next task should address the measured renderer/control critical path within the project’s approved Gate-9 scope before any physical baseline can be claimed.
