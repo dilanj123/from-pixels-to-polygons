@@ -1,0 +1,39 @@
+test_boundary_values_and_offscreen_empty (test_gfx_primitives.BoundingBoxTests.test_boundary_values_and_offscreen_empty) ... ok
+test_clamping_does_not_create_candidate_from_empty_raw_interval (test_gfx_primitives.BoundingBoxTests.test_clamping_does_not_create_candidate_from_empty_raw_interval) ... ok
+test_sample_centre_boundaries (test_gfx_primitives.BoundingBoxTests.test_sample_centre_boundaries) ... ok
+test_single_candidate_and_between_centres (test_gfx_primitives.BoundingBoxTests.test_single_candidate_and_between_centres) ... ok
+test_accepted_empty_bbox_is_not_rejected (test_gfx_primitives.CoverageTests.test_accepted_empty_bbox_is_not_rejected) ... ok
+test_ordinary_flat_thin_tiny_and_boundary_triangles (test_gfx_primitives.CoverageTests.test_ordinary_flat_thin_tiny_and_boundary_triangles) ... ok
+test_reversed_and_degenerate_triangles_reject (test_gfx_primitives.CoverageTests.test_reversed_and_degenerate_triangles_reject) ... ok
+test_shared_edge_rectangle_has_union_without_crack_or_duplicate (test_gfx_primitives.CoverageTests.test_shared_edge_rectangle_has_union_without_crack_or_duplicate) ... ok
+test_signed42_attribute_bound (test_gfx_primitives.DerivationTests.test_signed42_attribute_bound) ... ok
+test_area_classification_without_reordering (test_gfx_primitives.GeometryTests.test_area_classification_without_reordering) ... ok
+test_edge_function_and_area (test_gfx_primitives.GeometryTests.test_edge_function_and_area) ... ok
+test_edge_slopes_and_coordinate_extrema (test_gfx_primitives.GeometryTests.test_edge_slopes_and_coordinate_extrema) ... ok
+test_pixel_centres (test_gfx_primitives.GeometryTests.test_pixel_centres) ... ok
+test_top_left_directions (test_gfx_primitives.GeometryTests.test_top_left_directions) ... ok
+test_top_left_edge_inclusion (test_gfx_primitives.GeometryTests.test_top_left_edge_inclusion) ... ok
+test_coordinate_half_lsb_and_limits (test_gfx_primitives.QuantizationTests.test_coordinate_half_lsb_and_limits) ... ok
+test_coordinate_range_is_rejected_not_saturated (test_gfx_primitives.QuantizationTests.test_coordinate_range_is_rejected_not_saturated) ... ok
+test_signed_q8_limits (test_gfx_primitives.QuantizationTests.test_signed_q8_limits) ... ok
+test_signed_q8_ties_away_from_zero (test_gfx_primitives.QuantizationTests.test_signed_q8_ties_away_from_zero) ... ok
+test_known_answer_packets_and_round_trip (test_reference_renderer.CommandCodecTests.test_known_answer_packets_and_round_trip) ... ok
+test_parser_rejects_reserved_and_truncated_packets (test_reference_renderer.CommandCodecTests.test_parser_rejects_reserved_and_truncated_packets) ... ok
+test_empty_frame (test_reference_renderer.DepthAndGeometryTests.test_empty_frame) ... ok
+test_multi_triangle_frame_exact_overlap (test_reference_renderer.DepthAndGeometryTests.test_multi_triangle_frame_exact_overlap) ... ok
+test_near_far_and_equal_depth_ordering (test_reference_renderer.DepthAndGeometryTests.test_near_far_and_equal_depth_ordering) ... ok
+test_rejected_and_empty_geometry_do_not_write (test_reference_renderer.DepthAndGeometryTests.test_rejected_and_empty_geometry_do_not_write) ... ok
+test_clear_values_fill_all_colour_and_z_entries (test_reference_renderer.FrameClearAndTriangleTests.test_clear_values_fill_all_colour_and_z_entries) ... ok
+test_colour_and_z_clamps (test_reference_renderer.FrameClearAndTriangleTests.test_colour_and_z_clamps) ... ok
+test_constant_triangle_updates_exact_covered_samples (test_reference_renderer.FrameClearAndTriangleTests.test_constant_triangle_updates_exact_covered_samples) ... ok
+test_direct_colour_and_z_plane_interpolation (test_reference_renderer.FrameClearAndTriangleTests.test_direct_colour_and_z_plane_interpolation) ... ok
+test_fixed_seed_regression_is_repeatable (test_reference_renderer.RandomRegressionTests.test_fixed_seed_regression_is_repeatable) ... ok
+test_generator_supports_one_to_forty_eight_triangles (test_reference_renderer.RandomRegressionTests.test_generator_supports_one_to_forty_eight_triangles) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 8.924s
+
+OK
+seed=1 framebuffer_sha256=f5be4ccae05fe568fbca3a12102ad03344636f90d2898f90caa6cfc55e9ac7eb zbuffer_sha256=e29287f671fb7c0855a121f9c7f1bdf324922242f7ab47458654e3375d5a6af7
+seed=7 framebuffer_sha256=c3891205ae7eaaa4be78267d6f0e15245c16f55bec767fa96c1ffb5007771f72 zbuffer_sha256=44883795c9dbeb15059834fbd4e84d26d3d3d8a3cccd690a73e5cf9488f7bae4
+seed=42 framebuffer_sha256=8ff44bcb78e1a5c7518867f0ed7be6c184c7a4690799597a8c09384a65366472 zbuffer_sha256=df8ae0a8c1152f0b82b8f9ff6172e6b20af58cb3a2152600e479161196b60cca

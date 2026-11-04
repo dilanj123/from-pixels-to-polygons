@@ -212,18 +212,18 @@ or MTBF evidence. Gate 9 remains open.
 
 - [x] full 85F synthesis — complete `ulx3s_graphics_top`; Yosys hierarchy/check passed, `reports/gfx026/yosys_synth.txt`
 - [x] full route — FIFO-corrected netlist; router1 completed; `clk_sys` timing fails
-- [x] LUT/cell count recorded — original 38,481; corrected 9,822 pre-pack LUT4
-- [x] FF count recorded — original 38,778; corrected 6,011 TRELLIS_FF
+- [x] LUT/cell count recorded — original 38,481; FIFO-corrected baseline 9,822 pre-pack LUT4; two-stage setup route 10,511 TRELLIS_COMB (Yosys 7,523 LUT4)
+- [x] FF count recorded — original 38,778; FIFO-corrected baseline 6,011 TRELLIS_FF; two-stage setup 6,702
 - [x] EBR count recorded — original 154; corrected 156 DP16KD (FIFO adds 2)
-- [x] DSP count recorded — 11 MULT18X18D
+- [x] DSP count recorded — FIFO-corrected baseline 11; two-stage setup 17 MULT18X18D
 - [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
-- [x] worst slack recorded — approximately −8.851 ns on routed `clk_sys`; target 60 MHz
-- [x] critical path recorded — baseline path remapped to renderer DRAW state → triangle-setup result arithmetic using Yosys source attributes and routed timing JSON; details in `reports/gfx026/RESULTS.md`
+- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; two-stage setup approximately −3.670 ns on routed `clk_sys`; target 60 MHz
+- [x] critical path recorded — baseline renderer DRAW→triangle setup path and updated Sobel reader→pinned Sobel line-buffer/arithmetic path; detailed timing JSON and source mapping in `reports/gfx026/RESULTS.md`
 - [x] warnings reviewed — original FIFO mem2reg diagnosed/fixed; remaining memory conversions, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
-- [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,014 cycles
+- [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,018 cycles after approved added setup cycle (baseline 6,014)
 - [x] Sobel-cycle metrics recorded — public counter scoreboard scenario tag `0x1015`: W13=151,072 cycles
-- [x] timing classification correct — full route completed; routed `clk_sys` estimate 39.19 MHz fails 60 MHz; no timing-closure claim
+- [x] timing classification correct — full route completed; latest routed `clk_sys` estimate 49.17 MHz fails 60 MHz; no timing-closure claim
 - [x] no unsupported Fmax claim
 
 ## Gate 10 — Physical Hardware

@@ -1,0 +1,1093 @@
+SBY 23:18:57 [formal/cmd_fifo] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo'.
+SBY 23:18:57 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/cmd_fifo.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/cmd_fifo.sv'.
+SBY 23:18:57 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/gfx_pkg.sv'.
+SBY 23:18:57 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/cmd_fifo_formal.sv'.
+SBY 23:18:57 [formal/cmd_fifo] engine_0: smtbmc z3
+SBY 23:18:57 [formal/cmd_fifo] base: starting process "cd formal/cmd_fifo/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\clk is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_valid is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\out_ready is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\rst is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [31] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [30] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [29] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [28] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [27] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [26] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [25] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [24] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [23] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [22] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [21] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [20] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [19] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [18] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [17] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [16] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [15] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [14] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [13] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [12] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [11] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [10] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [9] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [8] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [7] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [6] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [5] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [4] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [3] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [2] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [1] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [0] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] base: finished (returncode=0)
+SBY 23:18:57 [formal/cmd_fifo] prep: starting process "cd formal/cmd_fifo/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\clk is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [31] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [30] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [29] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [28] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [27] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [26] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [25] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [24] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [23] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [22] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [21] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [20] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [19] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [18] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [17] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [16] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [15] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [14] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [13] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [12] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [11] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [10] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [9] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [8] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [7] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [6] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [5] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [4] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [3] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [2] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [1] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [0] is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\rst is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_valid is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\out_ready is used but has no driver.
+SBY 23:18:57 [formal/cmd_fifo] prep: finished (returncode=0)
+SBY 23:18:57 [formal/cmd_fifo] smt2: starting process "cd formal/cmd_fifo/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:18:57 [formal/cmd_fifo] smt2: finished (returncode=0)
+SBY 23:18:57 [formal/cmd_fifo] engine_0: starting process "cd formal/cmd_fifo; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Solver: z3
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:18:57 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:18:58 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:18:58 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:19:00 [formal/cmd_fifo] engine_0: ##   0:00:02  Checking assumptions in step 8..
+SBY 23:19:00 [formal/cmd_fifo] engine_0: ##   0:00:02  Checking assertions in step 8..
+SBY 23:19:03 [formal/cmd_fifo] engine_0: ##   0:00:06  Checking assumptions in step 9..
+SBY 23:19:03 [formal/cmd_fifo] engine_0: ##   0:00:06  Checking assertions in step 9..
+SBY 23:19:15 [formal/cmd_fifo] engine_0: ##   0:00:17  Checking assumptions in step 10..
+SBY 23:19:15 [formal/cmd_fifo] engine_0: ##   0:00:17  Checking assertions in step 10..
+SBY 23:19:35 [formal/cmd_fifo] engine_0: ##   0:00:38  Checking assumptions in step 11..
+SBY 23:19:36 [formal/cmd_fifo] engine_0: ##   0:00:38  Checking assertions in step 11..
+SBY 23:20:09 [formal/cmd_fifo] engine_0: ##   0:01:11  Status: passed
+SBY 23:20:09 [formal/cmd_fifo] engine_0: finished (returncode=0)
+SBY 23:20:09 [formal/cmd_fifo] engine_0: Status returned by engine: pass
+SBY 23:20:09 [formal/cmd_fifo] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:12 (72)
+SBY 23:20:09 [formal/cmd_fifo] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:11 (71)
+SBY 23:20:09 [formal/cmd_fifo] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:20:09 [formal/cmd_fifo] summary: engine_0 did not produce any traces
+SBY 23:20:09 [formal/cmd_fifo] DONE (PASS, rc=0)
+SBY 23:20:09 [formal/buffer_manager] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager'.
+SBY 23:20:09 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/present_cdc.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/present_cdc.sv'.
+SBY 23:20:09 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/buffer_manager.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/buffer_manager.sv'.
+SBY 23:20:09 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/buffer_manager_formal.sv'.
+SBY 23:20:09 [formal/buffer_manager] engine_0: smtbmc z3
+SBY 23:20:09 [formal/buffer_manager] base: starting process "cd formal/buffer_manager/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\renderer_quiescent is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\clk is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_sobel is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_valid is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\readback_active is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [15] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [14] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [13] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [12] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [11] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [10] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [9] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [8] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [7] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [6] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [5] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [4] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [3] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [2] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [1] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [0] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\rst is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\safe_frame_start is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] base: finished (returncode=0)
+SBY 23:20:09 [formal/buffer_manager] prep: starting process "cd formal/buffer_manager/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\renderer_quiescent is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\clk is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_sobel is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [15] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [14] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [13] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [12] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [11] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [10] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [9] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [8] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [7] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [6] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [5] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [4] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [3] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [2] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [1] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [0] is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\readback_active is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\safe_frame_start is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\rst is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_valid is used but has no driver.
+SBY 23:20:09 [formal/buffer_manager] prep: finished (returncode=0)
+SBY 23:20:09 [formal/buffer_manager] smt2: starting process "cd formal/buffer_manager/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:20:09 [formal/buffer_manager] smt2: finished (returncode=0)
+SBY 23:20:09 [formal/buffer_manager] engine_0: starting process "cd formal/buffer_manager; yosys-smtbmc -s z3 --presat --noprogress -t 16  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Solver: z3
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 23:20:09 [formal/buffer_manager] engine_0: ##   0:00:00  Status: passed
+SBY 23:20:09 [formal/buffer_manager] engine_0: finished (returncode=0)
+SBY 23:20:09 [formal/buffer_manager] engine_0: Status returned by engine: pass
+SBY 23:20:09 [formal/buffer_manager] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:09 [formal/buffer_manager] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:09 [formal/buffer_manager] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:20:09 [formal/buffer_manager] summary: engine_0 did not produce any traces
+SBY 23:20:09 [formal/buffer_manager] DONE (PASS, rc=0)
+SBY 23:20:09 [formal/raster_bounds] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds'.
+SBY 23:20:09 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/gfx_pkg.sv'.
+SBY 23:20:09 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/raster_walk.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/raster_walk.sv'.
+SBY 23:20:09 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/raster_bounds_formal.sv'.
+SBY 23:20:09 [formal/raster_bounds] engine_0: smtbmc z3
+SBY 23:20:09 [formal/raster_bounds] base: starting process "cd formal/raster_bounds/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:09 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\clk is used but has no driver.
+SBY 23:20:09 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\in_valid is used but has no driver.
+SBY 23:20:09 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\covered_ready is used but has no driver.
+SBY 23:20:09 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\rst is used but has no driver.
+SBY 23:20:09 [formal/raster_bounds] base: finished (returncode=0)
+SBY 23:20:09 [formal/raster_bounds] prep: starting process "cd formal/raster_bounds/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:10 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\clk is used but has no driver.
+SBY 23:20:10 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\covered_ready is used but has no driver.
+SBY 23:20:10 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\in_valid is used but has no driver.
+SBY 23:20:10 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\rst is used but has no driver.
+SBY 23:20:10 [formal/raster_bounds] prep: finished (returncode=0)
+SBY 23:20:10 [formal/raster_bounds] smt2: starting process "cd formal/raster_bounds/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:20:10 [formal/raster_bounds] smt2: finished (returncode=0)
+SBY 23:20:10 [formal/raster_bounds] engine_0: starting process "cd formal/raster_bounds; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Solver: z3
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 23:20:10 [formal/raster_bounds] engine_0: ##   0:00:00  Status: passed
+SBY 23:20:10 [formal/raster_bounds] engine_0: finished (returncode=0)
+SBY 23:20:10 [formal/raster_bounds] engine_0: Status returned by engine: pass
+SBY 23:20:10 [formal/raster_bounds] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:10 [formal/raster_bounds] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:10 [formal/raster_bounds] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:20:10 [formal/raster_bounds] summary: engine_0 did not produce any traces
+SBY 23:20:10 [formal/raster_bounds] DONE (PASS, rc=0)
+SBY 23:20:10 [formal/fragment_depth] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth'.
+SBY 23:20:10 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/gfx_pkg.sv'.
+SBY 23:20:10 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/fragment_z.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/fragment_z.sv'.
+SBY 23:20:10 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/fragment_depth_formal.sv'.
+SBY 23:20:10 [formal/fragment_depth] engine_0: smtbmc z3
+SBY 23:20:10 [formal/fragment_depth] base: starting process "cd formal/fragment_depth/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\clk is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_valid is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\rst is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] base: finished (returncode=0)
+SBY 23:20:10 [formal/fragment_depth] prep: starting process "cd formal/fragment_depth/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_valid is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [41] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [40] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [39] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [38] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [37] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [36] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [35] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [34] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [33] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [32] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [31] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [30] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [29] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [28] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [27] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [26] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [25] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [24] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [23] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [22] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [21] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [20] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [19] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [18] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [17] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [16] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [15] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [14] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [13] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [12] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [11] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [10] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [9] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [8] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [7] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [6] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [5] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [4] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [3] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [2] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [1] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [0] is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\clk is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\rst is used but has no driver.
+SBY 23:20:10 [formal/fragment_depth] prep: finished (returncode=0)
+SBY 23:20:10 [formal/fragment_depth] smt2: starting process "cd formal/fragment_depth/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:20:10 [formal/fragment_depth] smt2: finished (returncode=0)
+SBY 23:20:10 [formal/fragment_depth] engine_0: starting process "cd formal/fragment_depth; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Solver: z3
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:20:10 [formal/fragment_depth] engine_0: ##   0:00:00  Status: passed
+SBY 23:20:10 [formal/fragment_depth] engine_0: finished (returncode=0)
+SBY 23:20:10 [formal/fragment_depth] engine_0: Status returned by engine: pass
+SBY 23:20:10 [formal/fragment_depth] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:10 [formal/fragment_depth] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:10 [formal/fragment_depth] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:20:10 [formal/fragment_depth] summary: engine_0 did not produce any traces
+SBY 23:20:10 [formal/fragment_depth] DONE (PASS, rc=0)
+SBY 23:20:10 [formal/sobel_reader_bounds] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds'.
+SBY 23:20:10 [formal/sobel_reader_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/sobel_fb_reader.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds/src/sobel_fb_reader.sv'.
+SBY 23:20:10 [formal/sobel_reader_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds/src/sobel_reader_bounds_formal.sv'.
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: abc pdr
+SBY 23:20:10 [formal/sobel_reader_bounds] base: starting process "cd formal/sobel_reader_bounds/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Replacing memory \pixel_fifo with list of registers. See sobel_fb_reader.sv:85
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\clk is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [7] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [6] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [5] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [4] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [3] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [2] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [1] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [0] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\stream_ready is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\start_valid is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rst is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] base: finished (returncode=0)
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: starting process "cd formal/sobel_reader_bounds/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\stream_ready is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [7] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [6] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [5] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [4] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [3] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [2] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [1] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [0] is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\clk is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rst is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\start_valid is used but has no driver.
+SBY 23:20:10 [formal/sobel_reader_bounds] prep: finished (returncode=0)
+SBY 23:20:10 [formal/sobel_reader_bounds] aig: starting process "cd formal/sobel_reader_bounds/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 23:20:10 [formal/sobel_reader_bounds] aig: finished (returncode=0)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: starting process "cd formal/sobel_reader_bounds; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Warning: The last 4 outputs are interpreted as constraints.
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 139. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 1 : 0 34                                                                1    35      0.00 sec  T/O =  0  PRV =  0
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 2 : 0 3 34                                                              1    35      0.01 sec  T/O =  0  PRV =  0
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Proved output 0 in frame 2.
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 3 : 0 3 3 32 ~2                                                          1    35      0.02 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 4 : 0 3 3 3 30 ~4                                                        1    35      0.02 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 5 : 0 3 3 3 3 28 ~6                                                      1    35      0.03 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 6 : 0 3 3 3 3 3 26 ~8                                                    1    35      0.04 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 7 : 0 3 3 3 3 3 3 24 ~10                                                 1    35      0.04 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 8 : 0 3 3 3 3 3 3 3 22 ~12                                               1    35      0.05 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 9 : 0 3 3 3 3 3 3 3 3 20 ~14                                             1    35      0.05 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 10 : 0 3 3 3 3 3 3 3 3 3 18 ~16                                           1    35      0.06 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 11 : 0 3 3 3 3 3 3 3 3 3 3 16 ~18                                         1    35      0.06 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 12 : 0 3 3 3 3 3 3 3 3 3 3 3 14 ~20                                       1    35      0.07 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 13 : 0 3 3 3 3 3 3 3 3 3 3 3 3 12 ~22                                     1    35      0.07 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 14 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 10 ~24                                   1    35      0.08 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 15 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 ~26                                  1    35      0.09 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 16 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 6 ~28                                1    35      0.09 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 17 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 ~30                              1    35      0.09 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 18 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 ~32                            1    35      0.10 sec  T/O =  0  PRV =  1
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Proved output 1 in frame 18.
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: 19 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 0 0 ~34                          0    35      0.10 sec  T/O =  0  PRV =  2
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Block =   84  Oblig =    84  Clause =    84  Call =  1075 (sat=66.0%)  Cex =   0  Start =   0
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: SAT solving =     0.01 sec ( 13.02 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: unsat     =     0.00 sec (  0.95 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: sat       =     0.01 sec ( 12.07 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Generalize  =     0.00 sec (  3.26 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Push clause =     0.01 sec (  8.33 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Ternary sim =     0.00 sec (  1.25 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Containment =     0.00 sec (  0.03 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: CNF compute =     0.00 sec (  4.67 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: TOTAL       =     0.10 sec (100.00 %)
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Property proved.  Time =     0.11 sec
+SBY 23:20:10 [formal/sobel_reader_bounds] engine_0: Counter-example is not available.
+SBY 23:20:11 [formal/sobel_reader_bounds] engine_0: finished (returncode=0)
+SBY 23:20:11 [formal/sobel_reader_bounds] engine_0: Status returned by engine: PASS
+SBY 23:20:11 [formal/sobel_reader_bounds] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:11 [formal/sobel_reader_bounds] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:11 [formal/sobel_reader_bounds] summary: engine_0 (abc pdr) returned PASS
+SBY 23:20:11 [formal/sobel_reader_bounds] summary: engine_0 did not produce any traces
+SBY 23:20:11 [formal/sobel_reader_bounds] DONE (PASS, rc=0)
+SBY 23:20:11 [formal/sobel_writer_bounds] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_writer_bounds'.
+SBY 23:20:11 [formal/sobel_writer_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/sobel_fb_writer.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_writer_bounds/src/sobel_fb_writer.sv'.
+SBY 23:20:11 [formal/sobel_writer_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_writer_bounds_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_writer_bounds/src/sobel_writer_bounds_formal.sv'.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: abc pdr
+SBY 23:20:11 [formal/sobel_writer_bounds] base: starting process "cd formal/sobel_writer_bounds/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\clk is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [7] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [6] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [5] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [4] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [3] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [2] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [1] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\data [0] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\user is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\last is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\start_valid is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\valid is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: Warning: Wire sobel_writer_bounds_formal.\rst is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] base: finished (returncode=0)
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: starting process "cd formal/sobel_writer_bounds/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\user is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\last is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [7] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [6] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [5] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [4] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [3] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [2] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [1] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\data [0] is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\clk is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\rst is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\valid is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: Warning: Wire sobel_writer_bounds_formal.\start_valid is used but has no driver.
+SBY 23:20:11 [formal/sobel_writer_bounds] prep: finished (returncode=0)
+SBY 23:20:11 [formal/sobel_writer_bounds] aig: starting process "cd formal/sobel_writer_bounds/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 23:20:11 [formal/sobel_writer_bounds] aig: finished (returncode=0)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: starting process "cd formal/sobel_writer_bounds; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Warning: The last 4 outputs are interpreted as constraints.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 179. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Proved output 2 in frame 0 (trivial).
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 1 : 0 1                                                                 1     2      0.00 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 2 : 0 1 34                                                              1    36      0.01 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 3 : 0 1 2 34                                                            1    36      0.01 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 4 : 0 1 2 2 34                                                          1    36      0.02 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 5 : 0 1 2 2 2 34                                                        1    36      0.03 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 6 : 0 1 2 2 2 2 35                                                      1    36      0.03 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 7 : 0 1 2 2 2 2 1 34                                                    0    36      0.04 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 8 : 0 1 2 2 2 2 1 2 34                                                  1    36      0.04 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 9 : 0 1 2 2 2 2 1 2 2 35                                                1    36      0.05 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 10 : 0 1 2 2 2 2 1 2 2 1 34                                              0    36      0.05 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 11 : 0 1 2 2 2 2 1 2 2 1 2 36                                            1    36      0.06 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 12 : 0 1 2 2 2 2 1 2 2 1 2 1 35                                          0    36      0.06 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 13 : 0 1 2 2 2 2 1 2 2 1 2 1 1 34                                        0    36      0.06 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 14 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 36                                      1    36      0.07 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 15 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 35                                    0    36      0.07 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 16 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 34                                  0    36      0.07 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 17 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 35                                1    36      0.08 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 18 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 34                              0    36      0.08 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 19 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 35                            1    36      0.08 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 20 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 34                          0    36      0.09 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 21 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 36                        1    36      0.09 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 22 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 35                      0    36      0.10 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 23 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 34                    0    36      0.10 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 24 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 35                  1    36      0.10 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 25 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 34                0    36      0.11 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 26 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 42              1    36      0.11 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 27 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 41            0    36      0.12 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 28 : 0 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 40          0    36      0.12 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 29 : ... 1 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 39      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 30 : ... 2 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 38      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 31 : ... 2 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 37      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 32 : ... 2 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 36      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 33 : ... 2 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 35      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 34 : ... 1 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 34      0    36      0.13 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 35 : ... 2 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 36      1    36      0.14 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 36 : ... 2 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 35      0    36      0.14 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 37 : ... 1 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 34      0    36      0.15 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 38 : ... 2 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 46      1    36      0.15 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 39 : ... 1 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 45      0    36      0.16 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 40 : ... 1 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 44      0    36      0.16 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 41 : ... 2 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 43      0    36      0.17 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 42 : ... 1 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 42      0    36      0.17 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 43 : ... 1 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 41      0    36      0.17 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 44 : ... 2 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 40      0    36      0.17 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 45 : ... 1 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 39      0    36      0.18 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 46 : ... 2 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 38      0    36      0.18 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 47 : ... 1 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 37      0    36      0.18 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 48 : ... 2 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 36      0    36      0.18 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 49 : ... 1 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 35      0    36      0.18 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 50 : ... 1 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 34      0    36      0.19 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 51 : ... 2 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 36      1    36      0.19 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 52 : ... 1 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 35      0    36      0.20 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 53 : ... 2 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 34      0    36      0.20 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 54 : ... 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 41      1    36      0.20 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 55 : ... 1 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 40      0    36      0.21 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 56 : ... 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 39      0    36      0.21 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 57 : ... 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 38      0    36      0.21 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 58 : ... 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 39      1    36      0.22 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 59 : ... 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 38      0    36      0.22 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 60 : ... 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 12 38     1    36      0.23 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 61 : ... 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 1 1 39      1    36      0.24 sec  T/O =  0  PRV =  1
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Proved output 0 in frame 61.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Proved output 3 in frame 61.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 62 : ... 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 1 1 1 34 ~4      0    36      0.24 sec  T/O =  0  PRV =  3
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 63 : ... 2 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 1 1 1 11 34 ~4       1    36      0.25 sec  T/O =  0  PRV =  3
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Proved output 1 in frame 63.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: 64 : ... 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 1 1 2 1 1 1 1 11 0 0 ~38       0    36      0.25 sec  T/O =  0  PRV =  4
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Block =  139  Oblig =   139  Clause =   139  Call =  5895 (sat=56.1%)  Cex =   0  Start =   0
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: SAT solving =     0.11 sec ( 42.01 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: unsat     =     0.03 sec ( 11.26 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: sat       =     0.08 sec ( 30.75 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Generalize  =     0.01 sec (  4.38 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Push clause =     0.10 sec ( 37.41 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Ternary sim =     0.00 sec (  0.93 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Containment =     0.00 sec (  0.03 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: CNF compute =     0.02 sec (  6.58 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: TOTAL       =     0.25 sec (100.00 %)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Property proved.  Time =     0.27 sec
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Counter-example is not available.
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: finished (returncode=0)
+SBY 23:20:11 [formal/sobel_writer_bounds] engine_0: Status returned by engine: PASS
+SBY 23:20:11 [formal/sobel_writer_bounds] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:11 [formal/sobel_writer_bounds] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 23:20:11 [formal/sobel_writer_bounds] summary: engine_0 (abc pdr) returned PASS
+SBY 23:20:11 [formal/sobel_writer_bounds] summary: engine_0 did not produce any traces
+SBY 23:20:11 [formal/sobel_writer_bounds] DONE (PASS, rc=0)
+SBY 23:20:11 [formal/present_cdc_multiclock] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock'.
+SBY 23:20:11 [formal/present_cdc_multiclock] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/present_cdc.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock/src/present_cdc.sv'.
+SBY 23:20:11 [formal/present_cdc_multiclock] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/buffer_manager.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock/src/buffer_manager.sv'.
+SBY 23:20:11 [formal/present_cdc_multiclock] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock/src/present_cdc_multiclock_formal.sv'.
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: smtbmc z3
+SBY 23:20:11 [formal/present_cdc_multiclock] base: starting process "cd formal/present_cdc_multiclock/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:20:11 [formal/present_cdc_multiclock] base: finished (returncode=0)
+SBY 23:20:11 [formal/present_cdc_multiclock] prep: starting process "cd formal/present_cdc_multiclock/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:20:11 [formal/present_cdc_multiclock] prep: finished (returncode=0)
+SBY 23:20:11 [formal/present_cdc_multiclock] smt2: starting process "cd formal/present_cdc_multiclock/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:20:11 [formal/present_cdc_multiclock] smt2: finished (returncode=0)
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: starting process "cd formal/present_cdc_multiclock; yosys-smtbmc -s z3 --presat --noprogress -t 32  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Solver: z3
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 23:20:11 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 23:20:12 [formal/present_cdc_multiclock] engine_0: ##   0:00:01  Checking assumptions in step 15..
+SBY 23:20:13 [formal/present_cdc_multiclock] engine_0: ##   0:00:01  Checking assertions in step 15..
+SBY 23:20:13 [formal/present_cdc_multiclock] engine_0: ##   0:00:01  Checking assumptions in step 16..
+SBY 23:20:13 [formal/present_cdc_multiclock] engine_0: ##   0:00:01  Checking assertions in step 16..
+SBY 23:20:14 [formal/present_cdc_multiclock] engine_0: ##   0:00:03  Checking assumptions in step 17..
+SBY 23:20:14 [formal/present_cdc_multiclock] engine_0: ##   0:00:03  Checking assertions in step 17..
+SBY 23:20:16 [formal/present_cdc_multiclock] engine_0: ##   0:00:04  Checking assumptions in step 18..
+SBY 23:20:16 [formal/present_cdc_multiclock] engine_0: ##   0:00:04  Checking assertions in step 18..
+SBY 23:20:17 [formal/present_cdc_multiclock] engine_0: ##   0:00:05  Checking assumptions in step 19..
+SBY 23:20:17 [formal/present_cdc_multiclock] engine_0: ##   0:00:05  Checking assertions in step 19..
+SBY 23:20:19 [formal/present_cdc_multiclock] engine_0: ##   0:00:07  Checking assumptions in step 20..
+SBY 23:20:19 [formal/present_cdc_multiclock] engine_0: ##   0:00:07  Checking assertions in step 20..
+SBY 23:20:21 [formal/present_cdc_multiclock] engine_0: ##   0:00:09  Checking assumptions in step 21..
+SBY 23:20:21 [formal/present_cdc_multiclock] engine_0: ##   0:00:09  Checking assertions in step 21..
+SBY 23:20:25 [formal/present_cdc_multiclock] engine_0: ##   0:00:13  Checking assumptions in step 22..
+SBY 23:20:25 [formal/present_cdc_multiclock] engine_0: ##   0:00:13  Checking assertions in step 22..
+SBY 23:20:32 [formal/present_cdc_multiclock] engine_0: ##   0:00:20  Checking assumptions in step 23..
+SBY 23:20:32 [formal/present_cdc_multiclock] engine_0: ##   0:00:20  Checking assertions in step 23..
+SBY 23:20:39 [formal/present_cdc_multiclock] engine_0: ##   0:00:27  Checking assumptions in step 24..
+SBY 23:20:39 [formal/present_cdc_multiclock] engine_0: ##   0:00:27  Checking assertions in step 24..
+SBY 23:20:54 [formal/present_cdc_multiclock] engine_0: ##   0:00:42  Checking assumptions in step 25..
+SBY 23:20:54 [formal/present_cdc_multiclock] engine_0: ##   0:00:42  Checking assertions in step 25..
+SBY 23:21:10 [formal/present_cdc_multiclock] engine_0: ##   0:00:58  Checking assumptions in step 26..
+SBY 23:21:10 [formal/present_cdc_multiclock] engine_0: ##   0:00:58  Checking assertions in step 26..
+SBY 23:21:30 [formal/present_cdc_multiclock] engine_0: ##   0:01:18  Checking assumptions in step 27..
+SBY 23:21:30 [formal/present_cdc_multiclock] engine_0: ##   0:01:18  Checking assertions in step 27..
+SBY 23:21:55 [formal/present_cdc_multiclock] engine_0: ##   0:01:43  Checking assumptions in step 28..
+SBY 23:21:55 [formal/present_cdc_multiclock] engine_0: ##   0:01:43  Checking assertions in step 28..
+SBY 23:22:28 [formal/present_cdc_multiclock] engine_0: ##   0:02:16  Checking assumptions in step 29..
+SBY 23:22:28 [formal/present_cdc_multiclock] engine_0: ##   0:02:16  Checking assertions in step 29..
+SBY 23:23:23 [formal/present_cdc_multiclock] engine_0: ##   0:03:11  Checking assumptions in step 30..
+SBY 23:23:23 [formal/present_cdc_multiclock] engine_0: ##   0:03:11  Checking assertions in step 30..
+SBY 23:24:14 [formal/present_cdc_multiclock] engine_0: ##   0:04:03  Checking assumptions in step 31..
+SBY 23:24:15 [formal/present_cdc_multiclock] engine_0: ##   0:04:03  Checking assertions in step 31..
+SBY 23:25:09 [formal/present_cdc_multiclock] engine_0: ##   0:04:57  Status: passed
+SBY 23:25:09 [formal/present_cdc_multiclock] engine_0: finished (returncode=0)
+SBY 23:25:09 [formal/present_cdc_multiclock] engine_0: Status returned by engine: pass
+SBY 23:25:09 [formal/present_cdc_multiclock] summary: Elapsed clock time [H:MM:SS (secs)]: 0:04:57 (297)
+SBY 23:25:09 [formal/present_cdc_multiclock] summary: Elapsed process time [H:MM:SS (secs)]: 0:04:57 (297)
+SBY 23:25:09 [formal/present_cdc_multiclock] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:25:09 [formal/present_cdc_multiclock] summary: engine_0 did not produce any traces
+SBY 23:25:09 [formal/present_cdc_multiclock] DONE (PASS, rc=0)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover'.
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/present_cdc.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/present_cdc.sv'.
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/buffer_manager.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/buffer_manager.sv'.
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/present_cdc_multiclock_formal.sv'.
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: smtbmc z3
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] base: starting process "cd formal/present_cdc_multiclock_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] base: finished (returncode=0)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] prep: starting process "cd formal/present_cdc_multiclock_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] prep: finished (returncode=0)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] smt2: starting process "cd formal/present_cdc_multiclock_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] smt2: finished (returncode=0)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: starting process "cd formal/present_cdc_multiclock_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 48  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Solver: z3
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:163.9-163.28 (_witness_.check_cover_present_cdc_multiclock_formal_sv_163_117)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:169.9-169.35 (_witness_.check_cover_present_cdc_multiclock_formal_sv_169_123)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:166.9-166.32 (_witness_.check_cover_present_cdc_multiclock_formal_sv_166_120)
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 23:25:09 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY 23:25:10 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY 23:25:10 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 15..
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Reached cover statement in step 15 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:164.9-164.30 (_witness_.check_cover_present_cdc_multiclock_formal_sv_164_118)
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Reached cover statement in step 15 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:167.9-167.38 (_witness_.check_cover_present_cdc_multiclock_formal_sv_167_121)
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 15..
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 16..
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 17..
+SBY 23:25:11 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:02  Checking cover reachability in step 18..
+SBY 23:25:12 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:02  Checking cover reachability in step 19..
+SBY 23:25:12 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Checking cover reachability in step 20..
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Reached cover statement in step 20 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:168.9-168.32 (_witness_.check_cover_present_cdc_multiclock_formal_sv_168_122)
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Checking cover reachability in step 20..
+SBY 23:25:13 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:04  Checking cover reachability in step 21..
+SBY 23:25:14 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:05  Checking cover reachability in step 22..
+SBY 23:25:15 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:05  Checking cover reachability in step 23..
+SBY 23:25:16 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:06  Checking cover reachability in step 24..
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:165.9-165.29 (_witness_.check_cover_present_cdc_multiclock_formal_sv_165_119)
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:171.9-171.48 (_witness_.check_cover_present_cdc_multiclock_formal_sv_171_127)
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace4.vcd
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to constraints file: engine_0/trace4.smtc
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Checking cover reachability in step 24..
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:170.9-170.47 (_witness_.check_cover_present_cdc_multiclock_formal_sv_170_125)
+SBY 23:25:17 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace5.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to constraints file: engine_0/trace5.smtc
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Status: passed
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: finished (returncode=0)
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] engine_0: Status returned by engine: pass
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace0.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_163_117 at present_cdc_multiclock_formal.sv:163.9-163.28 step 6
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_169_123 at present_cdc_multiclock_formal.sv:169.9-169.35 step 6
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace1.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_166_120 at present_cdc_multiclock_formal.sv:166.9-166.32 step 6
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace2.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_164_118 at present_cdc_multiclock_formal.sv:164.9-164.30 step 15
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_167_121 at present_cdc_multiclock_formal.sv:167.9-167.38 step 15
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace3.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_168_122 at present_cdc_multiclock_formal.sv:168.9-168.32 step 20
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace4.vcd
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_165_119 at present_cdc_multiclock_formal.sv:165.9-165.29 step 24
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_171_127 at present_cdc_multiclock_formal.sv:171.9-171.48 step 24
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: and 1 further trace
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] summary: see formal/present_cdc_multiclock_cover/PASS for a complete summary
+SBY 23:25:18 [formal/present_cdc_multiclock_cover] DONE (PASS, rc=0)

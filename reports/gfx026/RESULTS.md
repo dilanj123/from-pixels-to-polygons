@@ -149,6 +149,57 @@ The reports are digital verification/implementation-tool evidence only. No graph
 
 Gate 9 remains **OPEN**. Full-chip synthesis and routing, resource use, routed slack and a critical path are now recorded. The required 60 MHz `clk_sys` target is not met, and compliant-clock throughput metrics are not established. No bitstream, programming, physical video or hardware evidence exists. The next task should address the measured renderer/control critical path within the project’s approved Gate-9 scope before any physical baseline can be claimed.
 
+## G9-TRIANGLE-SETUP-PIPELINE — approved setup timing correction (2026-11-04)
+
+Starting commit: `c0475b8bc8b18c47be26e177e78d65d461e696aa`. Implementation commit: `05d5b22` (`Pipeline triangle setup into two timing stages`). D-040 was recorded before RTL edits. The command FIFO, frozen clocks, ULX3S target, LPFs, PLLs, dependency commits, source list, nextpnr version, placer/router and seed 1 are unchanged. The pinned Sobel commit remains `ad35514c990f6e1c9eb9fa18aee9d906f9df7721`.
+
+### Implementation and functional behavior
+
+`rtl/triangle_setup.sv` now has two registered stages. Stage 1 computes the existing signed coordinate deltas, AREA/classification, exact clamped bbox, top-left flags, edge steps, tag and attributes; for RASTER it also registers the signed sample-minus-vertex offsets. Stage 2 uses only those registered values to calculate and register the three initial edge terms and complete result. Original signed32 expressions and D-029 result fields are retained. Previously `out_valid` asserted immediately after the acceptance edge; now it asserts after the following rising edge, adding exactly one cycle. Throughput remains one accepted input per cycle when unstalled, including simultaneous output retirement and input replacement. Reset flushes both valid stages.
+
+`make test-triangle-setup lint-triangle-setup` exits 0. The Python oracle generated 160 vectors (80 RASTER, 2 EMPTY, 1 DEGENERATE, 77 BACKFACE); all 5,440 vector fields matched. Directed checks additionally covered delayed output-valid, changed live input after acceptance, stable stalled output, three consecutive transactions with simultaneous retirement/replacement, reset after Stage 1, reset after Stage 2, and reset while stalled. Total comparison count including those directed checks was 5,610 fields. No renderer RTL change was needed. The renderer's existing TRI_SETUP wait handles the added stage.
+
+The full functional batch exited 0:
+
+```text
+SOBEL_PYTHON=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 make test-triangle-setup test-raster-walk test-fragment-z test-renderer test-renderer-reset test-renderer-decoder test-renderer-counters test-command-system test-sobel-integration test-sobel-controller test-sobel-modes test-readback test-readback-framebuffer test-presentation test-graphics-core test-uart test-uart-system test-host test-sobel-adapters test-clear test-decoder test-fifo test-perf-counters test-memory-wrappers
+```
+
+This includes unchanged complete colour/Z/reference comparisons, NORMAL/SOBEL/SOBEL/NORMAL, full Sobel output and readback, and the public W1–W14 scoreboard. In the public command scenario tag `0x1028`, W10 `render_cycles` changed from 6,014 to 6,018 and W11 `triangle_setup_cycles` from 8 to 12: exactly one actual TRI_SETUP cycle per each of four accepted DRAWs. The independent expected cycle scoreboard passed; all other printed W1–W14 values matched. The separate renderer event scoreboard also passed (`render=33`, `setup=15` for its directed case).
+
+The focused lint group, Python 3.11 reference suite (31 tests), `make formal-gate8`, `make doctor`, and `make bootstrap-smoke` all exited 0. The formal suite includes the selected prior FIFO/role/raster/depth/Sobel/address and two-clock CDC properties; CDC BMC and cover passed under their already documented digital assumptions. Logs are retained as `functional_regression_triangle_pipeline.log`, `lint_triangle_pipeline.log`, `python_reference_triangle_pipeline.log`, `formal_gate8_triangle_pipeline.log`, `doctor_triangle_pipeline.log`, and `bootstrap_triangle_pipeline.log`.
+
+Icarus emits its existing `sorry: constant selects in always_* processes are not fully supported` sensitivity notices for the triangle setup and other SystemVerilog modules; simulation completed and the independent comparisons passed. Verilator lint exited 0.
+
+### Synthesis and routed result
+
+`make synth-ecp5` exited 0. The complete `ulx3s_graphics_top` hierarchy passed Yosys hierarchy and `check -assert`; no missing module or inferred latch was reported, and the EBR count remains 156. Full log: `yosys_synth_triangle_pipeline.txt`.
+
+`make route-ecp5` ran the original static placer, router1 and seed 1 flow to completion and emitted a complete routed configuration and detailed timing JSON. The command exits 2 because nextpnr correctly reports the 60 MHz system-clock timing violation. Artifact classification is **PLACED/ROUTED — TIMING FAILING**, not timing clean. The log is `nextpnr_route_triangle_pipeline.txt`; report and config are retained in `nextpnr_route_triangle_pipeline.json.gz` and `ulx3s_graphics_triangle_pipeline.config.gz`. The standard `yosys_synth.txt` and `nextpnr_route.txt` historical files were restored unchanged after producing separately named artifacts.
+
+| Routed measurement | FIFO-EBR baseline | Two-stage triangle setup | Change |
+|---|---:|---:|---:|
+| Yosys mapped LUT4 | 7,354 | 7,523 | +169 |
+| Yosys mapped TRELLIS_FF | 6,011 | 6,702 | +691 |
+| nextpnr `TRELLIS_COMB` | 10,340 | 10,511 | +171 |
+| `TRELLIS_FF` | 6,011 | 6,702 | +691 |
+| `DP16KD` | 156 | 156 | 0 |
+| `MULT18X18D` | 11 | 17 | +6 |
+| `EHXPLLL` | 3 | 3 | 0 |
+| Routed `clk_sys` max frequency estimate | 39.1896 MHz | 49.1739 MHz | +9.9843 MHz |
+| Routed `clk_sys` critical delay | 25.517 ns | 20.336 ns | −5.181 ns |
+| `clk_sys` slack at 60 MHz | approximately −8.851 ns | approximately −3.670 ns | +5.181 ns |
+
+Yosys mapped counts for the new build are 7,523 LUT4, 6,702 TRELLIS_FF, 156 DP16KD, 17 MULT18X18D and 3 EHXPLLL. nextpnr reports the resource counts in the table above. Counts are tool-specific; no area prediction is inferred. Synthesis has eight unique warnings, the same categories as the prior full build (small array-to-register conversions, upstream DVI `.RST` width resizes, experimental `write_xaiger2` notice and ABC diagnostics); no latch or `check -assert` issue. nextpnr reports no warnings and one timing error.
+
+The previous critical path from renderer `draw_q` to the triangle setup result is no longer the limiting system path. The new 39-arc, 20.336 ns `clk_sys` path starts at `sobel_control_i.reader_i.pixel_fifo[1]` register Q (source attributed to `rtl/sobel_fb_reader.sv`) and ends at the pinned parent's `sobel_i.u_arithmetic_elastic.m_data` output register. It traverses `u_line_buffer.line2_mem`, a mapped `MULT18X18D`, and carry-chain/arithmetic logic in the Sobel line-buffer/window/arithmetic cone. Launch and capture are both on correctly constrained `clk_sys`; this is a real synchronous path, not an unconstrained CDC path. The setup calculation pipeline achieved its intended effect, but the new critical path remains above the 16.666 ns target period. The parent RTL is frozen and was not changed.
+
+Routed clock estimates: `clk_sys` 49.1739 MHz (FAIL at 60 MHz); pixel output 42.7186 MHz (PASS at 25.20 MHz); serializer `clk_pix_5x` 174.2464 MHz (PASS at 126.0239 MHz); intermediate `clk_315m_aux` 1053.7407 MHz (PASS at 315.0598 MHz). The max-delay measurement is from the completed-route report, not the initial placement estimate. No bitstream was packed because `clk_sys` fails. No physical clock, Fmax sweep, hardware, display, or timing-clean claim is made.
+
+### Gate-9 disposition
+
+Gate 9 remains **OPEN**. The approved setup correction is functionally verified and fully synthesized/routed, with a measured 5.181 ns improvement to the previous system critical delay, but the frozen 60 MHz target still fails by approximately 3.670 ns. Do not add another pipeline stage under this task. The next decision should address whether and how the pinned Sobel line-buffer/arithmetic path can be made to meet the existing clock without violating the immutable-parent boundary; no Sobel source or clock contract change is authorized here. Candidate/fragment throughput under a compliant 60 MHz clock remains unestablished.
+
 
 ## G9-CRITICAL-PATH-CLOSE investigation (2026-11-04)
 

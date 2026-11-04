@@ -495,3 +495,16 @@ Full logs, exact tool versions, warnings, pin/clock assumptions and route-attemp
 | Gate 9 remains open | `reports/gfx026/RESULTS.md`; `04_MASTER_CHECKLIST.md` | No timing-clean result or bitstream; setup pipeline/control decision required before another correction | LOCAL OBSERVATION |
 
 The trial is not the accepted production implementation. Historical accepted GFX-026 reports are preserved. No timing exception, target change, hardware claim, Gate-10 work or Gate-11 optimization was made.
+
+
+## G9-TRIANGLE-SETUP-PIPELINE — D-040 timing correction
+
+| Claim | Command/evidence | Conditions | Classification |
+|---|---|---|---|
+| Two-stage setup returns the D-029 result unchanged | `make test-triangle-setup`; `functional_regression_triangle_pipeline.log` | 160 independent vectors, all 34 fields per vector plus pipeline/reset/backpressure checks; 5,610 field comparisons in total | RTL SIMULATION VERIFIED |
+| Renderer and system behavior remain equivalent | `functional_regression_triangle_pipeline.log`; public command test tag `0x1028` | Full relevant regression passed; colour/Z and Sobel/readback references unchanged. Public W10 6,014→6,018 and W11 8→12 for four DRAWs, exactly +1 setup cycle each; independent event/counter scoreboard passed | RTL SIMULATION VERIFIED |
+| Selected prior formal property set remains passing | `formal_gate8_triangle_pipeline.log` | `make formal-gate8` exit 0; existing assumptions/bounds and two-clock digital CDC model retained; no triangle-setup formal proof claimed | FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Complete target synthesizes | `yosys_synth_triangle_pipeline.txt` | `make synth-ecp5` exit 0; full `ulx3s_graphics_top`, hierarchy/check assertions pass; 7,523 LUT4, 6,702 FF, 156 DP16KD, 17 MULT18X18D, 3 EHXPLLL | SYNTHESISED |
+| Complete target routes but misses `clk_sys` timing | `nextpnr_route_triangle_pipeline.txt`; `nextpnr_route_triangle_pipeline.json.gz`; `ulx3s_graphics_triangle_pipeline.config.gz` | Original device/constraints/PLLs/source dependencies, static placer, router1, seed 1. Route completed; nextpnr exits 2 for 49.1739 MHz vs 60 MHz, 20.336 ns critical path, approximately −3.670 ns slack. New worst path: Sobel reader pixel FIFO through pinned parent line-buffer/multiplier/arithmetic cone to arithmetic output register | PLACED/ROUTED — TIMING FAILING |
+
+The two-stage setup improves the prior routed `clk_sys` delay by 5.181 ns (25.517→20.336 ns) but does not close Gate 9. The earlier renderer-DRAW-to-setup-result path is no longer critical. No bitstream was packed. No physical clock, hardware, or compliant-clock throughput evidence is claimed; candidate/fragment throughput remains open.
