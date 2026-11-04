@@ -18,6 +18,19 @@ Setup computes signed16 deltas, signed32 AREA/edge terms, top-left flags, exact
 clamped pixel-centre bounds, and initial edge values. AREA rejection, empty-bbox
 success, and counters are distinct results.
 
+For the GFX-026 timing correction (D-040), setup uses two registered stages.
+The first captures the accepted DRAW's geometry preparation, classification,
+bbox, top-left flags, edge deltas/steps, attributes, tag, and the signed sample
+offsets needed for initial-edge evaluation. The second uses only that registered
+preparation to calculate initial E0/E1/E2 and register the complete result.
+The split preserves all D-029 result bits and ready/valid behavior, including
+stable output under stall, one result per cycle at full rate, and simultaneous
+retirement/replacement. Previously `out_valid` asserted immediately after the
+acceptance edge; now it asserts after the following rising edge, adding exactly
+one cycle. Reset discards either in-flight stage.
+`triangle_setup_cycles` continues to count each actual cycle in renderer
+`TRI_SETUP`; it is not adjusted to preserve a historical numerical count.
+
 ### Triangle-setup result contract (D-029)
 
 The setup result has one mutually exclusive 2-bit classification:

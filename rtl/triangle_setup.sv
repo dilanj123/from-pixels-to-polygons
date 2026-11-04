@@ -1,16 +1,27 @@
 module triangle_setup (
-    input  logic                         clk_sys,
-    input  logic                         rst,
-    input  logic                         in_valid,
-    output logic                         in_ready,
-    input  gfx_pkg::decoded_command_t   in_data,
-    output logic                         out_valid,
-    input  logic                         out_ready,
+    input  logic                           clk_sys,
+    input  logic                           rst,
+    input  logic                           in_valid,
+    output logic                           in_ready,
+    input  gfx_pkg::decoded_command_t     in_data,
+    output logic                           out_valid,
+    input  logic                           out_ready,
     output gfx_pkg::triangle_setup_result_t out_data
 );
-    logic can_accept;
-    gfx_pkg::triangle_setup_result_t calculated;
-    gfx_pkg::triangle_setup_result_t result_q;
+    typedef struct packed {
+        gfx_pkg::triangle_setup_result_t base;
+        logic signed [31:0] e0_sample_dx;
+        logic signed [31:0] e0_sample_dy;
+        logic signed [31:0] e1_sample_dx;
+        logic signed [31:0] e1_sample_dy;
+        logic signed [31:0] e2_sample_dx;
+        logic signed [31:0] e2_sample_dy;
+    } prepared_setup_t;
+
+    logic prep_valid_q, out_valid_q;
+    logic prep_slot_ready, out_slot_ready;
+    prepared_setup_t prep_calculated, prep_q;
+    gfx_pkg::triangle_setup_result_t result_calculated, result_q;
 
     logic signed [15:0] dx0, dy0, dx1, dy1, dx2, dy2;
     logic signed [31:0] dx0_32, dy0_32, dx1_32, dy1_32, dx2_32, dy2_32;
@@ -21,10 +32,13 @@ module triangle_setup (
     logic signed [31:0] area;
     logic bbox_nonempty;
 
-    assign can_accept = !out_valid || out_ready;
-    assign in_ready = can_accept;
+    assign out_slot_ready = !out_valid_q || out_ready;
+    assign prep_slot_ready = !prep_valid_q || out_slot_ready;
+    assign in_ready = prep_slot_ready;
+    assign out_valid = out_valid_q;
     assign out_data = result_q;
 
+    // Stage 1: prepare geometry and register the sample-relative edge inputs.
     always_comb begin
         x0_32 = $signed({19'd0, in_data.v0_x});
         y0_32 = $signed({19'd0, in_data.v0_y});
@@ -72,68 +86,97 @@ module triangle_setup (
         sample_x = 32'sd0;
         sample_y = 32'sd0;
 
-        calculated = '0;
-        calculated.tag = in_data.tag;
-        calculated.area = area;
-        calculated.edge0_dx = dx0;
-        calculated.edge0_dy = dy0;
-        calculated.edge1_dx = dx1;
-        calculated.edge1_dy = dy1;
-        calculated.edge2_dx = dx2;
-        calculated.edge2_dy = dy2;
-        calculated.top_left[0] = (dy0 < 0) || ((dy0 == 0) && (dx0 > 0));
-        calculated.top_left[1] = (dy1 < 0) || ((dy1 == 0) && (dx1 > 0));
-        calculated.top_left[2] = (dy2 < 0) || ((dy2 == 0) && (dx2 > 0));
-        calculated.edge0_step_x = -(dy0_32 <<< 4);
-        calculated.edge0_step_y =  (dx0_32 <<< 4);
-        calculated.edge1_step_x = -(dy1_32 <<< 4);
-        calculated.edge1_step_y =  (dx1_32 <<< 4);
-        calculated.edge2_step_x = -(dy2_32 <<< 4);
-        calculated.edge2_step_y =  (dx2_32 <<< 4);
+        prep_calculated = '0;
+        prep_calculated.base.tag = in_data.tag;
+        prep_calculated.base.area = area;
+        prep_calculated.base.edge0_dx = dx0;
+        prep_calculated.base.edge0_dy = dy0;
+        prep_calculated.base.edge1_dx = dx1;
+        prep_calculated.base.edge1_dy = dy1;
+        prep_calculated.base.edge2_dx = dx2;
+        prep_calculated.base.edge2_dy = dy2;
+        prep_calculated.base.top_left[0] = (dy0 < 0) || ((dy0 == 0) && (dx0 > 0));
+        prep_calculated.base.top_left[1] = (dy1 < 0) || ((dy1 == 0) && (dx1 > 0));
+        prep_calculated.base.top_left[2] = (dy2 < 0) || ((dy2 == 0) && (dx2 > 0));
+        prep_calculated.base.edge0_step_x = -(dy0_32 <<< 4);
+        prep_calculated.base.edge0_step_y =  (dx0_32 <<< 4);
+        prep_calculated.base.edge1_step_x = -(dy1_32 <<< 4);
+        prep_calculated.base.edge1_step_y =  (dx1_32 <<< 4);
+        prep_calculated.base.edge2_step_x = -(dy2_32 <<< 4);
+        prep_calculated.base.edge2_step_y =  (dx2_32 <<< 4);
 
-        calculated.r_start = in_data.r_start;
-        calculated.g_start = in_data.g_start;
-        calculated.b_start = in_data.b_start;
-        calculated.z_start = in_data.z_start;
-        calculated.r_dx = in_data.r_dx;
-        calculated.g_dx = in_data.g_dx;
-        calculated.b_dx = in_data.b_dx;
-        calculated.z_dx = in_data.z_dx;
-        calculated.r_dy = in_data.r_dy;
-        calculated.g_dy = in_data.g_dy;
-        calculated.b_dy = in_data.b_dy;
-        calculated.z_dy = in_data.z_dy;
+        prep_calculated.base.r_start = in_data.r_start;
+        prep_calculated.base.g_start = in_data.g_start;
+        prep_calculated.base.b_start = in_data.b_start;
+        prep_calculated.base.z_start = in_data.z_start;
+        prep_calculated.base.r_dx = in_data.r_dx;
+        prep_calculated.base.g_dx = in_data.g_dx;
+        prep_calculated.base.b_dx = in_data.b_dx;
+        prep_calculated.base.z_dx = in_data.z_dx;
+        prep_calculated.base.r_dy = in_data.r_dy;
+        prep_calculated.base.g_dy = in_data.g_dy;
+        prep_calculated.base.b_dy = in_data.b_dy;
+        prep_calculated.base.z_dy = in_data.z_dy;
 
         if (area == 0) begin
-            calculated.classification = gfx_pkg::TRI_SETUP_DEGENERATE;
+            prep_calculated.base.classification = gfx_pkg::TRI_SETUP_DEGENERATE;
         end else if (area < 0) begin
-            calculated.classification = gfx_pkg::TRI_SETUP_BACKFACE;
+            prep_calculated.base.classification = gfx_pkg::TRI_SETUP_BACKFACE;
         end else if (!bbox_nonempty) begin
-            calculated.classification = gfx_pkg::TRI_SETUP_EMPTY;
+            prep_calculated.base.classification = gfx_pkg::TRI_SETUP_EMPTY;
         end else begin
-            calculated.classification = gfx_pkg::TRI_SETUP_RASTER;
-            calculated.xmin = (xmin_raw < 0) ? 9'd0 : ((xmin_raw > 319) ? 9'd319 : xmin_raw[8:0]);
-            calculated.xmax = (xmax_raw < 0) ? 9'd0 : ((xmax_raw > 319) ? 9'd319 : xmax_raw[8:0]);
-            calculated.ymin = (ymin_raw < 0) ? 8'd0 : ((ymin_raw > 239) ? 8'd239 : ymin_raw[7:0]);
-            calculated.ymax = (ymax_raw < 0) ? 8'd0 : ((ymax_raw > 239) ? 8'd239 : ymax_raw[7:0]);
-            sample_x = ($signed({23'd0, calculated.xmin}) <<< 4) + 32'sd8;
-            sample_y = ($signed({24'd0, calculated.ymin}) <<< 4) + 32'sd8;
-            calculated.e0_init = dx0_32 * (sample_y - y0_32) - dy0_32 * (sample_x - x0_32);
-            calculated.e1_init = dx1_32 * (sample_y - y1_32) - dy1_32 * (sample_x - x1_32);
-            calculated.e2_init = dx2_32 * (sample_y - y2_32) - dy2_32 * (sample_x - x2_32);
+            prep_calculated.base.classification = gfx_pkg::TRI_SETUP_RASTER;
+            prep_calculated.base.xmin = (xmin_raw < 0) ? 9'd0 : ((xmin_raw > 319) ? 9'd319 : xmin_raw[8:0]);
+            prep_calculated.base.xmax = (xmax_raw < 0) ? 9'd0 : ((xmax_raw > 319) ? 9'd319 : xmax_raw[8:0]);
+            prep_calculated.base.ymin = (ymin_raw < 0) ? 8'd0 : ((ymin_raw > 239) ? 8'd239 : ymin_raw[7:0]);
+            prep_calculated.base.ymax = (ymax_raw < 0) ? 8'd0 : ((ymax_raw > 239) ? 8'd239 : ymax_raw[7:0]);
+            sample_x = ($signed({23'd0, prep_calculated.base.xmin}) <<< 4) + 32'sd8;
+            sample_y = ($signed({24'd0, prep_calculated.base.ymin}) <<< 4) + 32'sd8;
+            prep_calculated.e0_sample_dx = sample_x - x0_32;
+            prep_calculated.e0_sample_dy = sample_y - y0_32;
+            prep_calculated.e1_sample_dx = sample_x - x1_32;
+            prep_calculated.e1_sample_dy = sample_y - y1_32;
+            prep_calculated.e2_sample_dx = sample_x - x2_32;
+            prep_calculated.e2_sample_dy = sample_y - y2_32;
+        end
+    end
+
+    // Stage 2: initial edge products consume only the registered preparation.
+    always_comb begin
+        result_calculated = prep_q.base;
+        if (prep_q.base.classification == gfx_pkg::TRI_SETUP_RASTER) begin
+            result_calculated.e0_init =
+                $signed({{16{prep_q.base.edge0_dx[15]}}, prep_q.base.edge0_dx}) * prep_q.e0_sample_dy -
+                $signed({{16{prep_q.base.edge0_dy[15]}}, prep_q.base.edge0_dy}) * prep_q.e0_sample_dx;
+            result_calculated.e1_init =
+                $signed({{16{prep_q.base.edge1_dx[15]}}, prep_q.base.edge1_dx}) * prep_q.e1_sample_dy -
+                $signed({{16{prep_q.base.edge1_dy[15]}}, prep_q.base.edge1_dy}) * prep_q.e1_sample_dx;
+            result_calculated.e2_init =
+                $signed({{16{prep_q.base.edge2_dx[15]}}, prep_q.base.edge2_dx}) * prep_q.e2_sample_dy -
+                $signed({{16{prep_q.base.edge2_dy[15]}}, prep_q.base.edge2_dy}) * prep_q.e2_sample_dx;
+        end else begin
+            result_calculated.e0_init = 32'sd0;
+            result_calculated.e1_init = 32'sd0;
+            result_calculated.e2_init = 32'sd0;
         end
     end
 
     always_ff @(posedge clk_sys or posedge rst) begin
         if (rst) begin
-            out_valid <= 1'b0;
+            prep_valid_q <= 1'b0;
+            out_valid_q <= 1'b0;
+            prep_q <= '0;
             result_q <= '0;
         end else begin
-            if (out_valid && out_ready)
-                out_valid <= 1'b0;
-            if (in_valid && in_ready) begin
-                result_q <= calculated;
-                out_valid <= 1'b1;
+            if (out_slot_ready) begin
+                out_valid_q <= prep_valid_q;
+                if (prep_valid_q)
+                    result_q <= result_calculated;
+            end
+            if (prep_slot_ready) begin
+                prep_valid_q <= in_valid;
+                if (in_valid)
+                    prep_q <= prep_calculated;
             end
         end
     end

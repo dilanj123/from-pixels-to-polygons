@@ -6,12 +6,10 @@ module triangle_setup_tb;
     logic clk = 0, rst = 1;
     logic in_valid, in_ready, out_valid, out_ready;
     decoded_command_t in_data;
-    triangle_setup_result_t out_data;
-    triangle_setup_result_t held;
+    triangle_setup_result_t out_data, held;
     integer compared = 0;
 
     always #5 clk = ~clk;
-    // Vector memory is loaded in the test process below.
 
     triangle_setup dut (
         .clk_sys(clk), .rst(rst), .in_valid(in_valid), .in_ready(in_ready),
@@ -20,12 +18,9 @@ module triangle_setup_tb;
 
     task automatic reset_dut;
         begin
-            rst = 1'b1;
+            @(negedge clk); rst = 1'b1; in_valid = 1'b0; out_ready = 1'b1;
             repeat (2) @(posedge clk);
-            #1;
-            rst = 1'b0;
-            in_valid = 1'b0;
-            out_ready = 1'b1;
+            @(negedge clk); rst = 1'b0;
         end
     endtask
 
@@ -71,13 +66,18 @@ module triangle_setup_tb;
     endtask
 
     task automatic send_and_check(input integer index);
-        integer base;
+        integer base, cycles;
         begin
             base = index * WORDS_PER_VECTOR;
-            while (!in_ready) @(posedge clk);
+            cycles = 0;
+            while (!in_ready && cycles < 8) begin @(negedge clk); cycles = cycles + 1; end
+            if (!in_ready) $fatal(1, "input-ready timeout vector %0d", index);
             @(negedge clk); load_input(base); in_valid = 1'b1;
             @(posedge clk); #1;
-            in_valid = 1'b0;
+            if (out_valid) $fatal(1, "output asserted before second stage vector %0d", index);
+            @(negedge clk); in_valid = 1'b0;
+            cycles = 0;
+            while (!out_valid && cycles < 5) begin @(posedge clk); #1; cycles = cycles + 1; end
             if (!out_valid) $fatal(1, "missing output vector %0d", index);
             compare_output(base);
             @(posedge clk); #1;
@@ -91,16 +91,55 @@ module triangle_setup_tb;
         reset_dut();
         for (integer i = 0; i < VECTORS; i = i + 1) send_and_check(i);
 
-        // Pending result stability and reset discard.
+        // Accepted data is captured; changing the live bus cannot affect stage 2.
         load_input(0);
-        @(negedge clk); in_valid = 1; out_ready = 0;
-        @(posedge clk); #1; in_valid = 0;
-        if (!out_valid) $fatal(1, "stall result missing");
+        @(negedge clk); in_valid = 1;
+        @(posedge clk); #1;
+        if (out_valid) $fatal(1, "premature output after input acceptance");
+        @(negedge clk); in_valid = 0; in_data = '1;
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "stage-2 result missing after live input changed");
+        compare_output(0);
+        @(posedge clk); #1;
+
+        // Continuous transfers prove retirement/replacement and full-rate ordering.
+        load_input(0); @(negedge clk); in_valid = 1;
+        @(posedge clk);
+        load_input(WORDS_PER_VECTOR); @(negedge clk);
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "first back-to-back result missing");
+        compare_output(0);
+        load_input(2*WORDS_PER_VECTOR); @(negedge clk);
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "second back-to-back result missing");
+        compare_output(WORDS_PER_VECTOR);
+        in_valid = 0;
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "third back-to-back result missing");
+        compare_output(2*WORDS_PER_VECTOR);
+        @(posedge clk); #1;
+        if (out_valid) $fatal(1, "duplicate back-to-back output");
+
+        // Reset after stage-1 capture.
+        load_input(0); @(negedge clk); in_valid = 1;
+        @(posedge clk); #1;
+        @(negedge clk); rst = 1; in_valid = 0;
+        @(posedge clk); #1;
+        @(negedge clk); rst = 0;
+        repeat (3) begin @(posedge clk); #1; if (out_valid) $fatal(1, "stage-1 reset leaked result"); end
+
+        // Reset after stage 2 has produced a stalled output.
+        load_input(0); @(negedge clk); in_valid = 1; out_ready = 0;
+        @(posedge clk); #1;
+        @(negedge clk); in_valid = 0;
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "stalled result missing");
         held = out_data;
         repeat (3) begin @(posedge clk); #1; if (out_data !== held || !out_valid) $fatal(1, "stalled result changed"); end
-        rst = 1;
-        @(posedge clk); #1; rst = 0; out_ready = 1;
+        @(negedge clk); rst = 1;
+        @(posedge clk); #1;
         if (out_valid) $fatal(1, "reset left stale setup output");
+        @(negedge clk); rst = 0; out_ready = 1;
         send_and_check(1);
 
         $display("triangle_setup_tb: PASS vectors=%0d fields=%0d", VECTORS, compared);
