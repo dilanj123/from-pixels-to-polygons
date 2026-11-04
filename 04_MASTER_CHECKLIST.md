@@ -210,21 +210,21 @@ or MTBF evidence. Gate 9 remains open.
 
 ## Gate 9 — Synthesis / Route Baseline
 
-- [ ] full 85F synthesis
+- [x] full 85F synthesis — complete `ulx3s_graphics_top`; Yosys hierarchy/check passed, `reports/gfx026/yosys_synth.txt`
 - [ ] full route
-- [ ] LUT/cell count recorded
-- [ ] FF count recorded
-- [ ] EBR count recorded
-- [ ] DSP count recorded
-- [ ] clock constraints recorded
+- [x] LUT/cell count recorded — placement input reports 38,481 LUT4
+- [x] FF count recorded — 38,778 TRELLIS_FF
+- [x] EBR count recorded — 154 DP16KD
+- [x] DSP count recorded — 11 MULT18X18D
+- [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
 - [ ] worst slack recorded
 - [ ] critical path recorded
-- [ ] warnings reviewed
+- [x] warnings reviewed — memory-to-register mapping, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
-- [ ] render-cycle metrics recorded
-- [ ] Sobel-cycle metrics recorded
-- [ ] timing classification correct
-- [ ] no unsupported Fmax claim
+- [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,014 cycles
+- [x] Sobel-cycle metrics recorded — public counter scoreboard scenario tag `0x1015`: W13=151,072 cycles
+- [x] timing classification correct — placement estimate fails 60 MHz; no completed route/timing-closure claim
+- [x] no unsupported Fmax claim
 
 ## Gate 10 — Physical Hardware
 

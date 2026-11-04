@@ -1,0 +1,118 @@
+SBY 21:30:43 [formal/cmd_fifo] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo'.
+SBY 21:30:43 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/cmd_fifo.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/cmd_fifo.sv'.
+SBY 21:30:43 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/gfx_pkg.sv'.
+SBY 21:30:43 [formal/cmd_fifo] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/cmd_fifo/src/cmd_fifo_formal.sv'.
+SBY 21:30:43 [formal/cmd_fifo] engine_0: smtbmc z3
+SBY 21:30:43 [formal/cmd_fifo] base: starting process "cd formal/cmd_fifo/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Replacing memory \mem with list of registers. See cmd_fifo.sv:32
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\clk is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_valid is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\out_ready is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\rst is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [31] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [30] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [29] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [28] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [27] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [26] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [25] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [24] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [23] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [22] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [21] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [20] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [19] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [18] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [17] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [16] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [15] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [14] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [13] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [12] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [11] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [10] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [9] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [8] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [7] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [6] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [5] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [4] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [3] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [2] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [1] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: Warning: Wire cmd_fifo_formal.\in_data [0] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] base: finished (returncode=0)
+SBY 21:30:43 [formal/cmd_fifo] prep: starting process "cd formal/cmd_fifo/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\clk is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [31] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [30] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [29] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [28] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [27] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [26] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [25] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [24] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [23] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [22] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [21] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [20] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [19] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [18] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [17] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [16] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [15] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [14] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [13] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [12] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [11] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [10] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [9] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [8] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [7] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [6] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [5] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [4] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [3] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [2] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [1] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_data [0] is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\rst is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\in_valid is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: Warning: Wire cmd_fifo_formal.\out_ready is used but has no driver.
+SBY 21:30:43 [formal/cmd_fifo] prep: finished (returncode=0)
+SBY 21:30:43 [formal/cmd_fifo] smt2: starting process "cd formal/cmd_fifo/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:30:43 [formal/cmd_fifo] smt2: finished (returncode=0)
+SBY 21:30:43 [formal/cmd_fifo] engine_0: starting process "cd formal/cmd_fifo; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Solver: z3
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:30:43 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 21:30:44 [formal/cmd_fifo] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 21:30:45 [formal/cmd_fifo] engine_0: ##   0:00:01  Checking assumptions in step 10..
+SBY 21:30:45 [formal/cmd_fifo] engine_0: ##   0:00:01  Checking assertions in step 10..
+SBY 21:30:46 [formal/cmd_fifo] engine_0: ##   0:00:02  Checking assumptions in step 11..
+SBY 21:30:46 [formal/cmd_fifo] engine_0: ##   0:00:02  Checking assertions in step 11..
+SBY 21:30:48 [formal/cmd_fifo] engine_0: ##   0:00:04  Status: passed
+SBY 21:30:48 [formal/cmd_fifo] engine_0: finished (returncode=0)
+SBY 21:30:48 [formal/cmd_fifo] engine_0: Status returned by engine: pass
+SBY 21:30:48 [formal/cmd_fifo] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:04 (4)
+SBY 21:30:48 [formal/cmd_fifo] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:04 (4)
+SBY 21:30:48 [formal/cmd_fifo] summary: engine_0 (smtbmc z3) returned pass
+SBY 21:30:48 [formal/cmd_fifo] summary: engine_0 did not produce any traces
+SBY 21:30:48 [formal/cmd_fifo] DONE (PASS, rc=0)

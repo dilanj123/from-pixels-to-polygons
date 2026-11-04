@@ -1,1 +1,2 @@
 third_party/projectf/lib/display/tmds_encoder_dvi.sv whitespace=-trailing-space
+reports/gfx026/*.txt whitespace=-trailing-space

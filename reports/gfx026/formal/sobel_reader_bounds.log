@@ -1,0 +1,81 @@
+SBY 21:30:49 [formal/sobel_reader_bounds] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds'.
+SBY 21:30:49 [formal/sobel_reader_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/sobel_fb_reader.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds/src/sobel_fb_reader.sv'.
+SBY 21:30:49 [formal/sobel_reader_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/sobel_reader_bounds/src/sobel_reader_bounds_formal.sv'.
+SBY 21:30:49 [formal/sobel_reader_bounds] engine_0: abc pdr
+SBY 21:30:49 [formal/sobel_reader_bounds] base: starting process "cd formal/sobel_reader_bounds/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Replacing memory \pixel_fifo with list of registers. See sobel_fb_reader.sv:85
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\clk is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [7] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [6] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [5] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [4] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [3] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [2] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [1] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rd_data [0] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\stream_ready is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\start_valid is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: Warning: Wire sobel_reader_bounds_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] base: finished (returncode=0)
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: starting process "cd formal/sobel_reader_bounds/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\stream_ready is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [7] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [6] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [5] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [4] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [3] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [2] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [1] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rd_data [0] is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\clk is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: Warning: Wire sobel_reader_bounds_formal.\start_valid is used but has no driver.
+SBY 21:30:49 [formal/sobel_reader_bounds] prep: finished (returncode=0)
+SBY 21:30:49 [formal/sobel_reader_bounds] aig: starting process "cd formal/sobel_reader_bounds/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 21:30:50 [formal/sobel_reader_bounds] aig: finished (returncode=0)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: starting process "cd formal/sobel_reader_bounds; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Warning: The last 4 outputs are interpreted as constraints.
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 139. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 1 : 0 34                                                                1    35      0.00 sec  T/O =  0  PRV =  0
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 2 : 0 3 34                                                              1    35      0.01 sec  T/O =  0  PRV =  0
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Proved output 0 in frame 2.
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 3 : 0 3 3 32 ~2                                                          1    35      0.02 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 4 : 0 3 3 3 30 ~4                                                        1    35      0.03 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 5 : 0 3 3 3 3 28 ~6                                                      1    35      0.03 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 6 : 0 3 3 3 3 3 26 ~8                                                    1    35      0.04 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 7 : 0 3 3 3 3 3 3 24 ~10                                                 1    35      0.05 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 8 : 0 3 3 3 3 3 3 3 22 ~12                                               1    35      0.06 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 9 : 0 3 3 3 3 3 3 3 3 20 ~14                                             1    35      0.06 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 10 : 0 3 3 3 3 3 3 3 3 3 18 ~16                                           1    35      0.07 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 11 : 0 3 3 3 3 3 3 3 3 3 3 16 ~18                                         1    35      0.07 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 12 : 0 3 3 3 3 3 3 3 3 3 3 3 14 ~20                                       1    35      0.08 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 13 : 0 3 3 3 3 3 3 3 3 3 3 3 3 12 ~22                                     1    35      0.08 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 14 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 10 ~24                                   1    35      0.09 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 15 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 ~26                                  1    35      0.09 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 16 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 6 ~28                                1    35      0.10 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 17 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 ~30                              1    35      0.10 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 18 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 ~32                            1    35      0.11 sec  T/O =  0  PRV =  1
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Proved output 1 in frame 18.
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: 19 : 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 0 0 ~34                          0    35      0.11 sec  T/O =  0  PRV =  2
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Block =   84  Oblig =    84  Clause =    84  Call =  1075 (sat=66.0%)  Cex =   0  Start =   0
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: SAT solving =     0.01 sec ( 12.64 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: unsat     =     0.00 sec (  0.91 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: sat       =     0.01 sec ( 11.74 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Generalize  =     0.00 sec (  3.19 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Push clause =     0.01 sec (  8.16 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Ternary sim =     0.00 sec (  1.25 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Containment =     0.00 sec (  0.03 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: CNF compute =     0.01 sec (  4.99 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: TOTAL       =     0.11 sec (100.00 %)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Property proved.  Time =     0.11 sec
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Counter-example is not available.
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: finished (returncode=0)
+SBY 21:30:50 [formal/sobel_reader_bounds] engine_0: Status returned by engine: PASS
+SBY 21:30:50 [formal/sobel_reader_bounds] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:50 [formal/sobel_reader_bounds] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:50 [formal/sobel_reader_bounds] summary: engine_0 (abc pdr) returned PASS
+SBY 21:30:50 [formal/sobel_reader_bounds] summary: engine_0 did not produce any traces
+SBY 21:30:50 [formal/sobel_reader_bounds] DONE (PASS, rc=0)

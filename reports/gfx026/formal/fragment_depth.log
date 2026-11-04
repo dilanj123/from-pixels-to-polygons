@@ -1,0 +1,429 @@
+SBY 21:30:49 [formal/fragment_depth] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth'.
+SBY 21:30:49 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/gfx_pkg.sv'.
+SBY 21:30:49 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/fragment_z.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/fragment_z.sv'.
+SBY 21:30:49 [formal/fragment_depth] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/fragment_depth/src/fragment_depth_formal.sv'.
+SBY 21:30:49 [formal/fragment_depth] engine_0: smtbmc z3
+SBY 21:30:49 [formal/fragment_depth] base: starting process "cd formal/fragment_depth/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\clk is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_valid is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_x [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\frag_y [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\r_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\g_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\b_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\z_rd_data [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: Warning: Wire fragment_depth_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] base: finished (returncode=0)
+SBY 21:30:49 [formal/fragment_depth] prep: starting process "cd formal/fragment_depth/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_rd_data [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\z_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_y [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_x [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\frag_valid is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\r_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\g_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [41] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [40] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [39] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [38] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [37] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [36] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [35] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [34] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [33] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [32] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [31] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [30] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [29] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [28] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [27] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [26] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [25] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [24] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [23] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [22] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [21] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [20] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [19] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [18] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [17] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [16] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [15] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [14] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [13] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [12] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [11] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [10] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [9] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [8] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [7] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [6] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [5] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [4] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [3] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [2] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [1] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\b_raw [0] is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\clk is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: Warning: Wire fragment_depth_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/fragment_depth] prep: finished (returncode=0)
+SBY 21:30:49 [formal/fragment_depth] smt2: starting process "cd formal/fragment_depth/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:30:49 [formal/fragment_depth] smt2: finished (returncode=0)
+SBY 21:30:49 [formal/fragment_depth] engine_0: starting process "cd formal/fragment_depth; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Solver: z3
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 21:30:49 [formal/fragment_depth] engine_0: ##   0:00:00  Status: passed
+SBY 21:30:49 [formal/fragment_depth] engine_0: finished (returncode=0)
+SBY 21:30:49 [formal/fragment_depth] engine_0: Status returned by engine: pass
+SBY 21:30:49 [formal/fragment_depth] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:49 [formal/fragment_depth] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:49 [formal/fragment_depth] summary: engine_0 (smtbmc z3) returned pass
+SBY 21:30:49 [formal/fragment_depth] summary: engine_0 did not produce any traces
+SBY 21:30:49 [formal/fragment_depth] DONE (PASS, rc=0)

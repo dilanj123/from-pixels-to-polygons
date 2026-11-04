@@ -471,3 +471,15 @@ assumptions and remaining gates.
 Gate 7 and Gate 8 are CLOSED for their checked requirements and documented
 formal scopes. Gate 9 remains open. No synthesis, P&R, timing, physical UART,
 analog CDC/MTBF, or hardware evidence is claimed.
+
+## GFX-026 — ECP5 synthesis and route baseline attempt
+
+| Claim | Command/evidence | Result and limits | Classification |
+|---|---|---|---|
+| Complete ULX3S reference top elaborates and maps to ECP5 cells | `make synth-ecp5`; `reports/gfx026/yosys_synth.txt`; top `ulx3s_graphics_top` | Exit 0; `hierarchy -check`, `synth_ecp5`, `check -assert`; full graphics/UART/320×240 Sobel hierarchy. 38,481 LUT4, 38,778 FF, 154 DP16KD, 11 MULT18X18D, 3 EHXPLLL. Production command FIFO array maps to registers in this flow. | SYNTHESISED |
+| PLL settings and board top are accepted by tools | `rtl/board/ulx3s_graphics_top.sv`; GFX-026 report | Tool calculation/smoke accepted nominal 60 MHz sys, 25.2 MHz pixel and 126 MHz serializer from nominal 25 MHz. Board revision v2.x.x/v3.0.x is an assumption only. | SYNTHESIS/TOOL-MODEL OBSERVATION |
+| Placement-stage timing estimate | `make route-ecp5`; `reports/gfx026/nextpnr_route.txt` | Static placement estimates 20.38 MHz max for 60 MHz `clk_sys`; pixel/serializer/intermediate estimates pass their stated targets. This is pre-route only; no routed slack or detailed critical path. | PLACEMENT-STAGE ESTIMATE — FAILS SYSTEM TARGET |
+| Full route and bitstream | `make route-ecp5`, preserved route attempts | Not completed: router1 attempts were manually interrupted for impractically slow progress; router2 aborted with C++ vector exception. No config, route report or bitstream. | NOT ESTABLISHED |
+| Gate-9 functional/formal regression | `reports/gfx026/functional_regression.log`; `make formal-gate8`; Python unittest | Relevant simulation batch exit 0; reference suite 31/31; selected prior formal suite exit 0, including two-clock presentation BMC depth 32 and cover depth 48. These do not establish physical timing or hardware. | RTL SIMULATION VERIFIED / FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+
+Full logs, exact tool versions, warnings, pin/clock assumptions and route-attempt details are in `reports/gfx026/RESULTS.md`. Gate 9 remains OPEN: route, routed slack/critical path and timing closure are missing. No Fmax, bitstream or physical operation is claimed.

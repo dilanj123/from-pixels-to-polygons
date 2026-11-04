@@ -2,11 +2,14 @@
 
 ## Current state
 
-- Current phase: Gate 9 — Synthesis / Route Baseline (GFX-026 not started).
+- Current phase: Gate 9 — Synthesis / Route Baseline (GFX-026 in progress; Gate 9 remains OPEN).
 - Gate 2: CLOSED. Gate 3: CLOSED. Gate 4: CLOSED. Gate 5: CLOSED. Gate 6: CLOSED. Gate 7: CLOSED. Gate 8: CLOSED for the selected property set.
-- Current known-good functional implementation commit: `7cb2f9741d6ffc7cef79bce5bee872ceebbb1293` (`docs: record repeated Sobel mode verification`).
+- Current known-good functional implementation baseline before GFX-026: `eb4e18a587f03f19c61f4c91451ae6358f2c8389`. GFX-026 adds only the board wrapper/build/provenance/evidence; no graphics datapath RTL was changed.
 - Repository: `https://github.com/dilanj123/from-pixels-to-polygons`.
 - Branch: `main`; local HEAD equals `origin/main`.
+- GFX-026 selected the ULX3S-85F reference target (`LFE5U-85F-6BG381C`) with a documented but physically unconfirmed v2.x.x/v3.0.x pinout assumption. Full `ulx3s_graphics_top` Yosys ECP5 synthesis passed. Packed counts: 38,481 LUT4, 38,778 FF, 154 DP16KD, 11 MULT18X18D, 3 EHXPLLL and 3 ODDRX1F. The production 1024×32 command FIFO is represented as registers in this integrated mapping; see `reports/gfx026/RESULTS.md`.
+- Exact nominal 60 MHz system, 25.2 MHz pixel and 126 MHz serializer settings were accepted by the PLL calculation/smoke flow. Full nextpnr routing did not complete. Static-placement timing estimate reports 20.38 MHz maximum on `clk_sys` versus 60 MHz target; no routed slack, detailed critical path or bitstream exists. Gate 9 remains OPEN; no hardware result is claimed.
+- GFX-026 relevant functional regression and `make formal-gate8` passed. Logs and complete result classification are in `reports/gfx026/RESULTS.md` and `reports/gfx026/`.
 - GFX-005 command FIFO: RTL SIMULATION VERIFIED; selected FIFO properties
   FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS.
 - GFX-006 command decoder: RTL SIMULATION VERIFIED; selected decoder

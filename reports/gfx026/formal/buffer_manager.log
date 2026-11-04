@@ -1,0 +1,99 @@
+SBY 21:30:48 [formal/buffer_manager] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager'.
+SBY 21:30:48 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/present_cdc.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/present_cdc.sv'.
+SBY 21:30:48 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/buffer_manager.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/buffer_manager.sv'.
+SBY 21:30:48 [formal/buffer_manager] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/buffer_manager/src/buffer_manager_formal.sv'.
+SBY 21:30:48 [formal/buffer_manager] engine_0: smtbmc z3
+SBY 21:30:48 [formal/buffer_manager] base: starting process "cd formal/buffer_manager/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\renderer_quiescent is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\clk is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_sobel is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_valid is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\readback_active is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [15] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [14] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [13] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [12] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [11] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [10] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [9] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [8] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [7] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [6] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [5] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [4] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [3] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [2] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [1] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\present_tag [0] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\rst is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: Warning: Wire buffer_manager_formal.\safe_frame_start is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] base: finished (returncode=0)
+SBY 21:30:48 [formal/buffer_manager] prep: starting process "cd formal/buffer_manager/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\renderer_quiescent is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\clk is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_sobel is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [15] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [14] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [13] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [12] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [11] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [10] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [9] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [8] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [7] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [6] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [5] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [4] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [3] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [2] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [1] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_tag [0] is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\readback_active is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\safe_frame_start is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\rst is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: Warning: Wire buffer_manager_formal.\present_valid is used but has no driver.
+SBY 21:30:48 [formal/buffer_manager] prep: finished (returncode=0)
+SBY 21:30:48 [formal/buffer_manager] smt2: starting process "cd formal/buffer_manager/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:30:48 [formal/buffer_manager] smt2: finished (returncode=0)
+SBY 21:30:48 [formal/buffer_manager] engine_0: starting process "cd formal/buffer_manager; yosys-smtbmc -s z3 --presat --noprogress -t 16  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Solver: z3
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 21:30:48 [formal/buffer_manager] engine_0: ##   0:00:00  Status: passed
+SBY 21:30:48 [formal/buffer_manager] engine_0: finished (returncode=0)
+SBY 21:30:48 [formal/buffer_manager] engine_0: Status returned by engine: pass
+SBY 21:30:48 [formal/buffer_manager] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:48 [formal/buffer_manager] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:48 [formal/buffer_manager] summary: engine_0 (smtbmc z3) returned pass
+SBY 21:30:48 [formal/buffer_manager] summary: engine_0 did not produce any traces
+SBY 21:30:48 [formal/buffer_manager] DONE (PASS, rc=0)

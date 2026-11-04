@@ -1,0 +1,160 @@
+Info: constraining clock net 'clk_25m' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:     38481/83640    46%
+Info:         logic LUTs:  36015/83640    43%
+Info:         carry LUTs:   2466/83640     2%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:     38778/83640    46%
+
+Info: Packing IOs..
+Info: pin 'gpdi_dp[3]$tr_io' constrained to Bel 'X116/Y0/PIOA'.
+Info: pin 'gpdi_dp[2]$tr_io' constrained to Bel 'X76/Y0/PIOA'.
+Info: pin 'gpdi_dp[1]$tr_io' constrained to Bel 'X83/Y0/PIOA'.
+Info: pin 'gpdi_dp[0]$tr_io' constrained to Bel 'X110/Y0/PIOA'.
+Info: pin 'ftdi_txd$tr_io' constrained to Bel 'X0/Y89/PIOB'.
+Info: pin 'ftdi_rxd$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'clk_25m$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn_rst_n$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: IOLOGIC component dvi_i.serialize_ch2 connected to PIO Bel X76/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch1 connected to PIO Bel X83/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch0 connected to PIO Bel X110/Y0/PIOA
+Info: placed PLL 'pll_sys_i.pll_i' at bel 'X1/Y4/EHXPLL_UL'
+Info: placed PLL 'pll_mid_i.pll_i' at bel 'X2/Y94/EHXPLL_LL'
+Info: placed PLL 'pll_video_i.pll_i' at bel 'X124/Y94/EHXPLL_LR'
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     3418 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll_sys_i.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 300.0 MHz for net pll_mid_i.clk_in
+Info:     Derived frequency constraint of 60.0 MHz for net graphics_i.graphics_i.clk_sys
+Info:     Input frequency of PLL 'pll_mid_i.pll_i' is constrained to 300.0 MHz
+Info:     Derived frequency constraint of 315.1 MHz for net pll_mid_i.clk_5x_out
+Info:     Derived frequency constraint of 315.1 MHz for net clk_315m_aux
+Info:     Input frequency of PLL 'pll_video_i.pll_i' is constrained to 315.1 MHz
+Info:     Derived frequency constraint of 126.0 MHz for net dvi_i.clk_pix_5x
+Info:     Derived frequency constraint of 25.2 MHz for net gpdi_dp[3]$TRELLIS_IO_OUT
+Info: Promoting globals...
+Info:     promoting clock net graphics_i.graphics_i.clk_sys to global network
+Info:     promoting clock net gpdi_dp[3]$TRELLIS_IO_OUT to global network
+Info:     promoting clock net dvi_i.clk_pix_5x to global network
+Info: Checksum: 0x66b7bb15
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       8/    365     2%
+Info: 	                DCCA:       3/     56     5%
+Info: 	              DP16KD:     154/    208    74%
+Info: 	          MULT18X18D:      11/    156     7%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       3/      4    75%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       3/    141     2%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:   38778/  83640    46%
+Info: 	        TRELLIS_COMB:   38999/  83640    46%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 14 cells based on constraints.
+Info: Creating initial analytic placement for 65870 cells, random placement wirelen = 5413704.
+Info:     at initial placer iter 0, wirelen = 5051
+Info:     at initial placer iter 1, wirelen = 4598
+Info:     at initial placer iter 2, wirelen = 4003
+Info:     at initial placer iter 3, wirelen = 4192
+Info: Running main analytical placer, max placement attempts per cell = 222829798.
+Info:     at iteration #1, type ALL: wirelen solved = 4248, spread = 1144483, legal = 1346176; time = 11.27s
+Info:     at iteration #2, type ALL: wirelen solved = 159180, spread = 658309, legal = 925784; time = 12.76s
+Info:     at iteration #3, type ALL: wirelen solved = 224157, spread = 596388, legal = 862522; time = 11.91s
+Info:     at iteration #4, type ALL: wirelen solved = 247751, spread = 583704, legal = 837772; time = 10.33s
+Info:     at iteration #5, type ALL: wirelen solved = 312880, spread = 550475, legal = 802766; time = 9.18s
+Info:     at iteration #6, type ALL: wirelen solved = 333142, spread = 540374, legal = 786938; time = 8.89s
+Info:     at iteration #7, type ALL: wirelen solved = 339931, spread = 542701, legal = 782938; time = 9.04s
+Info:     at iteration #8, type ALL: wirelen solved = 362065, spread = 533166, legal = 773282; time = 9.08s
+Info:     at iteration #9, type ALL: wirelen solved = 370425, spread = 534821, legal = 775528; time = 9.38s
+Info:     at iteration #10, type ALL: wirelen solved = 392413, spread = 552388, legal = 776955; time = 9.06s
+Info:     at iteration #11, type ALL: wirelen solved = 428420, spread = 576953, legal = 784150; time = 12.16s
+Info:     at iteration #12, type ALL: wirelen solved = 452411, spread = 604480, legal = 808479; time = 13.01s
+Info:     at iteration #13, type ALL: wirelen solved = 480859, spread = 626992, legal = 824272; time = 9.20s
+Info: HeAP Placer Time: 146.63s
+Info:   of which solving equations: 22.54s
+Info:   of which spreading cells: 3.80s
+Info:   of which strict legalisation: 116.01s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 11100, wirelen = 773282
+Info:   at iteration #5: temp = 0.000000, timing cost = 21780, wirelen = 680072
+Info:   at iteration #10: temp = 0.000000, timing cost = 29902, wirelen = 654979
+Info:   at iteration #15: temp = 0.000000, timing cost = 27531, wirelen = 640868
+Info:   at iteration #20: temp = 0.000000, timing cost = 28825, wirelen = 635626
+Info:   at iteration #25: temp = 0.000000, timing cost = 28700, wirelen = 633289
+Info:   at iteration #30: temp = 0.000000, timing cost = 28739, wirelen = 632409
+Info:   at iteration #35: temp = 0.000000, timing cost = 28777, wirelen = 631952
+Info:   at iteration #40: temp = 0.000000, timing cost = 28926, wirelen = 631652
+Info:   at iteration #42: temp = 0.000000, timing cost = 28568, wirelen = 631539 
+Info: SA placement time 149.84s
+
+Info: Max frequency for clock                          'clk_315m_aux': 995.02 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 208.99 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 31.58 MHz (PASS at 25.20 MHz)
+Info: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 32.52 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 17.54 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 6.74 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 3.01 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.90 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 10.85 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 13.26 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 15.74 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 4.95 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 273 endpoint(s)
+Info:          + represents [1,273) endpoint(s)
+Info: [-14086, -11435) |*+
+Info: [-11435,  -8784) |**+
+Info: [ -8784,  -6133) |****+
+Info: [ -6133,  -3482) |**************+
+Info: [ -3482,   -831) |******************************************************+
+Info: [  -831,   1820) |*****************************************************+
+Info: [  1820,   4471) |********************+
+Info: [  4471,   7122) |*******************+
+Info: [  7122,   9773) |*************************************************+
+Info: [  9773,  12424) |************************************************************ 
+Info: [ 12424,  15075) |***************************+
+Info: [ 15075,  17726) |***+
+Info: [ 17726,  20377) | 
+Info: [ 20377,  23028) |+
+Info: [ 23028,  25679) |+
+Info: [ 25679,  28330) |*+
+Info: [ 28330,  30981) |*+
+Info: [ 30981,  33632) |*+
+Info: [ 33632,  36283) |+
+Info: [ 36283,  38934) |+
+Info: Checksum: 0xc90032e6
+Info: Routing globals...
+Info:     routing clock net $glbnet$dvi_i.clk_pix_5x using global 0
+Info:     routing clock net $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT using global 1
+Info:     routing clock net $glbnet$graphics_i.graphics_i.clk_sys using global 2
+Info: Running router2...
+Info: Setting up routing resources...

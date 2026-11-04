@@ -1,0 +1,301 @@
+Info: constraining clock net 'clk_25m' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:     38481/83640    46%
+Info:         logic LUTs:  36015/83640    43%
+Info:         carry LUTs:   2466/83640     2%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:     38778/83640    46%
+
+Info: Packing IOs..
+Info: pin 'gpdi_dp[3]$tr_io' constrained to Bel 'X116/Y0/PIOA'.
+Info: pin 'gpdi_dp[2]$tr_io' constrained to Bel 'X76/Y0/PIOA'.
+Info: pin 'gpdi_dp[1]$tr_io' constrained to Bel 'X83/Y0/PIOA'.
+Info: pin 'gpdi_dp[0]$tr_io' constrained to Bel 'X110/Y0/PIOA'.
+Info: pin 'ftdi_txd$tr_io' constrained to Bel 'X0/Y89/PIOB'.
+Info: pin 'ftdi_rxd$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'clk_25m$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn_rst_n$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: IOLOGIC component dvi_i.serialize_ch2 connected to PIO Bel X76/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch1 connected to PIO Bel X83/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch0 connected to PIO Bel X110/Y0/PIOA
+Info: placed PLL 'pll_sys_i.pll_i' at bel 'X1/Y4/EHXPLL_UL'
+Info: placed PLL 'pll_mid_i.pll_i' at bel 'X2/Y94/EHXPLL_LL'
+Info: placed PLL 'pll_video_i.pll_i' at bel 'X124/Y94/EHXPLL_LR'
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     3418 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll_sys_i.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 300.0 MHz for net pll_mid_i.clk_in
+Info:     Derived frequency constraint of 60.0 MHz for net graphics_i.graphics_i.clk_sys
+Info:     Input frequency of PLL 'pll_mid_i.pll_i' is constrained to 300.0 MHz
+Info:     Derived frequency constraint of 315.1 MHz for net pll_mid_i.clk_5x_out
+Info:     Derived frequency constraint of 315.1 MHz for net clk_315m_aux
+Info:     Input frequency of PLL 'pll_video_i.pll_i' is constrained to 315.1 MHz
+Info:     Derived frequency constraint of 126.0 MHz for net dvi_i.clk_pix_5x
+Info:     Derived frequency constraint of 25.2 MHz for net gpdi_dp[3]$TRELLIS_IO_OUT
+Info: Promoting globals...
+Info:     promoting clock net graphics_i.graphics_i.clk_sys to global network
+Info:     promoting clock net gpdi_dp[3]$TRELLIS_IO_OUT to global network
+Info:     promoting clock net dvi_i.clk_pix_5x to global network
+Info: Checksum: 0x66b7bb15
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       8/    365     2%
+Info: 	                DCCA:       3/     56     5%
+Info: 	              DP16KD:     154/    208    74%
+Info: 	          MULT18X18D:      11/    156     7%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       3/      4    75%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       3/    141     2%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:   38778/  83640    46%
+Info: 	        TRELLIS_COMB:   38999/  83640    46%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Placed 14 cells based on constraints.
+Info: Creating initial analytic placement for 65870 cells, random placement wirelen = 5413704.
+Info:     at initial placer iter 0, wirelen = 5051
+Info:     at initial placer iter 1, wirelen = 4598
+Info:     at initial placer iter 2, wirelen = 4003
+Info:     at initial placer iter 3, wirelen = 4192
+Info: Running main analytical placer, max placement attempts per cell = 222829798.
+Info:     at iteration #1, type ALL: wirelen solved = 4248, spread = 1144483, legal = 1346176; time = 10.20s
+Info:     at iteration #2, type ALL: wirelen solved = 159180, spread = 658309, legal = 925784; time = 10.08s
+Info:     at iteration #3, type ALL: wirelen solved = 224157, spread = 596388, legal = 862522; time = 10.52s
+Info:     at iteration #4, type ALL: wirelen solved = 247751, spread = 583704, legal = 837772; time = 9.74s
+Info:     at iteration #5, type ALL: wirelen solved = 312880, spread = 550475, legal = 802766; time = 9.33s
+Info:     at iteration #6, type ALL: wirelen solved = 333142, spread = 540374, legal = 786938; time = 8.96s
+Info:     at iteration #7, type ALL: wirelen solved = 339931, spread = 542701, legal = 782938; time = 9.06s
+Info:     at iteration #8, type ALL: wirelen solved = 362065, spread = 533166, legal = 773282; time = 8.80s
+Info:     at iteration #9, type ALL: wirelen solved = 370425, spread = 534821, legal = 775528; time = 8.73s
+Info:     at iteration #10, type ALL: wirelen solved = 392413, spread = 552388, legal = 776955; time = 8.82s
+Info:     at iteration #11, type ALL: wirelen solved = 428420, spread = 576953, legal = 784150; time = 8.66s
+Info:     at iteration #12, type ALL: wirelen solved = 452411, spread = 604480, legal = 808479; time = 8.75s
+Info:     at iteration #13, type ALL: wirelen solved = 480859, spread = 626992, legal = 824272; time = 8.67s
+Info: HeAP Placer Time: 130.32s
+Info:   of which solving equations: 19.67s
+Info:   of which spreading cells: 3.49s
+Info:   of which strict legalisation: 103.49s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 11100, wirelen = 773282
+Info:   at iteration #5: temp = 0.000000, timing cost = 21780, wirelen = 680072
+Info:   at iteration #10: temp = 0.000000, timing cost = 29902, wirelen = 654979
+Info:   at iteration #15: temp = 0.000000, timing cost = 27531, wirelen = 640868
+Info:   at iteration #20: temp = 0.000000, timing cost = 28825, wirelen = 635626
+Info:   at iteration #25: temp = 0.000000, timing cost = 28700, wirelen = 633289
+Info:   at iteration #30: temp = 0.000000, timing cost = 28739, wirelen = 632409
+Info:   at iteration #35: temp = 0.000000, timing cost = 28777, wirelen = 631952
+Info:   at iteration #40: temp = 0.000000, timing cost = 28926, wirelen = 631652
+Info:   at iteration #42: temp = 0.000000, timing cost = 28568, wirelen = 631539 
+Info: SA placement time 150.85s
+
+Info: Max frequency for clock                          'clk_315m_aux': 995.02 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 208.99 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 31.58 MHz (PASS at 25.20 MHz)
+Info: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 32.52 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 17.54 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 6.74 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 3.01 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.90 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 10.85 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 13.26 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 15.74 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 4.95 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 273 endpoint(s)
+Info:          + represents [1,273) endpoint(s)
+Info: [-14086, -11435) |*+
+Info: [-11435,  -8784) |**+
+Info: [ -8784,  -6133) |****+
+Info: [ -6133,  -3482) |**************+
+Info: [ -3482,   -831) |******************************************************+
+Info: [  -831,   1820) |*****************************************************+
+Info: [  1820,   4471) |********************+
+Info: [  4471,   7122) |*******************+
+Info: [  7122,   9773) |*************************************************+
+Info: [  9773,  12424) |************************************************************ 
+Info: [ 12424,  15075) |***************************+
+Info: [ 15075,  17726) |***+
+Info: [ 17726,  20377) | 
+Info: [ 20377,  23028) |+
+Info: [ 23028,  25679) |+
+Info: [ 25679,  28330) |*+
+Info: [ 28330,  30981) |*+
+Info: [ 30981,  33632) |*+
+Info: [ 33632,  36283) |+
+Info: [ 36283,  38934) |+
+Info: Checksum: 0xc90032e6
+Info: Routing globals...
+Info:     routing clock net $glbnet$dvi_i.clk_pix_5x using global 0
+Info:     routing clock net $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT using global 1
+Info:     routing clock net $glbnet$graphics_i.graphics_i.clk_sys using global 2
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 205766 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      520        479 |  520   479 |    205545|       1.71       1.71|
+Info:       2000 |     1062        937 |  542   458 |    205422|       0.32       2.04|
+Info:       3000 |     1655       1344 |  593   407 |    205250|       0.30       2.33|
+Info:       4000 |     2292       1707 |  637   363 |    205173|       0.26       2.59|
+Info:       5000 |     2897       2102 |  605   395 |    205061|       0.25       2.85|
+Info:       6000 |     3486       2513 |  589   411 |    205004|       0.27       3.12|
+Info:       7000 |     4088       2911 |  602   398 |    204946|       0.25       3.37|
+Info:       8000 |     4700       3299 |  612   388 |    204879|       0.24       3.61|
+Info:       9000 |     5291       3708 |  591   409 |    204839|       0.26       3.87|
+Info:      10000 |     5905       4094 |  614   386 |    204794|       0.30       4.17|
+Info:      11000 |     6490       4509 |  585   415 |    204738|       0.30       4.47|
+Info:      12000 |     7075       4924 |  585   415 |    204684|       0.32       4.79|
+Info:      13000 |     7642       5357 |  567   433 |    204636|       0.35       5.14|
+Info:      14000 |     8185       5814 |  543   457 |    204531|       0.34       5.48|
+Info:      15000 |     8722       6277 |  537   463 |    204442|       0.38       5.87|
+Info:      16000 |     9273       6726 |  551   449 |    204369|       0.40       6.27|
+Info:      17000 |     9806       7193 |  533   467 |    204331|       0.41       6.68|
+Info:      18000 |    10380       7619 |  574   426 |    204268|       0.35       7.02|
+Info:      19000 |    10934       8065 |  554   446 |    204200|       0.35       7.37|
+Info:      20000 |    11477       8522 |  543   457 |    204127|       0.37       7.74|
+Info:      21000 |    12042       8957 |  565   435 |    204061|       0.39       8.13|
+Info:      22000 |    12603       9396 |  561   439 |    204005|       0.40       8.53|
+Info:      23000 |    13156       9843 |  553   447 |    203949|       0.38       8.92|
+Info:      24000 |    13688      10311 |  532   468 |    203882|       0.38       9.30|
+Info:      25000 |    14223      10776 |  535   465 |    203861|       0.37       9.67|
+Info:      26000 |    14739      11260 |  516   484 |    203773|       0.35      10.01|
+Info:      27000 |    15253      11746 |  514   486 |    203705|       0.39      10.40|
+Info:      28000 |    15777      12222 |  524   476 |    203650|       0.33      10.73|
+Info:      29000 |    16295      12704 |  518   482 |    203563|       0.34      11.07|
+Info:      30000 |    16803      13196 |  508   492 |    203527|       0.40      11.47|
+Info:      31000 |    17340      13659 |  537   463 |    203475|       0.36      11.82|
+Info:      32000 |    17847      14152 |  507   493 |    203410|       0.34      12.16|
+Info:      33000 |    18346      14653 |  499   501 |    203335|       0.36      12.52|
+Info:      34000 |    18868      15131 |  522   478 |    203277|       0.36      12.88|
+Info:      35000 |    19381      15618 |  513   487 |    203174|       0.39      13.27|
+Info:      36000 |    19899      16100 |  518   482 |    203176|       0.39      13.66|
+Info:      37000 |    20431      16568 |  532   468 |    203138|       0.39      14.04|
+Info:      38000 |    20936      17063 |  505   495 |    203112|       0.37      14.41|
+Info:      39000 |    21412      17587 |  476   524 |    203022|       0.40      14.81|
+Info:      40000 |    21952      18047 |  540   460 |    203001|       0.43      15.24|
+Info:      41000 |    22472      18527 |  520   480 |    202917|       0.49      15.72|
+Info:      42000 |    23000      18999 |  528   472 |    202865|       0.43      16.16|
+Info:      43000 |    23519      19480 |  519   481 |    202852|       0.39      16.55|
+Info:      44000 |    24031      19968 |  512   488 |    202776|       0.38      16.93|
+Info:      45000 |    24509      20490 |  478   522 |    202713|       0.50      17.43|
+Info:      46000 |    25047      20952 |  538   462 |    202700|       0.48      17.90|
+Info:      47000 |    25553      21446 |  506   494 |    202722|       0.47      18.38|
+Info:      48000 |    26029      21970 |  476   524 |    202602|       0.47      18.85|
+Info:      49000 |    26528      22471 |  499   501 |    202537|       0.48      19.33|
+Info:      50000 |    27040      22959 |  512   488 |    202450|       0.56      19.89|
+Info:      51000 |    27562      23437 |  522   478 |    202428|       0.50      20.39|
+Info:      52000 |    28098      23901 |  536   464 |    202357|       0.60      20.99|
+Info:      53000 |    28620      24379 |  522   478 |    202311|       0.51      21.50|
+Info:      54000 |    29145      24854 |  525   475 |    202232|       0.60      22.10|
+Info:      55000 |    29651      25348 |  506   494 |    202179|       0.57      22.68|
+Info:      56000 |    30149      25850 |  498   502 |    202101|       0.80      23.48|
+Info:      57000 |    30676      26323 |  527   473 |    202032|       0.72      24.20|
+Info:      58000 |    31199      26800 |  523   477 |    201994|       0.83      25.02|
+Info:      59000 |    31698      27301 |  499   501 |    201941|       0.84      25.87|
+Info:      60000 |    32238      27761 |  540   460 |    201929|       0.67      26.53|
+Info:      61000 |    32694      28305 |  456   544 |    201913|       1.00      27.53|
+Info:      62000 |    33199      28800 |  505   495 |    201855|       0.96      28.49|
+Info:      63000 |    33724      29275 |  525   475 |    201856|       0.74      29.23|
+Info:      64000 |    34238      29761 |  514   486 |    201838|       1.08      30.31|
+Info:      65000 |    34763      30236 |  525   475 |    201808|       1.04      31.35|
+Info:      66000 |    35261      30738 |  498   502 |    201748|       1.23      32.58|
+Info:      67000 |    35754      31245 |  493   507 |    201697|       1.23      33.81|
+Info:      68000 |    36241      31758 |  487   513 |    201652|       1.31      35.12|
+Info:      69000 |    36727      32272 |  486   514 |    201628|       1.52      36.63|
+Info:      70000 |    37178      32821 |  451   549 |    201573|       1.52      38.15|
+Info:      71000 |    37642      33357 |  464   536 |    201515|       1.45      39.61|
+Info:      72000 |    38171      33828 |  529   471 |    201473|       1.52      41.13|
+Info:      73000 |    38623      34376 |  452   548 |    201393|       2.11      43.24|
+Info:      74000 |    39128      34871 |  505   495 |    201337|       1.71      44.96|
+Info:      75000 |    39609      35390 |  481   519 |    201303|       1.77      46.72|
+Info:      76000 |    40124      35875 |  515   485 |    201287|       1.21      47.93|
+Info:      77000 |    40592      36407 |  468   532 |    201205|       1.85      49.78|
+Info:      78000 |    41021      36978 |  429   571 |    201166|       2.30      52.08|
+Info:      79000 |    41497      37502 |  476   524 |    201056|       2.31      54.39|
+Info:      80000 |    42023      37976 |  526   474 |    201008|       3.80      58.19|
+Info:      81000 |    42503      38496 |  480   520 |    200979|       2.09      60.28|
+Info:      82000 |    43044      38955 |  541   459 |    200963|       1.78      62.07|
+Info:      83000 |    43555      39444 |  511   489 |    200913|       2.10      64.17|
+Info:      84000 |    44061      39938 |  506   494 |    200987|       2.78      66.96|
+Info:      85000 |    44539      40460 |  478   522 |    200866|       3.03      69.98|
+Info:      86000 |    44959      41040 |  420   580 |    200814|       1.90      71.89|
+Info:      87000 |    45449      41550 |  490   510 |    200760|       2.42      74.31|
+Info:      88000 |    45900      42099 |  451   549 |    200699|       3.00      77.31|
+Info:      89000 |    46374      42625 |  474   526 |    200622|       2.72      80.04|
+Info:      90000 |    46823      43176 |  449   551 |    200546|       3.22      83.26|
+Info:      91000 |    47332      43667 |  509   491 |    200508|       2.18      85.44|
+Info:      92000 |    47784      44215 |  452   548 |    200462|       2.59      88.02|
+Info:      93000 |    48270      44729 |  486   514 |    200389|       3.67      91.69|
+Info:      94000 |    48789      45210 |  519   481 |    200409|       3.17      94.86|
+Info:      95000 |    49298      45701 |  509   491 |    200326|       3.62      98.48|
+Info:      96000 |    49772      46227 |  474   526 |    200416|       2.50     100.97|
+Info:      97000 |    50218      46781 |  446   554 |    200237|       3.79     104.76|
+Info:      98000 |    50722      47277 |  504   496 |    200211|       2.74     107.50|
+Info:      99000 |    51185      47814 |  463   537 |    200145|       2.57     110.08|
+Info:     100000 |    51650      48349 |  465   535 |    200081|       3.07     113.15|
+Info:     101000 |    52084      48915 |  434   566 |    200080|       2.23     115.38|
+Info:     102000 |    52591      49408 |  507   493 |    200129|       4.50     119.87|
+Info:     103000 |    53020      49979 |  429   571 |    199941|       4.37     124.24|
+Info:     104000 |    53525      50474 |  505   495 |    199929|       5.53     129.77|
+Info:     105000 |    53998      51001 |  473   527 |    199872|       3.09     132.87|
+Info:     106000 |    54477      51522 |  479   521 |    199871|       3.58     136.45|
+Info:     107000 |    54932      52067 |  455   545 |    199782|       3.25     139.69|
+Info:     108000 |    55411      52588 |  479   521 |    199737|       5.38     145.08|
+Info:     109000 |    55836      53163 |  425   575 |    199679|       3.39     148.47|
+Info:     110000 |    56315      53684 |  479   521 |    199598|       3.52     151.99|
+Info:     111000 |    56786      54213 |  471   529 |    199583|       2.96     154.94|
+Info:     112000 |    57236      54763 |  450   550 |    199503|       4.25     159.20|
+Info:     113000 |    57693      55306 |  457   543 |    199412|       5.48     164.68|
+Info:     114000 |    58143      55856 |  450   550 |    199351|       3.71     168.39|
+Info:     115000 |    58575      56424 |  432   568 |    199281|       3.41     171.80|
+Info:     116000 |    59042      56957 |  467   533 |    199266|       5.46     177.26|
+Info:     117000 |    59535      57464 |  493   507 |    199304|       4.47     181.73|
+Info:     118000 |    59988      58011 |  453   547 |    199193|       4.34     186.08|
+Info:     119000 |    60458      58541 |  470   530 |    199185|       3.75     189.83|
+Info:     120000 |    60919      59080 |  461   539 |    199158|       4.48     194.30|
+Info:     121000 |    61355      59644 |  436   564 |    199062|       3.74     198.05|
+Info:     122000 |    61836      60163 |  481   519 |    199019|       4.15     202.20|
+Info:     123000 |    62324      60675 |  488   512 |    198920|       5.82     208.02|
+Info:     124000 |    62805      61194 |  481   519 |    198916|       5.79     213.81|
+Info:     125000 |    63251      61748 |  446   554 |    198827|       3.62     217.43|
+Info:     126000 |    63750      62249 |  499   501 |    198810|       4.55     221.98|
+Info:     127000 |    64227      62772 |  477   523 |    198743|       5.88     227.86|
+Info:     128000 |    64695      63304 |  468   532 |    198826|       5.94     233.79|
+Info:     129000 |    65139      63860 |  444   556 |    198696|       6.38     240.17|
+Info:     130000 |    65567      64432 |  428   572 |    198652|       8.87     249.04|
+Info:     131000 |    66020      64979 |  453   547 |    198586|       8.68     257.72|
+Info:     132000 |    66499      65500 |  479   521 |    198560|       5.44     263.16|
+Info:     133000 |    66937      66062 |  438   562 |    198539|       4.93     268.09|
+Info:     134000 |    67397      66602 |  460   540 |    198449|       7.85     275.94|
+Info:     135000 |    67831      67168 |  434   566 |    198432|       2.66     278.61|
+Info:     136000 |    68276      67723 |  445   555 |    198349|       3.97     282.57|
+Info:     137000 |    68716      68283 |  440   560 |    198310|       5.37     287.94|

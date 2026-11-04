@@ -1,0 +1,53 @@
+SBY 21:30:48 [formal/raster_bounds] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds'.
+SBY 21:30:48 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/gfx_pkg.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/gfx_pkg.sv'.
+SBY 21:30:48 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/raster_walk.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/raster_walk.sv'.
+SBY 21:30:48 [formal/raster_bounds] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/raster_bounds/src/raster_bounds_formal.sv'.
+SBY 21:30:48 [formal/raster_bounds] engine_0: smtbmc z3
+SBY 21:30:48 [formal/raster_bounds] base: starting process "cd formal/raster_bounds/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:30:48 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\clk is used but has no driver.
+SBY 21:30:48 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\in_valid is used but has no driver.
+SBY 21:30:48 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\covered_ready is used but has no driver.
+SBY 21:30:48 [formal/raster_bounds] base: Warning: Wire raster_bounds_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/raster_bounds] base: finished (returncode=0)
+SBY 21:30:49 [formal/raster_bounds] prep: starting process "cd formal/raster_bounds/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:30:49 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\clk is used but has no driver.
+SBY 21:30:49 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\covered_ready is used but has no driver.
+SBY 21:30:49 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\in_valid is used but has no driver.
+SBY 21:30:49 [formal/raster_bounds] prep: Warning: Wire raster_bounds_formal.\rst is used but has no driver.
+SBY 21:30:49 [formal/raster_bounds] prep: finished (returncode=0)
+SBY 21:30:49 [formal/raster_bounds] smt2: starting process "cd formal/raster_bounds/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:30:49 [formal/raster_bounds] smt2: finished (returncode=0)
+SBY 21:30:49 [formal/raster_bounds] engine_0: starting process "cd formal/raster_bounds; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Solver: z3
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 21:30:49 [formal/raster_bounds] engine_0: ##   0:00:00  Status: passed
+SBY 21:30:49 [formal/raster_bounds] engine_0: finished (returncode=0)
+SBY 21:30:49 [formal/raster_bounds] engine_0: Status returned by engine: pass
+SBY 21:30:49 [formal/raster_bounds] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:49 [formal/raster_bounds] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:30:49 [formal/raster_bounds] summary: engine_0 (smtbmc z3) returned pass
+SBY 21:30:49 [formal/raster_bounds] summary: engine_0 did not produce any traces
+SBY 21:30:49 [formal/raster_bounds] DONE (PASS, rc=0)

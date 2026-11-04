@@ -1,0 +1,985 @@
+command_path_vector words=20 bytes=76800 fb_sha256=cf6d0e1d69e10c2d62b28a0de2ae6190376dd4412f74ceb265861665aec2179e z_sha256=a73c471fb4de2fd310dcd94ee488060ff634f64297a3837cd8722c497d0a3769
+rtl/cmd_decoder.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:48: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:51: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:54: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:55: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:58: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:59: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:60: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:63: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:64: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:68: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:70: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:71: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:72: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:73: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:74: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:75: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:12: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:14: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:19: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:21: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:24: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:26: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'magnitude_sum[10:0]').
+rtl/graphics_core.sv:99: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:100: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:102: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:104: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+rtl/graphics_command_top.sv:212: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'response_index_q[4:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+COUNTERS tag=1006 W1 actual=1 expected=1
+COUNTERS tag=1006 W2 actual=0 expected=0
+COUNTERS tag=1006 W3 actual=0 expected=0
+COUNTERS tag=1006 W4 actual=0 expected=0
+COUNTERS tag=1006 W5 actual=0 expected=0
+COUNTERS tag=1006 W6 actual=0 expected=0
+COUNTERS tag=1006 W7 actual=0 expected=0
+COUNTERS tag=1006 W8 actual=0 expected=0
+COUNTERS tag=1006 W9 actual=76800 expected=76800
+COUNTERS tag=1006 W10 actual=0 expected=0
+COUNTERS tag=1006 W11 actual=0 expected=0
+COUNTERS tag=1006 W12 actual=133192 expected=133192
+COUNTERS tag=1006 W13 actual=0 expected=0
+COUNTERS tag=1006 W14 actual=1 expected=1
+COUNTERS tag=1015 W1 actual=2 expected=2
+COUNTERS tag=1015 W2 actual=0 expected=0
+COUNTERS tag=1015 W3 actual=0 expected=0
+COUNTERS tag=1015 W4 actual=0 expected=0
+COUNTERS tag=1015 W5 actual=0 expected=0
+COUNTERS tag=1015 W6 actual=0 expected=0
+COUNTERS tag=1015 W7 actual=0 expected=0
+COUNTERS tag=1015 W8 actual=0 expected=0
+COUNTERS tag=1015 W9 actual=76800 expected=76800
+COUNTERS tag=1015 W10 actual=0 expected=0
+COUNTERS tag=1015 W11 actual=0 expected=0
+COUNTERS tag=1015 W12 actual=35530 expected=35530
+COUNTERS tag=1015 W13 actual=151072 expected=151072
+COUNTERS tag=1015 W14 actual=1 expected=1
+COUNTERS tag=1028 W1 actual=4 expected=4
+COUNTERS tag=1028 W2 actual=4 expected=4
+COUNTERS tag=1028 W3 actual=1 expected=1
+COUNTERS tag=1028 W4 actual=1 expected=1
+COUNTERS tag=1028 W5 actual=6000 expected=6000
+COUNTERS tag=1028 W6 actual=3000 expected=3000
+COUNTERS tag=1028 W7 actual=1500 expected=1500
+COUNTERS tag=1028 W8 actual=1500 expected=1500
+COUNTERS tag=1028 W9 actual=76800 expected=76800
+COUNTERS tag=1028 W10 actual=6014 expected=6014
+COUNTERS tag=1028 W11 actual=8 expected=8
+COUNTERS tag=1028 W12 actual=145109 expected=145109
+COUNTERS tag=1028 W13 actual=0 expected=0
+COUNTERS tag=1028 W14 actual=50 expected=50
+GRAPHICS COMMAND TOP PASS checks=71 NORMAL/SOBEL/SOBEL/NORMAL=4 readback_bytes=307200 incomplete_atomic=1
+tb/tests/graphics_command_top_tb.sv:513: $finish called at 45075280000 (1ps)
+UART WORD BRIDGE PASS checks=4 framing_block=1 overrun_block=1
+tb/tests/uart_word_bridge_tb.sv:92: $finish called at 29425000 (1ps)
+rtl/cmd_decoder.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:48: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:51: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:54: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:55: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:58: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:59: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:60: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:63: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:64: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:68: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:70: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:71: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:72: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:73: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:74: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:75: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:12: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:14: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:19: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:21: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:24: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:26: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'magnitude_sum[10:0]').
+rtl/graphics_core.sv:99: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:100: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:102: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:104: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'dec_data[499:0]').
+rtl/graphics_command_top.sv:212: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'response_index_q[4:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'c[447:0]').
+GRAPHICS UART TOP PASS NOP+GET_STATUS bytes=12 little_endian=1
+tb/tests/graphics_uart_top_tb.sv:75: $finish called at 32105000 (1ps)
+test_draw_payload_length (test_gfx_host.HostProtocolTests.test_draw_payload_length) ... ok
+test_readback_reconstruction_and_checksum (test_gfx_host.HostProtocolTests.test_readback_reconstruction_and_checksum) ... ok
+test_response_packet_lengths (test_gfx_host.HostProtocolTests.test_response_packet_lengths) ... ok
+test_word_byte_order_and_command (test_gfx_host.HostProtocolTests.test_word_byte_order_and_command) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+OK
+BUFFER MANAGER PASS accepts=4 completed=2 role_errors=0 early_switches=0
+tb/tests/buffer_manager_tb.sv:156: $finish called at 1425000 (1ps)
+BUFFER MANAGER PASS accepts=4 completed=2 role_errors=0 early_switches=0
+tb/tests/buffer_manager_tb.sv:156: $finish called at 1492000 (1ps)
+BUFFER MANAGER PASS accepts=4 completed=2 role_errors=0 early_switches=0
+tb/tests/buffer_manager_tb.sv:156: $finish called at 1533000 (1ps)
+frame=0 fb_sha256=e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5 z_sha256=fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249
+frame=1 fb_sha256=93aed476439d63d3200630ef1b86cabe7c467ed1546e06f8105dc3a8b96b8287 z_sha256=ed4d4e4e3d9cbda816cff319247b889323bb49ced150e474a9b2159a49144e56
+frame=2 fb_sha256=de9c0a1de004bcf573f021bb505f90b2b0a0faec6f982b58a33c9b0d0a255271 z_sha256=5c82be3b7e8e80538fb287a99f08322b60d8625ade40d56021d7ed09a22b0817
+frame=3 fb_sha256=caebf7c21596f224935d713e41eacf2a54c6523873ed85ff6ce1aa29789ad747 z_sha256=39c030980ad37a1828d4f5f2796eee9a7b25c42b73a957081450a469774b7596
+frame=4 fb_sha256=aceefaf577875793ad7fb68e68fa7071fcdd4304f62e235977053b4eca7bf496 z_sha256=ed59372afaccfec200c6424c270d135ff0efc1b0dd750112aac60e28711a71ea
+frame=5 fb_sha256=10845eec50dfdcf4c3a7f55cf545f033431f1226b25dd234089402af8491e92f z_sha256=3ef3137674b90de5629ccf77bdf1b54dc0883b2a547b84bf1daaf1a2e3b608ef
+frame=6 fb_sha256=28e3f31d00e1a256e7143b398a89bc34194905ae50088bfb43e988258cd7baee z_sha256=22bcb92db43c0bbe71d4655489fc4e29821a3874d61f9c2c8cbffee211a890b1
+frame=7 fb_sha256=f393b07bdf2884598e4adf1e4cfa74a226daff186b1bf83bc32f2f4180185cae z_sha256=47ee751bf08610e199da38b2ad33bbacbf1956089ecb5d03a945538c44e0eca3
+frame=8 fb_sha256=a72943bdffce064eaf48262fe26553502db9afe2f87ee956f8554110dfd68f6c z_sha256=ce22cac484c36d6fe7520f39b3cef2716661f8251dcad5a95a329acc0e04b80d
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:12: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:14: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:19: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:21: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:24: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:26: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'magnitude_sum[10:0]').
+rtl/graphics_core.sv:99: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:100: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:102: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:104: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+GFX017 render frame=0 buffer=1 pixels=76800 mismatches=0
+GFX017 FRONT readback frame=0 bytes=76800 byte_mismatches=0 word_mismatches=0
+GFX017 complete scanout frame=0 active_pixels=307200 mismatches=0
+GFX017 render frame=1 buffer=0 pixels=76800 mismatches=0
+GFX017 complete scanout frame=1 active_pixels=307200 mismatches=0
+GFX017 render frame=2 buffer=1 pixels=76800 mismatches=0
+GFX017 complete scanout frame=2 active_pixels=307200 mismatches=0
+GFX017 NORMAL integration PASS frames=3 frame_done=3 spare=2 switches_outside_safe=0
+tb/tests/graphics_core_tb.sv:260: $finish called at 17640062000 (1ps)
+frame=0 fb_sha256=e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5 z_sha256=fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249
+frame=1 fb_sha256=93aed476439d63d3200630ef1b86cabe7c467ed1546e06f8105dc3a8b96b8287 z_sha256=ed4d4e4e3d9cbda816cff319247b889323bb49ced150e474a9b2159a49144e56
+frame=2 fb_sha256=de9c0a1de004bcf573f021bb505f90b2b0a0faec6f982b58a33c9b0d0a255271 z_sha256=5c82be3b7e8e80538fb287a99f08322b60d8625ade40d56021d7ed09a22b0817
+frame=3 fb_sha256=caebf7c21596f224935d713e41eacf2a54c6523873ed85ff6ce1aa29789ad747 z_sha256=39c030980ad37a1828d4f5f2796eee9a7b25c42b73a957081450a469774b7596
+frame=4 fb_sha256=aceefaf577875793ad7fb68e68fa7071fcdd4304f62e235977053b4eca7bf496 z_sha256=ed59372afaccfec200c6424c270d135ff0efc1b0dd750112aac60e28711a71ea
+frame=5 fb_sha256=10845eec50dfdcf4c3a7f55cf545f033431f1226b25dd234089402af8491e92f z_sha256=3ef3137674b90de5629ccf77bdf1b54dc0883b2a547b84bf1daaf1a2e3b608ef
+frame=6 fb_sha256=28e3f31d00e1a256e7143b398a89bc34194905ae50088bfb43e988258cd7baee z_sha256=22bcb92db43c0bbe71d4655489fc4e29821a3874d61f9c2c8cbffee211a890b1
+frame=7 fb_sha256=f393b07bdf2884598e4adf1e4cfa74a226daff186b1bf83bc32f2f4180185cae z_sha256=47ee751bf08610e199da38b2ad33bbacbf1956089ecb5d03a945538c44e0eca3
+frame=8 fb_sha256=a72943bdffce064eaf48262fe26553502db9afe2f87ee956f8554110dfd68f6c z_sha256=ce22cac484c36d6fe7520f39b3cef2716661f8251dcad5a95a329acc0e04b80d
+vector=0 threshold=128 bypass=0 bytes=76800
+vector=1 threshold=72 bypass=0 bytes=76800
+vector=2 threshold=128 bypass=1 bytes=76800
+vector=3 threshold=210 bypass=0 bytes=76800
+vector=4 threshold=96 bypass=0 bytes=76800
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:12: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:14: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:19: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:21: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:24: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:26: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'magnitude_sum[10:0]').
+rtl/graphics_core.sv:99: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:100: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:102: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+rtl/graphics_core.sv:104: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+bank[31:0]').
+GFX017 NORMAL present tag=7100 roles=1/0/2 FRAME_DONE=1
+GFX017 complete scanout step=1 active_pixels=307200 mismatches=0
+GFX021 Sobel present tag=00007204 roles=2/1/0 FRAME_DONE=1
+GFX021 Sobel readback vector=4 words=19206 bytes=76800 byte_mismatches=0 word_mismatches=0
+GFX021 Sobel frame=4 input=76800 output=76800 writes=76800 ref_mismatches=0 readback=76800
+GFX021 Sobel present tag=00007201 roles=0/2/1 FRAME_DONE=1
+GFX021 Sobel readback vector=1 words=19206 bytes=76800 byte_mismatches=0 word_mismatches=0
+GFX021 Sobel frame=1 input=76800 output=76800 writes=76800 ref_mismatches=0 readback=76800
+GFX017 NORMAL present tag=7101 roles=2/0/1 FRAME_DONE=1
+GFX017 complete scanout step=4 active_pixels=307200 mismatches=0
+GFX021 NORMAL->SOBEL->SOBEL->NORMAL PASS frame_done=4 safe_switches=7
+GFX021 active reset abort PASS source_reads=10 no_FRAME_DONE=1
+tb/tests/sobel_integration_tb.sv:539: $finish called at 18408495000 (1ps)
+vector=0 threshold=128 bypass=0 bytes=76800
+vector=1 threshold=72 bypass=0 bytes=76800
+vector=2 threshold=128 bypass=1 bytes=76800
+vector=3 threshold=210 bypass=0 bytes=76800
+vector=4 threshold=96 bypass=0 bytes=76800
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:12: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/rgb_to_gray.sv:14: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'rgb_i[23:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:19: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:21: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gx_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:24: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:26: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+gy_i[11:0]').
+ip/rtl-to-pixels/rtl/magnitude_clamp.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'magnitude_sum[10:0]').
+SOBEL CTRL vector=0 threshold=128 bypass=0 reads=76800 writes=76800 mismatches=0
+SOBEL CTRL vector=1 threshold=72 bypass=0 reads=76800 writes=76800 mismatches=0
+SOBEL CTRL vector=2 threshold=128 bypass=1 reads=76800 writes=76800 mismatches=0
+SOBEL CTRL vector=3 threshold=210 bypass=0 reads=76800 writes=76800 mismatches=0
+SOBEL CTRL vector=4 threshold=96 bypass=0 reads=76800 writes=76800 mismatches=0
+SOBEL CONTROLLER FULL-FRAME REGRESSION PASS frames=5 pixels/frame=76800
+tb/tests/sobel_controller_tb.sv:92: $finish called at 5777190000 (1ps)
+SOBEL MODE TRANSITIONS PASS normal/sobel/sobel/normal=4 readback_lock=1 role_errors=0
+tb/tests/sobel_modes_tb.sv:93: $finish called at 935000 (1ps)
+SOBEL_ADAPTERS_PASS reads=76800 reader_transfers=76800 writer_frame_writes=76800 stalls=92159 apb_writes=5 malformed_rejected=1 active_reset=1
+tb/tests/sobel_adapters_tb.sv:326: $finish called at 1690036 (1s)
+frame=0 fb_sha256=e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5 z_sha256=fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249
+frame=1 fb_sha256=93aed476439d63d3200630ef1b86cabe7c467ed1546e06f8105dc3a8b96b8287 z_sha256=ed4d4e4e3d9cbda816cff319247b889323bb49ced150e474a9b2159a49144e56
+frame=2 fb_sha256=de9c0a1de004bcf573f021bb505f90b2b0a0faec6f982b58a33c9b0d0a255271 z_sha256=5c82be3b7e8e80538fb287a99f08322b60d8625ade40d56021d7ed09a22b0817
+frame=3 fb_sha256=caebf7c21596f224935d713e41eacf2a54c6523873ed85ff6ce1aa29789ad747 z_sha256=39c030980ad37a1828d4f5f2796eee9a7b25c42b73a957081450a469774b7596
+frame=4 fb_sha256=aceefaf577875793ad7fb68e68fa7071fcdd4304f62e235977053b4eca7bf496 z_sha256=ed59372afaccfec200c6424c270d135ff0efc1b0dd750112aac60e28711a71ea
+frame=5 fb_sha256=10845eec50dfdcf4c3a7f55cf545f033431f1226b25dd234089402af8491e92f z_sha256=3ef3137674b90de5629ccf77bdf1b54dc0883b2a547b84bf1daaf1a2e3b608ef
+frame=6 fb_sha256=28e3f31d00e1a256e7143b398a89bc34194905ae50088bfb43e988258cd7baee z_sha256=22bcb92db43c0bbe71d4655489fc4e29821a3874d61f9c2c8cbffee211a890b1
+frame=7 fb_sha256=f393b07bdf2884598e4adf1e4cfa74a226daff186b1bf83bc32f2f4180185cae z_sha256=47ee751bf08610e199da38b2ad33bbacbf1956089ecb5d03a945538c44e0eca3
+frame=8 fb_sha256=a72943bdffce064eaf48262fe26553502db9afe2f87ee956f8554110dfd68f6c z_sha256=ce22cac484c36d6fe7520f39b3cef2716661f8251dcad5a95a329acc0e04b80d
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+FRAME 0 PASS clear_fb=76800 clear_z=76800
+FRAME 1 PASS clear_fb=76800 clear_z=76800
+FRAME 2 PASS clear_fb=76800 clear_z=76800
+FRAME 3 PASS clear_fb=76800 clear_z=76800
+RENDERER FRAME READBACK PASS frame=4 bytes=76800 byte_mismatches=0 word_mismatches=0 checksum=c581ecbf
+FRAME 4 PASS clear_fb=76800 clear_z=76800
+FRAME 5 PASS clear_fb=76800 clear_z=76800
+FRAME 6 PASS clear_fb=76800 clear_z=76800
+FRAME 7 PASS clear_fb=76800 clear_z=76800
+FRAME 8 PASS clear_fb=76800 clear_z=76800
+RENDERER CORE PASS frames=9
+tb/tests/renderer_core_tb.sv:214: $finish called at 12682445000 (1ps)
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+RENDERER RESET PASS clear_fb=153700 clear_z=153700 stale_writes=0
+tb/tests/renderer_reset_tb.sv:100: $finish called at 1537625000 (1ps)
+rtl/cmd_decoder.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:48: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:51: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:54: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:55: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:58: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:59: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:60: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:63: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:64: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:68: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:70: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:71: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:72: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:73: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:74: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:75: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+RAW DECODER SMOKE PASS
+tb/tests/renderer_decoder_smoke_tb.sv:91: $finish called at 788745000 (1ps)
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+RENDERER COUNTERS PASS submitted=5 candidates=9 covered=2 pass=1 fail=1 render=28 setup=10
+tb/tests/renderer_counter_tb.sv:124: $finish called at 768455000 (1ps)
+frame=0 fb_sha256=e2cc2a1fa6131cf4d86faa3baf78851f35a36853e2467c257b3df9d89e85cce5 z_sha256=fcb02c1247622996dd8b3edea4e8de4cd31ec3bb66b3c0ecbb2c6ae376ebe249
+frame=1 fb_sha256=93aed476439d63d3200630ef1b86cabe7c467ed1546e06f8105dc3a8b96b8287 z_sha256=ed4d4e4e3d9cbda816cff319247b889323bb49ced150e474a9b2159a49144e56
+frame=2 fb_sha256=de9c0a1de004bcf573f021bb505f90b2b0a0faec6f982b58a33c9b0d0a255271 z_sha256=5c82be3b7e8e80538fb287a99f08322b60d8625ade40d56021d7ed09a22b0817
+frame=3 fb_sha256=caebf7c21596f224935d713e41eacf2a54c6523873ed85ff6ce1aa29789ad747 z_sha256=39c030980ad37a1828d4f5f2796eee9a7b25c42b73a957081450a469774b7596
+frame=4 fb_sha256=aceefaf577875793ad7fb68e68fa7071fcdd4304f62e235977053b4eca7bf496 z_sha256=ed59372afaccfec200c6424c270d135ff0efc1b0dd750112aac60e28711a71ea
+frame=5 fb_sha256=10845eec50dfdcf4c3a7f55cf545f033431f1226b25dd234089402af8491e92f z_sha256=3ef3137674b90de5629ccf77bdf1b54dc0883b2a547b84bf1daaf1a2e3b608ef
+frame=6 fb_sha256=28e3f31d00e1a256e7143b398a89bc34194905ae50088bfb43e988258cd7baee z_sha256=22bcb92db43c0bbe71d4655489fc4e29821a3874d61f9c2c8cbffee211a890b1
+frame=7 fb_sha256=f393b07bdf2884598e4adf1e4cfa74a226daff186b1bf83bc32f2f4180185cae z_sha256=47ee751bf08610e199da38b2ad33bbacbf1956089ecb5d03a945538c44e0eca3
+frame=8 fb_sha256=a72943bdffce064eaf48262fe26553502db9afe2f87ee956f8554110dfd68f6c z_sha256=ce22cac484c36d6fe7520f39b3cef2716661f8251dcad5a95a329acc0e04b80d
+READBACK IMAGE PASS mode=0 id=0 bytes=76800 reads=76800 responses=19206 checksum=00000000 target_stall_word=0 ready_seed=91e10da5
+READBACK IMAGE PASS mode=1 id=1 bytes=76800 reads=76800 responses=19206 checksum=ffffb500 target_stall_word=1 ready_seed=81c14d24
+READBACK IMAGE PASS mode=2 id=2 bytes=76800 reads=76800 responses=19206 checksum=ffffda80 target_stall_word=2 ready_seed=b1a18ca7
+READBACK IMAGE PASS mode=3 id=0 bytes=76800 reads=76800 responses=19206 checksum=18e6e700 target_stall_word=3 ready_seed=a181cc26
+READBACK IMAGE PASS mode=4 id=1 bytes=76800 reads=76800 responses=19206 checksum=e838d03c target_stall_word=9580 ready_seed=d1600fa1
+READBACK IMAGE PASS mode=5 id=2 bytes=76800 reads=76800 responses=19206 checksum=c581ecbf target_stall_word=19202 ready_seed=c1404f20
+READBACK RESET ABORT PASS target=0
+READBACK IMAGE PASS mode=2 id=0 bytes=76800 reads=76800 responses=19206 checksum=ffffda80 target_stall_word=19203 ready_seed=f1208ea3
+READBACK RESET ABORT PASS target=1
+READBACK IMAGE PASS mode=3 id=1 bytes=76800 reads=76800 responses=19206 checksum=18e6e700 target_stall_word=19204 ready_seed=e100ce22
+READBACK RESET ABORT PASS target=2
+READBACK IMAGE PASS mode=4 id=2 bytes=76800 reads=76800 responses=19206 checksum=e838d03c target_stall_word=19205 ready_seed=10e309ad
+READBACK RESET ABORT PASS target=3
+READBACK IMAGE PASS mode=0 id=0 bytes=76800 reads=76800 responses=19206 checksum=00000000 target_stall_word=0 ready_seed=00c3492c
+READBACK RESET ABORT PASS target=4
+READBACK IMAGE PASS mode=1 id=1 bytes=76800 reads=76800 responses=19206 checksum=ffffb500 target_stall_word=2 ready_seed=30a388af
+READBACK RESET ABORT PASS target=5
+READBACK IMAGE PASS mode=2 id=2 bytes=76800 reads=76800 responses=19206 checksum=ffffda80 target_stall_word=2 ready_seed=2083c82e
+READBACK RESET ABORT PASS target=6
+READBACK IMAGE PASS mode=3 id=0 bytes=76800 reads=76800 responses=19206 checksum=18e6e700 target_stall_word=2 ready_seed=50620ba9
+READBACK RESET ABORT PASS target=7
+READBACK IMAGE PASS mode=4 id=1 bytes=76800 reads=76800 responses=19206 checksum=e838d03c target_stall_word=2 ready_seed=40424b28
+READBACK RESET ABORT PASS target=8
+READBACK IMAGE PASS mode=0 id=2 bytes=76800 reads=76800 responses=19206 checksum=00000000 target_stall_word=2 ready_seed=70228aab
+READBACK RESET ABORT PASS target=9
+READBACK IMAGE PASS mode=1 id=0 bytes=76800 reads=76800 responses=19206 checksum=ffffb500 target_stall_word=2 ready_seed=6002ca2a
+READBACK RESET ABORT PASS target=10
+READBACK IMAGE PASS mode=2 id=1 bytes=76800 reads=76800 responses=19206 checksum=ffffda80 target_stall_word=2 ready_seed=93e505b5
+READBACK ENGINE PASS full_frames=17 reset_aborts=11 forced_stall_cycles=80
+tb/tests/readback_engine_tb.sv:294: $finish called at 37651700000 (1ps)
+READBACK FRAMEBUFFER_DP PASS bytes=76800 mismatches=0 checksum=0000da80
+tb/tests/readback_framebuffer_tb.sv:97: $finish called at 1728096000 (1ps)
+MEMORY WRAPPERS PASS
+tb/tests/memory_wrappers_tb.sv:34: $finish called at 66000 (1ps)
+fragment_z_tb: PASS checks=200 accepted=61 reads=61 decisions=60 passes=28 fails=32 equal_fails=32 writes=28 read_addr_mismatches=0 write_addr_mismatches=0 write_data_mismatches=0 z_memory_mismatches=0 hazards=0 stale=0 first_accept=2 first_read=3 first_write=5 last_accept=194 last_write=183 seed=0x11011
+tb/tests/fragment_z_tb.sv:429: $finish called at 2280000 (1ps)
+generated=48 seed=0x9009 max_covered=1104 nonzero_cases=45 zero_covered_cases=3
+raster_walk_tb: PASS cases=48 seed=0x9009 candidates=39207 raw_fields=47716 coord_mismatches=0 R=0 G=0 B=0 Z=0
+tb/tests/raster_walk_tb.sv:346: $finish called at 793320000 (1ps)
+generated=160 file=/Users/Dilan/Projects/from-pixels-to-polygons/tb/tests/triangle_setup_vectors.mem
+class_counts raster=80 empty=2 degenerate=1 backface=77
+rtl/triangle_setup.sv:29: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:30: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:31: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:32: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:33: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:34: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:36: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:37: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:38: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:39: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:40: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:41: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx0[15:0]').
+rtl/triangle_setup.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy0[15:0]').
+rtl/triangle_setup.sv:44: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx1[15:0]').
+rtl/triangle_setup.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy1[15:0]').
+rtl/triangle_setup.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dx2[15:0]').
+rtl/triangle_setup.sv:47: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+dy2[15:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'in_data[499:0]').
+rtl/triangle_setup.sv:115: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmin_raw[31:0]').
+rtl/triangle_setup.sv:116: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+xmax_raw[31:0]').
+rtl/triangle_setup.sv:117: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymin_raw[31:0]').
+rtl/triangle_setup.sv:118: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+ymax_raw[31:0]').
+rtl/triangle_setup.sv:119: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+rtl/triangle_setup.sv:120: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'calculated[854:0]').
+triangle_setup_tb: PASS vectors=160 fields=5474
+tb/tests/triangle_setup_tb.sv:107: $finish called at 3286 (1s)
+clear_engine_tb: PASS checks=210 seed=0x7611109c
+tb/tests/clear_engine_tb.sv:133: $finish called at 6156566 (1s)
+rtl/cmd_decoder.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:43: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:45: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:46: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:48: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:51: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd0][31:0]').
+rtl/cmd_decoder.sv:54: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:55: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:58: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:59: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:60: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:63: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:64: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:67: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:68: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:70: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:71: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:72: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:73: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:74: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:75: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:78: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd1][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:79: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd2][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+rtl/cmd_decoder.sv:80: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'packet[word='sd3][31:0]').
+cmd_decoder_tb: PASS checks=80 seed=0x5e57be5a
+tb/tests/cmd_decoder_tb.sv:173: $finish called at 8286 (1s)
+gfx_pkg_tb: PASS
+tb/tests/gfx_pkg_tb.sv:10: $finish called at 0 (1s)
+cmd_fifo_tb: PASS cycles=11677 pushes=6999 pops=6999 seed=0x5692d7d
+tb/tests/cmd_fifo_tb.sv:65: $finish called at 116796 (1s)

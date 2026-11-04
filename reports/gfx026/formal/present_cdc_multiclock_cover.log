@@ -1,0 +1,98 @@
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] Removing directory '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover'.
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/present_cdc.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/present_cdc.sv'.
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/rtl/buffer_manager.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/buffer_manager.sv'.
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] Copy '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_formal.sv' to '/Users/Dilan/Projects/from-pixels-to-polygons/formal/present_cdc_multiclock_cover/src/present_cdc_multiclock_formal.sv'.
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: smtbmc z3
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] base: starting process "cd formal/present_cdc_multiclock_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] base: finished (returncode=0)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] prep: starting process "cd formal/present_cdc_multiclock_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] prep: finished (returncode=0)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] smt2: starting process "cd formal/present_cdc_multiclock_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] smt2: finished (returncode=0)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: starting process "cd formal/present_cdc_multiclock_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 48  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Solver: z3
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:163.9-163.28 (_witness_.check_cover_present_cdc_multiclock_formal_sv_163_117)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:169.9-169.35 (_witness_.check_cover_present_cdc_multiclock_formal_sv_169_123)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:166.9-166.32 (_witness_.check_cover_present_cdc_multiclock_formal_sv_166_120)
+SBY 21:35:46 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY 21:35:47 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 15..
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Reached cover statement in step 15 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:164.9-164.30 (_witness_.check_cover_present_cdc_multiclock_formal_sv_164_118)
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Reached cover statement in step 15 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:167.9-167.38 (_witness_.check_cover_present_cdc_multiclock_formal_sv_167_121)
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 15..
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 16..
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:01  Checking cover reachability in step 17..
+SBY 21:35:48 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:02  Checking cover reachability in step 18..
+SBY 21:35:49 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:02  Checking cover reachability in step 19..
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Checking cover reachability in step 20..
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Reached cover statement in step 20 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:168.9-168.32 (_witness_.check_cover_present_cdc_multiclock_formal_sv_168_122)
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 21:35:50 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:03  Checking cover reachability in step 20..
+SBY 21:35:51 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:04  Checking cover reachability in step 21..
+SBY 21:35:52 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:05  Checking cover reachability in step 22..
+SBY 21:35:53 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:06  Checking cover reachability in step 23..
+SBY 21:35:54 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:07  Checking cover reachability in step 24..
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:165.9-165.29 (_witness_.check_cover_present_cdc_multiclock_formal_sv_165_119)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:171.9-171.48 (_witness_.check_cover_present_cdc_multiclock_formal_sv_171_127)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace4.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to constraints file: engine_0/trace4.smtc
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Checking cover reachability in step 24..
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Reached cover statement in step 24 at present_cdc_multiclock_formal: present_cdc_multiclock_formal.sv:170.9-170.47 (_witness_.check_cover_present_cdc_multiclock_formal_sv_170_125)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace5.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to constraints file: engine_0/trace5.smtc
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: ##   0:00:08  Status: passed
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: finished (returncode=0)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] engine_0: Status returned by engine: pass
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:09 (9)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace0.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_163_117 at present_cdc_multiclock_formal.sv:163.9-163.28 step 6
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_169_123 at present_cdc_multiclock_formal.sv:169.9-169.35 step 6
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace1.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_166_120 at present_cdc_multiclock_formal.sv:166.9-166.32 step 6
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace2.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_164_118 at present_cdc_multiclock_formal.sv:164.9-164.30 step 15
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_167_121 at present_cdc_multiclock_formal.sv:167.9-167.38 step 15
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace3.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_168_122 at present_cdc_multiclock_formal.sv:168.9-168.32 step 20
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: cover trace: formal/present_cdc_multiclock_cover/engine_0/trace4.vcd
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_165_119 at present_cdc_multiclock_formal.sv:165.9-165.29 step 24
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary:   reached cover statement present_cdc_multiclock_formal._witness_.check_cover_present_cdc_multiclock_formal_sv_171_127 at present_cdc_multiclock_formal.sv:171.9-171.48 step 24
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: and 1 further trace
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] summary: see formal/present_cdc_multiclock_cover/PASS for a complete summary
+SBY 21:35:55 [formal/present_cdc_multiclock_cover] DONE (PASS, rc=0)
