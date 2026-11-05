@@ -1,6 +1,6 @@
 # Source-level decisions
 
-The following D-001–D-040 decisions are the supplied authoritative source-level
+The following D-001–D-041 decisions are the supplied authoritative source-level
 decisions. They are subordinate to the Master Project Plan and Operating
 Instructions.
 
@@ -46,10 +46,11 @@ Instructions.
 | D-038 — UART word transport | Freeze GFX-023 UART as 8N1, LSB-first serial bytes, four-byte little-endian 32-bit words, parameterized `CLKS_PER_BIT` default 217 at nominal 25 MHz/115200 baud, one pending RX word, and sticky framing/overrun block-until-reset behavior, as specified in `docs/COMMAND_PROTOCOL.md`. No physical baud/clock claim is implied. |
 | D-039 — GFX-026 ULX3S-85F reference implementation target | Use `LFE5U-85F-6BG381C` and the reviewed ULX3S GPDI/clock pins as the Gate-9 reproducible reference target. Assume only the LPF's stated ULX3S v2.x.x/v3.0.x-compatible pinout; no physical board revision or ownership is confirmed. Target exact logical clocks with a three-PLL chain from nominal 25 MHz: 300/60 MHz, then 315 MHz, then 126/25.2 MHz. `ecppll` calculates these nominal outputs; nextpnr's derived intermediate clock is reported near 315.1 MHz and requires follow-up. See `reports/gfx026/RESULTS.md`; this selects an implementation reference and does not claim completed P&R, timing closure, programming, or hardware operation. |
 | D-040 — Two-stage triangle setup timing correction | Split triangle setup internally into registered geometry preparation and registered initial-edge/result stages to address the measured Gate-9 system-clock path. Preserve D-029 arithmetic, classification, field values, and externally visible ready/valid semantics; permit one additional input-to-output cycle, retain one-result-per-cycle throughput and simultaneous output retirement/input acceptance, and count actual TRI_SETUP cycles per D-034. See `docs/MICROARCHITECTURE.md`. This is an approved timing correction, not a general optimization study. |
+| D-041 — Three-stage triangle AREA timing correction | For the measured DRAW-to-AREA Gate-9 path, add a registered coordinate-delta/AREA-operand stage before the existing geometry-preparation and initial-edge stages. Preserve D-029 result bits and classification priority; add one input-to-output cycle relative to D-040; retain the external ready/valid contract, stable stalled output, one-result-per-cycle throughput, simultaneous retirement/new acceptance, and reset flush. D-034 setup-cycle counters count the actual added TRI_SETUP cycle. This is a bottleneck-driven baseline correction, not a general optimization requirement. |
 
 ## Status
 
-D-001 through D-040 are project decisions classified as `SPECIFIED`; D-039
+D-001 through D-041 are project decisions classified as `SPECIFIED`; D-039
 records the GFX-026 implementation reference and its unverified board-revision
 assumption only.
 
@@ -71,3 +72,9 @@ D-040 permits the stated internal triangle-setup pipeline latency change for
 GFX-026 while preserving its result and transaction contract. It records a
 specification decision only; implementation, verification, synthesis and
 place-and-route evidence must be recorded separately.
+
+D-041 permits one additional internal triangle-setup stage for the measured
+Gate-9 DRAW-to-AREA path. It preserves D-029 output semantics and the external
+ready/valid contract while allowing one additional cycle relative to D-040.
+The decision itself is specification only; implementation and timing evidence
+must be recorded separately.
