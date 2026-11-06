@@ -321,3 +321,18 @@ new rank is not available from the worst-path-only report. Gate 9 remains
 OPEN; no bitstream was packed. Full commands, hashes, warnings and the evidence
 limitations are in `reports/gfx026/AREA-PRODUCT-PIPELINE.md`. No parent source,
 clock, constraints, or functional protocol changed.
+
+### D-042 disposition — current baseline selection
+
+The active implementation is restored to the D-041 three-stage triangle
+setup, byte-identical to commit `73c87b4e1fc266ff367b47f2c6dd2fade6faeb0c`
+for `rtl/triangle_setup.sv` and `tb/tests/triangle_setup_tb.sv`. The D-042
+trial is **REJECTED FOR RETENTION ON CURRENT EVIDENCE**: its comparable route
+reported 51.1587 MHz versus D-041's 52.8290 MHz and its implementation used
+611 more FF. The D-042 trial remains functionally verified (160 vectors,
+5,848 field checks, W10/W11=6,026/20); these results are historical trial
+evidence, not failures. Its AREA-path benefit is unquantified, so this
+disposition does not show that the technique is inherently ineffective.
+D-041's previously measured 52.8290 MHz route is cited as historical evidence;
+no redundant route was run. Gate 9 remains OPEN. Details and regression
+commands are recorded in `reports/gfx026/D042-DISPOSITION.md`.

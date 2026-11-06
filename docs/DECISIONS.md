@@ -47,13 +47,15 @@ Instructions.
 | D-039 — GFX-026 ULX3S-85F reference implementation target | Use `LFE5U-85F-6BG381C` and the reviewed ULX3S GPDI/clock pins as the Gate-9 reproducible reference target. Assume only the LPF's stated ULX3S v2.x.x/v3.0.x-compatible pinout; no physical board revision or ownership is confirmed. Target exact logical clocks with a three-PLL chain from nominal 25 MHz: 300/60 MHz, then 315 MHz, then 126/25.2 MHz. `ecppll` calculates these nominal outputs; nextpnr's derived intermediate clock is reported near 315.1 MHz and requires follow-up. See `reports/gfx026/RESULTS.md`; this selects an implementation reference and does not claim completed P&R, timing closure, programming, or hardware operation. |
 | D-040 — Two-stage triangle setup timing correction | Split triangle setup internally into registered geometry preparation and registered initial-edge/result stages to address the measured Gate-9 system-clock path. Preserve D-029 arithmetic, classification, field values, and externally visible ready/valid semantics; permit one additional input-to-output cycle, retain one-result-per-cycle throughput and simultaneous output retirement/input acceptance, and count actual TRI_SETUP cycles per D-034. See `docs/MICROARCHITECTURE.md`. This is an approved timing correction, not a general optimization study. |
 | D-041 — Three-stage triangle AREA timing correction | For the measured DRAW-to-AREA Gate-9 path, add a registered coordinate-delta/AREA-operand stage before the existing geometry-preparation and initial-edge stages. Preserve D-029 result bits and classification priority; add one input-to-output cycle relative to D-040; retain the external ready/valid contract, stable stalled output, one-result-per-cycle throughput, simultaneous retirement/new acceptance, and reset flush. D-034 setup-cycle counters count the actual added TRI_SETUP cycle. This is a bottleneck-driven baseline correction, not a general optimization requirement. |
-| D-042 — Registered AREA product/subtraction boundary | For the measured Gate-9 AREA path, use four setup stages: capture DRAW/deltas/AREA operands; register both signed32 AREA products; subtract those registered products and prepare geometry; calculate initial edges and register the result. Preserve D-029 result bits, classification priority and signed32 expression semantics; permit exactly one additional input-to-output cycle relative to D-041; retain ready/valid, stall stability, one result/cycle throughput, simultaneous retirement/refill, reset flush and D-034 event definitions. This authorizes one controlled timing trial only; retention and timing closure are not predetermined. |
+| D-042 — Registered AREA product/subtraction boundary | Historical trial authorization: for the measured Gate-9 AREA path, use four setup stages: capture DRAW/deltas/AREA operands; register both signed32 AREA products; subtract those registered products and prepare geometry; calculate initial edges and register the result. Preserve D-029 result bits, classification priority and signed32 expression semantics; permit exactly one additional input-to-output cycle relative to D-041; retain ready/valid, stall stability, one result/cycle throughput, simultaneous retirement/refill, reset flush and D-034 event definitions. **Disposition: REJECTED FOR RETENTION ON CURRENT EVIDENCE.** The comparable full route reported 51.1587 MHz versus D-041's 52.8290 MHz, added 611 FF, and did not demonstrate that the AREA stage met 60 MHz. The AREA-path benefit remains unquantified; this is a current baseline-selection decision, not proof that product/subtraction pipelining is inherently ineffective. See `reports/gfx026/D042-DISPOSITION.md`. |
 
 ## Status
 
-D-001 through D-042 are project decisions classified as `SPECIFIED`; D-039
+D-001 through D-042 record project decisions and controlled trials; D-039
 records the GFX-026 implementation reference and its unverified board-revision
-assumption only.
+assumption only. D-041 is the active triangle-setup implementation contract.
+D-042 remains in the log as a trial authorization and is rejected for retention
+on current evidence; its historical results remain valid for the tested trial.
 
 D-031 has now been implemented by GFX-010, and its signed42
 attribute-stepping behavior is `RTL SIMULATION VERIFIED` at implementation
@@ -80,9 +82,11 @@ ready/valid contract while allowing one additional cycle relative to D-040.
 The decision itself is specification only; implementation and timing evidence
 must be recorded separately.
 
-D-042 permits a registered boundary between the two signed32 AREA products
-and their subtraction, with geometry preparation consuming the registered
-products. It adds exactly one cycle relative to D-041 while preserving D-029
-semantics and the external ready/valid contract. This authorizes one measured
-Gate-9 trial and does not presume that the result will be retained or meet
-timing. Implementation and timing evidence must be recorded separately.
+D-042 authorized one measured trial with a registered boundary between the two
+signed32 AREA products and their subtraction. That four-stage trial is
+RTL-simulation verified and has a completed but timing-failing route. It is
+**REJECTED FOR RETENTION ON CURRENT EVIDENCE**: it used 611 more FF and had a
+lower whole-design `clk_sys` estimate than D-041, while the AREA-path benefit
+was not quantified. This disposition does not establish that the technique is
+inherently ineffective. D-041's three-stage implementation is active; D-042's
+reports and artifacts remain historical evidence.

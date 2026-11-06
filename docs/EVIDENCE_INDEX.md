@@ -531,7 +531,7 @@ The two-stage setup improves the prior routed `clk_sys` delay by 5.181 ns (25.51
 | New worst path is the Stage-2 AREA calculation | nextpnr timing report JSON plus mapped ECP5 cell source attributes | Stage-1 coordinate/AREA operands to Stage-2 AREA expression (triangle_setup.sv:94) and prepared register; 7.98 ns logic and 10.95 ns routing. The 1.407 ns improvement from D-040 is measured on this implementation; the 60 MHz target is still missed | IMPLEMENTATION DIAGNOSTIC |
 | Gate 9 remains open | `04_MASTER_CHECKLIST.md`; `docs/PROJECT_STATE.md`; `reports/gfx026/TRIANGLE-AREA-PIPELINE.md` | No timing-clean route, bitstream, or compliant-clock throughput evidence | LOCAL OBSERVATION |
 
-D-041 remains the verified three-stage comparison point for D-042. It measurably shortened the earlier path relative to D-040 and adds 575 FF, 56 Yosys LUT4 and 2 MULT18X18D versus D-040. The current D-042 implementation/evidence is recorded below. Gate 9 remains OPEN; no bitstream or physical hardware result is claimed.
+D-041 is the active verified three-stage implementation. It measurably shortened the earlier path relative to D-040 and adds 575 FF, 56 Yosys LUT4 and 2 MULT18X18D versus D-040. D-042 trial evidence is retained below, with its current disposition. Gate 9 remains OPEN; no bitstream or physical hardware result is claimed.
 
 ## G9-AREA-PRODUCT-PIPELINE — D-042 trial
 
@@ -545,9 +545,14 @@ D-041 remains the verified three-stage comparison point for D-042. It measurably
 | D-042 route timing | `reports/gfx026/AREA-PRODUCT-PIPELINE.md` | `clk_sys` 51.1587 MHz, 19.547 ns, −2.881 ns slack; other listed clocks pass. Worst path is reader pixel FIFO to pinned Sobel arithmetic elastic output register | IMPLEMENTATION MEASUREMENT |
 | Gate 9 remains open | project state/checklist and report | 60 MHz not met; no bitstream; compliant-clock candidate/fragment throughput remains open; report does not rank all non-worst paths | LOCAL OBSERVATION |
 
-D-042's full route uses 611 additional FF versus D-041 and has a lower overall
-`clk_sys` estimate (51.1587 versus 52.8290 MHz). The worst path is now in the
-pinned Sobel parent, but this worst-path-only report does not prove the new
-AREA path's exact delay or ranking. No triangle-setup formal proof, bitstream,
-physical clock, or hardware operation is claimed. Dependency SHA and all
-clock/device constraints are unchanged.
+D-042 is **REJECTED FOR RETENTION ON CURRENT EVIDENCE**. Its full route uses
+611 additional FF versus D-041 and has a lower overall `clk_sys` estimate
+(51.1587 versus 52.8290 MHz). The worst path is in the pinned Sobel parent,
+but this worst-path-only report does not prove the new AREA path's exact delay
+or ranking. The AREA-path benefit remains unquantified; rejection is a current
+baseline-selection decision, not proof that product/subtraction pipelining is
+inherently ineffective. D-041 was restored byte-for-byte, so its previous
+route remains applicable; no new route was run. No triangle-setup formal
+proof, bitstream, physical clock, or hardware operation is claimed. Dependency
+SHA and all clock/device constraints are unchanged. See
+`reports/gfx026/D042-DISPOSITION.md`.

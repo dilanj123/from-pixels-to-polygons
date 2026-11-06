@@ -18,20 +18,25 @@ Setup computes signed16 deltas, signed32 AREA/edge terms, top-left flags, exact
 clamped pixel-centre bounds, and initial edge values. AREA rejection, empty-bbox
 success, and counters are distinct results.
 
-For the GFX-026 timing corrections (D-040 through D-042), setup uses four
-registered stages. Stage 1 captures the accepted DRAW's signed coordinate
-deltas and AREA operands, source coordinates, tag, and fixed-point attributes.
-Stage 2 computes and registers both signed32 AREA products using the existing
-expression widths and signedness. Stage 3 subtracts only those registered
-products and performs classification, exact bbox, top-left flags, edge steps,
-and initial-edge sample-relative preparation. Stage 4 uses only registered
-geometry to calculate initial E0/E1/E2 and register the complete result. The
-split preserves all D-029 result bits and classification priority. D-042 adds
-exactly one input-to-output cycle relative to D-041; ready/valid behavior is
-unchanged, including stable output under stall, one result per cycle at full
-rate, and simultaneous retirement/replacement. Reset discards every
-in-flight stage. `triangle_setup_cycles` counts each actual cycle in renderer
-`TRI_SETUP` under D-034; it is not adjusted to preserve historical counts.
+The active GFX-026 setup implementation uses the three registered stages
+authorized by D-040/D-041. Stage 1 captures the accepted DRAW's signed
+coordinate deltas and AREA operands, source coordinates, tag, and fixed-point
+attributes. Stage 2 computes AREA and prepares classification, exact bbox,
+top-left flags, edge steps, and initial-edge sample-relative information.
+Stage 3 calculates initial E0/E1/E2 and registers the complete result. D-041
+adds one input-to-output cycle relative to D-040 while preserving D-029 result
+bits and classification priority. Ready/valid behavior includes stable output
+under stall, one result per cycle at full rate, and simultaneous
+retirement/replacement. Reset discards all in-flight stages.
+`triangle_setup_cycles` counts each actual cycle in renderer `TRI_SETUP`
+under D-034; it is not adjusted to preserve historical counts.
+
+D-042's four-stage product/subtraction split was tested and is retained in the
+historical evidence, but is rejected for the active baseline on current
+evidence: its full-route `clk_sys` estimate was lower than D-041's and it used
+611 additional FF. Its AREA-path benefit was not quantified. This disposition
+does not prove the technique inherently ineffective. The active RTL and
+latency contract remain D-041's three-stage implementation.
 
 ### Triangle-setup result contract (D-029)
 
