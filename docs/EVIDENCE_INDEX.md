@@ -556,3 +556,19 @@ route remains applicable; no new route was run. No triangle-setup formal
 proof, bitstream, physical clock, or hardware operation is claimed. Dependency
 SHA and all clock/device constraints are unchanged. See
 `reports/gfx026/D042-DISPOSITION.md`.
+
+## G9-AREA-WIDTH-MAPPING-TRIAL — bounded D-041 arithmetic trial
+
+| Claim | Evidence | Result / limits | Classification |
+|---|---|---|---|
+| Legal-coordinate AREA arithmetic is exact at the selected widths | Decoder range checks, `docs/FIXED_POINT.md`, `AREA-WIDTH-MAPPING-TRIAL.md` | X delta signed14, Y delta signed13, signed27 full products, signed28 exact subtraction then sign-extension to signed32; decoder rejects out-of-range coordinates | IMPLEMENTATION ANALYSIS |
+| Full-chip ECP5 mapping reduced AREA DSP usage | `yosys_synth_area_width_trial.txt`, `ulx3s_graphics_area_width_trial.json.gz` | Source attribution: D-041 AREA expression uses 4 DSP cells; trial has 1 DSP per product. Full totals: 7,338 LUT4, 7,276 FF, 156 DP16KD, 17 MULT18X18D, 3 PLL; `check -assert` reports zero problems | SYNTHESISED |
+| Functional and selected formal regressions pass | `AREA-WIDTH-MAPPING-TRIAL.md` | 256 geometry vectors / 9,078 field comparisons; renderer and Z/framebuffer, NORMAL/SOBEL/SOBEL/NORMAL, readback, UART/host, Python 31+4 tests, lint, doctor/bootstrap and existing Gate-8 formal pass. No dedicated triangle-setup formal proof | RTL SIMULATION VERIFIED / FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Comparable full route does not improve timing | `nextpnr_route_area_width_trial.txt`; compressed timing report/config; `AREA-WIDTH-MAPPING-TRIAL.md` | Static/router1/seed1, same D-041 target and constraints. Route completes; `clk_sys` 50.7125 MHz, 19.719 ns, approximately −3.053 ns slack; Sobel reader FIFO to pinned arithmetic-elastic register. Other constrained clocks pass | PLACED/ROUTED — TIMING FAILING |
+| Trial rejected; D-041 stays active | `docs/PROJECT_STATE.md`; Gate-9 checklist; disposition memo | DSP/LUT reduction did not improve whole-design timing; D-041 RTL and testbench remain unchanged on main. Gate 9 OPEN; no bitstream or hardware claim | LOCAL OBSERVATION |
+
+The trial is **REJECTED FOR RETENTION** because its routed system-clock result
+is worse than the D-041 baseline (50.7125 MHz versus 52.8290 MHz), despite the
+two-DSP and 241-LUT reduction. This does not measure the AREA path in isolation;
+the new worst path is in the pinned Sobel datapath. Full logs, hashes, exact
+commands and warnings are in `reports/gfx026/AREA-WIDTH-MAPPING-TRIAL.md`.

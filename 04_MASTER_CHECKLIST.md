@@ -212,18 +212,18 @@ or MTBF evidence. Gate 9 remains open.
 
 - [x] full 85F synthesis — complete `ulx3s_graphics_top`; Yosys hierarchy/check passed, `reports/gfx026/yosys_synth.txt`
 - [x] full route — FIFO-corrected netlist; router1 completed; `clk_sys` timing fails
-- [x] LUT/cell count recorded — original 38,481; FIFO-corrected baseline 9,822 pre-pack LUT4; D-040 10,511 TRELLIS_COMB (7,523 LUT4); active D-041 10,693 (7,579 LUT4); rejected D-042 trial 10,616 (7,466 LUT4)
-- [x] FF count recorded — original 38,778; FIFO-corrected baseline 6,011 TRELLIS_FF; D-040 6,702; active D-041 7,277; rejected D-042 trial 7,888
-- [x] EBR count recorded — original 154; corrected 156 DP16KD; D-040/D-041/D-042 remain 156
-- [x] DSP count recorded — FIFO-corrected baseline 11; D-040 17; D-041/D-042 19 MULT18X18D
+- [x] LUT/cell count recorded — original 38,481; FIFO-corrected baseline 9,822 pre-pack LUT4; D-040 10,511 TRELLIS_COMB (7,523 LUT4); active D-041 10,693 (7,579 LUT4); rejected D-042 10,616 (7,466 LUT4); rejected AREA-width trial 7,338 LUT4
+- [x] FF count recorded — original 38,778; FIFO-corrected baseline 6,011 TRELLIS_FF; D-040 6,702; active D-041 7,277; rejected D-042 trial 7,888; rejected AREA-width trial 7,276
+- [x] EBR count recorded — original 154; corrected 156 DP16KD; D-040/D-041/D-042/AREA-width trial remain 156
+- [x] DSP count recorded — FIFO-corrected baseline 11; D-040 17; active D-041/D-042 19 MULT18X18D; rejected AREA-width trial 17
 - [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
-- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; D-040 approximately −3.670 ns; active D-041 approximately −2.263 ns; rejected D-042 trial −2.881 ns at target 60 MHz
-- [x] critical path recorded — active D-041: triangle AREA. Rejected D-042 trial reported worst path: reader pixel FIFO through pinned Sobel grayscale/window/arithmetic to arithmetic-elastic register. D-042 report is worst-path-only and does not establish complete path ranking.
+- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; D-040 approximately −3.670 ns; active D-041 approximately −2.263 ns; rejected D-042 trial −2.881 ns; rejected AREA-width trial approximately −3.053 ns at target 60 MHz
+- [x] critical path recorded — active D-041: triangle AREA. Rejected D-042 and AREA-width trial worst paths: reader pixel FIFO through pinned Sobel window/arithmetic to arithmetic-elastic register. Trial timing and source mapping are in `AREA-WIDTH-MAPPING-TRIAL.md`.
 - [x] warnings reviewed — original FIFO mem2reg diagnosed/fixed; remaining memory conversions, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
 - [x] render-cycle metrics recorded — active D-041 public counter scoreboard scenario tag `0x1028`: W10=6,022, W11=16; rejected D-042 trial W10=6,026, W11=20
 - [x] Sobel-cycle metrics recorded — public counter scoreboard scenario tag `0x1015`: W13=151,072 cycles
-- [x] timing classification correct — D-041 retained route completed at 52.8290 MHz and rejected D-042 route completed at 51.1587 MHz; both fail the 60 MHz target. D-042 is rejected for retention on current evidence; no timing-closure claim
+- [x] timing classification correct — D-041 retained route completed at 52.8290 MHz; rejected D-042 at 51.1587 MHz; rejected AREA-width trial at 50.7125 MHz. All fail the 60 MHz target; no timing-closure claim
 - [x] no unsupported Fmax claim
 
 ## Gate 10 — Physical Hardware

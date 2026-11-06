@@ -336,3 +336,25 @@ disposition does not show that the technique is inherently ineffective.
 D-041's previously measured 52.8290 MHz route is cited as historical evidence;
 no redundant route was run. Gate 9 remains OPEN. Details and regression
 commands are recorded in `reports/gfx026/D042-DISPOSITION.md`.
+
+### G9-AREA-WIDTH-MAPPING-TRIAL — bounded D-041 AREA arithmetic
+
+An isolated trial narrowed only the AREA products using the decoder-enforced
+legal coordinate bounds. It passed 256 independent legal triangle vectors
+(9,078 field comparisons), integrated regressions and the selected formal
+suite. Full Yosys mapping used 7,338 LUT4, 7,276 FF, 156 DP16KD, 17
+MULT18X18D and 3 PLLs; source attribution shows one DSP for each AREA product
+instead of two for each in D-041.
+
+The identical static-placer/router1/seed-1 full route completed in 73.34 s
+(router1 34.16 s), but `clk_sys` fell to 50.7125 MHz (19.719 ns,
+approximately −3.053 ns slack) against 60 MHz. The worst path is the
+`sobel_fb_reader.pixel_fifo` register through the pinned Sobel window and
+arithmetic cone to `u_arithmetic_elastic.m_data`; logic is 7.456 ns and routing
+is 11.738 ns. Serializer, pixel-output and intermediate clock estimates pass.
+nextpnr exited 1 for the timing failure, with zero warnings and one timing
+error. Therefore the trial is
+**REJECTED FOR RETENTION**; active D-041 remains unchanged and Gate 9 remains
+OPEN. The trial does not establish isolated AREA-path timing. Detailed commands,
+verification, resource table and retained artifacts are documented in
+`reports/gfx026/AREA-WIDTH-MAPPING-TRIAL.md`.

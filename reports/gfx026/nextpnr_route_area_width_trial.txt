@@ -1,0 +1,733 @@
+Info: constraining clock net 'clk_25m' to 25.00 MHz
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:      9902/83640    11%
+Info:         logic LUTs:   7338/83640     8%
+Info:         carry LUTs:   2564/83640     3%
+Info:           RAM LUTs:      0/10455     0%
+Info:          RAMW LUTs:      0/20910     0%
+
+Info:      Total DFFs:      7276/83640     8%
+
+Info: Packing IOs..
+Info: pin 'gpdi_dp[3]$tr_io' constrained to Bel 'X116/Y0/PIOA'.
+Info: pin 'gpdi_dp[2]$tr_io' constrained to Bel 'X76/Y0/PIOA'.
+Info: pin 'gpdi_dp[1]$tr_io' constrained to Bel 'X83/Y0/PIOA'.
+Info: pin 'gpdi_dp[0]$tr_io' constrained to Bel 'X110/Y0/PIOA'.
+Info: pin 'ftdi_txd$tr_io' constrained to Bel 'X0/Y89/PIOB'.
+Info: pin 'ftdi_rxd$tr_io' constrained to Bel 'X0/Y56/PIOC'.
+Info: pin 'clk_25m$tr_io' constrained to Bel 'X0/Y47/PIOA'.
+Info: pin 'btn_rst_n$tr_io' constrained to Bel 'X6/Y0/PIOB'.
+Info: IOLOGIC component dvi_i.serialize_ch2 connected to PIO Bel X76/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch1 connected to PIO Bel X83/Y0/PIOA
+Info: IOLOGIC component dvi_i.serialize_ch0 connected to PIO Bel X110/Y0/PIOA
+Info: placed PLL 'pll_sys_i.pll_i' at bel 'X1/Y4/EHXPLL_UL'
+Info: placed PLL 'pll_mid_i.pll_i' at bel 'X2/Y94/EHXPLL_LL'
+Info: placed PLL 'pll_video_i.pll_i' at bel 'X124/Y94/EHXPLL_LR'
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     3598 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info:     Input frequency of PLL 'pll_sys_i.pll_i' is constrained to 25.0 MHz
+Info:     Derived frequency constraint of 300.0 MHz for net pll_mid_i.clk_in
+Info:     Derived frequency constraint of 60.0 MHz for net graphics_i.graphics_i.clk_sys
+Info:     Input frequency of PLL 'pll_mid_i.pll_i' is constrained to 300.0 MHz
+Info:     Derived frequency constraint of 315.1 MHz for net pll_mid_i.clk_5x_out
+Info:     Derived frequency constraint of 315.1 MHz for net clk_315m_aux
+Info:     Input frequency of PLL 'pll_video_i.pll_i' is constrained to 315.1 MHz
+Info:     Derived frequency constraint of 126.0 MHz for net dvi_i.clk_pix_5x
+Info:     Derived frequency constraint of 25.2 MHz for net gpdi_dp[3]$TRELLIS_IO_OUT
+Info: Promoting globals...
+Info:     promoting clock net graphics_i.graphics_i.clk_sys to global network
+Info:     promoting clock net gpdi_dp[3]$TRELLIS_IO_OUT to global network
+Info:     promoting clock net dvi_i.clk_pix_5x to global network
+Info: Checksum: 0x24fcbeae
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       8/    365     2%
+Info: 	                DCCA:       3/     56     5%
+Info: 	              DP16KD:     156/    208    75%
+Info: 	          MULT18X18D:      17/    156    10%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       3/      4    75%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       3/    141     2%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    7276/  83640     8%
+Info: 	        TRELLIS_COMB:   10448/  83640    12%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Running Static placer...
+Info: ⌁ bel grid 127x96, placer grid 127x95...
+Info: ⌁ initialising bels...
+Info: ⌁ initialising cells...
+Info: ⌁ inserting dark nodes...
+Info: ⌁   group RAM inserted a total of 11649 dark nodes
+Info: ⌁   group MUL inserted a total of 11831 dark nodes
+Info: ⌁ inserting spacers...
+Info: ⌁   group COMB pre-spacer utilisation 12.49% (target 70.00%)
+Info: ⌁   group COMB inserted a total of 48099 spacers
+Info: ⌁   group FF pre-spacer utilisation 8.70% (target 70.00%)
+Info: ⌁   group FF inserted a total of 51271 spacers
+Info: ⌁   group RAM pre-spacer utilisation 75.00% (target 70.00%)
+Info: ⌁   group MUL pre-spacer utilisation 10.90% (target 70.00%)
+Info: ⌁   group MUL inserted a total of 92 spacers
+Info: initial density penalty: 0.000133
+Info: initial steplen=0.010000 next steplen = 0.637189
+Info: iter=0 steplen=0.637189 a=1.000000 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1677669 hpwl: 18055
+Info:    overlap: COMB=99.3%, FF=98.9%, RAM=96.5%, MUL=85.3%
+Info: iter=10 steplen=0.350581 a=6.463116 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1705573 hpwl: 5858
+Info:    overlap: COMB=99.4%, FF=99.2%, RAM=98.1%, MUL=94.1%
+Info: iter=20 steplen=0.342897 a=11.609499 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1685508 hpwl: 4083
+Info:    overlap: COMB=99.4%, FF=99.1%, RAM=99.4%, MUL=94.1%
+Info: iter=30 steplen=0.340751 a=16.700390 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1675842 hpwl: 3569
+Info:    overlap: COMB=99.5%, FF=99.2%, RAM=99.4%, MUL=94.1%
+Info: iter=40 steplen=0.339922 a=21.766623 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1665820 hpwl: 3455
+Info:    overlap: COMB=99.4%, FF=98.9%, RAM=99.4%, MUL=94.1%
+Info: iter=50 steplen=0.337858 a=26.818802 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1653182 hpwl: 3501
+Info:    overlap: COMB=99.5%, FF=98.9%, RAM=99.4%, MUL=94.1%
+Info: iter=60 steplen=0.338851 a=31.861877 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1640421 hpwl: 3582
+Info:    overlap: COMB=99.4%, FF=98.9%, RAM=99.4%, MUL=94.1%
+Info: iter=70 steplen=0.340157 a=36.898563 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1623512 hpwl: 3685
+Info:    overlap: COMB=99.3%, FF=98.9%, RAM=99.4%, MUL=94.1%
+Info: iter=80 steplen=0.338283 a=41.930519 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1605236 hpwl: 3804
+Info:    overlap: COMB=99.3%, FF=98.8%, RAM=99.4%, MUL=94.1%
+Info: iter=90 steplen=0.340358 a=46.958832 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1585008 hpwl: 3925
+Info:    overlap: COMB=99.1%, FF=98.7%, RAM=99.4%, MUL=94.1%
+Info: iter=100 steplen=0.345398 a=51.984253 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1564553 hpwl: 4055
+Info:    overlap: COMB=99.0%, FF=98.5%, RAM=99.4%, MUL=94.1%
+Info: iter=110 steplen=0.354000 a=57.007309 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1557746 hpwl: 4197
+Info:    overlap: COMB=98.9%, FF=98.3%, RAM=99.4%, MUL=94.1%
+Info: iter=120 steplen=0.358979 a=62.028416 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1523277 hpwl: 4370
+Info:    overlap: COMB=98.6%, FF=98.0%, RAM=99.4%, MUL=94.1%
+Info: iter=130 steplen=0.359275 a=67.047867 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1456594 hpwl: 4587
+Info:    overlap: COMB=98.7%, FF=98.0%, RAM=98.1%, MUL=94.1%
+Info: iter=140 steplen=0.375088 a=72.065910 penalty=[0.00, 0.00, 0.00, 0.00]
+Info:    system potential: 1397473 hpwl: 4929
+Info:    overlap: COMB=98.6%, FF=97.9%, RAM=98.4%, MUL=94.1%
+Info: iter=150 steplen=0.402356 a=77.082741 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 1362186 hpwl: 5388
+Info:    overlap: COMB=98.2%, FF=97.4%, RAM=98.4%, MUL=94.1%
+Info: iter=160 steplen=0.455935 a=82.098495 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 1222046 hpwl: 5988
+Info:    overlap: COMB=97.8%, FF=96.6%, RAM=98.1%, MUL=88.2%
+Info: iter=170 steplen=0.514958 a=87.113312 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 1079659 hpwl: 6687
+Info:    overlap: COMB=97.2%, FF=96.1%, RAM=97.4%, MUL=82.4%
+Info: iter=180 steplen=0.518589 a=92.127312 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 951685 hpwl: 7478
+Info:    overlap: COMB=96.5%, FF=95.0%, RAM=97.1%, MUL=76.5%
+Info: iter=190 steplen=0.539669 a=97.140572 penalty=[0.01, 0.01, 0.01, 0.01]
+Info:    system potential: 843700 hpwl: 8314
+Info:    overlap: COMB=95.4%, FF=93.4%, RAM=96.5%, MUL=73.5%
+Info: iter=200 steplen=0.540760 a=102.153145 penalty=[0.02, 0.02, 0.02, 0.02]
+Info:    system potential: 693649 hpwl: 9175
+Info:    overlap: COMB=93.9%, FF=91.9%, RAM=97.1%, MUL=73.5%
+Info: iter=210 steplen=0.580133 a=107.165123 penalty=[0.02, 0.02, 0.02, 0.02]
+Info:    system potential: 584025 hpwl: 10023
+Info:    overlap: COMB=92.4%, FF=89.6%, RAM=95.8%, MUL=70.6%
+Info: iter=220 steplen=0.539343 a=112.176537 penalty=[0.03, 0.03, 0.03, 0.03]
+Info:    system potential: 482782 hpwl: 10945
+Info:    overlap: COMB=90.7%, FF=87.4%, RAM=97.4%, MUL=70.6%
+Info: iter=230 steplen=0.566268 a=117.187462 penalty=[0.04, 0.04, 0.04, 0.04]
+Info:    system potential: 419239 hpwl: 11892
+Info:    overlap: COMB=87.8%, FF=83.6%, RAM=96.8%, MUL=58.8%
+Info: iter=240 steplen=0.540331 a=122.197929 penalty=[0.05, 0.05, 0.05, 0.05]
+Info:    system potential: 351519 hpwl: 12930
+Info:    overlap: COMB=85.4%, FF=80.4%, RAM=95.8%, MUL=67.6%
+Info: iter=250 steplen=0.532737 a=127.207970 penalty=[0.06, 0.06, 0.06, 0.06]
+Info:    system potential: 305015 hpwl: 13991
+Info:    overlap: COMB=82.5%, FF=76.8%, RAM=95.8%, MUL=73.5%
+Info: iter=260 steplen=0.488184 a=132.217606 penalty=[0.08, 0.08, 0.08, 0.08]
+Info:    system potential: 263754 hpwl: 15114
+Info:    overlap: COMB=79.6%, FF=73.5%, RAM=94.2%, MUL=58.8%
+Info: iter=270 steplen=0.500566 a=137.226898 penalty=[0.10, 0.10, 0.10, 0.10]
+Info:    system potential: 224524 hpwl: 16323
+Info:    overlap: COMB=76.7%, FF=70.0%, RAM=94.2%, MUL=67.6%
+Info: iter=280 steplen=0.553421 a=142.235855 penalty=[0.13, 0.13, 0.13, 0.13]
+Info:    system potential: 177817 hpwl: 17646
+Info:    overlap: COMB=74.5%, FF=66.3%, RAM=94.2%, MUL=61.8%
+Info: iter=290 steplen=0.604199 a=147.244492 penalty=[0.17, 0.17, 0.17, 0.17]
+Info:    system potential: 141247 hpwl: 19015
+Info:    overlap: COMB=71.2%, FF=62.3%, RAM=92.3%, MUL=58.8%
+Info: iter=300 steplen=0.585300 a=152.252853 penalty=[0.22, 0.22, 0.22, 0.22]
+Info:    system potential: 112149 hpwl: 20517
+Info:    overlap: COMB=68.0%, FF=57.1%, RAM=92.9%, MUL=52.9%
+Info: iter=310 steplen=0.522043 a=157.260956 penalty=[0.28, 0.28, 0.28, 0.28]
+Info:    system potential: 92919 hpwl: 22203
+Info:    overlap: COMB=65.2%, FF=52.2%, RAM=89.4%, MUL=58.8%
+Info: iter=320 steplen=0.528460 a=162.268799 penalty=[0.36, 0.36, 0.36, 0.36]
+Info:    system potential: 74771 hpwl: 23924
+Info:    overlap: COMB=60.4%, FF=46.2%, RAM=85.3%, MUL=55.9%
+Info: iter=330 steplen=0.533938 a=167.276382 penalty=[0.46, 0.46, 0.46, 0.46]
+Info:    system potential: 64185 hpwl: 25553
+Info:    overlap: COMB=56.9%, FF=41.8%, RAM=84.6%, MUL=50.0%
+Info: iter=340 steplen=0.514082 a=172.283768 penalty=[0.59, 0.59, 0.59, 0.59]
+Info:    system potential: 52537 hpwl: 27147
+Info:    overlap: COMB=53.6%, FF=36.2%, RAM=81.1%, MUL=38.2%
+Info: iter=350 steplen=0.567970 a=177.290939 penalty=[0.75, 0.75, 0.75, 0.75]
+Info:    system potential: 44728 hpwl: 28768
+Info:    overlap: COMB=49.6%, FF=31.7%, RAM=78.8%, MUL=52.9%
+Info: iter=360 steplen=0.573956 a=182.297882 penalty=[0.97, 0.97, 0.97, 0.97]
+Info:    system potential: 38966 hpwl: 30340
+Info:    overlap: COMB=45.3%, FF=26.4%, RAM=78.5%, MUL=52.9%
+Info: iter=370 steplen=0.587582 a=187.304642 penalty=[1.24, 1.24, 1.24, 1.24]
+Info:    system potential: 33758 hpwl: 31859
+Info:    overlap: COMB=42.2%, FF=23.0%, RAM=70.2%, MUL=47.1%
+Info: iter=380 steplen=0.602329 a=192.311218 penalty=[1.58, 1.58, 1.58, 1.58]
+Info:    system potential: 29494 hpwl: 33239
+Info:    overlap: COMB=37.9%, FF=19.7%, RAM=67.6%, MUL=44.1%
+Info: iter=390 steplen=0.624484 a=197.317673 penalty=[2.03, 2.03, 2.03, 2.03]
+Info:    system potential: 25707 hpwl: 34481
+Info:    overlap: COMB=35.1%, FF=16.7%, RAM=64.4%, MUL=41.2%
+Info: iter=400 steplen=0.651859 a=202.323944 penalty=[2.59, 2.59, 2.59, 2.59]
+Info:    system potential: 23330 hpwl: 35752
+Info:    overlap: COMB=32.6%, FF=13.7%, RAM=59.3%, MUL=47.1%
+Info: iter=410 steplen=0.663252 a=207.330063 penalty=[3.32, 3.32, 3.32, 3.32]
+Info:    system potential: 20705 hpwl: 37375
+Info:    overlap: COMB=29.5%, FF=11.5%, RAM=56.4%, MUL=38.2%
+Info: iter=420 steplen=0.685240 a=212.336014 penalty=[4.25, 4.25, 4.25, 4.25]
+Info:    system potential: 18651 hpwl: 39161
+Info:    overlap: COMB=26.8%, FF=9.5%, RAM=49.0%, MUL=35.3%
+Info: iter=430 steplen=0.717600 a=217.341812 penalty=[5.44, 5.44, 5.44, 5.44]
+Info:    system potential: 16460 hpwl: 40821
+Info:    overlap: COMB=24.3%, FF=7.7%, RAM=50.0%, MUL=29.4%
+Info: iter=440 steplen=0.774517 a=222.347504 penalty=[6.97, 6.97, 6.97, 6.97]
+Info:    system potential: 14016 hpwl: 42697
+Info:    overlap: COMB=22.0%, FF=5.8%, RAM=46.5%, MUL=26.5%
+Info: iter=450 steplen=0.829474 a=227.353073 penalty=[8.92, 8.92, 8.92, 8.92]
+Info:    system potential: 12216 hpwl: 45051
+Info:    overlap: COMB=18.7%, FF=5.5%, RAM=41.7%, MUL=23.5%
+Info: iter=460 steplen=0.880037 a=232.358536 penalty=[11.41, 11.41, 11.41, 11.41]
+Info:    system potential: 10798 hpwl: 47129
+Info:    overlap: COMB=16.6%, FF=4.7%, RAM=39.1%, MUL=32.4%
+Info: iter=470 steplen=0.981088 a=237.363861 penalty=[14.61, 14.61, 14.61, 14.61]
+Info:    system potential: 9686 hpwl: 48951
+Info:    overlap: COMB=15.4%, FF=3.2%, RAM=36.9%, MUL=23.5%
+Info: iter=480 steplen=1.059609 a=242.369064 penalty=[18.70, 18.70, 18.70, 18.70]
+Info:    system potential: 8757 hpwl: 50609
+Info:    overlap: COMB=12.9%, FF=2.9%, RAM=26.3%, MUL=8.8%
+Info: iter=490 steplen=1.149703 a=247.374161 penalty=[23.94, 23.94, 23.94, 23.94]
+Info:    system potential: 8355 hpwl: 51946
+Info:    overlap: COMB=11.2%, FF=2.2%, RAM=20.5%, MUL=14.7%
+Info: Strict legalising 190 cells...
+Info: HPWL after legalise: 112131.171875 (delta: 59652.402344)
+Info: final iter=498 system potential: 10841 hpwl: 109143
+Info: Strict legalising 10400 cells...
+Info: HPWL after legalise: 117685.000000 (delta: 8542.093750)
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 2829, wirelen = 117186
+Info:   at iteration #5: temp = 0.000000, timing cost = 2539, wirelen = 98765
+Info:   at iteration #10: temp = 0.000000, timing cost = 2137, wirelen = 95074
+Info:   at iteration #15: temp = 0.000000, timing cost = 2017, wirelen = 93323
+Info:   at iteration #20: temp = 0.000000, timing cost = 1997, wirelen = 92696
+Info:   at iteration #25: temp = 0.000000, timing cost = 1956, wirelen = 92418
+Info:   at iteration #30: temp = 0.000000, timing cost = 1959, wirelen = 92250
+Info:   at iteration #35: temp = 0.000000, timing cost = 1924, wirelen = 92149
+Info:   at iteration #37: temp = 0.000000, timing cost = 1925, wirelen = 92120 
+Info: SA placement time 27.09s
+
+Info: Max frequency for clock                          'clk_315m_aux': 995.02 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 123.99 MHz (FAIL at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 34.31 MHz (PASS at 25.20 MHz)
+Info: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 41.60 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 15.62 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 9.30 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 2.60 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 2.31 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 7.01 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 8.62 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 9.74 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.42 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 86 endpoint(s)
+Info:          + represents [1,86) endpoint(s)
+Info: [ -7372,  -5057) |+
+Info: [ -5057,  -2742) |+
+Info: [ -2742,   -427) |*+
+Info: [  -427,   1888) |**************+
+Info: [  1888,   4203) |*****************************************+
+Info: [  4203,   6518) |*******************************+
+Info: [  6518,   8833) |**********************************+
+Info: [  8833,  11148) |************************************************************ 
+Info: [ 11148,  13463) |**************************************************+
+Info: [ 13463,  15778) |*************************************+
+Info: [ 15778,  18093) |+
+Info: [ 18093,  20408) |+
+Info: [ 20408,  22723) | 
+Info: [ 22723,  25038) | 
+Info: [ 25038,  27353) | 
+Info: [ 27353,  29668) |*+
+Info: [ 29668,  31983) |******+
+Info: [ 31983,  34298) |*******+
+Info: [ 34298,  36613) |**+
+Info: [ 36613,  38928) |*+
+Info: Checksum: 0x888a2453
+Info: Routing globals...
+Info:     routing clock net $glbnet$dvi_i.clk_pix_5x using global 0
+Info:     routing clock net $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT using global 1
+Info:     routing clock net $glbnet$graphics_i.graphics_i.clk_sys using global 2
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 50643 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      578        421 |  578   421 |     50406|       0.52       0.52|
+Info:       2000 |     1099        900 |  521   479 |     50083|       0.21       0.73|
+Info:       3000 |     1515       1484 |  416   584 |     49762|       0.25       0.98|
+Info:       4000 |     1852       2147 |  337   663 |     49361|       0.25       1.23|
+Info:       5000 |     2185       2814 |  333   667 |     48978|       0.25       1.48|
+Info:       6000 |     2522       3477 |  337   663 |     48491|       0.22       1.70|
+Info:       7000 |     2826       4173 |  304   696 |     48075|       0.25       1.95|
+Info:       8000 |     3073       4926 |  247   753 |     47604|       0.25       2.21|
+Info:       9000 |     3250       5749 |  177   823 |     47150|       0.29       2.49|
+Info:      10000 |     3533       6466 |  283   717 |     46762|       0.26       2.75|
+Info:      11000 |     3800       7199 |  267   733 |     46246|       0.24       2.99|
+Info:      12000 |     3998       8001 |  198   802 |     45681|       0.24       3.23|
+Info:      13000 |     4150       8849 |  152   848 |     44970|       0.23       3.46|
+Info:      14000 |     4313       9686 |  163   837 |     44262|       0.22       3.68|
+Info:      15000 |     4467      10532 |  154   846 |     43600|       0.23       3.91|
+Info:      16000 |     4659      11340 |  192   808 |     42950|       0.22       4.12|
+Info:      17000 |     4809      12190 |  150   850 |     42231|       0.24       4.36|
+Info:      18000 |     4998      13001 |  189   811 |     41778|       0.29       4.65|
+Info:      19000 |     5119      13880 |  121   879 |     41030|       0.21       4.86|
+Info:      20000 |     5251      14748 |  132   868 |     40353|       0.29       5.15|
+Info:      21000 |     5382      15617 |  131   869 |     39684|       0.26       5.41|
+Info:      22000 |     5517      16482 |  135   865 |     39015|       0.23       5.64|
+Info:      23000 |     5610      17389 |   93   907 |     38329|       0.21       5.85|
+Info:      24000 |     5736      18263 |  126   874 |     37645|       0.21       6.06|
+Info:      25000 |     5859      19140 |  123   877 |     37012|       0.23       6.28|
+Info:      26000 |     5952      20047 |   93   907 |     36380|       0.18       6.46|
+Info:      27000 |     6069      20930 |  117   883 |     35766|       0.19       6.65|
+Info:      28000 |     6216      21783 |  147   853 |     35140|       0.22       6.87|
+Info:      29000 |     6341      22658 |  125   875 |     34349|       0.20       7.07|
+Info:      30000 |     6468      23531 |  127   873 |     33643|       0.25       7.32|
+Info:      31000 |     6634      24365 |  166   834 |     32891|       0.22       7.54|
+Info:      32000 |     6787      25212 |  153   847 |     32167|       0.20       7.74|
+Info:      33000 |     6949      26050 |  162   838 |     31433|       0.19       7.93|
+Info:      34000 |     7105      26894 |  156   844 |     30706|       0.22       8.15|
+Info:      35000 |     7314      27685 |  209   791 |     29986|       0.21       8.36|
+Info:      36000 |     7503      28496 |  189   811 |     29256|       0.23       8.59|
+Info:      37000 |     7752      29247 |  249   751 |     28629|       0.25       8.83|
+Info:      38000 |     7988      30011 |  236   764 |     27925|       0.19       9.02|
+Info:      39000 |     8242      30757 |  254   746 |     27253|       0.19       9.21|
+Info:      40000 |     8499      31487 |  257   730 |     26567|       0.17       9.39|
+Info:      41000 |     8793      32177 |  294   690 |     25949|       0.19       9.58|
+Info:      42000 |     9084      32872 |  291   695 |     25610|       0.28       9.86|
+Info:      43000 |     9373      33557 |  289   685 |     24943|       0.22      10.08|
+Info:      44000 |     9665      34234 |  292   677 |     24348|       0.18      10.26|
+Info:      45000 |     9985      34841 |  320   607 |     23723|       0.18      10.44|
+Info:      46000 |    10270      35520 |  285   679 |     23077|       0.19      10.63|
+Info:      47000 |    10525      36189 |  255   669 |     22427|       0.17      10.80|
+Info:      48000 |    10730      36898 |  205   709 |     21674|       0.18      10.98|
+Info:      49000 |    10912      37644 |  182   746 |     20879|       0.15      11.13|
+Info:      50000 |    11039      38465 |  127   821 |     20029|       0.18      11.31|
+Info:      51000 |    11122      39334 |   83   869 |     19142|       0.13      11.44|
+Info:      52000 |    11205      40197 |   83   863 |     18243|       0.14      11.58|
+Info:      53000 |    11306      41052 |  101   855 |     17443|       0.16      11.74|
+Info:      54000 |    11375      41947 |   69   895 |     16637|       0.14      11.88|
+Info:      55000 |    11451      42797 |   76   850 |     15765|       0.14      12.03|
+Info:      56000 |    11597      43606 |  146   809 |     15078|       0.20      12.23|
+Info:      57000 |    11715      44445 |  118   839 |     14256|       0.18      12.41|
+Info:      58000 |    11829      45297 |  114   852 |     13404|       0.17      12.58|
+Info:      59000 |    12034      46060 |  205   763 |     12810|       0.39      12.97|
+Info:      60000 |    12275      46774 |  241   714 |     12235|       0.45      13.42|
+Info:      61000 |    12686      47363 |  411   589 |     12577|       2.29      15.72|
+Info:      62000 |    13132      47917 |  446   554 |     12409|       2.94      18.66|
+Info:      63000 |    13525      48524 |  393   607 |     12254|       3.65      22.31|
+Info:      64000 |    13794      49174 |  269   650 |     11676|       4.95      27.25|
+Info:      65000 |    13953      49930 |  159   756 |     11119|       0.28      27.53|
+Info:      66000 |    14062      50672 |  109   742 |     10276|       0.18      27.71|
+Info:      67000 |    14261      51426 |  199   754 |      9777|       0.37      28.08|
+Info:      68000 |    14473      52176 |  212   750 |      9137|       0.40      28.48|
+Info:      69000 |    14746      52867 |  273   691 |      8752|       0.40      28.88|
+Info:      70000 |    14895      53626 |  149   759 |      8001|       0.27      29.15|
+Info:      71000 |    15073      54273 |  178   647 |      7346|       0.27      29.42|
+Info:      72000 |    15342      54926 |  269   653 |      6705|       0.64      30.06|
+Info:      73000 |    15478      55659 |  136   733 |      5901|       0.21      30.27|
+Info:      74000 |    15773      56327 |  295   668 |      5424|       0.51      30.78|
+Info:      75000 |    15934      57137 |  161   810 |      4659|       0.25      31.03|
+Info:      76000 |    16318      57753 |  384   616 |      4321|       0.88      31.91|
+Info:      77000 |    16417      58652 |   99   899 |      3550|       0.21      32.13|
+Info:      78000 |    16756      59313 |  339   661 |      3513|       0.73      32.85|
+Info:      79000 |    17051      60018 |  295   705 |      2997|       0.53      33.39|
+Info:      80000 |    17182      60887 |  131   869 |      2206|       0.25      33.63|
+Info:      81000 |    17355      61661 |  173   774 |      1510|       0.29      33.92|
+Info:      82000 |    17367      62452 |   12   791 |       523|       0.12      34.04|
+Info:      82576 |    17397      62889 |   30   437 |         0|       0.12      34.16|
+Info: Routing complete.
+Info: Router1 time 34.16s
+Info: Checksum: 0xd7717e42
+
+Info: Critical path report for clock 'clk_315m_aux' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.locked_sync_TRELLIS_FF_Q.Q
+Info:    routing  0.50  1.03 Net pll_mid_i.locked_sync (24,66) -> (24,66)
+Info:                          Sink pll_mid_i.clk_locked_TRELLIS_FF_Q.M
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/clock/ecp5/clock2_gen.v:66.9-66.20
+Info:      setup  0.00  1.03 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.M
+Info: 0.52 ns logic, 0.50 ns routing
+
+Info: Critical path report for clock '$glbnet$dvi_i.clk_pix_5x' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q.Q
+Info:    routing  4.97  5.49 Net dvi_i.tmds_ch0_shift[1] (81,48) -> (110,0)
+Info:                          Sink gpdi_dp[0]$tr_io$IOL.TXDATA1
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/display/ecp5/dvi_generator.sv:54.17-54.31
+Info:      setup  0.10  5.59 Source gpdi_dp[0]$tr_io$IOL.TXDATA1
+Info: 0.62 ns logic, 4.97 ns routing
+
+Info: Critical path report for clock '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  5.83  5.83 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.16.DOB3
+Info:    routing  2.71  8.54 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.16_DOB3[1] (73,70) -> (48,80)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.20_DOB3_LUT4_Z.C
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  8.77 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.20_DOB3_LUT4_Z.F
+Info:    routing  0.42  9.19 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.20_DOB3[4] (48,80) -> (48,80)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb2.mem.0.26_DOB3_LUT4_C_Z_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  9.44 Source graphics_i.graphics_i.graphics_i.fb2.mem.0.26_DOB3_LUT4_C_Z_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  1.23  10.68 Net graphics_i.graphics_i.graphics_i.fb2.mem.0.26_DOB3_LUT4_C_Z[4] (48,80) -> (35,80)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_Z_D_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  10.93 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_Z_D_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  2.47  13.40 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_Z_D[3] (35,80) -> (59,68)
+Info:                          Sink graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  13.64 Source graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_Z.F
+Info:    routing  0.77  14.40 Net graphics_i.graphics_i.graphics_i.fb0.mem.0.6_DOB3_TRELLIS_FF_Q_DI_CCU2C_S0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q[3] (59,68) -> (62,67)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_B0_LUT4_Z_C_LUT4_C_Z_LUT4_Z_D_PFUMX_Z_BLUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.40  14.80 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_B0_LUT4_Z_C_LUT4_C_Z_LUT4_Z_D_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  1.34  16.15 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_B0_LUT4_Z_C_LUT4_C_Z_LUT4_Z_D[3] (62,67) -> (74,62)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_B0_LUT4_Z_C_LUT4_C_Z_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  16.38 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_B0_LUT4_Z_C_LUT4_C_Z_LUT4_Z.F
+Info:    routing  1.14  17.52 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_S1_CCU2C_S1_S0_LUT4_Z_D[1] (74,62) -> (76,63)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  17.76 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_LUT4_Z.F
+Info:    routing  0.85  18.61 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D[1] (76,63) -> (77,63)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1$CCU2_COMB1.B
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.45  19.05 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1$CCU2_COMB1.FCO
+Info:    routing  0.00  19.05 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT (77,63) -> (77,63)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  19.50 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN$CCU2_COMB0.F
+Info:    routing  0.50  20.00 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_LUT4_Z_D_CCU2C_B1_COUT_CCU2C_CIN_S0[1] (77,63) -> (77,62)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  20.24 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1_LUT4_Z.F
+Info:    routing  1.15  21.38 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_A1 (77,62) -> (77,61)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_S1_CCU2C_S1$CCU2_COMB1.A
+Info:      logic  0.45  21.83 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_S1_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  21.83 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_S1_CCU2C_S1_COUT (77,61) -> (77,61)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  22.27 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0_CCU2C_S0$CCU2_COMB0.F
+Info:    routing  0.73  23.00 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_1_DI_LUT4_Z_B_CCU2C_A1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S0[3] (77,61) -> (76,62)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_ALUT_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  23.24 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_ALUT_LUT4_Z.F
+Info:    routing  0.00  23.24 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_ALUT (76,62) -> (76,62)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_BLUT_LUT4_Z.F1
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:133.22-133.24
+Info:      logic  0.17  23.40 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:    routing  0.46  23.86 Net dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4_DI (76,62) -> (76,62)
+Info:                          Sink dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4.M
+Info:      setup  0.00  23.86 Source dvi_i.encode_ch1.bias_TRELLIS_FF_Q_4.M
+Info: 10.10 ns logic, 13.76 ns routing
+
+Info: Critical path report for clock '$glbnet$graphics_i.graphics_i.clk_sys' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source graphics_i.graphics_i.graphics_i.sobel_control_i.reader_i.pixel_fifo[1]_TRELLIS_FF_Q_7.Q
+Info:    routing  1.71  2.24 Net graphics_i.graphics_i.graphics_i.sobel_control_i.reader_i.pixel_fifo[1][0] (62,64) -> (54,60)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P8_MULT18X18D_P9_1_A6_LUT4_Z.C
+Info:                          Defined in:
+Info:                               rtl/sobel_fb_reader.sv:23.18-23.28
+Info:      logic  0.24  2.47 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P8_MULT18X18D_P9_1_A6_LUT4_Z.F
+Info:    routing  1.07  3.55 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P8_MULT18X18D_P9_1_A6 (54,60) -> (54,58)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P8_MULT18X18D_P9_1.A2
+Info:      logic  3.93  7.47 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P8_MULT18X18D_P9_1.P10
+Info:    routing  1.57  9.04 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P9[0] (54,58) -> (57,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P10_LUT4_Z.B
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  9.28 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P10_LUT4_Z.F
+Info:    routing  0.83  10.11 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z_C_MULT18X18D_P14_P10[3] (57,57) -> (57,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  10.35 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1_A1_LUT4_Z.F
+Info:    routing  1.46  11.80 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1_A1 (57,57) -> (55,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1$CCU2_COMB1.A
+Info:      logic  0.45  12.25 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  12.25 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S1_CCU2C_S1_COUT (55,59) -> (55,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  12.32 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  12.32 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0$CCU2_FCI_INT (55,59) -> (55,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  12.32 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  12.32 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_CIN_CCU2C_COUT_S0_CCU2C_S0_COUT (55,59) -> (56,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  12.77 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S1_CCU2C_S1$CCU2_COMB0.F
+Info:    routing  1.40  14.16 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_window.mid_c1_q_TRELLIS_FF_Q_7_DI_LUT4_D_Z_CCU2C_S0_CIN_CCU2C_COUT_S0[1] (56,59) -> (51,60)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_line_buffer.line2_mem.0.0_DIA5_LUT4_C_Z_PFUMX_Z_C0_PFUMX_C0_Z_LUT4_Z_1.A
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  14.40 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_line_buffer.line2_mem.0.0_DIA5_LUT4_C_Z_PFUMX_Z_C0_PFUMX_C0_Z_LUT4_Z_1.F
+Info:    routing  0.94  15.35 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1[2] (51,60) -> (51,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.M
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.26  15.60 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1_L6MUX21_Z_D1_L6MUX21_Z_D1_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.00  15.60 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1_L6MUX21_Z_D1 (51,59) -> (51,59)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.FXB
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:157.70-157.72
+Info:      logic  0.24  15.84 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1_L6MUX21_Z_D1_L6MUX21_Z_D0_PFUMX_Z_ALUT_LUT4_Z.OFX
+Info:    routing  0.85  16.69 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_17_DI_CCU2C_S0_A1[0] (51,59) -> (51,60)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_B0_LUT4_Z.A
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  16.93 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_B0_LUT4_Z.F
+Info:    routing  1.40  18.33 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_B0 (51,60) -> (49,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0$CCU2_COMB0.B
+Info:      logic  0.45  18.78 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  18.78 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0$CCU2_FCI_INT (49,57) -> (49,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  18.78 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  18.78 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_COUT (49,57) -> (49,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_COUT_CCU2C_CIN$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.44  19.22 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_COUT_CCU2C_CIN$CCU2_COMB0.F
+Info:    routing  0.50  19.72 Net graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_19_DI_CCU2C_S0_COUT_CCU2C_CIN_S0 (49,57) -> (49,57)
+Info:                          Sink graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_21.M
+Info:      setup  0.00  19.72 Source graphics_i.graphics_i.graphics_i.sobel_control_i.sobel_i.u_arithmetic_elastic.m_data_TRELLIS_FF_Q_21.M
+Info: 7.98 ns logic, 11.74 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source btn_rst_n$tr_io.O
+Info:    routing  5.78  5.78 Net btn_rst_n$TRELLIS_IO_IN (6,0) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.D
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:3.24-3.33
+Info:      logic  0.24  6.01 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.30  9.31 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (76,60)
+Info:                          Sink ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  9.55 Source ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.93  10.48 Net ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (76,60) -> (79,57)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info:      setup  0.42  10.90 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info: 0.90 ns logic, 10.01 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source btn_rst_n$tr_io.O
+Info:    routing  5.78  5.78 Net btn_rst_n$TRELLIS_IO_IN (6,0) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.D
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:3.24-3.33
+Info:      logic  0.24  6.01 Source btn_rst_n_LUT4_D.F
+Info:    routing  0.37  6.38 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (29,63)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      setup  0.42  6.81 Source graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info: 0.66 ns logic, 6.15 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' -> 'posedge $glbnet$dvi_i.clk_pix_5x':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source dvi_i.encode_ch0.tmds_TRELLIS_FF_Q_1.Q
+Info:    routing  1.40  1.92 Net dvi_i.encode_ch0.tmds[1] (81,60) -> (81,48)
+Info:                          Sink dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_DI_LUT4_Z.B
+Info:                          Defined in:
+Info:                               third_party/projectf/lib/display/tmds_encoder_dvi.sv:14.30-14.34
+Info:      logic  0.24  2.16 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_DI_LUT4_Z.F
+Info:    routing  0.13  2.29 Net dvi_i.tmds_ch0_shift_TRELLIS_FF_Q_DI (81,48) -> (81,48)
+Info:                          Sink dvi_i.tmds_ch0_shift_TRELLIS_FF_Q.DI
+Info:      setup  0.00  2.29 Source dvi_i.tmds_ch0_shift_TRELLIS_FF_Q.DI
+Info: 0.76 ns logic, 1.53 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_video_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  0.68  1.20 Net pll_video_locked (30,63) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.C
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.43-10.59
+Info:      logic  0.24  1.44 Source btn_rst_n_LUT4_D.F
+Info:    routing  0.37  1.81 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (29,63)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      setup  0.42  2.23 Source graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info: 1.18 ns logic, 1.05 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$graphics_i.graphics_i.clk_sys' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source ftdi_rxd_TRELLIS_FF_Q.Q
+Info:    routing  4.26  4.79 Net ftdi_rxd$TRELLIS_IO_OUT (54,67) -> (0,56)
+Info:                          Sink ftdi_rxd$tr_io.I
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:5.24-5.32
+Info: 0.52 ns logic, 4.26 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$graphics_i.graphics_i.clk_sys' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_sys_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  0.47  1.00 Net pll_sys_locked (28,63) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.B
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.11-10.25
+Info:      logic  0.24  1.23 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.30  4.53 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (76,60)
+Info:                          Sink ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  4.77 Source ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.93  5.70 Net ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (76,60) -> (79,57)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info:      setup  0.42  6.13 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info: 1.42 ns logic, 4.70 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk_315m_aux' -> 'posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  1.70  2.23 Net pll_mid_locked (24,66) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.A
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.27-10.41
+Info:      logic  0.24  2.46 Source btn_rst_n_LUT4_D.F
+Info:    routing  3.30  5.76 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (76,60)
+Info:                          Sink ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.D
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  6.00 Source ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C.F
+Info:    routing  0.93  6.93 Net ftdi_rxd_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B_TRELLIS_FF_Q_DI_LUT4_Z_D_LUT4_Z_2_D_LUT4_Z_1_B_TRELLIS_FF_Q_1_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_CE_TRELLIS_FF_CE_Q_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_CE_TRELLIS_FF_CE_Q_LUT4_C_Z (76,60) -> (79,57)
+Info:                          Sink dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info:      setup  0.42  7.36 Source dvi_i.encode_ch2.tmds_TRELLIS_FF_Q_9.LSR
+Info: 1.42 ns logic, 5.94 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk_315m_aux' -> 'posedge $glbnet$graphics_i.graphics_i.clk_sys':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source pll_mid_i.clk_locked_TRELLIS_FF_Q.Q
+Info:    routing  1.70  2.23 Net pll_mid_locked (24,66) -> (29,63)
+Info:                          Sink btn_rst_n_LUT4_D.A
+Info:                          Defined in:
+Info:                               rtl/board/ulx3s_graphics_top.sv:10.27-10.41
+Info:      logic  0.24  2.46 Source btn_rst_n_LUT4_D.F
+Info:    routing  0.37  2.84 Net btn_rst_n_LUT4_D_Z[1] (29,63) -> (29,63)
+Info:                          Sink graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info:                          Defined in:
+Info:                               /Users/Dilan/eda/wire-to-decision/oss-cad-suite/libexec/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      setup  0.42  3.26 Source graphics_i.graphics_i.graphics_i.renderer_i.setup_i.area_product_b_MULT18X18D_P9_A1_TRELLIS_FF_Q_DI_CCU2C_S1_S0_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_DI_CCU2C_S1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_LUT4_A_C_LUT4_D_Z_CCU2C_A0_COUT_CCU2C_CIN_S1_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B1_COUT_CCU2C_CIN_S1_TRELLIS_FF_Q_DI_LUT4_Z_C_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S1_S0_TRELLIS_FF_Q_DI_LUT4_Z_C_LUT4_C_Z_LUT4_Z_2_D_CCU2C_S0_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_LUT4_C_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_B0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_CCU2C_S0_1_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_B0_LUT4_B_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_TRELLIS_FF_DI_Q_CCU2C_A0_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_CCU2C_CIN_COUT_LUT4_D_Z_TRELLIS_FF_DI_Q_TRELLIS_FF_Q_3.LSR
+Info: 1.18 ns logic, 2.08 ns routing
+
+Info: Max frequency for clock                          'clk_315m_aux': 973.71 MHz (PASS at 315.06 MHz)
+Info: Max frequency for clock              '$glbnet$dvi_i.clk_pix_5x': 178.89 MHz (PASS at 126.02 MHz)
+Info: Max frequency for clock     '$glbnet$gpdi_dp[3]$TRELLIS_IO_OUT': 41.91 MHz (PASS at 25.20 MHz)
+ERROR: Max frequency for clock '$glbnet$graphics_i.graphics_i.clk_sys': 50.71 MHz (FAIL at 60.00 MHz)
+
+Info: Max delay <async>                                       -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 10.90 ns
+Info: Max delay <async>                                       -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 6.81 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$dvi_i.clk_pix_5x             : 2.29 ns
+Info: Max delay posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT     -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 2.23 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> <async>                                      : 4.79 ns
+Info: Max delay posedge $glbnet$graphics_i.graphics_i.clk_sys -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 6.13 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$gpdi_dp[3]$TRELLIS_IO_OUT    : 7.36 ns
+Info: Max delay posedge clk_315m_aux                          -> posedge $glbnet$graphics_i.graphics_i.clk_sys: 3.26 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 115 endpoint(s)
+Info:          + represents [1,115) endpoint(s)
+Info: [ -3053,   -963) |+
+Info: [  -963,   1127) |*+
+Info: [  1127,   3217) |*+
+Info: [  3217,   5307) |*******************+
+Info: [  5307,   7397) |********************************************+
+Info: [  7397,   9487) |*************+
+Info: [  9487,  11577) |*******************************+
+Info: [ 11577,  13667) |************************************************************ 
+Info: [ 13667,  15757) |*******************************+
+Info: [ 15757,  17847) |+
+Info: [ 17847,  19937) |+
+Info: [ 19937,  22027) |+
+Info: [ 22027,  24117) |+
+Info: [ 24117,  26207) | 
+Info: [ 26207,  28297) | 
+Info: [ 28297,  30387) |+
+Info: [ 30387,  32477) |***+
+Info: [ 32477,  34567) |*****+
+Info: [ 34567,  36657) |***+
+Info: [ 36657,  38747) |*+
+0 warnings, 1 error
+
+Info: Program finished normally.
