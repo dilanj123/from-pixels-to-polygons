@@ -18,19 +18,20 @@ Setup computes signed16 deltas, signed32 AREA/edge terms, top-left flags, exact
 clamped pixel-centre bounds, and initial edge values. AREA rejection, empty-bbox
 success, and counters are distinct results.
 
-For the GFX-026 timing corrections (D-040/D-041), setup uses three registered
-stages. Stage 1 captures the accepted DRAW's signed coordinate deltas and AREA
-operands, source coordinates, tag, and fixed-point attributes. Stage 2 uses
-only those registered values to calculate AREA, classification, exact bbox,
-top-left flags, edge steps, and the sample-relative values needed for initial
-edges. Stage 3 uses only the registered geometry preparation to calculate
-initial E0/E1/E2 and register the complete result. The split preserves all
-D-029 result bits and classification priority. Relative to D-040, D-041 adds
-one input-to-output cycle; the external ready/valid contract remains unchanged,
-including stable output under stall, one result per cycle at full rate, and
-simultaneous retirement/replacement. Reset discards every in-flight stage.
-`triangle_setup_cycles` counts each actual cycle in renderer `TRI_SETUP` under
-D-034; it is not adjusted to preserve a historical numerical count.
+For the GFX-026 timing corrections (D-040 through D-042), setup uses four
+registered stages. Stage 1 captures the accepted DRAW's signed coordinate
+deltas and AREA operands, source coordinates, tag, and fixed-point attributes.
+Stage 2 computes and registers both signed32 AREA products using the existing
+expression widths and signedness. Stage 3 subtracts only those registered
+products and performs classification, exact bbox, top-left flags, edge steps,
+and initial-edge sample-relative preparation. Stage 4 uses only registered
+geometry to calculate initial E0/E1/E2 and register the complete result. The
+split preserves all D-029 result bits and classification priority. D-042 adds
+exactly one input-to-output cycle relative to D-041; ready/valid behavior is
+unchanged, including stable output under stall, one result per cycle at full
+rate, and simultaneous retirement/replacement. Reset discards every
+in-flight stage. `triangle_setup_cycles` counts each actual cycle in renderer
+`TRI_SETUP` under D-034; it is not adjusted to preserve historical counts.
 
 ### Triangle-setup result contract (D-029)
 

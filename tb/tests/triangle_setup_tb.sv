@@ -74,8 +74,12 @@ module triangle_setup_tb;
             if (!in_ready) $fatal(1, "input-ready timeout vector %0d", index);
             @(negedge clk); load_input(base); in_valid = 1'b1;
             @(posedge clk); #1;
-            if (out_valid) $fatal(1, "output asserted before third stage vector %0d", index);
+            if (out_valid) $fatal(1, "output asserted before fourth stage vector %0d", index);
             @(negedge clk); in_valid = 1'b0;
+            @(posedge clk); #1;
+            if (out_valid) $fatal(1, "output asserted at two cycles after acceptance vector %0d", index);
+            @(posedge clk); #1;
+            if (out_valid) $fatal(1, "output asserted before fourth cycle vector %0d", index);
             cycles = 0;
             while (!out_valid && cycles < 5) begin @(posedge clk); #1; cycles = cycles + 1; end
             if (!out_valid) $fatal(1, "missing output vector %0d", index);
@@ -100,7 +104,9 @@ module triangle_setup_tb;
         @(posedge clk); #1;
         if (out_valid) $fatal(1, "output asserted before Stage 3");
         @(posedge clk); #1;
-        if (!out_valid) $fatal(1, "three-stage result missing after live input changed");
+        if (out_valid) $fatal(1, "output asserted before Stage 4");
+        @(posedge clk); #1;
+        if (!out_valid) $fatal(1, "four-stage result missing after live input changed");
         compare_output(0);
         @(posedge clk); #1;
         if (out_valid) $fatal(1, "result did not retire");
@@ -110,15 +116,15 @@ module triangle_setup_tb;
             @(negedge clk); load_input(i*WORDS_PER_VECTOR); in_valid = 1;
             if (!in_ready) $fatal(1, "pipeline failed full-rate input at %0d", i);
             @(posedge clk); #1;
-            if (i >= 2) begin
+            if (i >= 3) begin
                 if (!out_valid) $fatal(1, "full-rate output missing cycle=%0d", i);
-                compare_output((i-2)*WORDS_PER_VECTOR);
+                compare_output((i-3)*WORDS_PER_VECTOR);
             end else if (out_valid) begin
                 $fatal(1, "full-rate output was early cycle=%0d", i);
             end
         end
         @(negedge clk); in_valid = 0;
-        for (integer i = 4; i < 6; i = i + 1) begin
+        for (integer i = 3; i < 6; i = i + 1) begin
             @(posedge clk); #1;
             if (!out_valid) $fatal(1, "pipeline drain output missing index=%0d", i);
             compare_output(i*WORDS_PER_VECTOR);
@@ -126,21 +132,21 @@ module triangle_setup_tb;
         @(posedge clk); #1;
         if (out_valid) $fatal(1, "duplicate output after full-rate drain");
 
-        // Fill all stages during backpressure, then hold a fourth input until
-        // space returns. The three queued outputs must stay ordered and unique.
+        // Fill all stages during backpressure, then hold a fifth input until
+        // space returns. The four queued outputs must stay ordered and unique.
         @(negedge clk); out_ready = 0; in_valid = 1;
-        for (integer i = 0; i < 3; i = i + 1) begin
+        for (integer i = 0; i < 4; i = i + 1) begin
             load_input(i*WORDS_PER_VECTOR);
             if (!in_ready) $fatal(1, "unexpected input stall while filling stage %0d", i);
             @(posedge clk); #1;
-            if (i < 2 && out_valid) $fatal(1, "backpressure output was early at fill %0d", i);
-            if (i < 2) @(negedge clk);
+            if (i < 3 && out_valid) $fatal(1, "backpressure output was early at fill %0d", i);
+            if (i < 3) @(negedge clk);
         end
         if (!out_valid || out_data.tag !== vectors[0][15:0])
             $fatal(1, "first queued output missing under backpressure");
         held = out_data;
-        @(negedge clk); load_input(3*WORDS_PER_VECTOR); in_valid = 1;
-        if (in_ready) $fatal(1, "full pipeline accepted fourth input under backpressure");
+        @(negedge clk); load_input(4*WORDS_PER_VECTOR); in_valid = 1;
+        if (in_ready) $fatal(1, "full pipeline accepted fifth input under backpressure");
         repeat (2) begin
             @(posedge clk); #1;
             if (!out_valid || out_data !== held || in_ready)
@@ -154,6 +160,8 @@ module triangle_setup_tb;
         compare_output(2*WORDS_PER_VECTOR);
         @(posedge clk); #1;
         compare_output(3*WORDS_PER_VECTOR);
+        @(posedge clk); #1;
+        compare_output(4*WORDS_PER_VECTOR);
         @(posedge clk); #1;
         if (out_valid) $fatal(1, "backpressure drain produced duplicate output");
 
@@ -176,11 +184,22 @@ module triangle_setup_tb;
         @(negedge clk); rst = 0;
         repeat (3) begin @(posedge clk); #1; if (out_valid) $fatal(1, "Stage-2 reset leaked result"); end
 
-        // Reset while the Stage-3 output is stalled and stable.
+        // Reset while Stage 3 holds a valid transaction.
         load_input(0); @(negedge clk); in_valid = 1; out_ready = 0;
         @(posedge clk); #1;
         @(negedge clk); in_valid = 0;
         repeat (2) @(posedge clk);
+        @(negedge clk); rst = 1;
+        @(posedge clk); #1;
+        if (out_valid) $fatal(1, "Stage-3 reset left stale output");
+        @(negedge clk); rst = 0;
+        repeat (4) begin @(posedge clk); #1; if (out_valid) $fatal(1, "Stage-3 reset leaked result"); end
+
+        // Reset while the Stage-4 output is stalled and stable.
+        load_input(0); @(negedge clk); in_valid = 1; out_ready = 0;
+        @(posedge clk); #1;
+        @(negedge clk); in_valid = 0;
+        repeat (3) @(posedge clk);
         #1;
         if (!out_valid) $fatal(1, "stalled result missing");
         held = out_data;
