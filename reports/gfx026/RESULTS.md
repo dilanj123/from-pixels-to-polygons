@@ -301,3 +301,23 @@ There is no demonstrated constraint or mapping defect to correct, and the only b
 ### D-041 follow-up — three-stage AREA pipeline
 
 The later authorized D-041 implementation supersedes the preceding “awaiting a decision” recommendation. D-041 adds a register stage before AREA calculation, preserves all D-029 outputs, and passes the focused and integrated simulation suites. The full route completes at 52.8290 MHz `clk_sys` (18.929 ns, approximately −2.263 ns slack), improving the D-040 static route by 1.407 ns but still missing 60 MHz. Gate 9 remains OPEN; no bitstream was generated. Full implementation and verification details are in `reports/gfx026/TRIANGLE-AREA-PIPELINE.md`, with uniquely named synthesis/route logs and route artifacts beside it.
+
+### D-042 follow-up — four-stage AREA product pipeline
+
+D-042 adds a register boundary after the two signed32 AREA products. The
+four-stage implementation passes 160 unchanged independent geometry vectors
+(5,848 field comparisons), relevant renderer/Sobel/readback/command regressions,
+all 14 public counter scoreboard words, selected Gate-8 formal, lint and the
+31-test Python reference suite. Full synthesis passes `check -assert` with
+7,466 LUT4, 7,888 FF, 156 DP16KD, 19 MULT18X18D and 3 PLLs.
+
+The one comparable static-placer/router1/seed-1 route completes, but `clk_sys`
+is 51.1587 MHz (19.547 ns, −2.881 ns slack) against 60 MHz. Pixel,
+serializer and intermediate clock estimates pass. The new reported worst
+system path runs from the Sobel reader FIFO through the pinned parent's
+grayscale/window/arithmetic cone to its arithmetic elastic register. Overall
+timing is worse than the D-041 route's 52.8290 MHz, and the AREA path's exact
+new rank is not available from the worst-path-only report. Gate 9 remains
+OPEN; no bitstream was packed. Full commands, hashes, warnings and the evidence
+limitations are in `reports/gfx026/AREA-PRODUCT-PIPELINE.md`. No parent source,
+clock, constraints, or functional protocol changed.

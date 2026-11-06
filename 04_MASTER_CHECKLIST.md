@@ -212,18 +212,18 @@ or MTBF evidence. Gate 9 remains open.
 
 - [x] full 85F synthesis — complete `ulx3s_graphics_top`; Yosys hierarchy/check passed, `reports/gfx026/yosys_synth.txt`
 - [x] full route — FIFO-corrected netlist; router1 completed; `clk_sys` timing fails
-- [x] LUT/cell count recorded — original 38,481; FIFO-corrected baseline 9,822 pre-pack LUT4; D-040 setup 10,511 TRELLIS_COMB (Yosys 7,523 LUT4); D-041 setup 10,693 TRELLIS_COMB (Yosys 7,579 LUT4)
-- [x] FF count recorded — original 38,778; FIFO-corrected baseline 6,011 TRELLIS_FF; D-040 6,702; D-041 7,277
-- [x] EBR count recorded — original 154; corrected 156 DP16KD (FIFO adds 2)
-- [x] DSP count recorded — FIFO-corrected baseline 11; D-040 setup 17; D-041 setup 19 MULT18X18D
+- [x] LUT/cell count recorded — original 38,481; FIFO-corrected baseline 9,822 pre-pack LUT4; D-040 10,511 TRELLIS_COMB (Yosys 7,523 LUT4); D-041 10,693 (7,579 LUT4); D-042 10,616 (7,466 LUT4)
+- [x] FF count recorded — original 38,778; FIFO-corrected baseline 6,011 TRELLIS_FF; D-040 6,702; D-041 7,277; D-042 7,888
+- [x] EBR count recorded — original 154; corrected 156 DP16KD; D-040/D-041/D-042 remain 156
+- [x] DSP count recorded — FIFO-corrected baseline 11; D-040 17; D-041/D-042 19 MULT18X18D
 - [x] clock constraints recorded — nominal 25 MHz input and PLL-derived 60/25.2/126 MHz; D-039 and GFX-026 report
-- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; D-040 static route approximately −3.670 ns; D-041 static route approximately −2.263 ns; target 60 MHz
-- [x] critical path recorded — D-041 route: Stage-1 AREA operands→Stage-2 AREA multiply/subtract→prepared geometry; detailed report and artifacts retained under `reports/gfx026/`
+- [x] worst slack recorded — FIFO-corrected baseline approximately −8.851 ns; D-040 approximately −3.670 ns; D-041 approximately −2.263 ns; D-042 −2.881 ns at target 60 MHz
+- [x] critical path recorded — D-041: triangle AREA; D-042 reported worst: reader pixel FIFO through pinned Sobel grayscale/window/arithmetic to arithmetic-elastic register. D-042 report is worst-path-only and does not establish complete path ranking.
 - [x] warnings reviewed — original FIFO mem2reg diagnosed/fixed; remaining memory conversions, upstream DVI RST width resize and tool notices classified in GFX-026 report
 - [ ] candidate throughput measured/derived correctly
-- [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: W10=6,022 cycles after D-041; D-040 was 6,018 and original comparison 6,014
+- [x] render-cycle metrics recorded — public counter scoreboard scenario tag `0x1028`: D-041 W10=6,022; D-042 W10=6,026
 - [x] Sobel-cycle metrics recorded — public counter scoreboard scenario tag `0x1015`: W13=151,072 cycles
-- [x] timing classification correct — full D-041 static route completed; `clk_sys` estimate 52.829 MHz fails 60 MHz; no timing-closure claim
+- [x] timing classification correct — D-041 and D-042 static routes completed; D-042 `clk_sys` estimate 51.1587 MHz fails 60 MHz; no timing-closure claim
 - [x] no unsupported Fmax claim
 
 ## Gate 10 — Physical Hardware

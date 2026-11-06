@@ -531,4 +531,23 @@ The two-stage setup improves the prior routed `clk_sys` delay by 5.181 ns (25.51
 | New worst path is the Stage-2 AREA calculation | nextpnr timing report JSON plus mapped ECP5 cell source attributes | Stage-1 coordinate/AREA operands to Stage-2 AREA expression (triangle_setup.sv:94) and prepared register; 7.98 ns logic and 10.95 ns routing. The 1.407 ns improvement from D-040 is measured on this implementation; the 60 MHz target is still missed | IMPLEMENTATION DIAGNOSTIC |
 | Gate 9 remains open | `04_MASTER_CHECKLIST.md`; `docs/PROJECT_STATE.md`; `reports/gfx026/TRIANGLE-AREA-PIPELINE.md` | No timing-clean route, bitstream, or compliant-clock throughput evidence | LOCAL OBSERVATION |
 
-D-041 is retained as the current verified baseline correction because it measurably shortens the prior critical path. It adds 575 FF, 56 Yosys LUT4 and 2 MULT18X18D versus D-040. Gate 9 remains OPEN; no bitstream or physical hardware result is claimed.
+D-041 remains the verified three-stage comparison point for D-042. It measurably shortened the earlier path relative to D-040 and adds 575 FF, 56 Yosys LUT4 and 2 MULT18X18D versus D-040. The current D-042 implementation/evidence is recorded below. Gate 9 remains OPEN; no bitstream or physical hardware result is claimed.
+
+## G9-AREA-PRODUCT-PIPELINE — D-042 trial
+
+| Claim | Evidence | Conditions/result | Classification |
+|---|---|---|---|
+| Four-stage setup preserves D-029 result values | `tb/tests/triangle_setup_tb.sv`, 160 independent vectors | 5,848 field comparisons; unchanged vector file; reset, stalls, full-rate, and classification checks pass | RTL SIMULATION VERIFIED |
+| Renderer/counters preserve frame results and count actual added cycles | `make test-command-system` and `make test-renderer-counters` | Public tag `0x1028`: W1–W14 match scoreboard; W10=6026/W11=20, four cycles above D-041 for four DRAWs; NORMAL/SOBEL/SOBEL/NORMAL and full readback pass | RTL SIMULATION VERIFIED |
+| Relevant regression remains passing | GFX-026 report | Renderer, raster, Fragment/Z, command system, Sobel, presentation, readback, UART/host, FIFO/decoder and 31 Python reference tests pass; `make formal-gate8` remains selected existing properties only | RTL SIMULATION VERIFIED / FORMALLY CHECKED UNDER DOCUMENTED ASSUMPTIONS |
+| Complete `ulx3s_graphics_top` synthesis passes | `reports/gfx026/yosys_synth_area_product_pipeline.txt` and compressed mapped JSON | Yosys 0.69+154; hierarchy and `check -assert` report zero problems; 7,466 LUT4, 7,888 FF, 156 DP16KD, 19 MULT18X18D, 3 EHXPLLL | SYNTHESISED |
+| Full route completed | nextpnr log, report JSON and config under `reports/gfx026/` | Static placer/router1/seed1; 60 MHz system, 25.2 MHz pixel output, 126.024 MHz serializer and 315.060 MHz intermediate constraints; route completed, process exit 1 due timing | PLACED/ROUTED — TIMING FAILING |
+| D-042 route timing | `reports/gfx026/AREA-PRODUCT-PIPELINE.md` | `clk_sys` 51.1587 MHz, 19.547 ns, −2.881 ns slack; other listed clocks pass. Worst path is reader pixel FIFO to pinned Sobel arithmetic elastic output register | IMPLEMENTATION MEASUREMENT |
+| Gate 9 remains open | project state/checklist and report | 60 MHz not met; no bitstream; compliant-clock candidate/fragment throughput remains open; report does not rank all non-worst paths | LOCAL OBSERVATION |
+
+D-042's full route uses 611 additional FF versus D-041 and has a lower overall
+`clk_sys` estimate (51.1587 versus 52.8290 MHz). The worst path is now in the
+pinned Sobel parent, but this worst-path-only report does not prove the new
+AREA path's exact delay or ranking. No triangle-setup formal proof, bitstream,
+physical clock, or hardware operation is claimed. Dependency SHA and all
+clock/device constraints are unchanged.
